@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPC-157/TB-500 10mg/10mg | PRC Peptides</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6}
+.header{background:#0A1628;color:#fff;padding:16px 20px;text-align:center}
+.header h1{font-size:18px;font-weight:600;letter-spacing:0.5px}
+.header span{color:#2B7DE9;font-size:14px}
+.nav{background:#fff;border-bottom:1px solid #e2e8f0;padding:10px 20px;font-size:13px;color:#8E99A4}
+.nav a{color:#2B7DE9;text-decoration:none}
+.product-container{max-width:800px;margin:0 auto;padding:16px}
+.product-image{background:linear-gradient(135deg,#0A1628 0%,#1e3a5f 100%);border-radius:12px;height:280px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.product-image .vial{width:80px;height:160px;background:rgba(255,255,255,0.15);border-radius:8px 8px 4px 4px;border:2px solid rgba(255,255,255,0.3);position:relative}
+.product-image .vial::before{content:'';position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:30px;height:14px;background:rgba(43,125,233,0.6);border-radius:4px 4px 0 0;border:2px solid rgba(255,255,255,0.3);border-bottom:none}
+.product-image .label{color:#fff;text-align:center;margin-left:20px}
+.product-image .label h2{font-size:22px;font-weight:700}
+.product-image .label p{color:#06B6D4;font-size:14px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px}
+.badge-purity{background:#dcfce7;color:#166534}
+.badge-tested{background:#dbeafe;color:#1e40af}
+.badge-coa{background:#fef3c7;color:#92400e}
+.badge-stock{background:#d1fae5;color:#065f46}
+.title-section{margin-bottom:16px}
+.title-section h1{font-size:24px;font-weight:700;color:#0A1628;margin-bottom:4px}
+.title-section .category{font-size:13px;color:#8E99A4;text-transform:uppercase;letter-spacing:1px}
+.price-box{background:#fff;border:2px solid #06B6D4;border-radius:12px;padding:16px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between}
+.price{font-size:32px;font-weight:800;color:#0A1628}
+.price span{font-size:14px;color:#8E99A4;font-weight:400}
+.add-cart{background:#2B7DE9;color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer}
+.add-cart:hover{background:#1e6fd1}
+.section{background:#fff;border-radius:12px;padding:16px;margin-bottom:12px;border:1px solid #e2e8f0}
+.section h3{font-size:15px;font-weight:700;color:#0A1628;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.section h3 .icon{font-size:18px}
+.section p{font-size:14px;color:#475569}
+.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.spec{background:#f1f5f9;border-radius:8px;padding:10px}
+.spec .label{font-size:11px;color:#8E99A4;text-transform:uppercase;letter-spacing:0.5px}
+.spec .value{font-size:13px;font-weight:600;color:#0A1628;margin-top:2px}
+.research-apps{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.research-tag{background:#eff6ff;color:#1e40af;font-size:12px;padding:4px 10px;border-radius:16px;font-weight:500}
+.storage-box{background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:12px;margin-top:8px}
+.storage-box p{font-size:13px;color:#854d0e}
+.also-explore{display:flex;flex-direction:column;gap:10px}
+.explore-item{display:flex;align-items:center;gap:12px;padding:10px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;text-decoration:none;color:inherit}
+.explore-item .mini-vial{width:36px;height:36px;background:#0A1628;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#06B6D4;font-size:16px;font-weight:700}
+.explore-item .info{flex:1}
+.explore-item .info .name{font-size:14px;font-weight:600;color:#0A1628}
+.explore-item .info .reason{font-size:12px;color:#8E99A4}
+.explore-item .eprice{font-size:14px;font-weight:700;color:#2B7DE9}
+.disclaimer{background:#fff;border-radius:12px;padding:16px;margin-bottom:12px;border:1px solid #fca5a5}
+.disclaimer p{font-size:12px;color:#991b1b}
+.footer{background:#0A1628;color:#8E99A4;padding:20px;text-align:center;font-size:12px;margin-top:20px}
+.footer a{color:#2B7DE9}
+.tabs{display:flex;border-bottom:2px solid #e2e8f0;margin-bottom:16px;gap:0}
+.tab{padding:10px 16px;font-size:13px;font-weight:600;color:#8E99A4;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px}
+.tab.active{color:#2B7DE9;border-bottom-color:#2B7DE9}
+.coa-badge{display:flex;align-items:center;gap:8px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px;margin-top:8px}
+.coa-badge .check{color:#16a34a;font-size:20px}
+.coa-badge p{font-size:13px;color:#166534;font-weight:500}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>PEPTIDE RESOURCE CENTER</h1>
+  <span>Research-Grade Peptides</span>
+</div>
+
+<div class="nav">
+  <a href="#">Home</a> / <a href="#">Peptides</a> / <a href="#">Tissue Repair</a> / BPC-157/TB-500
+</div>
+
+<div class="product-container">
+
+  <div class="product-image">
+    <div class="vial"></div>
+    <div class="label">
+      <h2>BPC-157/TB-500</h2>
+      <p>10mg / 10mg</p>
+      <p style="color:#fff;font-size:12px;margin-top:8px">Tissue Repair Complex</p>
+    </div>
+  </div>
+
+  <div class="badges">
+    <span class="badge badge-purity">🔬 ≥98% Pure</span>
+    <span class="badge badge-tested">✅ Third-Party Tested</span>
+    <span class="badge badge-coa">📋 COA Available</span>
+    <span class="badge badge-stock">● In Stock</span>
+  </div>
+
+  <div class="title-section">
+    <p class="category">Tissue Repair Peptide Complex</p>
+    <h1>BPC-157/TB-500 Combination</h1>
+    <p style="font-size:13px;color:#8E99A4">10mg/10mg Lyophilized Powder</p>
+  </div>
+
+  <div class="price-box">
+    <div>
+      <div class="price">$40.00 <span>USD</span></div>
+      <div style="font-size:12px;color:#16a34a;font-weight:600">💰 Best Price — 40% less than competitors</div>
+    </div>
+    <button class="add-cart">Add to Cart</button>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active">Description</div>
+    <div class="tab">Specs</div>
+    <div class="tab">COA</div>
+    <div class="tab">Storage</div>
+  </div>
+
+  <div class="section">
+    <h3><span class="icon">🧬</span> About This Compound</h3>
+    <p>A synergistic combination of Body Protection Compound-157, a pentadecapeptide partial sequence of body protection compound, and Thymosin Beta-4 fragment (TB-500). BPC-157 demonstrates cytoprotective properties in gastric mucosa research, while TB-500 promotes actin polymerization and cell migration. This combination is studied for complementary tissue repair mechanisms.</p>
+  </div>
+
+  <div class="section">
+    <h3><span class="icon">🔬</span> Research Applications</h3>
+    <div class="research-apps">
+      <span class="research-tag">Wound Healing Models</span>
+      <span class="research-tag">Angiogenesis Research</span>
+      <span class="research-tag">Tissue Repair</span>
+      <span class="research-tag">Cytoprotection Studies</span>
+      <span class="research-tag">Collagen Formation</span>
+      <span class="research-tag">Anti-Inflammatory Pathways</span>
+      <span class="research-tag">Cell Migration Assays</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3><span class="icon">📊</span> Key Specifications</h3>
+    <div class="specs-grid">
+      <div class="spec">
+        <div class="label">Molecular Formula</div>
+        <div class="value">C₆₂H₉₈N₁₆O₂₂</div>
+      </div>
+      <div class="spec">
+        <div class="label">CAS Number</div>
+        <div class="value">137525-51-0</div>
+      </div>
+      <div class="spec">
+        <div class="label">Molecular Weight</div>
+        <div class="value">1419.5 g/mol</div>
+      </div>
+      <div class="spec">
+        <div class="label">Purity</div>
+        <div class="value">≥98% (HPLC)</div>
+      </div>
+      <div class="spec">
+        <div class="label">Form</div>
+        <div class="value">Lyophilized Powder</div>
+      </div>
+      <div class="spec">
+        <div class="label">Quantity</div>
+        <div class="value">10mg + 10mg</div>
+      </div>
+    </div>
+
+    <div class="coa-badge">
+      <span class="check">✓</span>
+      <p>Certificate of Analysis available for this batch — <a href="#" style="color:#2B7DE9">View COA</a></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3><span class="icon">❄️</span> Storage & Handling</h3>
+    <div class="storage-box">
+      <p>🧊 <strong>Lyophilized:</strong> Store at -20°C or below</p>
+      <p style="margin-top:4px">💉 <strong>Reconstituted:</strong> Store at 2-8°C, use within 30 days</p>
+      <p style="margin-top:4px">⚠️ Avoid repeated freeze-thaw cycles</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3><span class="icon">🔗</span> Researchers Also Explore</h3>
+    <div class="also-explore">
+      <a href="#" class="explore-item">
+        <div class="mini-vial">Cu</div>
+        <div class="info">
+          <div class="name">GHK-Cu 100mg</div>
+          <div class="reason">Collagen synthesis & tissue remodeling</div>
+        </div>
+        <div class="eprice">$31</div>
+      </a>
+      <a href="#" class="explore-item">
+        <div class="mini-vial">K</div>
+        <div class="info">
+          <div class="name">KPV 10mg</div>
+          <div class="reason">Anti-inflammatory synergy</div>
+        </div>
+        <div class="eprice">$36</div>
+      </a>
+      <a href="#" class="explore-item">
+        <div class="mini-vial">LL</div>
+        <div class="info">
+          <div class="name">LL-37 5mg</div>
+          <div class="reason">Wound healing immunity</div>
+        </div>
+        <div class="eprice">$29</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <p>⚠️ <strong>FOR RESEARCH USE ONLY</strong> — Not for human consumption. All products are intended exclusively for in vitro research and laboratory studies. No medical claims are made or implied. Products have not been evaluated by regulatory agencies.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>© 2026 Peptide Resource Center | <a href="#">Legal Disclaimers</a> | <a href="#">COA Library</a></p>
+  <p style="margin-top:8px">Research-grade peptides. Third-party tested. Every batch.</p>
+</div>
+
+</body>
+</html>
