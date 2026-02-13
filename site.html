@@ -1,905 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRC Peptides | Research-Grade Peptides | ≥98% Purity Standard</title>
-    <style>
-        /* ============================================
-           RESET & BASE STYLES
-           ============================================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #FAFBFC;
-            color: #334155;
-            line-height: 1.6;
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* ============================================
-           HEADER & NAVIGATION
-           ============================================ */
-        header {
-            background: #FFFFFF;
-            border-bottom: 1px solid #E2E8F0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-        }
-
-        .header-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1.2rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            color: #2B7DE9;
-            letter-spacing: 0.05em;
-            text-decoration: none;
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-
-        nav a {
-            color: #64748B;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: #2B7DE9;
-        }
-
-        /* ============================================
-           HERO SECTION
-           ============================================ */
-        .hero {
-            background: radial-gradient(circle at top center, #EBF5FF 0%, #FAFBFC 50%, #FFFFFF 100%);
-            padding: 5rem 1.5rem;
-            text-align: center;
-            border-bottom: 1px solid #E2E8F0;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #0F172A;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: #64748B;
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-        }
-
-        .btn {
-            padding: 0.9rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.2s;
-            display: inline-block;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background: #2B7DE9;
-            color: #FFFFFF;
-        }
-
-        .btn-primary:hover {
-            background: #1E5BB5;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #2B7DE9;
-            border: 2px solid #2B7DE9;
-        }
-
-        .btn-secondary:hover {
-            background: #EBF5FF;
-        }
-
-        .trust-badges {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .badge-icon {
-            width: 50px;
-            height: 50px;
-            background: #10B981;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 900;
-        }
-
-        .badge-text {
-            font-size: 0.9rem;
-            color: #0F172A;
-            font-weight: 600;
-        }
-
-        /* ============================================
-           SECTION STYLES
-           ============================================ */
-        .section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title {
-            font-family: Georgia, Times, serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #0F172A;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-subtitle {
-            color: #64748B;
-            font-size: 1.1rem;
-        }
-
-        .section-disclaimer {
-            text-align: center;
-            color: #94A3B8;
-            font-size: 0.85rem;
-            font-style: italic;
-            margin-top: 3rem;
-            padding: 1rem;
-            background: #F8FAFC;
-            border-radius: 6px;
-        }
-
-        /* ============================================
-           PRODUCT GRID
-           ============================================ */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .product-card {
-            background: #FFFFFF;
-            border: 1px solid #E2E8F0;
-            border-radius: 12px;
-            padding: 1.5rem;
-            border-top: 3px solid;
-            transition: box-shadow 0.2s, transform 0.2s;
-            cursor: pointer;
-        }
-
-        .product-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transform: translateY(-2px);
-        }
-
-        /* Category colors */
-        .product-card.neuropeptides { border-top-color: #8B5CF6; }
-        .product-card.glp-agonists { border-top-color: #2B7DE9; }
-        .product-card.growth-hormone { border-top-color: #06B6D4; }
-        .product-card.tissue-repair { border-top-color: #10B981; }
-        .product-card.metabolic { border-top-color: #F59E0B; }
-        .product-card.antioxidants { border-top-color: #EF4444; }
-        .product-card.longevity { border-top-color: #8B5CF6; }
-        .product-card.melanocortin { border-top-color: #EC4899; }
-        .product-card.cosmetic { border-top-color: #F472B6; }
-        .product-card.advanced { border-top-color: #14B8A6; }
-
-        .product-name {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #0F172A;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-dose {
-            font-size: 0.85rem;
-            color: #64748B;
-            margin-bottom: 0.75rem;
-        }
-
-        .product-category {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: #F1F5F9;
-            color: #64748B;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .product-purity {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: #D1FAE5;
-            color: #10B981;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            margin-left: 0.5rem;
-        }
-
-        .product-hook {
-            font-size: 0.9rem;
-            color: #64748B;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-
-        .view-details {
-            color: #2B7DE9;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            display: inline-block;
-            transition: text-decoration 0.2s;
-        }
-
-        .view-details:hover {
-            text-decoration: underline;
-        }
-
-        /* Product detail expansion (hidden by default, shown with JS) */
-        .product-detail {
-            display: none;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #E2E8F0;
-        }
-
-        .product-detail.active {
-            display: block;
-        }
-
-        .product-detail-section {
-            margin-bottom: 1.5rem;
-        }
-
-        .product-detail-heading {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #0F172A;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .product-detail-text {
-            font-size: 0.9rem;
-            color: #64748B;
-            line-height: 1.6;
-        }
-
-        .product-applications {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .application-tag {
-            background: #F1F5F9;
-            color: #64748B;
-            padding: 0.35rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-        }
-
-        .molecular-profile {
-            background: #F8FAFC;
-            padding: 1rem;
-            border-radius: 6px;
-            font-family: 'SF Mono', 'Courier New', monospace;
-            font-size: 0.85rem;
-            color: #334155;
-        }
-
-        .cross-sells {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .cross-sell-link {
-            color: #2B7DE9;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .cross-sell-link:hover {
-            text-decoration: underline;
-        }
-
-        /* ============================================
-           CATEGORY FILTER
-           ============================================ */
-        .filter-bar {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .filter-pill {
-            padding: 0.6rem 1.2rem;
-            background: #F1F5F9;
-            color: #64748B;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            border: none;
-        }
-
-        .filter-pill:hover {
-            background: #E2E8F0;
-        }
-
-        .filter-pill.active {
-            background: #2B7DE9;
-            color: #FFFFFF;
-        }
-
-        /* Search bar */
-        .search-container {
-            max-width: 500px;
-            margin: 0 auto 2rem auto;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.2s;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: #2B7DE9;
-        }
-
-        /* ============================================
-           ABOUT / TRUST SECTION
-           ============================================ */
-        .trust-section {
-            background: #FFFFFF;
-            border-top: 1px solid #E2E8F0;
-            border-bottom: 1px solid #E2E8F0;
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-
-        .trust-item {
-            text-align: center;
-        }
-
-        .trust-icon {
-            width: 60px;
-            height: 60px;
-            background: #EBF5FF;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem auto;
-            color: #2B7DE9;
-            font-size: 1.8rem;
-            font-weight: 900;
-        }
-
-        .trust-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #0F172A;
-            margin-bottom: 0.75rem;
-        }
-
-        .trust-text {
-            color: #64748B;
-            line-height: 1.6;
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-        footer {
-            background: #0F172A;
-            color: #94A3B8;
-            padding: 3rem 1.5rem 2rem 1.5rem;
-        }
-
-        .footer-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-brand {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: #2B7DE9;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .footer-links a {
-            color: #94A3B8;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: #FFFFFF;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #334155;
-            padding-top: 2rem;
-            text-align: center;
-        }
-
-        .footer-disclaimer {
-            font-size: 0.85rem;
-            color: #64748B;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .footer-copyright {
-            font-size: 0.85rem;
-            color: #64748B;
-        }
-
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            nav {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 1rem;
-            }
-
-            .product-card {
-                padding: 1rem;
-            }
-
-            .filter-bar {
-                gap: 0.5rem;
-            }
-
-            .filter-pill {
-                font-size: 0.85rem;
-                padding: 0.5rem 1rem;
-            }
-        }
-
-        /* Hide scrollbar on nav for cleaner mobile experience */
-        nav::-webkit-scrollbar {
-            display: none;
-        }
-
-        nav {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peptide Resource Center | Premium Research Peptides</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;color:#334155;line-height:1.6;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.site-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid #e2e8f0;padding:0.75rem 0}
+.header-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.5rem;font-weight:900;color:#0A1628;letter-spacing:-1px}
+.logo span{color:#2B7DE9}
+.nav-links{display:flex;gap:1.5rem;font-size:0.85rem;font-weight:600;color:#64748B}
+.nav-links a:hover{color:#2B7DE9}
+@media(max-width:640px){.nav-links{display:none}}
+.hero{background:linear-gradient(135deg,#0A1628 0%,#1a2744 50%,#0d2847 100%);color:#fff;padding:5rem 1.5rem 4rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-50%;right:-30%;width:80%;height:200%;background:radial-gradient(ellipse,rgba(43,125,233,0.15) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:"";position:absolute;bottom:-50%;left:-30%;width:80%;height:200%;background:radial-gradient(ellipse,rgba(6,182,212,0.1) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:800px;margin:0 auto;position:relative;z-index:1}
+.hero-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:4px;color:#06B6D4;font-weight:700;margin-bottom:1.5rem}
+.hero h1{font-size:3.25rem;font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:1rem}
+.hero h1 .accent{color:#2B7DE9}
+.hero-tagline{font-size:1.1rem;color:#8E99A4;max-width:550px;margin:0 auto 2.5rem;line-height:1.7}
+.hero-stats{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:2.5rem;font-weight:900;color:#fff;line-height:1}
+.stat-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;color:#8E99A4;margin-top:0.25rem}
+@media(max-width:640px){.hero{padding:3.5rem 1.25rem 3rem}.hero h1{font-size:2rem;letter-spacing:-1px}.hero-stats{gap:1.5rem}.stat-num{font-size:1.75rem}}
+.trust{background:#f8fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;padding:2rem 1.5rem}
+.trust-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+.trust-item{padding:1rem}
+.trust-icon{font-size:1.75rem;margin-bottom:0.5rem}
+.trust-title{font-size:0.8rem;font-weight:800;color:#0A1628;text-transform:uppercase;letter-spacing:1px}
+.trust-sub{font-size:0.75rem;color:#8E99A4;margin-top:0.25rem}
+@media(max-width:640px){.trust-inner{grid-template-columns:repeat(2,1fr);gap:0.75rem}.trust-item{padding:0.75rem}}
+.section{max-width:1200px;margin:0 auto;padding:4rem 1.5rem}
+.section-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:3px;color:#2B7DE9;font-weight:700;margin-bottom:0.5rem}
+.section-title{font-size:2rem;font-weight:900;color:#0A1628;letter-spacing:-1px;margin-bottom:0.5rem}
+.section-sub{font-size:0.95rem;color:#8E99A4;max-width:600px;margin-bottom:2.5rem}
+.featured-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
+.featured-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.5rem;transition:all 0.25s ease}
+.featured-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.08);transform:translateY(-2px)}
+.cat-tag{display:inline-block;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:0.2rem 0.6rem;border-radius:20px;margin-bottom:0.75rem}
+.fc-name{font-size:1.1rem;font-weight:800;color:#0A1628;margin-bottom:0.5rem;line-height:1.3}
+.fc-desc{font-size:0.82rem;color:#64748B;line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.fc-btn{display:inline-block;font-size:0.8rem;font-weight:700;color:#2B7DE9;padding:0.5rem 1rem;border:1.5px solid #2B7DE9;border-radius:8px;transition:all 0.2s}
+.fc-btn:hover{background:#2B7DE9;color:#fff}
+.catalog-header{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.search-box{flex:1;min-width:220px;padding:0.7rem 1rem;border:2px solid #e2e8f0;border-radius:10px;font-size:0.9rem;font-family:inherit;background:#fff;transition:border-color 0.2s}
+.search-box:focus{outline:none;border-color:#2B7DE9;box-shadow:0 0 0 3px rgba(43,125,233,0.1)}
+.filter-wrap{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:2rem;overflow-x:auto;padding-bottom:0.5rem}
+.filter-tab{padding:0.4rem 0.9rem;border:1.5px solid #e2e8f0;border-radius:20px;font-size:0.72rem;font-weight:700;font-family:inherit;background:#fff;color:#64748B;cursor:pointer;white-space:nowrap;transition:all 0.2s}
+.filter-tab:hover,.filter-tab.active{background:#0A1628;color:#fff;border-color:#0A1628}
+.no-results{display:none;text-align:center;padding:3rem 1rem;color:#8E99A4;font-size:0.95rem}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem}
+.grid-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.5rem;transition:all 0.25s ease;display:flex;flex-direction:column}
+.grid-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.08);transform:translateY(-2px)}
+.grid-card.hidden{display:none}
+.gc-top{padding-left:0.75rem;margin-bottom:0.75rem}
+.gc-name{font-size:1rem;font-weight:800;color:#0A1628;line-height:1.3;margin-top:0.4rem}
+.gc-desc{font-size:0.8rem;color:#64748B;line-height:1.6;margin-bottom:1rem;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.gc-apps{display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:1rem}
+.app-tag{font-size:0.65rem;padding:0.15rem 0.5rem;border-radius:12px;background:#f1f5f9;color:#475569;font-weight:500}
+.view-btn{background:none;border:none;font-family:inherit;font-size:0.8rem;font-weight:700;cursor:pointer;padding:0;text-align:left;transition:opacity 0.2s}
+.view-btn:hover{opacity:0.7}
+@media(max-width:700px){.product-grid{grid-template-columns:1fr}.featured-grid{grid-template-columns:1fr}}
+@media(min-width:700px) and (max-width:1024px){.product-grid{grid-template-columns:repeat(2,1fr)}}
+.btt{position:fixed;bottom:1.5rem;right:1.5rem;width:44px;height:44px;background:#0A1628;color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:999;display:none;align-items:center;justify-content:center;transition:all 0.2s}
+.btt:hover{background:#2B7DE9;transform:scale(1.1)}
+.btt.show{display:flex}
+footer{background:#0A1628;color:#8E99A4;padding:3rem 1.5rem 2rem}
+.footer-inner{max-width:1200px;margin:0 auto;text-align:center}
+.footer-brand{font-size:1.75rem;font-weight:900;color:#fff;margin-bottom:0.25rem}
+.footer-brand span{color:#2B7DE9}
+.footer-tag{font-size:0.7rem;text-transform:uppercase;letter-spacing:3px;color:#475569;margin-bottom:2rem}
+.disclaimer-box{max-width:700px;margin:0 auto 2rem;padding:1.25rem 1.5rem;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;text-align:left}
+.disclaimer-box h4{font-size:0.7rem;text-transform:uppercase;letter-spacing:2px;color:#F59E0B;margin-bottom:0.5rem}
+.disclaimer-box p{font-size:0.8rem;line-height:1.7;color:#94A3B8}
+.footer-bottom{font-size:0.7rem;color:#475569}
+</style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="header-container">
-            <a href="#home" class="logo">PRC</a>
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#featured">Shop Peptides</a>
-                <a href="#library">Research Library</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+<header class="site-header">
+<div class="header-inner">
+<div class="logo"><span>PRC</span> Peptide Resource Center</div>
+<nav class="nav-links">
+<a href="#featured">Featured</a>
+<a href="#catalog">Catalog</a>
+<a href="#about">About</a>
+</nav>
+</div>
+</header>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Research-Grade Peptides.<br>Uncompromising Purity.</h1>
-            <p class="hero-subtitle">≥98% purity standard · Third-party tested · Same-day shipping</p>
-            <div class="hero-cta">
-                <a href="#library" class="btn btn-primary">Shop Peptides</a>
-                <a href="#about" class="btn btn-secondary">View Research Library</a>
-            </div>
-            <div class="trust-badges">
-                <div class="badge">
-                    <div class="badge-icon">✓</div>
-                    <div class="badge-text">≥98% Pure</div>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon">44</div>
-                    <div class="badge-text">Compounds</div>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon">→</div>
-                    <div class="badge-text">Fast Shipping</div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-label">Peptide Resource Center</div>
+<h1>Premium Research<br><span class="accent">Peptides &amp; Compounds</span></h1>
+<p class="hero-tagline">Precision Is Not Optional. Explore our comprehensive catalog of research-grade peptides, metabolic compounds, and cellular health products — all for laboratory use only.</p>
+<div class="hero-stats">
+<div class="stat"><div class="stat-num" id="statProducts">44+</div><div class="stat-label">Products</div></div>
+<div class="stat"><div class="stat-num" id="statCats">10</div><div class="stat-label">Categories</div></div>
+<div class="stat"><div class="stat-num" id="statGrade">&ge;98%</div><div class="stat-label">Purity Standard</div></div>
+</div>
+</div>
+</section>
 
-    <!-- FEATURED PRODUCTS SECTION -->
-    <section id="featured" class="section">
-        <div class="section-header">
-            <h2 class="section-title">Popular Peptides</h2>
-            <p class="section-subtitle">Our most-researched compounds</p>
-        </div>
+<section class="trust">
+<div class="trust-inner">
+<div class="trust-item"><div class="trust-icon">&#9878;</div><div class="trust-title">Research Grade</div><div class="trust-sub">&ge;98% purity verified</div></div>
+<div class="trust-item"><div class="trust-icon">&#9889;</div><div class="trust-title">Fast Shipping</div><div class="trust-sub">Priority processing</div></div>
+<div class="trust-item"><div class="trust-icon">&#128274;</div><div class="trust-title">Secure Payments</div><div class="trust-sub">Encrypted transactions</div></div>
+<div class="trust-item"><div class="trust-icon">&#128172;</div><div class="trust-title">Expert Support</div><div class="trust-sub">Knowledgeable team</div></div>
+</div>
+</section>
 
-        <div class="product-grid">
-            <!-- Featured Product 1: Semaglutide -->
-            <div class="product-card glp-agonists" data-category="glp-agonists" data-name="Semaglutide">
-                <div class="product-category">GLP Agonist</div>
-                <span class="product-purity">≥98%</span>
-                <h3 class="product-name">Semaglutide</h3>
-                <p class="product-dose">GLP-1 Receptor Agonist</p>
-                <p class="product-hook">The benchmark long-acting GLP-1 receptor agonist—a fatty acid-modified peptide that redefined incretin-based metabolic research.</p>
-                <a href="#" class="view-details" onclick="toggleDetail(event, 'semaglutide')">View Details →</a>
-            </div>
+<section class="section" id="featured">
+<div class="section-label">Popular Picks</div>
+<h2 class="section-title">Featured Products</h2>
+<p class="section-sub">Our most requested research compounds, selected by researchers worldwide.</p>
+<div class="featured-grid">
+<div class="featured-card" style="border-top:3px solid #8B5CF6"><span class="cat-tag" style="background:#8B5CF615;color:#8B5CF6">neuropeptides</span><h3 class="fc-name">Selank (10mg)</h3><p class="fc-desc">Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics—a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This…</p><a href="#prod-1" class="fc-btn">View Details</a></div>
+<div class="featured-card" style="border-top:3px solid #EC4899"><span class="cat-tag" style="background:#EC489915;color:#EC4899">glp agonists</span><h3 class="fc-name">Semaglutide (GLP-1 Receptor Agonist)</h3><p class="fc-desc">Semaglutide represents the culmination of decades of incretin biology research. Novo Nordisk's scientists engineered this glucagon-like peptide-1 analogue with a strategic fatty acid modification that enables albumin…</p><a href="#prod-6" class="fc-btn">View Details</a></div>
+<div class="featured-card" style="border-top:3px solid #EC4899"><span class="cat-tag" style="background:#EC489915;color:#EC4899">glp agonists</span><h3 class="fc-name">Tirzepatide (20mg)</h3><p class="fc-desc">Tirzepatide represents a paradigm shift in incretin biology. Where previous research focused on single-receptor agonism, Eli Lilly scientists engineered this novel peptide to activate both glucose-dependent…</p><a href="#prod-7" class="fc-btn">View Details</a></div>
+<div class="featured-card" style="border-top:3px solid #2B7DE9"><span class="cat-tag" style="background:#2B7DE915;color:#2B7DE9">growth hormone</span><h3 class="fc-name">CJC-1295/Ipamorelin Combination (5mg/5mg)</h3><p class="fc-desc">Growth hormone release is governed by two parallel pathways: GHRH signaling through pituitary GHRH receptors, and ghrelin acting via GHS-R1a receptors. This combination recognizes that dual-pathway activation produces…</p><a href="#prod-14" class="fc-btn">View Details</a></div>
+<div class="featured-card" style="border-top:3px solid #10B981"><span class="cat-tag" style="background:#10B98115;color:#10B981">tissue repair</span><h3 class="fc-name">BPC-157/TB-500 Combination (10mg/10mg)</h3><p class="fc-desc">Tissue repair requires coordinated processes: inflammatory resolution, angiogenesis, cell migration, extracellular matrix remodeling, and cytoprotection. This combination targets multiple phases simultaneously. BPC-157,…</p><a href="#prod-16" class="fc-btn">View Details</a></div>
+<div class="featured-card" style="border-top:3px solid #F59E0B"><span class="cat-tag" style="background:#F59E0B15;color:#F59E0B">metabolic</span><h3 class="fc-name">MOTS-c (10mg)</h3><p class="fc-desc">MOTS-c represents a paradigm shift in cellular biology. Discovered in 2015 by researchers at USC, this peptide revealed that the mitochondrial genome—long thought to encode only 13 proteins—contains open reading frames…</p><a href="#prod-23" class="fc-btn">View Details</a></div>
+<div class="featured-card" style="border-top:3px solid #06B6D4"><span class="cat-tag" style="background:#06B6D415;color:#06B6D4">antioxidants</span><h3 class="fc-name">NAD+ (500mg)</h3><p class="fc-desc">Nicotinamide adenine dinucleotide occupies a position of unparalleled importance in cellular biochemistry. This dinucleotide serves simultaneously as an electron carrier in redox reactions (the NAD+/NADH couple drives…</p><a href="#prod-29" class="fc-btn">View Details</a></div>
+<div class="featured-card" style="border-top:3px solid #6366F1"><span class="cat-tag" style="background:#6366F115;color:#6366F1">longevity</span><h3 class="fc-name">Epithalon (50mg)</h3><p class="fc-desc">Epithalon (Epitalon, Ala-Glu-Asp-Gly) emerged from decades of Russian gerontology research led by Professor Vladimir Khavinson. This tetrapeptide, designed to replicate bioactive sequences from the pineal peptide…</p><a href="#prod-37" class="fc-btn">View Details</a></div>
+</div>
+</section>
 
-            <!-- Featured Product 2: BPC-157/TB-500 -->
-            <div class="product-card tissue-repair" data-category="tissue-repair" data-name="BPC-157/TB-500">
-                <div class="product-category">Tissue Repair</div>
-                <span class="product-purity">≥98%</span>
-                <h3 class="product-name">BPC-157/TB-500</h3>
-                <p class="product-dose">10mg/10mg Combination</p>
-                <p class="product-hook">The most widely researched tissue repair combination—pairing BPC-157's cytoprotective mechanisms with TB-500's actin-mediated cell migration.</p>
-                <a href="#" class="view-details" onclick="toggleDetail(event, 'bpc157tb500')">View Details →</a>
-            </div>
+<section class="section" id="catalog">
+<div class="section-label">Full Catalog</div>
+<h2 class="section-title">All Research Compounds</h2>
+<p class="section-sub">Browse all 44 products across 10 research categories.</p>
+<div class="catalog-header">
+<input type="text" class="search-box" id="searchInput" placeholder="Search products by name&hellip;">
+</div>
+<div class="filter-wrap" id="filterWrap">
+<button class="filter-tab active" data-cat="all">All (44)</button>
+<button class="filter-tab" data-cat="neuropeptides" style="--tab-color:#8B5CF6">Neuropeptides (6)</button>
+<button class="filter-tab" data-cat="glp-agonists" style="--tab-color:#EC4899">GLP Receptor Agonists (5)</button>
+<button class="filter-tab" data-cat="growth-hormone" style="--tab-color:#2B7DE9">Growth Hormone Secretagogues (5)</button>
+<button class="filter-tab" data-cat="tissue-repair" style="--tab-color:#10B981">Tissue Repair (6)</button>
+<button class="filter-tab" data-cat="metabolic" style="--tab-color:#F59E0B">Metabolic Research Compounds (7)</button>
+<button class="filter-tab" data-cat="antioxidants" style="--tab-color:#06B6D4">Antioxidants (7)</button>
+<button class="filter-tab" data-cat="longevity" style="--tab-color:#6366F1">Senolytic (3)</button>
+<button class="filter-tab" data-cat="melanocortin" style="--tab-color:#F97316">Melanocortin System Research (2)</button>
+<button class="filter-tab" data-cat="cosmetic" style="--tab-color:#D946EF">Cosmetic (2)</button>
+<button class="filter-tab" data-cat="advanced" style="--tab-color:#64748B">Tissue Protection (1)</button>
+</div>
+<div id="noResults" class="no-results">No products match your search.</div>
+<div class="product-grid" id="productGrid">
+<div class="grid-card" data-cat="neuropeptides" data-name="selank (5mg)" id="prod-0"><div class="gc-top" style="border-left:4px solid #8B5CF6"><span class="cat-tag" style="background:#8B5CF615;color:#8B5CF6">neuropeptides</span><h3 class="gc-name">Selank (5mg)</h3></div><p class="gc-desc">Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics—a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This…</p><div class="gc-apps"><span class="app-tag">Anxiety model studies</span><span class="app-tag">cognitive function research</span><span class="app-tag">immune-neuro axis modulation</span><span class="app-tag">GABAergic pathway studies</span></div><button class="view-btn" style="color:#8B5CF6">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="neuropeptides" data-name="selank (10mg)" id="prod-1"><div class="gc-top" style="border-left:4px solid #8B5CF6"><span class="cat-tag" style="background:#8B5CF615;color:#8B5CF6">neuropeptides</span><h3 class="gc-name">Selank (10mg)</h3></div><p class="gc-desc">Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics—a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This…</p><div class="gc-apps"><span class="app-tag">Anxiety model studies</span><span class="app-tag">cognitive function research</span><span class="app-tag">immune-neuro axis modulation</span><span class="app-tag">GABAergic pathway studies</span></div><button class="view-btn" style="color:#8B5CF6">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="neuropeptides" data-name="semax (5mg)" id="prod-2"><div class="gc-top" style="border-left:4px solid #8B5CF6"><span class="cat-tag" style="background:#8B5CF615;color:#8B5CF6">neuropeptides</span><h3 class="gc-name">Semax (5mg)</h3></div><p class="gc-desc">Semax emerged from the same Moscow laboratory that produced Selank, but with an entirely different objective: augmenting cognitive capacity through neurotrophic upregulation. This heptapeptide analogue of the ACTH(4-10)…</p><div class="gc-apps"><span class="app-tag">BDNF upregulation research</span><span class="app-tag">cognitive enhancement models</span><span class="app-tag">neuroprotection studies</span><span class="app-tag">cerebrovascular function research</span></div><button class="view-btn" style="color:#8B5CF6">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="neuropeptides" data-name="dsip (5mg)" id="prod-3"><div class="gc-top" style="border-left:4px solid #8B5CF6"><span class="cat-tag" style="background:#8B5CF615;color:#8B5CF6">neuropeptides</span><h3 class="gc-name">DSIP (5mg)</h3></div><p class="gc-desc">Delta Sleep-Inducing Peptide represents a landmark discovery in chronobiology. Isolated from the cerebral venous blood of sleeping rabbits in 1977 by Swiss researchers Schoenenberger and Monnier, DSIP opened scientific…</p><div class="gc-apps"><span class="app-tag">Sleep architecture studies</span><span class="app-tag">circadian rhythm regulation</span><span class="app-tag">stress-response neuroendocrine pathways</span><span class="app-tag">pain perception modulation</span></div><button class="view-btn" style="color:#8B5CF6">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="neuropeptides" data-name="dsip night blend" id="prod-4"><div class="gc-top" style="border-left:4px solid #8B5CF6"><span class="cat-tag" style="background:#8B5CF615;color:#8B5CF6">neuropeptides</span><h3 class="gc-name">DSIP Night Blend</h3></div><p class="gc-desc">Sleep architecture involves layered neurochemical systems—GABAergic inhibition, serotonergic tone, melatonergic timing, and neuropeptide signaling all converge to orchestrate restorative sleep. This proprietary blend…</p><div class="gc-apps"><span class="app-tag">Multi-peptide sleep architecture studies</span><span class="app-tag">circadian entrainment mechanisms</span><span class="app-tag">neurotransmitter interaction models in sleep</span><span class="app-tag">restorative sleep pathway research</span></div><button class="view-btn" style="color:#8B5CF6">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="neuropeptides" data-name="cerebrolysin (60mg)" id="prod-5"><div class="gc-top" style="border-left:4px solid #8B5CF6"><span class="cat-tag" style="background:#8B5CF615;color:#8B5CF6">neuropeptides</span><h3 class="gc-name">Cerebrolysin (60mg)</h3></div><p class="gc-desc">Cerebrolysin stands apart in neuroprotection research: where most compounds target a single pathway, this pharmaceutical-grade preparation contains a complex mixture of low-molecular-weight neuropeptides and amino acids…</p><div class="gc-apps"><span class="app-tag">Multi-pathway neuroprotection</span><span class="app-tag">neurodegenerative disease models</span><span class="app-tag">post-stroke neuroplasticity</span><span class="app-tag">synaptic preservation studies</span></div><button class="view-btn" style="color:#8B5CF6">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="glp-agonists" data-name="semaglutide (glp-1 receptor agonist)" id="prod-6"><div class="gc-top" style="border-left:4px solid #EC4899"><span class="cat-tag" style="background:#EC489915;color:#EC4899">glp agonists</span><h3 class="gc-name">Semaglutide (GLP-1 Receptor Agonist)</h3></div><p class="gc-desc">Semaglutide represents the culmination of decades of incretin biology research. Novo Nordisk's scientists engineered this glucagon-like peptide-1 analogue with a strategic fatty acid modification that enables albumin…</p><div class="gc-apps"><span class="app-tag">GLP-1 receptor binding and signaling studies</span><span class="app-tag">glucose homeostasis mechanisms</span><span class="app-tag">pancreatic beta-cell function research</span><span class="app-tag">appetite regulation pathways</span></div><button class="view-btn" style="color:#EC4899">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="glp-agonists" data-name="tirzepatide (20mg)" id="prod-7"><div class="gc-top" style="border-left:4px solid #EC4899"><span class="cat-tag" style="background:#EC489915;color:#EC4899">glp agonists</span><h3 class="gc-name">Tirzepatide (20mg)</h3></div><p class="gc-desc">Tirzepatide represents a paradigm shift in incretin biology. Where previous research focused on single-receptor agonism, Eli Lilly scientists engineered this novel peptide to activate both glucose-dependent…</p><div class="gc-apps"><span class="app-tag">Dual incretin pathway research</span><span class="app-tag">GIP/GLP-1 receptor synergy</span><span class="app-tag">incretin receptor pharmacology</span><span class="app-tag">metabolic signaling cascade studies</span></div><button class="view-btn" style="color:#EC4899">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="glp-agonists" data-name="tirzepatide (30mg)" id="prod-8"><div class="gc-top" style="border-left:4px solid #EC4899"><span class="cat-tag" style="background:#EC489915;color:#EC4899">glp agonists</span><h3 class="gc-name">Tirzepatide (30mg)</h3></div><p class="gc-desc">Tirzepatide represents a paradigm shift in incretin biology. Where previous research focused on single-receptor agonism, Eli Lilly scientists engineered this novel peptide to activate both glucose-dependent…</p><div class="gc-apps"><span class="app-tag">Dual incretin pathway research</span><span class="app-tag">GIP/GLP-1 receptor synergy</span><span class="app-tag">incretin receptor pharmacology</span><span class="app-tag">metabolic signaling cascade studies</span></div><button class="view-btn" style="color:#EC4899">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="glp-agonists" data-name="retatrutide (20mg)" id="prod-9"><div class="gc-top" style="border-left:4px solid #EC4899"><span class="cat-tag" style="background:#EC489915;color:#EC4899">glp agonists</span><h3 class="gc-name">Retatrutide (20mg)</h3></div><p class="gc-desc">Retatrutide represents the frontier of incretin research. Building on tirzepatide's dual-agonist success, Eli Lilly scientists engineered this peptide with an unprecedented pharmacological profile: balanced activation…</p><div class="gc-apps"><span class="app-tag">Triple-receptor agonism studies</span><span class="app-tag">GLP-1/GIP/glucagon pathway synergy</span><span class="app-tag">energy expenditure mechanisms</span><span class="app-tag">complex metabolic signaling</span></div><button class="view-btn" style="color:#EC4899">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="glp-agonists" data-name="cagrilintide (5mg)" id="prod-10"><div class="gc-top" style="border-left:4px solid #EC4899"><span class="cat-tag" style="background:#EC489915;color:#EC4899">glp agonists</span><h3 class="gc-name">Cagrilintide (5mg)</h3></div><p class="gc-desc">Cagrilintide reimagines amylin pharmacology. While the first-generation amylin analogue pramlintide required frequent dosing and suffered from limited stability, Novo Nordisk's structural modifications created a…</p><div class="gc-apps"><span class="app-tag">Amylin receptor signaling research</span><span class="app-tag">gastric emptying mechanisms</span><span class="app-tag">satiety pathway studies</span><span class="app-tag">pancreatic beta-cell co-secretion</span></div><button class="view-btn" style="color:#EC4899">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="growth-hormone" data-name="sermorelin (5mg)" id="prod-11"><div class="gc-top" style="border-left:4px solid #2B7DE9"><span class="cat-tag" style="background:#2B7DE915;color:#2B7DE9">growth hormone</span><h3 class="gc-name">Sermorelin (5mg)</h3></div><p class="gc-desc">Sermorelin represents elegant peptide design: by identifying the minimal bioactive sequence within full-length GHRH(1-44), researchers created a compound with identical receptor activity but enhanced stability and…</p><div class="gc-apps"><span class="app-tag">GHRH receptor binding studies</span><span class="app-tag">pituitary somatotroph function</span><span class="app-tag">growth hormone secretion dynamics</span><span class="app-tag">pulsatile GH release mechanisms</span></div><button class="view-btn" style="color:#2B7DE9">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="growth-hormone" data-name="ipamorelin (5mg)" id="prod-12"><div class="gc-top" style="border-left:4px solid #2B7DE9"><span class="cat-tag" style="background:#2B7DE915;color:#2B7DE9">growth hormone</span><h3 class="gc-name">Ipamorelin (5mg)</h3></div><p class="gc-desc">Ipamorelin solved a critical problem in growth hormone secretagogue research: earlier ghrelin mimetics like GHRP-6 and GHRP-2 stimulated GH release but also elevated prolactin and cortisol through off-target receptor…</p><div class="gc-apps"><span class="app-tag">Ghrelin receptor (GHS-R1a) pharmacology</span><span class="app-tag">selective GH secretion mechanisms</span><span class="app-tag">growth hormone pulse dynamics</span><span class="app-tag">somatotroph receptor selectivity</span></div><button class="view-btn" style="color:#2B7DE9">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="growth-hormone" data-name="cjc-1295 no dac (5mg)" id="prod-13"><div class="gc-top" style="border-left:4px solid #2B7DE9"><span class="cat-tag" style="background:#2B7DE915;color:#2B7DE9">growth hormone</span><h3 class="gc-name">CJC-1295 no DAC (5mg)</h3></div><p class="gc-desc">CJC-1295 without Drug Affinity Complex (commonly called Modified GRF 1-29 or Mod GRF) represents refined GHRH analogue design. Through targeted amino acid substitutions at positions vulnerable to enzymatic cleavage,…</p><div class="gc-apps"><span class="app-tag">GHRH analogue pharmacology</span><span class="app-tag">pulsatile GH release patterns</span><span class="app-tag">GHRH receptor binding kinetics</span><span class="app-tag">peptide stability mechanisms</span></div><button class="view-btn" style="color:#2B7DE9">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="growth-hormone" data-name="cjc-1295/ipamorelin combination (5mg/5mg)" id="prod-14"><div class="gc-top" style="border-left:4px solid #2B7DE9"><span class="cat-tag" style="background:#2B7DE915;color:#2B7DE9">growth hormone</span><h3 class="gc-name">CJC-1295/Ipamorelin Combination (5mg/5mg)</h3></div><p class="gc-desc">Growth hormone release is governed by two parallel pathways: GHRH signaling through pituitary GHRH receptors, and ghrelin acting via GHS-R1a receptors. This combination recognizes that dual-pathway activation produces…</p><div class="gc-apps"><span class="app-tag">Dual-pathway GH secretagogue studies</span><span class="app-tag">GHRH/ghrelin synergy mechanisms</span><span class="app-tag">amplified GH pulse research</span><span class="app-tag">combined secretagogue pharmacodynamics</span></div><button class="view-btn" style="color:#2B7DE9">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="growth-hormone" data-name="hgh 191 (1500 iu)" id="prod-15"><div class="gc-top" style="border-left:4px solid #2B7DE9"><span class="cat-tag" style="background:#2B7DE915;color:#2B7DE9">growth hormone</span><h3 class="gc-name">HGH 191 (1500 IU)</h3></div><p class="gc-desc">This represents human somatotropin in its native form: 191 amino acids in the precise sequence and tertiary structure found in pituitary-derived growth hormone. Produced through recombinant DNA technology in E. coli…</p><div class="gc-apps"><span class="app-tag">GH receptor binding and signaling</span><span class="app-tag">IGF-1 pathway research</span><span class="app-tag">somatotropin receptor pharmacology</span><span class="app-tag">anabolic signaling mechanisms</span></div><button class="view-btn" style="color:#2B7DE9">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="tissue-repair" data-name="bpc-157/tb-500 combination (10mg/10mg)" id="prod-16"><div class="gc-top" style="border-left:4px solid #10B981"><span class="cat-tag" style="background:#10B98115;color:#10B981">tissue repair</span><h3 class="gc-name">BPC-157/TB-500 Combination (10mg/10mg)</h3></div><p class="gc-desc">Tissue repair requires coordinated processes: inflammatory resolution, angiogenesis, cell migration, extracellular matrix remodeling, and cytoprotection. This combination targets multiple phases simultaneously. BPC-157,…</p><div class="gc-apps"><span class="app-tag">Wound healing models</span><span class="app-tag">angiogenesis research</span><span class="app-tag">cytoprotection mechanisms</span><span class="app-tag">cell migration assays</span></div><button class="view-btn" style="color:#10B981">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="tissue-repair" data-name="kpv (10mg)" id="prod-17"><div class="gc-top" style="border-left:4px solid #10B981"><span class="cat-tag" style="background:#10B98115;color:#10B981">tissue repair</span><h3 class="gc-name">KPV (10mg)</h3></div><p class="gc-desc">KPV (Lysine-Proline-Valine) represents molecular dissection of anti-inflammatory signaling. As the C-terminal tripeptide of alpha-melanocyte stimulating hormone, KPV retains the parent molecule's remarkable…</p><div class="gc-apps"><span class="app-tag">NF-κB signaling inhibition</span><span class="app-tag">inflammatory cytokine modulation</span><span class="app-tag">inflammatory bowel disease models</span><span class="app-tag">mucosal immunity research</span></div><button class="view-btn" style="color:#10B981">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="tissue-repair" data-name="ghk-cu (100mg)" id="prod-18"><div class="gc-top" style="border-left:4px solid #10B981"><span class="cat-tag" style="background:#10B98115;color:#10B981">tissue repair</span><h3 class="gc-name">GHK-Cu (100mg)</h3></div><p class="gc-desc">Glycyl-L-Histidyl-L-Lysine bound to copper represents one of nature's elegant metal-mediated signaling systems. First isolated from human plasma in the 1970s by Dr. Loren Pickart, GHK-Cu demonstrates the biological…</p><div class="gc-apps"><span class="app-tag">Collagen synthesis mechanisms</span><span class="app-tag">metalloproteinase regulation</span><span class="app-tag">copper-dependent enzyme research</span><span class="app-tag">extracellular matrix remodeling</span></div><button class="view-btn" style="color:#10B981">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="tissue-repair" data-name="ll-37 (5mg)" id="prod-19"><div class="gc-top" style="border-left:4px solid #10B981"><span class="cat-tag" style="background:#10B98115;color:#10B981">tissue repair</span><h3 class="gc-name">LL-37 (5mg)</h3></div><p class="gc-desc">LL-37 occupies a unique position in human immunology: it is the only antimicrobial peptide produced by the human cathelicidin family, unlike other species that express multiple cathelicidin variants. Cleaved from the…</p><div class="gc-apps"><span class="app-tag">Antimicrobial mechanism studies</span><span class="app-tag">innate immunity research</span><span class="app-tag">membrane disruption models</span><span class="app-tag">biofilm penetration research</span></div><button class="view-btn" style="color:#10B981">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="tissue-repair" data-name="thymalin (10mg)" id="prod-20"><div class="gc-top" style="border-left:4px solid #10B981"><span class="cat-tag" style="background:#10B98115;color:#10B981">tissue repair</span><h3 class="gc-name">Thymalin (10mg)</h3></div><p class="gc-desc">Thymalin belongs to a unique category of biological compounds developed in the Soviet Union: bioregulators—short peptides (typically 2-4 amino acids) extracted from specific organs that demonstrate tissue-specific…</p><div class="gc-apps"><span class="app-tag">T-cell differentiation studies</span><span class="app-tag">thymic function research</span><span class="app-tag">bioregulator peptide mechanisms</span><span class="app-tag">immune system modulation</span></div><button class="view-btn" style="color:#10B981">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="tissue-repair" data-name="laennec ampules (human placental extract)" id="prod-21"><div class="gc-top" style="border-left:4px solid #10B981"><span class="cat-tag" style="background:#10B98115;color:#10B981">tissue repair</span><h3 class="gc-name">Laennec Ampules (Human Placental Extract)</h3></div><p class="gc-desc">Laennec represents the biological complexity that single-molecule research cannot capture. This pharmaceutical-grade extract, derived from healthy human placenta and manufactured under strict Japanese pharmaceutical…</p><div class="gc-apps"><span class="app-tag">Multi-growth factor signaling</span><span class="app-tag">tissue regeneration models</span><span class="app-tag">cytokine interaction studies</span><span class="app-tag">complex biological system research</span></div><button class="view-btn" style="color:#10B981">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="metabolic" data-name="aod-9604 (2mg)" id="prod-22"><div class="gc-top" style="border-left:4px solid #F59E0B"><span class="cat-tag" style="background:#F59E0B15;color:#F59E0B">metabolic</span><h3 class="gc-name">AOD-9604 (2mg)</h3></div><p class="gc-desc">AOD-9604 (Advanced Obesity Drug) represents molecular surgery on growth hormone. Australian researchers at Monash University identified the 176-191 C-terminal region as responsible for GH's lipolytic effects, then added…</p><div class="gc-apps"><span class="app-tag">Lipolysis mechanism research</span><span class="app-tag">GH fragment biology</span><span class="app-tag">lipid metabolism studies</span><span class="app-tag">adipocyte signaling independent of GH receptor</span></div><button class="view-btn" style="color:#F59E0B">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="metabolic" data-name="mots-c (10mg)" id="prod-23"><div class="gc-top" style="border-left:4px solid #F59E0B"><span class="cat-tag" style="background:#F59E0B15;color:#F59E0B">metabolic</span><h3 class="gc-name">MOTS-c (10mg)</h3></div><p class="gc-desc">MOTS-c represents a paradigm shift in cellular biology. Discovered in 2015 by researchers at USC, this peptide revealed that the mitochondrial genome—long thought to encode only 13 proteins—contains open reading frames…</p><div class="gc-apps"><span class="app-tag">Mitochondrial-nuclear signaling</span><span class="app-tag">metabolic homeostasis mechanisms</span><span class="app-tag">AMPK pathway research</span><span class="app-tag">insulin sensitivity studies</span></div><button class="view-btn" style="color:#F59E0B">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="metabolic" data-name="5-amino-1mq (5mg)" id="prod-24"><div class="gc-top" style="border-left:4px solid #F59E0B"><span class="cat-tag" style="background:#F59E0B15;color:#F59E0B">metabolic</span><h3 class="gc-name">5-Amino-1MQ (5mg)</h3></div><p class="gc-desc">5-Amino-1-methylquinolinium targets a metabolic bottleneck: nicotinamide N-methyltransferase (NNMT), an enzyme that consumes NAD+ precursors by methylating nicotinamide for excretion. By inhibiting NNMT, 5-Amino-1MQ…</p><button class="view-btn" style="color:#F59E0B">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="metabolic" data-name="lipo-c max blend" id="prod-25"><div class="gc-top" style="border-left:4px solid #F59E0B"><span class="cat-tag" style="background:#F59E0B15;color:#F59E0B">metabolic</span><h3 class="gc-name">Lipo-C MAX Blend</h3></div><p class="gc-desc">The Lipo-C MAX formulation recognizes that lipid metabolism requires multiple cofactors working in concert. Methionine provides the methyl groups essential for phosphatidylcholine synthesis and methylation reactions.…</p><div class="gc-apps"><span class="app-tag">Lipotropic factor research</span><span class="app-tag">hepatic lipid metabolism</span><span class="app-tag">methyl donor biology</span><span class="app-tag">choline metabolism</span></div><button class="view-btn" style="color:#F59E0B">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="metabolic" data-name="l-carnitine (600mg)" id="prod-26"><div class="gc-top" style="border-left:4px solid #F59E0B"><span class="cat-tag" style="background:#F59E0B15;color:#F59E0B">metabolic</span><h3 class="gc-name">L-Carnitine (600mg)</h3></div><p class="gc-desc">L-Carnitine (β-hydroxy-γ-trimethylaminobutyric acid) solves a fundamental problem in cellular energetics: long-chain fatty acids cannot cross the inner mitochondrial membrane where beta-oxidation occurs. Carnitine…</p><div class="gc-apps"><span class="app-tag">Mitochondrial fatty acid transport</span><span class="app-tag">beta-oxidation mechanisms</span><span class="app-tag">carnitine shuttle system research</span><span class="app-tag">acyl-carnitine metabolism</span></div><button class="view-btn" style="color:#F59E0B">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="metabolic" data-name="lipo-c plus blend" id="prod-27"><div class="gc-top" style="border-left:4px solid #F59E0B"><span class="cat-tag" style="background:#F59E0B15;color:#F59E0B">metabolic</span><h3 class="gc-name">Lipo-C Plus Blend</h3></div><p class="gc-desc">Building upon the foundation of methionine, inositol, choline, and L-carnitine, the Lipo-C Plus formulation adds complementary factors that participate in energy production, mitochondrial function, and metabolic…</p><div class="gc-apps"><span class="app-tag">Integrated metabolic pathway research</span><span class="app-tag">cellular bioenergetics</span><span class="app-tag">multi-cofactor synergy</span><span class="app-tag">performance metabolism models</span></div><button class="view-btn" style="color:#F59E0B">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="metabolic" data-name="lipo-c ultra blend" id="prod-28"><div class="gc-top" style="border-left:4px solid #F59E0B"><span class="cat-tag" style="background:#F59E0B15;color:#F59E0B">metabolic</span><h3 class="gc-name">Lipo-C Ultra Blend</h3></div><p class="gc-desc">Lipo-C Ultra represents the apex of multi-component metabolic formulation. This premium blend incorporates every category of metabolic support compound: classic lipotropic factors for hepatic lipid processing, amino…</p><div class="gc-apps"><span class="app-tag">Comprehensive metabolic system research</span><span class="app-tag">multi-pathway integration studies</span><span class="app-tag">maximal metabolic capacity models</span><span class="app-tag">system-level bioenergetics</span></div><button class="view-btn" style="color:#F59E0B">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="antioxidants" data-name="nad+ (500mg)" id="prod-29"><div class="gc-top" style="border-left:4px solid #06B6D4"><span class="cat-tag" style="background:#06B6D415;color:#06B6D4">antioxidants</span><h3 class="gc-name">NAD+ (500mg)</h3></div><p class="gc-desc">Nicotinamide adenine dinucleotide occupies a position of unparalleled importance in cellular biochemistry. This dinucleotide serves simultaneously as an electron carrier in redox reactions (the NAD+/NADH couple drives…</p><div class="gc-apps"><span class="app-tag">Redox biochemistry</span><span class="app-tag">sirtuin activation research</span><span class="app-tag">cellular energy metabolism</span><span class="app-tag">PARP enzyme function</span></div><button class="view-btn" style="color:#06B6D4">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="antioxidants" data-name="nad+ (1000mg)" id="prod-30"><div class="gc-top" style="border-left:4px solid #06B6D4"><span class="cat-tag" style="background:#06B6D415;color:#06B6D4">antioxidants</span><h3 class="gc-name">NAD+ (1000mg)</h3></div><p class="gc-desc">Nicotinamide adenine dinucleotide occupies a position of unparalleled importance in cellular biochemistry. This dinucleotide serves simultaneously as an electron carrier in redox reactions (the NAD+/NADH couple drives…</p><div class="gc-apps"><span class="app-tag">Redox biochemistry</span><span class="app-tag">sirtuin activation research</span><span class="app-tag">cellular energy metabolism</span><span class="app-tag">PARP enzyme function</span></div><button class="view-btn" style="color:#06B6D4">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="antioxidants" data-name="glutathione (1200mg) - korean pharmaceutical grade (10 vials)" id="prod-31"><div class="gc-top" style="border-left:4px solid #06B6D4"><span class="cat-tag" style="background:#06B6D415;color:#06B6D4">antioxidants</span><h3 class="gc-name">Glutathione (1200mg) - Korean Pharmaceutical Grade (10 vials)</h3></div><p class="gc-desc">Glutathione (γ-L-glutamyl-L-cysteinyl-glycine) represents the first line of antioxidant defense. This tripeptide, present in millimolar concentrations in cells, functions as the primary reducing agent that neutralizes…</p><div class="gc-apps"><span class="app-tag">Redox biology</span><span class="app-tag">oxidative stress models</span><span class="app-tag">glutathione peroxidase studies</span><span class="app-tag">cellular detoxification pathways</span></div><button class="view-btn" style="color:#06B6D4">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="antioxidants" data-name="glutathione (1500mg)" id="prod-32"><div class="gc-top" style="border-left:4px solid #06B6D4"><span class="cat-tag" style="background:#06B6D415;color:#06B6D4">antioxidants</span><h3 class="gc-name">Glutathione (1500mg)</h3></div><p class="gc-desc">Glutathione (γ-L-glutamyl-L-cysteinyl-glycine) represents the first line of antioxidant defense. This tripeptide, present in millimolar concentrations in cells, functions as the primary reducing agent that neutralizes…</p><div class="gc-apps"><span class="app-tag">Redox biology</span><span class="app-tag">oxidative stress models</span><span class="app-tag">glutathione peroxidase studies</span><span class="app-tag">cellular detoxification pathways</span></div><button class="view-btn" style="color:#06B6D4">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="antioxidants" data-name="thioctic acid (alpha-lipoic acid) (25mg/5ml)" id="prod-33"><div class="gc-top" style="border-left:4px solid #06B6D4"><span class="cat-tag" style="background:#06B6D415;color:#06B6D4">antioxidants</span><h3 class="gc-name">Thioctic Acid (Alpha-Lipoic Acid) (25mg/5ml)</h3></div><p class="gc-desc">Alpha-lipoic acid (1,2-dithiolane-3-pentanoic acid) occupies a unique position in antioxidant biology: its amphipathic structure allows it to scavenge reactive species in both water-soluble compartments (cytoplasm) and…</p><div class="gc-apps"><span class="app-tag">Mitochondrial cofactor function</span><span class="app-tag">universal antioxidant mechanisms</span><span class="app-tag">antioxidant regeneration studies</span><span class="app-tag">glucose metabolism research</span></div><button class="view-btn" style="color:#06B6D4">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="antioxidants" data-name="vitamin c (ascorbic acid) (10mg/20ml)" id="prod-34"><div class="gc-top" style="border-left:4px solid #06B6D4"><span class="cat-tag" style="background:#06B6D415;color:#06B6D4">antioxidants</span><h3 class="gc-name">Vitamin C (Ascorbic Acid) (10mg/20ml)</h3></div><p class="gc-desc">L-Ascorbic acid (vitamin C) serves multiple critical biochemical roles beyond its well-known antioxidant function. As a cofactor for prolyl and lysyl hydroxylases, ascorbate is absolutely required for collagen triple…</p><div class="gc-apps"><span class="app-tag">Collagen hydroxylation research</span><span class="app-tag">ascorbate-dependent enzyme studies</span><span class="app-tag">antioxidant mechanism research</span><span class="app-tag">iron metabolism</span></div><button class="view-btn" style="color:#06B6D4">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="antioxidants" data-name="ss-31 (elamipretide) (10mg)" id="prod-35"><div class="gc-top" style="border-left:4px solid #06B6D4"><span class="cat-tag" style="background:#06B6D415;color:#06B6D4">antioxidants</span><h3 class="gc-name">SS-31 (Elamipretide) (10mg)</h3></div><p class="gc-desc">SS-31 (Szeto-Schiller peptide 31, D-Arg-Dmt-Lys-Phe-NH2) represents a breakthrough in mitochondria-targeted therapeutics. This cell-permeable tetrapeptide contains alternating cationic and aromatic residues that enable…</p><div class="gc-apps"><span class="app-tag">Mitochondrial membrane research</span><span class="app-tag">cardiolipin interaction studies</span><span class="app-tag">cristae structure biology</span><span class="app-tag">mitochondrial ROS modulation</span></div><button class="view-btn" style="color:#06B6D4">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="longevity" data-name="foxo4-dri (10mg)" id="prod-36"><div class="gc-top" style="border-left:4px solid #6366F1"><span class="cat-tag" style="background:#6366F115;color:#6366F1">longevity</span><h3 class="gc-name">FOXO4-DRI (10mg)</h3></div><p class="gc-desc">FOXO4-DRI represents molecular precision in anti-aging research. Senescent cells—aged cells that cease dividing but resist apoptosis—accumulate with age and secrete inflammatory factors (the senescence-associated…</p><div class="gc-apps"><span class="app-tag">Senescent cell biology</span><span class="app-tag">FOXO4-p53 interaction studies</span><span class="app-tag">senolytic mechanism research</span><span class="app-tag">cellular aging models</span></div><button class="view-btn" style="color:#6366F1">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="longevity" data-name="epithalon (50mg)" id="prod-37"><div class="gc-top" style="border-left:4px solid #6366F1"><span class="cat-tag" style="background:#6366F115;color:#6366F1">longevity</span><h3 class="gc-name">Epithalon (50mg)</h3></div><p class="gc-desc">Epithalon (Epitalon, Ala-Glu-Asp-Gly) emerged from decades of Russian gerontology research led by Professor Vladimir Khavinson. This tetrapeptide, designed to replicate bioactive sequences from the pineal peptide…</p><div class="gc-apps"><span class="app-tag">Telomerase activity research</span><span class="app-tag">telomere biology</span><span class="app-tag">circadian rhythm regulation</span><span class="app-tag">pineal peptide research</span></div><button class="view-btn" style="color:#6366F1">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="longevity" data-name="pe 22-28 (10mg)" id="prod-38"><div class="gc-top" style="border-left:4px solid #6366F1"><span class="cat-tag" style="background:#6366F115;color:#6366F1">longevity</span><h3 class="gc-name">PE 22-28 (10mg)</h3></div><p class="gc-desc">PE 22-28 represents targeted neuroplasticity research. This heptapeptide, corresponding to amino acids 22-28 of the propeptide region of sortilin (a protein involved in neurotrophin sorting), was identified through…</p><div class="gc-apps"><span class="app-tag">TREK-1 channel modulation</span><span class="app-tag">neuroplasticity mechanisms</span><span class="app-tag">neuroprotection studies</span><span class="app-tag">potassium channel biology</span></div><button class="view-btn" style="color:#6366F1">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="melanocortin" data-name="pt-141 (bremelanotide)" id="prod-39"><div class="gc-top" style="border-left:4px solid #F97316"><span class="cat-tag" style="background:#F9731615;color:#F97316">melanocortin</span><h3 class="gc-name">PT-141 (Bremelanotide)</h3></div><p class="gc-desc">PT-141 emerged from structure-activity relationship studies of Melanotan II, a synthetic α-MSH analogue. While Melanotan II activates multiple melanocortin receptor subtypes (MC1R through MC5R), its metabolite PT-141…</p><div class="gc-apps"><span class="app-tag">Melanocortin receptor subtype pharmacology</span><span class="app-tag">MC3R/MC4R signaling research</span><span class="app-tag">central melanocortin pathway studies</span><span class="app-tag">receptor selectivity research</span></div><button class="view-btn" style="color:#F97316">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="melanocortin" data-name="dermorphin (5mg)" id="prod-40"><div class="gc-top" style="border-left:4px solid #F97316"><span class="cat-tag" style="background:#F9731615;color:#F97316">melanocortin</span><h3 class="gc-name">Dermorphin (5mg)</h3></div><p class="gc-desc">Dermorphin stands as one of pharmacology's most intriguing discoveries. Isolated from the skin secretions of South American Phyllomedusa frogs, this heptapeptide contains an unusual D-alanine in position 2—one of the…</p><div class="gc-apps"><span class="app-tag">μ-opioid receptor pharmacology</span><span class="app-tag">receptor subtype selectivity studies</span><span class="app-tag">opioid receptor binding kinetics</span><span class="app-tag">structure-activity relationships</span></div><button class="view-btn" style="color:#F97316">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="cosmetic" data-name="botulinum toxin type a (100 units)" id="prod-41"><div class="gc-top" style="border-left:4px solid #D946EF"><span class="cat-tag" style="background:#D946EF15;color:#D946EF">cosmetic</span><h3 class="gc-name">Botulinum Toxin Type A (100 Units)</h3></div><p class="gc-desc">Botulinum neurotoxin type A represents the gold standard for studying exocytosis. This large protein complex, produced by Clostridium botulinum, consists of a heavy chain (responsible for binding and internalization)…</p><div class="gc-apps"><span class="app-tag">SNARE protein biology</span><span class="app-tag">synaptic vesicle fusion mechanisms</span><span class="app-tag">neuromuscular junction research</span><span class="app-tag">acetylcholine release studies</span></div><button class="view-btn" style="color:#D946EF">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="cosmetic" data-name="botulinum toxin type a (200 units)" id="prod-42"><div class="gc-top" style="border-left:4px solid #D946EF"><span class="cat-tag" style="background:#D946EF15;color:#D946EF">cosmetic</span><h3 class="gc-name">Botulinum Toxin Type A (200 Units)</h3></div><p class="gc-desc">Botulinum neurotoxin type A represents the gold standard for studying exocytosis. This large protein complex, produced by Clostridium botulinum, consists of a heavy chain (responsible for binding and internalization)…</p><div class="gc-apps"><span class="app-tag">SNARE protein biology</span><span class="app-tag">synaptic vesicle fusion mechanisms</span><span class="app-tag">neuromuscular junction research</span><span class="app-tag">acetylcholine release studies</span></div><button class="view-btn" style="color:#D946EF">View Details &rarr;</button></div>
+<div class="grid-card" data-cat="advanced" data-name="ara-290 (10mg)" id="prod-43"><div class="gc-top" style="border-left:4px solid #64748B"><span class="cat-tag" style="background:#64748B15;color:#64748B">advanced</span><h3 class="gc-name">ARA-290 (10mg)</h3></div><p class="gc-desc">ARA-290 represents molecular refinement of erythropoietin's tissue-protective properties. While full-length EPO stimulates red blood cell production through the classical EPO receptor, it also activates a distinct…</p><div class="gc-apps"><span class="app-tag">Innate repair receptor signaling</span><span class="app-tag">tissue protection mechanisms</span><span class="app-tag">EPO receptor biology</span><span class="app-tag">neuroprotection studies</span></div><button class="view-btn" style="color:#64748B">View Details &rarr;</button></div>
+</div>
+</section>
 
-            <!-- Featured Product 3: NAD+ 1000mg -->
-            <div class="product-card antioxidants" data-category="antioxidants" data-name="NAD+ 1000mg">
-                <div class="product-category">Cellular Health</div>
-                <span class="product-purity">≥98%</span>
-                <h3 class="product-name">NAD+ 1000mg</h3>
-                <p class="product-dose">High-Dose Cofactor</p>
-                <p class="product-hook">The central redox cofactor in all living cells—essential for over 500 enzymatic reactions governing energy metabolism and DNA repair.</p>
-                <a href="#" class="view-details" onclick="toggleDetail(event, 'nad1000')">View Details →</a>
-            </div>
+<footer id="about">
+<div class="footer-inner">
+<div class="footer-brand"><span>PRC</span></div>
+<div class="footer-tag">Peptide Resource Center &mdash; Precision Is Not Optional</div>
+<div class="disclaimer-box">
+<h4>For Research Use Only</h4>
+<p>All products listed are intended for research and laboratory use only. Not for human consumption. The information provided is for educational and reference purposes. Products have not been evaluated by regulatory agencies for safety or efficacy in humans.</p>
+</div>
+<div class="footer-bottom">&copy; 2026 Peptide Resource Center &middot; peptideresourcecenter.com</div>
+</div>
+</footer>
 
-            <!-- Featured Product 4: Tirzepatide 30mg -->
-            <div class="product-card glp-agonists" data-category="glp-agonists" data-name="Tirzepatide 30mg">
-                <div class="product-category">GLP Agonist</div>
-                <span class="product-purity">≥98%</span>
-                <h3 class="product-name">Tirzepatide 30mg</h3>
-                <p class="product-dose">Dual GLP-1/GIP Agonist</p>
-                <p class="product-hook">The first dual incretin receptor agonist—simultaneously activating GLP-1 and GIP pathways for unprecedented metabolic effects.</p>
-                <a href="#" class="view-details" onclick="toggleDetail(event, 'tirz30')">View Details →</a>
-            </div>
+<button class="btt" id="btt" aria-label="Back to top">&uarr;</button>
 
-            <!-- Featured Product 5: Selank 10mg -->
-            <div class="product-card neuropeptides" data-category="neuropeptides" data-name="Selank 10mg">
-                <div class="product-category">Neuropeptide</div>
-                <span class="product-purity">≥98%</span>
-                <h3 class="product-name">Selank 10mg</h3>
-                <p class="product-dose">Anxiolytic Peptide</p>
-                <p class="product-hook">One of the few synthetic anxiolytic peptides with documented cytokine-modulating activity available for neurochemical research.</p>
-                <a href="#" class="view-details" onclick="toggleDetail(event, 'selank10')">View Details →</a>
-            </div>
-
-            <!-- Featured Product 6: Epithalon 50mg -->
-            <div class="product-card longevity" data-category="longevity" data-name="Epithalon 50mg">
-                <div class="product-category">Longevity</div>
-                <span class="product-purity">≥98%</span>
-                <h3 class="product-name">Epithalon 50mg</h3>
-                <p class="product-dose">Telomerase Modulator</p>
-                <p class="product-hook">A synthetic tetrapeptide that mimics the pineal gland's epithalamin—demonstrating telomerase activation and circadian regulation.</p>
-                <a href="#" class="view-details" onclick="toggleDetail(event, 'epithalon')">View Details →</a>
-            </div>
-
-            <!-- Featured Product 7: Sermorelin 5mg -->
-            <div class="product-card growth-hormone" data-category="growth-hormone" data-name="Sermorelin 5mg">
-                <div class="product-category">Growth Hormone</div>
-                <span class="product-purity">≥98%</span>
-                <h3 class="product-name">Sermorelin 5mg</h3>
-                <p class="product-dose">GHRH(1-29) Fragment</p>
-                <p class="product-hook">The truncated yet fully bioactive fragment of human GHRH—retaining complete growth hormone releasing activity.</p>
-                <a href="#" class="view-details" onclick="toggleDetail(event, 'sermorelin')">View Details →</a>
-            </div>
-
-            <!-- Featured Product 8: GHK-Cu 100mg -->
-            <div class="product-card tissue-repair" data-category="tissue-repair" data-name="GHK-Cu 100mg">
-                <div class="product-category">Cosmetic</div>
-                <span class="product-purity">≥98%</span>
-                <h3 class="product-name">GHK-Cu 100mg</h3>
-                <p class="product-dose">Copper Peptide Complex</p>
-                <p class="product-hook">The archetypal copper-peptide complex—modulating metalloproteinases, collagen synthesis, and tissue remodeling.</p>
-                <a href="#" class="view-details" onclick="toggleDetail(event, 'ghkcu')">View Details →</a>
-            </div>
-        </div>
-
-        <div class="section-disclaimer">
-            For Research Use Only · Not for Human Consumption
-        </div>
-    </section>
-
-    <!-- PEPTIDE LIBRARY (ALL PRODUCTS) -->
-    <section id="library" class="section">
-        <div class="section-header">
-            <h2 class="section-title">Peptide Library</h2>
-            <p class="section-subtitle">All 44 research compounds — filter by category or search</p>
-        </div>
-
-        <!-- Search Bar -->
-        <div class="search-container">
-            <input type="text" class="search-input" id="searchInput" placeholder="Search peptides by name...">
-        </div>
-
-        <!-- Category Filter -->
-        <div class="filter-bar">
-            <button class="filter-pill active" data-filter="all">All Products</button>
-            <button class="filter-pill" data-filter="neuropeptides">Neuropeptides</button>
-            <button class="filter-pill" data-filter="glp-agonists">GLP Agonists</button>
-            <button class="filter-pill" data-filter="growth-hormone">Growth Hormone</button>
-            <button class="filter-pill" data-filter="tissue-repair">Tissue Repair</button>
-            <button class="filter-pill" data-filter="metabolic">Metabolic</button>
-            <button class="filter-pill" data-filter="antioxidants">Antioxidants</button>
-            <button class="filter-pill" data-filter="longevity">Longevity</button>
-            <button class="filter-pill" data-filter="melanocortin">Melanocortin</button>
-            <button class="filter-pill" data-filter="cosmetic">Cosmetic</button>
-            <button class="filter-pill" data-filter="advanced">Advanced</button>
-        </div>
-
-        <!-- All Products Grid -->
-        <div class="product-grid" id="productGrid">
-            <div class="product-card neuropeptides" data-category="neuropeptides" data-name="selank 5mg"><div class="product-category">Neuropeptides</div><span class="product-purity">≥98%</span><h3 class="product-name">Selank 5mg</h3><p class="product-dose">Neuropeptide | ≥98% Purity</p><p class="product-hook">One of the few synthetic anxiolytic peptides with documented cytokine-modulating activity.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-selank_5mg')">View Details →</a><div class="product-detail" id="detail-selank_5mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Anxiety model studies</span><span class="application-tag">Cognitive function research</span><span class="application-tag">Immune-neuro axis modulation</span><span class="application-tag">GABAergic pathway studies</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C33H57N11O9<br>CAS: 129954-34-3<br>MW: 751.9 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and utilize within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Semax 5mg</a> · <a href="#" class="cross-sell-link">Cerebrolysin 60mg</a> · <a href="#" class="cross-sell-link">DSIP Night Blend</a></div></div></div></div>
-<div class="product-card neuropeptides" data-category="neuropeptides" data-name="selank 10mg"><div class="product-category">Neuropeptides</div><span class="product-purity">≥98%</span><h3 class="product-name">Selank 10mg</h3><p class="product-dose">Neuropeptide | ≥98% Purity</p><p class="product-hook">Higher-dose anxiolytic peptide with documented cytokine-modulating activity for neurochemical research.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-selank_10mg')">View Details →</a><div class="product-detail" id="detail-selank_10mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Anxiety model studies</span><span class="application-tag">Cognitive function research</span><span class="application-tag">GABAergic pathway studies</span><span class="application-tag">Cytokine regulation</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C33H57N11O9<br>CAS: 129954-34-3<br>MW: 751.9 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Semax 5mg</a> · <a href="#" class="cross-sell-link">Cerebrolysin 60mg</a> · <a href="#" class="cross-sell-link">Thymalin 10mg</a></div></div></div></div>
-<div class="product-card neuropeptides" data-category="neuropeptides" data-name="semax 5mg"><div class="product-category">Neuropeptides</div><span class="product-purity">≥98%</span><h3 class="product-name">Semax 5mg</h3><p class="product-dose">Neuropeptide | ≥98% Purity</p><p class="product-hook">The only synthetic ACTH analogue engineered to penetrate the blood-brain barrier and elevate BDNF expression.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-semax_5mg')">View Details →</a><div class="product-detail" id="detail-semax_5mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">BDNF upregulation research</span><span class="application-tag">Cognitive enhancement models</span><span class="application-tag">Neuroprotection studies</span><span class="application-tag">Memory mechanisms</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C37H51N9O10S<br>CAS: 80714-61-0<br>MW: 813.9 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C protected from light. Reconstitute with bacteriostatic water; use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Selank 10mg</a> · <a href="#" class="cross-sell-link">Cerebrolysin 60mg</a> · <a href="#" class="cross-sell-link">PE 22-28 10mg</a></div></div></div></div>
-<div class="product-card neuropeptides" data-category="neuropeptides" data-name="dsip 5mg"><div class="product-category">Neuropeptides</div><span class="product-purity">≥98%</span><h3 class="product-name">DSIP 5mg</h3><p class="product-dose">Neuropeptide | ≥98% Purity</p><p class="product-hook">The original sleep-inducing peptide—a naturally occurring nonapeptide that launched endogenous sleep regulation research.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-dsip_5mg')">View Details →</a><div class="product-detail" id="detail-dsip_5mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Sleep architecture studies</span><span class="application-tag">Circadian rhythm regulation</span><span class="application-tag">Stress-response pathways</span><span class="application-tag">Delta wave sleep mechanisms</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C35H48N10O15<br>CAS: 62568-57-4<br>MW: 848.8 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C in amber vial. Upon reconstitution, store refrigerated and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">DSIP Night Blend</a> · <a href="#" class="cross-sell-link">Epithalon 50mg</a> · <a href="#" class="cross-sell-link">Selank 10mg</a></div></div></div></div>
-<div class="product-card neuropeptides" data-category="neuropeptides" data-name="dsip night blend"><div class="product-category">Neuropeptides</div><span class="product-purity">≥98%</span><h3 class="product-name">DSIP Night Blend</h3><p class="product-dose">Neuropeptide Blend | ≥98% per component</p><p class="product-hook">A rare multi-peptide formulation combining complementary sleep-regulating neuropeptides for synergistic circadian biology studies.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-dsip_night_blend')">View Details →</a><div class="product-detail" id="detail-dsip_night_blend"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Multi-peptide sleep architecture</span><span class="application-tag">Circadian entrainment mechanisms</span><span class="application-tag">Neurotransmitter interaction models</span><span class="application-tag">Sleep disorder research</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: Proprietary blend<br>CAS: N/A<br>MW: Multi-component</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C protected from light and moisture. Reconstituted solution stable at 2-8°C for 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Epithalon 50mg</a> · <a href="#" class="cross-sell-link">Selank 10mg</a> · <a href="#" class="cross-sell-link">Cerebrolysin 60mg</a></div></div></div></div>
-<div class="product-card neuropeptides" data-category="neuropeptides" data-name="cerebrolysin 60mg"><div class="product-category">Neuropeptides</div><span class="product-purity">≥98%</span><h3 class="product-name">Cerebrolysin 60mg</h3><p class="product-dose">Neurotrophic Factor Complex | Pharmaceutical Grade</p><p class="product-hook">The only commercially available multi-factor neurotrophic complex mimicking endogenous brain-derived growth factors.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-cerebrolysin_60mg')">View Details →</a><div class="product-detail" id="detail-cerebrolysin_60mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Multi-pathway neuroprotection</span><span class="application-tag">Neurodegenerative disease models</span><span class="application-tag">Post-stroke neuroplasticity</span><span class="application-tag">Synaptic preservation</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: Complex mixture of neuropeptides (&lt;10 kDa)<br>CAS: N/A<br>MW: Complex</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store refrigerated at 2-8°C in sealed ampules. Do not freeze. Use immediately upon opening.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Semax 5mg</a> · <a href="#" class="cross-sell-link">PE 22-28 10mg</a> · <a href="#" class="cross-sell-link">Laennec Ampules</a></div></div></div></div>
-<div class="product-card glp-agonists" data-category="glp-agonists" data-name="semaglutide"><div class="product-category">GLP Agonists</div><span class="product-purity">≥98%</span><h3 class="product-name">Semaglutide</h3><p class="product-dose">GLP-1 Receptor Agonist | ≥98% Purity</p><p class="product-hook">The benchmark long-acting GLP-1 receptor agonist—a fatty acid-modified peptide that redefined incretin-based metabolic research.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-semaglutide')">View Details →</a><div class="product-detail" id="detail-semaglutide"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">GLP-1 receptor signaling</span><span class="application-tag">Glucose homeostasis</span><span class="application-tag">Pancreatic beta-cell function</span><span class="application-tag">Appetite regulation pathways</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C187H291N45O59<br>CAS: 910463-68-2<br>MW: 4113.6 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C protected from light. Upon reconstitution, store at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Tirzepatide 20mg</a> · <a href="#" class="cross-sell-link">Cagrilintide 5mg</a> · <a href="#" class="cross-sell-link">AOD-9604 2mg</a></div></div></div></div>
-<div class="product-card glp-agonists" data-category="glp-agonists" data-name="tirzepatide 20mg"><div class="product-category">GLP Agonists</div><span class="product-purity">≥98%</span><h3 class="product-name">Tirzepatide 20mg</h3><p class="product-dose">Dual GLP-1/GIP Agonist | ≥98% Purity</p><p class="product-hook">The first dual incretin receptor agonist—simultaneously activating GLP-1 and GIP pathways for unprecedented metabolic effects.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-tirzepatide_20mg')">View Details →</a><div class="product-detail" id="detail-tirzepatide_20mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Dual incretin pathway research</span><span class="application-tag">GIP/GLP-1 receptor synergy</span><span class="application-tag">Metabolic signaling cascades</span><span class="application-tag">Pancreatic islet function</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C225H348N48O68<br>CAS: 2023788-19-2<br>MW: 4813.5 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Reconstitute with bacteriostatic water; maintain at 2-8°C for up to 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Retatrutide 20mg</a> · <a href="#" class="cross-sell-link">Semaglutide</a> · <a href="#" class="cross-sell-link">Cagrilintide 5mg</a></div></div></div></div>
-<div class="product-card glp-agonists" data-category="glp-agonists" data-name="tirzepatide 30mg"><div class="product-category">GLP Agonists</div><span class="product-purity">≥98%</span><h3 class="product-name">Tirzepatide 30mg</h3><p class="product-dose">Dual GLP-1/GIP Agonist | ≥98% Purity</p><p class="product-hook">Higher-dose dual incretin receptor agonist for advanced metabolic research and dose-response studies.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-tirzepatide_30mg')">View Details →</a><div class="product-detail" id="detail-tirzepatide_30mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Dual incretin pathway research</span><span class="application-tag">GIP/GLP-1 synergy</span><span class="application-tag">Incretin receptor pharmacology</span><span class="application-tag">Comparative incretin biology</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C225H348N48O68<br>CAS: 2023788-19-2<br>MW: 4813.5 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Reconstitute with bacteriostatic water; maintain at 2-8°C for 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Retatrutide 20mg</a> · <a href="#" class="cross-sell-link">Tirzepatide 20mg</a> · <a href="#" class="cross-sell-link">MOTS-c 10mg</a></div></div></div></div>
-<div class="product-card glp-agonists" data-category="glp-agonists" data-name="retatrutide 20mg"><div class="product-category">GLP Agonists</div><span class="product-purity">≥98%</span><h3 class="product-name">Retatrutide 20mg</h3><p class="product-dose">Triple GLP-1/GIP/Glucagon Agonist | ≥98% Purity</p><p class="product-hook">The world's first triple-agonist peptide—unlocking metabolic effects impossible with dual agonism alone.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-retatrutide_20mg')">View Details →</a><div class="product-detail" id="detail-retatrutide_20mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Triple-receptor agonism</span><span class="application-tag">GLP-1/GIP/glucagon pathway synergy</span><span class="application-tag">Energy expenditure mechanisms</span><span class="application-tag">Thermogenesis research</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C221H342N46O68<br>CAS: 2381089-83-2<br>MW: 4731.0 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Reconstitute with bacteriostatic water; stable at 2-8°C for 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Tirzepatide 30mg</a> · <a href="#" class="cross-sell-link">MOTS-c 10mg</a> · <a href="#" class="cross-sell-link">AOD-9604 2mg</a></div></div></div></div>
-<div class="product-card glp-agonists" data-category="glp-agonists" data-name="cagrilintide 5mg"><div class="product-category">GLP Agonists</div><span class="product-purity">≥98%</span><h3 class="product-name">Cagrilintide 5mg</h3><p class="product-dose">Amylin Analogue | ≥98% Purity</p><p class="product-hook">A next-generation amylin receptor agonist with extended half-life for sustained study of amylin's metabolic roles.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-cagrilintide_5mg')">View Details →</a><div class="product-detail" id="detail-cagrilintide_5mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Amylin receptor signaling</span><span class="application-tag">Gastric emptying mechanisms</span><span class="application-tag">Satiety pathway studies</span><span class="application-tag">Pramlintide comparison</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C194H312N54O59S2<br>CAS: 2374769-38-1<br>MW: 4409.5 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain refrigerated at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Semaglutide</a> · <a href="#" class="cross-sell-link">Tirzepatide 20mg</a> · <a href="#" class="cross-sell-link">AOD-9604 2mg</a></div></div></div></div>
-<div class="product-card growth-hormone" data-category="growth-hormone" data-name="sermorelin 5mg"><div class="product-category">Growth Hormone</div><span class="product-purity">≥98%</span><h3 class="product-name">Sermorelin 5mg</h3><p class="product-dose">GHRH Analogue | ≥98% Purity</p><p class="product-hook">The truncated yet fully bioactive fragment of human GHRH—retaining complete growth hormone releasing activity.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-sermorelin_5mg')">View Details →</a><div class="product-detail" id="detail-sermorelin_5mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">GHRH receptor binding</span><span class="application-tag">Pituitary somatotroph function</span><span class="application-tag">Growth hormone secretion dynamics</span><span class="application-tag">IGF-1 pathway research</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C149H246N44O42S<br>CAS: 86168-78-7<br>MW: 3357.9 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Reconstitute with bacteriostatic water; maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Ipamorelin 5mg</a> · <a href="#" class="cross-sell-link">CJC-1295/Ipamorelin 5mg/5mg</a> · <a href="#" class="cross-sell-link">HGH 191 1500iu</a></div></div></div></div>
-<div class="product-card growth-hormone" data-category="growth-hormone" data-name="ipamorelin 5mg"><div class="product-category">Growth Hormone</div><span class="product-purity">≥98%</span><h3 class="product-name">Ipamorelin 5mg</h3><p class="product-dose">Growth Hormone Secretagogue | ≥98% Purity</p><p class="product-hook">The most selective growth hormone secretagogue—exceptional specificity for GH release without prolactin or cortisol elevation.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-ipamorelin_5mg')">View Details →</a><div class="product-detail" id="detail-ipamorelin_5mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Ghrelin receptor pharmacology</span><span class="application-tag">Selective GH secretion mechanisms</span><span class="application-tag">Growth hormone pulse dynamics</span><span class="application-tag">GHRP comparative studies</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C38H49N9O5<br>CAS: 170851-70-4<br>MW: 711.9 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, refrigerate at 2-8°C and utilize within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">CJC-1295 no DAC 5mg</a> · <a href="#" class="cross-sell-link">Sermorelin 5mg</a> · <a href="#" class="cross-sell-link">CJC-1295/Ipamorelin 5mg/5mg</a></div></div></div></div>
-<div class="product-card growth-hormone" data-category="growth-hormone" data-name="cjc-1295 no dac 5mg"><div class="product-category">Growth Hormone</div><span class="product-purity">≥98%</span><h3 class="product-name">CJC-1295 no DAC 5mg</h3><p class="product-dose">Modified GHRH Analogue | ≥98% Purity</p><p class="product-hook">A strategically modified GHRH analogue with enhanced proteolytic resistance—ideal for studying pulsatile GH release.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-cjc_1295_no_dac_5mg')">View Details →</a><div class="product-detail" id="detail-cjc_1295_no_dac_5mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">GHRH analogue pharmacology</span><span class="application-tag">Pulsatile GH release patterns</span><span class="application-tag">GHRH receptor binding kinetics</span><span class="application-tag">Peptide stability mechanisms</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C165H269N47O46<br>CAS: 863288-34-0<br>MW: 3647.2 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Reconstitute with bacteriostatic water; stable at 2-8°C for 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Ipamorelin 5mg</a> · <a href="#" class="cross-sell-link">CJC-1295/Ipamorelin 5mg/5mg</a> · <a href="#" class="cross-sell-link">Sermorelin 5mg</a></div></div></div></div>
-<div class="product-card growth-hormone" data-category="growth-hormone" data-name="cjc-1295/ipamorelin 5mg/5mg"><div class="product-category">Growth Hormone</div><span class="product-purity">≥98%</span><h3 class="product-name">CJC-1295/Ipamorelin 5mg/5mg</h3><p class="product-dose">Dual GH Secretagogue | ≥98% per component</p><p class="product-hook">A precision-balanced combination targeting both GHRH and ghrelin pathways for synergistic GH secretion studies.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-cjc_1295_ipamorelin_5mg_5mg')">View Details →</a><div class="product-detail" id="detail-cjc_1295_ipamorelin_5mg_5mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Dual-pathway GH secretagogue</span><span class="application-tag">GHRH/ghrelin synergy</span><span class="application-tag">Amplified GH pulse research</span><span class="application-tag">Combined secretagogue pharmacodynamics</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: CJC-1295: C165H269N47O46 | Ipamorelin: C38H49N9O5<br>CAS: Combination<br>MW: 3647.2 g/mol | 711.9 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Reconstitute both simultaneously; maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">HGH 191 1500iu</a> · <a href="#" class="cross-sell-link">Sermorelin 5mg</a> · <a href="#" class="cross-sell-link">BPC-157/TB-500 10mg/10mg</a></div></div></div></div>
-<div class="product-card growth-hormone" data-category="growth-hormone" data-name="hgh 191 1500iu"><div class="product-category">Growth Hormone</div><span class="product-purity">≥98%</span><h3 class="product-name">HGH 191 1500iu</h3><p class="product-dose">Recombinant Human Growth Hormone | ≥98% Purity</p><p class="product-hook">Bioidentical 191-amino acid human growth hormone—the reference standard for GH receptor research.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-hgh_191_1500iu')">View Details →</a><div class="product-detail" id="detail-hgh_191_1500iu"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">GH receptor binding</span><span class="application-tag">IGF-1 pathway research</span><span class="application-tag">Somatotropin receptor pharmacology</span><span class="application-tag">Protein synthesis research</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C990H1528N262O300S7<br>CAS: 12629-01-5<br>MW: 22,124 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 14 days. Avoid agitation.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">CJC-1295/Ipamorelin 5mg/5mg</a> · <a href="#" class="cross-sell-link">Sermorelin 5mg</a> · <a href="#" class="cross-sell-link">BPC-157/TB-500 10mg/10mg</a></div></div></div></div>
-<div class="product-card tissue-repair" data-category="tissue-repair" data-name="bpc-157/tb-500 10mg/10mg"><div class="product-category">Tissue Repair</div><span class="product-purity">≥98%</span><h3 class="product-name">BPC-157/TB-500 10mg/10mg</h3><p class="product-dose">Tissue Repair Complex | ≥98% per component</p><p class="product-hook">The most widely researched tissue repair combination—pairing BPC-157's cytoprotection with TB-500's cell migration.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-bpc_157_tb_500_10mg_10mg')">View Details →</a><div class="product-detail" id="detail-bpc_157_tb_500_10mg_10mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Wound healing models</span><span class="application-tag">Angiogenesis research</span><span class="application-tag">Cytoprotection mechanisms</span><span class="application-tag">Collagen synthesis studies</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: BPC-157: C62H98N16O22 | TB-500: Fragment of Tβ4<br>CAS: BPC-157: 137525-51-0<br>MW: BPC-157: 1419.5 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Both peptides remain stable when co-reconstituted; use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">GHK-Cu 100mg</a> · <a href="#" class="cross-sell-link">KPV 10mg</a> · <a href="#" class="cross-sell-link">LL-37 5mg</a></div></div></div></div>
-<div class="product-card tissue-repair" data-category="tissue-repair" data-name="kpv 10mg"><div class="product-category">Tissue Repair</div><span class="product-purity">≥98%</span><h3 class="product-name">KPV 10mg</h3><p class="product-dose">Anti-inflammatory Tripeptide | ≥98% Purity</p><p class="product-hook">The isolated anti-inflammatory domain of α-MSH—retaining potent NF-κB inhibition without melanocortin receptor activation.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-kpv_10mg')">View Details →</a><div class="product-detail" id="detail-kpv_10mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">NF-κB signaling inhibition</span><span class="application-tag">Inflammatory cytokine modulation</span><span class="application-tag">IBD models</span><span class="application-tag">Wound healing inflammation control</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C16H30N4O4<br>CAS: 61090-95-7<br>MW: 342.4 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">BPC-157/TB-500 10mg/10mg</a> · <a href="#" class="cross-sell-link">LL-37 5mg</a> · <a href="#" class="cross-sell-link">Thymalin 10mg</a></div></div></div></div>
-<div class="product-card cosmetic" data-category="cosmetic" data-name="ghk-cu 100mg"><div class="product-category">Cosmetic</div><span class="product-purity">≥98%</span><h3 class="product-name">GHK-Cu 100mg</h3><p class="product-dose">Copper Peptide Complex | ≥98% Purity</p><p class="product-hook">The archetypal copper-peptide complex—modulating metalloproteinases, collagen synthesis, and tissue remodeling.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-ghk_cu_100mg')">View Details →</a><div class="product-detail" id="detail-ghk_cu_100mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Collagen synthesis mechanisms</span><span class="application-tag">Metalloproteinase regulation</span><span class="application-tag">ECM remodeling</span><span class="application-tag">Wound healing biology</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C14H24N6O4·Cu<br>CAS: 49557-75-7<br>MW: 404.0 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C protected from light. Reconstitute with sterile water; stable at 2-8°C for 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">BPC-157/TB-500 10mg/10mg</a> · <a href="#" class="cross-sell-link">Laennec Ampules</a> · <a href="#" class="cross-sell-link">Glutathione 1500mg</a></div></div></div></div>
-<div class="product-card tissue-repair" data-category="tissue-repair" data-name="ll-37 5mg"><div class="product-category">Tissue Repair</div><span class="product-purity">≥98%</span><h3 class="product-name">LL-37 5mg</h3><p class="product-dose">Antimicrobial Peptide | ≥98% Purity</p><p class="product-hook">The sole human cathelicidin—a 37-amino acid peptide representing the first line of innate immune defense.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-ll_37_5mg')">View Details →</a><div class="product-detail" id="detail-ll_37_5mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Antimicrobial mechanism studies</span><span class="application-tag">Innate immunity research</span><span class="application-tag">Biofilm penetration</span><span class="application-tag">Wound healing immunity</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C205H340N60O53<br>CAS: 154947-66-7<br>MW: 4493.3 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">KPV 10mg</a> · <a href="#" class="cross-sell-link">BPC-157/TB-500 10mg/10mg</a> · <a href="#" class="cross-sell-link">Thymalin 10mg</a></div></div></div></div>
-<div class="product-card advanced" data-category="advanced" data-name="thymalin 10mg"><div class="product-category">Advanced</div><span class="product-purity">≥98%</span><h3 class="product-name">Thymalin 10mg</h3><p class="product-dose">Thymic Bioregulator | ≥98% Purity</p><p class="product-hook">A pharmaceutical-grade thymic extract—short peptides that modulate organ-specific cellular function through epigenetic mechanisms.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-thymalin_10mg')">View Details →</a><div class="product-detail" id="detail-thymalin_10mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">T-cell differentiation</span><span class="application-tag">Thymic function research</span><span class="application-tag">Bioregulator peptide mechanisms</span><span class="application-tag">Immunosenescence models</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: Complex mixture of short peptides (2-10 amino acids)<br>CAS: N/A<br>MW: Complex</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Reconstitute with sterile or bacteriostatic water; use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Epithalon 50mg</a> · <a href="#" class="cross-sell-link">LL-37 5mg</a> · <a href="#" class="cross-sell-link">Selank 10mg</a></div></div></div></div>
-<div class="product-card tissue-repair" data-category="tissue-repair" data-name="laennec ampules"><div class="product-category">Tissue Repair</div><span class="product-purity">≥98%</span><h3 class="product-name">Laennec Ampules</h3><p class="product-dose">Human Placental Extract | Pharmaceutical Grade</p><p class="product-hook">A pharmaceutical-grade human placental hydrolysate containing over 50 identified growth factors.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-laennec_ampules')">View Details →</a><div class="product-detail" id="detail-laennec_ampules"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Multi-growth factor signaling</span><span class="application-tag">Tissue regeneration models</span><span class="application-tag">Cytokine interaction studies</span><span class="application-tag">Complex biological systems</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: Complex extract (&gt;50 growth factors)<br>CAS: N/A<br>MW: Complex</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store refrigerated at 2-8°C in sealed ampules. Do not freeze. Use immediately upon opening.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Cerebrolysin 60mg</a> · <a href="#" class="cross-sell-link">GHK-Cu 100mg</a> · <a href="#" class="cross-sell-link">BPC-157/TB-500 10mg/10mg</a></div></div></div></div>
-<div class="product-card metabolic" data-category="metabolic" data-name="aod-9604 2mg"><div class="product-category">Metabolic</div><span class="product-purity">≥98%</span><h3 class="product-name">AOD-9604 2mg</h3><p class="product-dose">Modified GH Fragment | ≥98% Purity</p><p class="product-hook">A strategically modified fragment of growth hormone's C-terminus—retaining lipolytic activity without GH receptor activation.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-aod_9604_2mg')">View Details →</a><div class="product-detail" id="detail-aod_9604_2mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Lipolysis mechanism research</span><span class="application-tag">GH fragment biology</span><span class="application-tag">Lipid metabolism studies</span><span class="application-tag">Adipocyte signaling</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C78H123N23O23S2<br>CAS: 221231-10-3<br>MW: 1815.1 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">MOTS-c 10mg</a> · <a href="#" class="cross-sell-link">L-Carnitine 600mg</a> · <a href="#" class="cross-sell-link">Lipo-C MAX Blend</a></div></div></div></div>
-<div class="product-card metabolic" data-category="metabolic" data-name="mots-c 10mg"><div class="product-category">Metabolic</div><span class="product-purity">≥98%</span><h3 class="product-name">MOTS-c 10mg</h3><p class="product-dose">Mitochondrial-Derived Peptide | ≥98% Purity</p><p class="product-hook">The first identified mitochondrial genome-encoded peptide—translocating to the nucleus to regulate metabolism.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-mots_c_10mg')">View Details →</a><div class="product-detail" id="detail-mots_c_10mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Mitochondrial-nuclear signaling</span><span class="application-tag">Metabolic homeostasis</span><span class="application-tag">AMPK pathway research</span><span class="application-tag">Insulin sensitivity studies</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C101H152N28O22S2<br>CAS: 1627580-64-6<br>MW: 2174.6 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Reconstitute with bacteriostatic water; stable at 2-8°C for 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">SS-31 10mg</a> · <a href="#" class="cross-sell-link">NAD+ 1000mg</a> · <a href="#" class="cross-sell-link">L-Carnitine 600mg</a></div></div></div></div>
-<div class="product-card metabolic" data-category="metabolic" data-name="5-amino-1mq 5mg"><div class="product-category">Metabolic</div><span class="product-purity">≥98%</span><h3 class="product-name">5-Amino-1MQ 5mg</h3><p class="product-dose">NNMT Inhibitor | ≥98% Purity</p><p class="product-hook">A selective small molecule inhibitor of NNMT—increasing cellular NAD+ availability through enzymatic blockade.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-5_amino_1mq_5mg')">View Details →</a><div class="product-detail" id="detail-5_amino_1mq_5mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">NNMT enzyme research</span><span class="application-tag">NAD+ homeostasis</span><span class="application-tag">Methylation reactions</span><span class="application-tag">Energy metabolism</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C10H11N2+<br>CAS: 42464-96-0<br>MW: 159.2 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store at room temperature (15-30°C) in sealed container. This small molecule exhibits excellent stability.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">NAD+ 1000mg</a> · <a href="#" class="cross-sell-link">MOTS-c 10mg</a> · <a href="#" class="cross-sell-link">AOD-9604 2mg</a></div></div></div></div>
-<div class="product-card metabolic" data-category="metabolic" data-name="lipo-c max blend"><div class="product-category">Metabolic</div><span class="product-purity">≥98%</span><h3 class="product-name">Lipo-C MAX Blend</h3><p class="product-dose">Lipotropic Blend | ≥98% per component</p><p class="product-hook">A precision-formulated lipotropic blend combining methionine, inositol, choline, and L-carnitine for hepatic lipid metabolism.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-lipo_c_max_blend')">View Details →</a><div class="product-detail" id="detail-lipo_c_max_blend"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Lipotropic factor research</span><span class="application-tag">Hepatic lipid metabolism</span><span class="application-tag">Methyl donor biology</span><span class="application-tag">Mitochondrial fatty acid transport</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: Contains: Methionine, Inositol, Choline, L-Carnitine<br>CAS: Multi-component<br>MW: Complex</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">L-Carnitine 600mg</a> · <a href="#" class="cross-sell-link">Lipo-C Plus Blend</a> · <a href="#" class="cross-sell-link">AOD-9604 2mg</a></div></div></div></div>
-<div class="product-card metabolic" data-category="metabolic" data-name="l-carnitine 600mg"><div class="product-category">Metabolic</div><span class="product-purity">≥98%</span><h3 class="product-name">L-Carnitine 600mg</h3><p class="product-dose">Amino Acid Derivative | ≥98% Purity</p><p class="product-hook">The essential cofactor for mitochondrial fatty acid oxidation—shuttling long-chain fatty acids across the mitochondrial membrane.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-l_carnitine_600mg')">View Details →</a><div class="product-detail" id="detail-l_carnitine_600mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Mitochondrial fatty acid transport</span><span class="application-tag">Beta-oxidation mechanisms</span><span class="application-tag">Carnitine shuttle system</span><span class="application-tag">Energy substrate utilization</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C7H15NO3<br>CAS: 541-15-1<br>MW: 161.2 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, refrigerate at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">MOTS-c 10mg</a> · <a href="#" class="cross-sell-link">Lipo-C MAX Blend</a> · <a href="#" class="cross-sell-link">AOD-9604 2mg</a></div></div></div></div>
-<div class="product-card metabolic" data-category="metabolic" data-name="lipo-c plus blend"><div class="product-category">Metabolic</div><span class="product-purity">≥98%</span><h3 class="product-name">Lipo-C Plus Blend</h3><p class="product-dose">Multi-Component Metabolic Blend | ≥98% per component</p><p class="product-hook">An advanced metabolic formulation extending beyond basic lipotropic factors—incorporating amino acids and cofactors.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-lipo_c_plus_blend')">View Details →</a><div class="product-detail" id="detail-lipo_c_plus_blend"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Integrated metabolic pathway research</span><span class="application-tag">Cellular bioenergetics</span><span class="application-tag">Multi-cofactor synergy</span><span class="application-tag">Energy production mechanisms</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: Multi-component formulation<br>CAS: Multi-component<br>MW: Complex</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Lipo-C Ultra Blend</a> · <a href="#" class="cross-sell-link">Lipo-C MAX Blend</a> · <a href="#" class="cross-sell-link">NAD+ 1000mg</a></div></div></div></div>
-<div class="product-card metabolic" data-category="metabolic" data-name="lipo-c ultra blend"><div class="product-category">Metabolic</div><span class="product-purity">≥98%</span><h3 class="product-name">Lipo-C Ultra Blend</h3><p class="product-dose">Premium Metabolic Blend | ≥98% per component</p><p class="product-hook">The most comprehensive metabolic formulation—combining lipotropic factors, amino acids, and mitochondrial cofactors.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-lipo_c_ultra_blend')">View Details →</a><div class="product-detail" id="detail-lipo_c_ultra_blend"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Comprehensive metabolic system research</span><span class="application-tag">Multi-pathway integration</span><span class="application-tag">Maximal metabolic capacity</span><span class="application-tag">System-level bioenergetics</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: Premium multi-component formulation<br>CAS: Multi-component<br>MW: Complex</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Lipo-C Plus Blend</a> · <a href="#" class="cross-sell-link">MOTS-c 10mg</a> · <a href="#" class="cross-sell-link">NAD+ 1000mg</a></div></div></div></div>
-<div class="product-card antioxidants" data-category="antioxidants" data-name="nad+ 500mg"><div class="product-category">Antioxidants</div><span class="product-purity">≥98%</span><h3 class="product-name">NAD+ 500mg</h3><p class="product-dose">Cellular Cofactor | ≥98% Purity</p><p class="product-hook">The central redox cofactor in all living cells—essential for over 500 enzymatic reactions governing energy metabolism and DNA repair.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-nad__500mg')">View Details →</a><div class="product-detail" id="detail-nad__500mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Redox biochemistry</span><span class="application-tag">Sirtuin activation</span><span class="application-tag">Cellular energy metabolism</span><span class="application-tag">DNA repair pathways</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C21H27N7O14P2<br>CAS: 53-84-9<br>MW: 663.4 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C protected from light. Upon reconstitution, use immediately or store at 2-8°C for 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">NAD+ 1000mg</a> · <a href="#" class="cross-sell-link">MOTS-c 10mg</a> · <a href="#" class="cross-sell-link">5-Amino-1MQ 5mg</a></div></div></div></div>
-<div class="product-card antioxidants" data-category="antioxidants" data-name="nad+ 1000mg"><div class="product-category">Antioxidants</div><span class="product-purity">≥98%</span><h3 class="product-name">NAD+ 1000mg</h3><p class="product-dose">Cellular Cofactor | ≥98% Purity</p><p class="product-hook">High-dose central redox cofactor—essential for over 500 enzymatic reactions governing energy metabolism, DNA repair, and cellular signaling.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-nad__1000mg')">View Details →</a><div class="product-detail" id="detail-nad__1000mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Redox biochemistry</span><span class="application-tag">Sirtuin activation</span><span class="application-tag">Cellular energy metabolism</span><span class="application-tag">NAD+/NADH ratio measurement</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C21H27N7O14P2<br>CAS: 53-84-9<br>MW: 663.4 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C protected from light. Upon reconstitution, use immediately or store at 2-8°C for 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">SS-31 10mg</a> · <a href="#" class="cross-sell-link">MOTS-c 10mg</a> · <a href="#" class="cross-sell-link">Glutathione 1500mg</a></div></div></div></div>
-<div class="product-card antioxidants" data-category="antioxidants" data-name="glutathione 1200mg korean"><div class="product-category">Antioxidants</div><span class="product-purity">≥98%</span><h3 class="product-name">Glutathione 1200mg Korean</h3><p class="product-dose">Antioxidant Tripeptide | Pharmaceutical Grade</p><p class="product-hook">The cell's master antioxidant—a thiol-containing tripeptide serving as the primary reducing agent and detoxifier.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-glutathione_1200mg_korean')">View Details →</a><div class="product-detail" id="detail-glutathione_1200mg_korean"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Redox biology</span><span class="application-tag">Oxidative stress models</span><span class="application-tag">Glutathione peroxidase studies</span><span class="application-tag">Cellular detoxification pathways</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C10H17N3O6S<br>CAS: 70-18-8<br>MW: 307.3 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store refrigerated at 2-8°C in sealed pharmaceutical vials. Use within 7 days after opening.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Glutathione 1500mg</a> · <a href="#" class="cross-sell-link">NAD+ 1000mg</a> · <a href="#" class="cross-sell-link">Vitamin C 10mg/20ml</a></div></div></div></div>
-<div class="product-card antioxidants" data-category="antioxidants" data-name="glutathione 1500mg"><div class="product-category">Antioxidants</div><span class="product-purity">≥98%</span><h3 class="product-name">Glutathione 1500mg</h3><p class="product-dose">Antioxidant Tripeptide | ≥98% Purity</p><p class="product-hook">The cell's master antioxidant—higher-dose thiol-containing tripeptide for cellular redox homeostasis research.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-glutathione_1500mg')">View Details →</a><div class="product-detail" id="detail-glutathione_1500mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Redox biology</span><span class="application-tag">Oxidative stress models</span><span class="application-tag">Thiol biochemistry</span><span class="application-tag">GSH/GSSG ratio studies</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C10H17N3O6S<br>CAS: 70-18-8<br>MW: 307.3 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C protected from light. Upon reconstitution, use promptly or store at 2-8°C for 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">NAD+ 1000mg</a> · <a href="#" class="cross-sell-link">GHK-Cu 100mg</a> · <a href="#" class="cross-sell-link">Thioctic Acid 25mg/5ml</a></div></div></div></div>
-<div class="product-card antioxidants" data-category="antioxidants" data-name="thioctic acid 25mg/5ml"><div class="product-category">Antioxidants</div><span class="product-purity">≥98%</span><h3 class="product-name">Thioctic Acid 25mg/5ml</h3><p class="product-dose">Alpha-Lipoic Acid | ≥98% Purity</p><p class="product-hook">The only antioxidant functioning in both aqueous and lipid environments—a dithiol cofactor essential for mitochondrial energy metabolism.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-thioctic_acid_25mg_5ml')">View Details →</a><div class="product-detail" id="detail-thioctic_acid_25mg_5ml"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Mitochondrial cofactor function</span><span class="application-tag">Universal antioxidant mechanisms</span><span class="application-tag">Glucose metabolism</span><span class="application-tag">Neuroprotection models</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C8H14O2S2<br>CAS: 1077-28-7<br>MW: 206.3 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store refrigerated at 2-8°C protected from light. Supplied in solution for immediate use. Use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Glutathione 1500mg</a> · <a href="#" class="cross-sell-link">NAD+ 1000mg</a> · <a href="#" class="cross-sell-link">SS-31 10mg</a></div></div></div></div>
-<div class="product-card antioxidants" data-category="antioxidants" data-name="vitamin c 10mg/20ml"><div class="product-category">Antioxidants</div><span class="product-purity">≥98%</span><h3 class="product-name">Vitamin C 10mg/20ml</h3><p class="product-dose">Ascorbic Acid | Pharmaceutical Grade</p><p class="product-hook">The essential water-soluble antioxidant—required for collagen synthesis, neurotransmitter production, and immune cell function.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-vitamin_c_10mg_20ml')">View Details →</a><div class="product-detail" id="detail-vitamin_c_10mg_20ml"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Collagen hydroxylation</span><span class="application-tag">Ascorbate-dependent enzyme studies</span><span class="application-tag">Antioxidant mechanism research</span><span class="application-tag">Iron metabolism</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C6H8O6<br>CAS: 50-81-7<br>MW: 176.1 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store refrigerated at 2-8°C protected from light. Use within 14 days after opening. Do not freeze.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Glutathione 1500mg</a> · <a href="#" class="cross-sell-link">GHK-Cu 100mg</a> · <a href="#" class="cross-sell-link">NAD+ 1000mg</a></div></div></div></div>
-<div class="product-card antioxidants" data-category="antioxidants" data-name="ss-31 10mg"><div class="product-category">Antioxidants</div><span class="product-purity">≥98%</span><h3 class="product-name">SS-31 10mg</h3><p class="product-dose">Mitochondria-Targeting Peptide | ≥98% Purity</p><p class="product-hook">The first peptide to selectively target the inner mitochondrial membrane—binding cardiolipin to stabilize cristae structure.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-ss_31_10mg')">View Details →</a><div class="product-detail" id="detail-ss_31_10mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Mitochondrial membrane research</span><span class="application-tag">Cardiolipin interaction</span><span class="application-tag">Cristae structure biology</span><span class="application-tag">Mitochondrial ROS modulation</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C32H49N9O5<br>CAS: 736992-21-5<br>MW: 639.8 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">MOTS-c 10mg</a> · <a href="#" class="cross-sell-link">NAD+ 1000mg</a> · <a href="#" class="cross-sell-link">Thioctic Acid 25mg/5ml</a></div></div></div></div>
-<div class="product-card longevity" data-category="longevity" data-name="foxo4-dri 10mg"><div class="product-category">Longevity</div><span class="product-purity">≥98%</span><h3 class="product-name">FOXO4-DRI 10mg</h3><p class="product-dose">Senolytic Peptide | ≥98% Purity</p><p class="product-hook">The first peptide-based senolytic—disrupting the FOXO4-p53 interaction to trigger apoptosis in senescent cells.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-foxo4_dri_10mg')">View Details →</a><div class="product-detail" id="detail-foxo4_dri_10mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Senescent cell biology</span><span class="application-tag">FOXO4-p53 interaction</span><span class="application-tag">Senolytic mechanism research</span><span class="application-tag">Cellular aging models</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: D-retro-inverso peptide<br>CAS: 1639871-79-4<br>MW: ~5,040 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Epithalon 50mg</a> · <a href="#" class="cross-sell-link">NAD+ 1000mg</a> · <a href="#" class="cross-sell-link">SS-31 10mg</a></div></div></div></div>
-<div class="product-card longevity" data-category="longevity" data-name="epithalon 50mg"><div class="product-category">Longevity</div><span class="product-purity">≥98%</span><h3 class="product-name">Epithalon 50mg</h3><p class="product-dose">Telomerase Modulator | ≥98% Purity</p><p class="product-hook">A synthetic tetrapeptide mimicking the pineal gland's epithalamin—demonstrating telomerase activation and circadian regulation.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-epithalon_50mg')">View Details →</a><div class="product-detail" id="detail-epithalon_50mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Telomerase activity</span><span class="application-tag">Telomere biology</span><span class="application-tag">Circadian rhythm regulation</span><span class="application-tag">Cellular aging mechanisms</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C14H22N4O9<br>CAS: 307297-39-8<br>MW: 390.3 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">FOXO4-DRI 10mg</a> · <a href="#" class="cross-sell-link">Thymalin 10mg</a> · <a href="#" class="cross-sell-link">NAD+ 1000mg</a></div></div></div></div>
-<div class="product-card neuropeptides" data-category="neuropeptides" data-name="pe 22-28 10mg"><div class="product-category">Neuropeptides</div><span class="product-purity">≥98%</span><h3 class="product-name">PE 22-28 10mg</h3><p class="product-dose">Neuroprotective Heptapeptide | ≥98% Purity</p><p class="product-hook">A synthetic fragment of the sortilin propeptide—modulating TREK-1 potassium channels to influence neuroplasticity.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-pe_22_28_10mg')">View Details →</a><div class="product-detail" id="detail-pe_22_28_10mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">TREK-1 channel modulation</span><span class="application-tag">Neuroplasticity mechanisms</span><span class="application-tag">Neuroprotection studies</span><span class="application-tag">Synaptic plasticity research</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: Heptapeptide fragment<br>CAS: N/A<br>MW: N/A</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Semax 5mg</a> · <a href="#" class="cross-sell-link">Cerebrolysin 60mg</a> · <a href="#" class="cross-sell-link">Selank 10mg</a></div></div></div></div>
-<div class="product-card melanocortin" data-category="melanocortin" data-name="pt-141"><div class="product-category">Melanocortin</div><span class="product-purity">≥98%</span><h3 class="product-name">PT-141</h3><p class="product-dose">Melanocortin Receptor Agonist | ≥98% Purity</p><p class="product-hook">A cyclic heptapeptide with preferential activity at MC3R and MC4R—engineered for selective melanocortin receptor research.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-pt_141')">View Details →</a><div class="product-detail" id="detail-pt_141"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Melanocortin receptor subtype pharmacology</span><span class="application-tag">MC3R/MC4R signaling</span><span class="application-tag">Central melanocortin pathways</span><span class="application-tag">Receptor selectivity</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C50H68N14O10<br>CAS: 189691-06-3<br>MW: 1025.2 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">KPV 10mg</a> · <a href="#" class="cross-sell-link">Dermorphin 5mg</a> · <a href="#" class="cross-sell-link">Selank 10mg</a></div></div></div></div>
-<div class="product-card melanocortin" data-category="melanocortin" data-name="dermorphin 5mg"><div class="product-category">Melanocortin</div><span class="product-purity">≥98%</span><h3 class="product-name">Dermorphin 5mg</h3><p class="product-dose">Opioid Peptide | ≥98% Purity</p><p class="product-hook">A naturally occurring heptapeptide with extraordinary μ-opioid receptor selectivity and nanomolar affinity.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-dermorphin_5mg')">View Details →</a><div class="product-detail" id="detail-dermorphin_5mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">μ-opioid receptor pharmacology</span><span class="application-tag">Receptor subtype selectivity</span><span class="application-tag">Opioid receptor binding kinetics</span><span class="application-tag">D-amino acid peptide biology</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C40H50N8O10<br>CAS: 77614-16-5<br>MW: 802.9 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">PT-141</a> · <a href="#" class="cross-sell-link">KPV 10mg</a> · <a href="#" class="cross-sell-link">ARA-290 10mg</a></div></div></div></div>
-<div class="product-card cosmetic" data-category="cosmetic" data-name="botulinum toxin type a 100u"><div class="product-category">Cosmetic</div><span class="product-purity">≥98%</span><h3 class="product-name">Botulinum Toxin Type A 100u</h3><p class="product-dose">Neurotoxin Protein | Pharmaceutical Grade</p><p class="product-hook">The most potent biological toxin known—a 150 kDa metalloprotease cleaving SNAP-25 with absolute specificity.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-botulinum_toxin_type_a_100u')">View Details →</a><div class="product-detail" id="detail-botulinum_toxin_type_a_100u"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">SNARE protein biology</span><span class="application-tag">Synaptic vesicle fusion</span><span class="application-tag">Neuromuscular junction research</span><span class="application-tag">Acetylcholine release studies</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: Heavy chain (100 kDa) + Light chain (50 kDa)<br>CAS: 93384-43-1<br>MW: ~150 kDa</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, use immediately or store at 2-8°C for max 4 hours.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Botulinum Toxin 200u</a> · <a href="#" class="cross-sell-link">LL-37 5mg</a> · <a href="#" class="cross-sell-link">GHK-Cu 100mg</a></div></div></div></div>
-<div class="product-card cosmetic" data-category="cosmetic" data-name="botulinum toxin type a 200u"><div class="product-category">Cosmetic</div><span class="product-purity">≥98%</span><h3 class="product-name">Botulinum Toxin Type A 200u</h3><p class="product-dose">Neurotoxin Protein | Pharmaceutical Grade</p><p class="product-hook">Higher-dose neurotoxin for synaptic vesicle fusion research—cleaving SNAP-25 with absolute specificity.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-botulinum_toxin_type_a_200u')">View Details →</a><div class="product-detail" id="detail-botulinum_toxin_type_a_200u"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">SNARE protein biology</span><span class="application-tag">Synaptic vesicle fusion</span><span class="application-tag">Neuromuscular junction research</span><span class="application-tag">Exocytosis research</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: Heavy chain (100 kDa) + Light chain (50 kDa)<br>CAS: 93384-43-1<br>MW: ~150 kDa</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, use immediately or store at 2-8°C for max 4 hours.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">Botulinum Toxin 100u</a> · <a href="#" class="cross-sell-link">GHK-Cu 100mg</a> · <a href="#" class="cross-sell-link">Laennec Ampules</a></div></div></div></div>
-<div class="product-card advanced" data-category="advanced" data-name="ara-290 10mg"><div class="product-category">Advanced</div><span class="product-purity">≥98%</span><h3 class="product-name">ARA-290 10mg</h3><p class="product-dose">Innate Repair Receptor Agonist | ≥98% Purity</p><p class="product-hook">An 11-amino acid EPO fragment selectively activating the innate repair receptor—providing tissue protection without erythropoiesis.</p><a href="#" class="view-details" onclick="toggleDetail(event,'detail-ara_290_10mg')">View Details →</a><div class="product-detail" id="detail-ara_290_10mg"><div class="product-detail-section"><div class="product-detail-heading">Research Applications</div><div class="product-applications"><span class="application-tag">Innate repair receptor signaling</span><span class="application-tag">Tissue protection mechanisms</span><span class="application-tag">EPO receptor biology</span><span class="application-tag">Neuroprotection studies</span></div></div><div class="product-detail-section"><div class="product-detail-heading">Molecular Profile</div><div class="molecular-profile">Formula: C51H84N16O21<br>CAS: 1448671-31-5<br>MW: 1257.3 g/mol</div></div><div class="product-detail-section"><div class="product-detail-heading">Storage</div><p class="product-detail-text">Store lyophilized at -20°C. Upon reconstitution, maintain at 2-8°C and use within 30 days.</p></div><div class="product-detail-section"><div class="product-detail-heading">Researchers Also Explore</div><div class="cross-sells"><a href="#" class="cross-sell-link">BPC-157/TB-500 10mg/10mg</a> · <a href="#" class="cross-sell-link">KPV 10mg</a> · <a href="#" class="cross-sell-link">Cerebrolysin 60mg</a></div></div></div></div>
-
-        </div>
-
-        <div class="section-disclaimer">
-            For Research Use Only · Not for Human Consumption
-        </div>
-    </section>
-
-    <!-- ABOUT / TRUST SECTION -->
-    <section id="about" class="section trust-section">
-        <div class="section-header">
-            <h2 class="section-title">Why Researchers Choose PRC</h2>
-        </div>
-
-        <div class="trust-grid">
-            <div class="trust-item">
-                <div class="trust-icon">✓</div>
-                <h3 class="trust-title">Purity Guarantee</h3>
-                <p class="trust-text">Every compound meets or exceeds ≥98% purity standard, verified by third-party HPLC analysis. Rigorous quality control at every stage.</p>
-            </div>
-
-            <div class="trust-item">
-                <div class="trust-icon">$</div>
-                <h3 class="trust-title">Transparent Pricing</h3>
-                <p class="trust-text">No hidden fees, no membership requirements. Research-grade quality at fair, consistent pricing. Compare us to anyone—we stand by our value.</p>
-            </div>
-
-            <div class="trust-item">
-                <div class="trust-icon">⚗</div>
-                <h3 class="trust-title">Research-First Approach</h3>
-                <p class="trust-text">Curated selection based on peer-reviewed research. Comprehensive product documentation and molecular profiles to support your scientific work.</p>
-            </div>
-        </div>
-
-        <div class="section-disclaimer">
-            For Research Use Only · Not for Human Consumption · All compounds intended exclusively for in vitro research and laboratory applications
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="contact">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-brand">PRC</div>
-                    <p style="color: #64748B; font-size: 0.9rem;">Research-Grade Peptides<br>Uncompromising Purity</p>
-                </div>
-                <div>
-                    <h4 style="color: #FFFFFF; margin-bottom: 1rem;">Quick Links</h4>
-                    <div class="footer-links">
-                        <a href="#featured">Shop Peptides</a>
-                        <a href="#library">Research Library</a>
-                        <a href="#about">About PRC</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 style="color: #FFFFFF; margin-bottom: 1rem;">Resources</h4>
-                    <div class="footer-links">
-                        <a href="#">Price Comparison Tool</a>
-                        <a href="#">Reconstitution Calculator</a>
-                        <a href="#">Research Protocols</a>
-                        <a href="#">Quality Assurance</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 style="color: #FFFFFF; margin-bottom: 1rem;">Support</h4>
-                    <div class="footer-links">
-                        <a href="#">Contact Research Team</a>
-                        <a href="#">Shipping & Handling</a>
-                        <a href="#">Terms & Conditions</a>
-                        <a href="#">Privacy Policy</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p class="footer-disclaimer">FOR RESEARCH USE ONLY | NOT FOR HUMAN CONSUMPTION<br>
-                All compounds listed are intended exclusively for in vitro research, laboratory studies, and scientific investigation.</p>
-                <p class="footer-copyright">© 2026 PRC Labs LLC. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JAVASCRIPT (Pure ES5 for compatibility) -->
-    <script>
-function toggleDetail(e,id){e.preventDefault();var d=document.getElementById(id);if(d){if(d.className.indexOf("active")>-1){d.className=d.className.replace(" active","");}else{d.className+=" active";}}}
+<script>
 (function(){
-var pills=document.querySelectorAll(".filter-pill");
-for(var i=0;i<pills.length;i++){pills[i].onclick=function(){
-for(var j=0;j<pills.length;j++){pills[j].className=pills[j].className.replace(" active","");}
-this.className+=" active";
-var f=this.getAttribute("data-filter");
-var cards=document.getElementById("productGrid").querySelectorAll(".product-card");
-for(var k=0;k<cards.length;k++){cards[k].style.display=(f==="all"||cards[k].getAttribute("data-category")===f)?"":"none";}
-};}
+"use strict";
 var si=document.getElementById("searchInput");
-if(si){si.onkeyup=function(){var q=this.value.toLowerCase();var cards=document.getElementById("productGrid").querySelectorAll(".product-card");
-for(var i=0;i<cards.length;i++){var n=cards[i].getAttribute("data-name")||"";cards[i].style.display=n.indexOf(q)>-1?"":"none";}
-};}
+var grid=document.getElementById("productGrid");
+var cards=grid?grid.querySelectorAll(".grid-card"):[];
+var tabs=document.querySelectorAll(".filter-tab");
+var noRes=document.getElementById("noResults");
+var activeCat="all";
+
+function filterCards(){
+  var q=si?si.value.toLowerCase():"";
+  var visible=0;
+  for(var i=0;i<cards.length;i++){
+    var c=cards[i];
+    var matchCat=activeCat==="all"||c.getAttribute("data-cat")===activeCat;
+    var matchSearch=!q||c.getAttribute("data-name").indexOf(q)>-1;
+    if(matchCat&&matchSearch){c.classList.remove("hidden");visible++;}else{c.classList.add("hidden");}
+  }
+  if(noRes)noRes.style.display=visible===0?"block":"none";
+}
+
+if(si)si.addEventListener("input",filterCards);
+for(var t=0;t<tabs.length;t++){
+  tabs[t].addEventListener("click",function(){
+    for(var j=0;j<tabs.length;j++)tabs[j].classList.remove("active");
+    this.classList.add("active");
+    activeCat=this.getAttribute("data-cat");
+    filterCards();
+  });
+}
+var btt=document.getElementById("btt");
+if(btt){
+  window.addEventListener("scroll",function(){
+    if(window.pageYOffset>600)btt.classList.add("show");else btt.classList.remove("show");
+  });
+  btt.addEventListener("click",function(){window.scrollTo(0,0);});
+}
+function animateNum(el,end,suffix){
+  var start=0;var dur=1500;var st=null;
+  function step(ts){
+    if(!st)st=ts;var p=Math.min((ts-st)/dur,1);
+    var v=Math.floor(p*end);
+    el.textContent=v+(suffix||"");
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+var sp=document.getElementById("statProducts");
+var sc=document.getElementById("statCats");
+if(sp)animateNum(sp,44,"+");
+if(sc)animateNum(sc,10,"");
 })();
 </script>
 </body>
