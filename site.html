@@ -949,7 +949,7 @@ function switchTab(id) {
   if (radio) radio.checked = true;
   for (var i = 0; i < contentClasses.length; i++) {
     var el = document.querySelector("." + contentClasses[i]);
-    if (el) el.style.display = (contentClasses[i] === "content-" + id.replace("tab-","")) ? "block" : "none";
+    if (el) el.setAttribute("style", (contentClasses[i] === "content-" + id.replace("tab-","")) ? "display:block !important" : "display:none !important");
   }
   var labels = document.querySelectorAll(".tab-bar label");
   for (var j = 0; j < labels.length; j++) {
