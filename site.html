@@ -28,7 +28,7 @@ h1,h2,h3,h4,h5,h6,.header-title,.hero-title,.res-section h3,.modal-name,.calc-ti
 .hero{background:linear-gradient(170deg,#091636 0%,#0C1F4A 40%,#0E2250 70%,#12285A 100%);position:relative;overflow:hidden;padding:32px 20px 28px;text-align:center}
 .hero::before{content:'';position:absolute;top:0;right:0;width:100%;height:100%;background:radial-gradient(ellipse at 50% 0%,rgba(43,125,233,0.1) 0%,transparent 60%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,#2B7DE9,#06B6D4,#2B7DE9);pointer-events:none}
-.hero-logo{position:relative;z-index:1;margin:0 auto 16px}
+.hero-logo{position:relative;z-index:1;margin:0 auto 8px}
 .hero-logo img{border-radius:0;box-shadow:none;filter:drop-shadow(0 0 20px rgba(255,255,255,0.3))}
 .hero-title{position:relative;z-index:1;font-size:1.8rem;font-weight:900;letter-spacing:-0.5px;line-height:1.15;animation:fadeUp 0.8s ease-out;background:linear-gradient(135deg,#60A5FA,#A78BFA,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-auth{position:relative;z-index:1;font-size:0.72rem;color:#06B6D4;text-transform:uppercase;letter-spacing:4px;margin-top:8px;font-weight:600;animation:fadeUpDelay1 0.8s ease-out 0.2s backwards}
@@ -45,7 +45,7 @@ h1,h2,h3,h4,h5,h6,.header-title,.hero-title,.res-section h3,.modal-name,.calc-ti
 .hero-stats strong{font-size:0.85rem;font-weight:800;color:#fff}
 .hero-stats small{font-size:0.7rem;color:rgba(255,255,255,0.5);font-weight:500;text-transform:none;letter-spacing:0}
 .hero-research{position:relative;z-index:1;font-size:0.65rem;color:rgba(255,255,255,0.25);font-style:italic;margin-top:16px;letter-spacing:0.5px}
-@media(max-width:640px){.hero{padding:24px 16px 20px}.hero-title{font-size:1.6rem}.hero-logo img{width:200px!important}.hero-stats{gap:6px}.hero-stats span{padding:6px 14px}}
+@media(max-width:640px){.hero{padding:24px 16px 20px}.hero-title{font-size:1.6rem}.hero-logo img{height:160px!important;width:auto!important}.hero-stats{gap:6px}.hero-stats span{padding:6px 14px}}
 .trust-bar{background:#f8f9fa;padding:10px 20px;text-align:center;font-size:0.72rem;color:#64748b;font-weight:500;letter-spacing:0.3px;border-bottom:1px solid #e5e7eb}
 .tab-radio{display:none}
 .tab-bar{position:sticky;top:49px;z-index:150;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;justify-content:center;gap:0}
@@ -288,7 +288,7 @@ if (document.readyState === 'loading') {
 </header>
 
 <section class="hero">
-<div class="hero-logo"><img src="prc-logo-white.png" alt="PRC Logo" style="width:280px;height:auto"></div>
+<div class="hero-logo"><img src="prc-logo-white.png" alt="PRC Logo" style="width:auto;height:200px"></div>
 <div class="hero-title">PEPTIDE RESOURCE CENTER</div>
 <div class="hero-auth">The Peptide Authority</div>
 <div class="hero-line"></div>
