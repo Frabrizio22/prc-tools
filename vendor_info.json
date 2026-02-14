@@ -1,0 +1,170 @@
+{
+  "PRC": {
+    "url": "https://www.peptideresourcecenter.com/items-in-stock",
+    "coa": false,
+    "shipping": "US",
+    "promo": "",
+    "founded": ""
+  },
+  "Synagenics": {
+    "url": "https://synagenics.com",
+    "coa": true,
+    "shipping": "US",
+    "promo": "NAD+500 sale: was $69.99 now $47.99; Glow 70mg: was $85 now $55",
+    "founded": ""
+  },
+  "Penguin": {
+    "url": "https://penguinpeptides.com",
+    "coa": true,
+    "shipping": "US",
+    "promo": "30% OFF + FREE peptide per $150 with code NEWYEAR30",
+    "founded": ""
+  },
+  "BC9": {
+    "url": "https://bc9.co",
+    "coa": true,
+    "shipping": "US",
+    "promo": "Free Shipping for all orders over $150",
+    "founded": ""
+  },
+  "Authentic Aminos": {
+    "url": "https://authenticaminos.com",
+    "coa": true,
+    "shipping": "US",
+    "promo": "",
+    "founded": ""
+  },
+  "EZ": {
+    "url": "https://ezpeptides.com/ref/Kikiriki/",
+    "coa": true,
+    "shipping": "US",
+    "promo": "",
+    "founded": ""
+  },
+  "TruLab": {
+    "url": "https://trulabpeptides.com",
+    "coa": true,
+    "shipping": "US",
+    "promo": "90 Day Returns; 99%+ Purity",
+    "founded": ""
+  },
+  "Biolongevity Labs": {
+    "url": "https://biolongevitylabs.com/shop/",
+    "coa": true,
+    "shipping": "US",
+    "promo": "",
+    "founded": ""
+  },
+  "Orbitrex": {
+    "url": "https://orbitrexpeptide.is",
+    "coa": true,
+    "shipping": "US",
+    "promo": "Third Party Tested - Same Day Shipping",
+    "founded": ""
+  },
+  "EQNO": {
+    "url": "https://eqno.com",
+    "coa": false,
+    "shipping": "Unknown",
+    "promo": "",
+    "founded": ""
+  },
+  "Amean Peptides": {
+    "url": "https://ameanopeptides.com",
+    "coa": true,
+    "shipping": "US",
+    "promo": "Third-party lab tested, COAs available",
+    "founded": ""
+  },
+  "AMP": {
+    "url": "https://ameanopeptides.com",
+    "coa": true,
+    "shipping": "US",
+    "promo": "Third-party lab tested, COAs available",
+    "founded": ""
+  },
+  "Instant": {
+    "url": "https://instantpeptides.com",
+    "coa": true,
+    "shipping": "US",
+    "promo": "",
+    "founded": ""
+  },
+  "AIO": {
+    "url": "https://aiopeptides.com",
+    "coa": true,
+    "shipping": "US",
+    "promo": "",
+    "founded": ""
+  },
+  "Strate": {
+    "url": "https://stratelabs.is",
+    "coa": true,
+    "shipping": "International",
+    "promo": "",
+    "founded": ""
+  },
+  "Tydes": {
+    "url": "https://tydes.is",
+    "coa": true,
+    "shipping": "International",
+    "promo": "",
+    "founded": ""
+  },
+  "Elev8": {
+    "url": "https://peptidetherapy.shop/",
+    "coa": true,
+    "shipping": "US",
+    "promo": "99%+ Purity, Independently tested",
+    "founded": ""
+  },
+  "Biopeptide": {
+    "url": "https://biopeptitech.com",
+    "coa": true,
+    "shipping": "US",
+    "promo": "40% off sales on many items",
+    "founded": ""
+  },
+  "FelixChem": {
+    "url": "https://felixchem.is/refer/11167/",
+    "coa": false,
+    "shipping": "International",
+    "promo": "",
+    "founded": ""
+  },
+  "Royal": {
+    "url": "https://royal-peptides.com",
+    "coa": false,
+    "shipping": "Unknown",
+    "promo": "",
+    "founded": ""
+  },
+  "RetaOne": {
+    "url": "https://retaonelabs.com/ref/5cby8/",
+    "coa": true,
+    "shipping": "US",
+    "promo": "99%+ Purity, Full refund within 30 days if not satisfied",
+    "founded": ""
+  },
+  "Ignition": {
+    "url": "https://ignitionchems.com/?ref=jesekwwb",
+    "coa": true,
+    "shipping": "US",
+    "promo": "",
+    "founded": ""
+  },
+  "SportsTech": {
+    "url": "https://sportstechnologylabs.com",
+    "coa": true,
+    "shipping": "US",
+    "promo": "",
+    "founded": ""
+  },
+  "TCore": {
+    "url": "https://tcorebiotech.com",
+    "coa": true,
+    "shipping": "US",
+    "promo": "Free Shipping over $300 in US; Third-Party Tested",
+    "founded": ""
+  }
+}

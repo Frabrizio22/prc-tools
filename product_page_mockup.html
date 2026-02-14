@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BPC-157/TB-500 10mg/10mg | PRC Peptides</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#fff;color:#1a1a2e;line-height:1.5}
+
+/* Header */
+.top-bar{background:#0A1628;padding:8px 20px;text-align:center;font-size:11px;color:#06B6D4;letter-spacing:1.5px;text-transform:uppercase}
+.header{background:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee}
+.logo{font-size:15px;font-weight:700;color:#0A1628;letter-spacing:0.5px}
+.logo span{color:#2B7DE9}
+.nav-links{font-size:12px;color:#666}
+.nav-links a{color:#666;text-decoration:none;margin-left:16px}
+
+/* Breadcrumb */
+.breadcrumb{padding:10px 20px;font-size:12px;color:#999;background:#fafafa;border-bottom:1px solid #f0f0f0}
+.breadcrumb a{color:#2B7DE9;text-decoration:none}
+
+/* Hero */
+.hero{display:flex;flex-direction:column}
+@media(min-width:600px){.hero{flex-direction:row}}
+.hero-img{background:#0A1628;min-height:320px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+@media(min-width:600px){.hero-img{width:50%}}
+.hero-img::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(43,125,233,0.15) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%)}
+.vial-container{position:relative;z-index:1;text-align:center}
+.vial-svg{width:100px;height:200px}
+.hero-img .compound-name{color:#fff;font-size:28px;font-weight:300;letter-spacing:2px;margin-top:12px}
+.hero-img .compound-dose{color:#06B6D4;font-size:16px;letter-spacing:3px;font-weight:300}
+
+/* Product Info */
+.product-info{padding:24px 20px;flex:1}
+.pill-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.pill{font-size:10px;font-weight:600;padding:3px 10px;border-radius:3px;text-transform:uppercase;letter-spacing:0.8px}
+.pill-cat{background:#0A1628;color:#fff}
+.pill-purity{background:none;border:1px solid #16a34a;color:#16a34a}
+.pill-tested{background:none;border:1px solid #2B7DE9;color:#2B7DE9}
+.product-title{font-size:22px;font-weight:300;color:#1a1a2e;letter-spacing:0.5px;margin-bottom:4px}
+.product-subtitle{font-size:13px;color:#999;margin-bottom:20px}
+.price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.price-main{font-size:36px;font-weight:300;color:#1a1a2e}
+.price-compare{font-size:13px;color:#16a34a;font-weight:500}
+.price-note{font-size:11px;color:#bbb;margin-bottom:20px}
+.btn-cart{display:block;width:100%;background:#0A1628;color:#fff;border:none;padding:14px;font-size:14px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;margin-bottom:10px;transition:background 0.2s}
+.btn-cart:hover{background:#2B7DE9}
+.btn-secondary{display:block;width:100%;background:none;color:#0A1628;border:1px solid #ddd;padding:12px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;margin-bottom:20px}
+.trust-row{display:flex;justify-content:center;gap:20px;padding:12px 0;border-top:1px solid #f0f0f0;margin-bottom:0}
+.trust-item{text-align:center;font-size:10px;color:#999;text-transform:uppercase;letter-spacing:0.5px}
+.trust-item .ti-icon{font-size:18px;display:block;margin-bottom:2px}
+
+/* Content Sections */
+.content{max-width:800px;margin:0 auto;padding:0 20px}
+.divider{height:1px;background:#f0f0f0;margin:24px 0}
+.section-header{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:#999;margin-bottom:14px}
+.desc-text{font-size:14px;color:#555;line-height:1.8}
+
+/* Specs */
+.specs-table{width:100%;border-collapse:collapse}
+.specs-table tr{border-bottom:1px solid #f5f5f5}
+.specs-table td{padding:10px 0;font-size:13px}
+.specs-table td:first-child{color:#999;width:40%;font-weight:400}
+.specs-table td:last-child{color:#1a1a2e;font-weight:500;text-align:right}
+
+/* Research Tags */
+.tag-grid{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12px;color:#555;padding:6px 14px;border:1px solid #e5e5e5;border-radius:2px;background:#fafafa}
+
+/* Storage */
+.storage-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.storage-card{background:#fafafa;padding:14px;border-radius:4px}
+.storage-card .sc-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#999;margin-bottom:4px}
+.storage-card .sc-value{font-size:14px;color:#1a1a2e;font-weight:500}
+.storage-card .sc-note{font-size:11px;color:#999;margin-top:2px}
+
+/* Cross-sell */
+.explore-grid{display:flex;flex-direction:column;gap:0}
+.explore-row{display:flex;align-items:center;padding:14px 0;border-bottom:1px solid #f5f5f5;text-decoration:none;color:inherit}
+.explore-row:last-child{border-bottom:none}
+.er-icon{width:44px;height:44px;background:#0A1628;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#06B6D4;font-size:11px;font-weight:700;letter-spacing:0.5px;flex-shrink:0}
+.er-info{flex:1;margin-left:14px}
+.er-name{font-size:14px;font-weight:500;color:#1a1a2e}
+.er-reason{font-size:12px;color:#999}
+.er-price{font-size:15px;font-weight:500;color:#1a1a2e}
+
+/* COA */
+.coa-card{display:flex;align-items:center;gap:14px;padding:16px;background:#fafafa;border-radius:4px;border:1px solid #e5e5e5}
+.coa-icon{font-size:28px}
+.coa-text{font-size:13px;color:#555}
+.coa-text a{color:#2B7DE9;font-weight:500}
+
+/* Disclaimer */
+.disclaimer-bar{background:#fafafa;border-top:1px solid #eee;padding:16px 20px;text-align:center;font-size:11px;color:#999;margin-top:30px}
+
+/* Footer */
+.footer{background:#0A1628;color:#666;padding:30px 20px;text-align:center}
+.footer .f-brand{font-size:14px;color:#fff;font-weight:600;letter-spacing:1px;margin-bottom:6px}
+.footer .f-tagline{font-size:11px;color:#06B6D4;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.footer .f-links{font-size:12px;margin-bottom:16px}
+.footer .f-links a{color:#666;text-decoration:none;margin:0 10px}
+.footer .f-copy{font-size:10px;color:#444}
+</style>
+</head>
+<body>
+
+<div class="top-bar">Free shipping on orders over $200 &nbsp;•&nbsp; Third-party tested &nbsp;•&nbsp; COA with every order</div>
+
+<div class="header">
+  <div class="logo">PEPTIDE <span>RESOURCE CENTER</span></div>
+  <div class="nav-links">
+    <a href="#">Shop</a>
+    <a href="#">Compare</a>
+    <a href="#">About</a>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="#">Home</a> &nbsp;/&nbsp; <a href="#">Peptides</a> &nbsp;/&nbsp; <a href="#">Peptide Blends</a> &nbsp;/&nbsp; BPC-157/TB-500
+</div>
+
+<div class="hero">
+  <div class="hero-img">
+    <div class="vial-container">
+      <svg class="vial-svg" viewBox="0 0 80 180">
+        <defs>
+          <linearGradient id="vg" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:rgba(255,255,255,0.12)"/>
+            <stop offset="100%" style="stop-color:rgba(255,255,255,0.04)"/>
+          </linearGradient>
+        </defs>
+        <!-- Cap -->
+        <rect x="22" y="0" width="36" height="16" rx="3" fill="#06B6D4" opacity="0.7"/>
+        <rect x="26" y="14" width="28" height="6" rx="1" fill="rgba(255,255,255,0.2)"/>
+        <!-- Neck -->
+        <rect x="30" y="20" width="20" height="12" rx="2" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/>
+        <!-- Body -->
+        <rect x="14" y="32" width="52" height="130" rx="6" fill="url(#vg)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+        <!-- Label area -->
+        <rect x="20" y="60" width="40" height="50" rx="2" fill="rgba(43,125,233,0.15)"/>
+        <text x="40" y="78" text-anchor="middle" fill="#fff" font-size="7" font-weight="600" letter-spacing="1">BPC-157</text>
+        <text x="40" y="88" text-anchor="middle" fill="#06B6D4" font-size="6" letter-spacing="0.5">TB-500</text>
+        <text x="40" y="100" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="5">10mg / 10mg</text>
+        <!-- Liquid level -->
+        <rect x="16" y="120" width="48" height="40" rx="4" fill="rgba(6,182,212,0.08)"/>
+      </svg>
+      <div class="compound-name">BPC-157 / TB-500</div>
+      <div class="compound-dose">10mg / 10mg</div>
+    </div>
+  </div>
+
+  <div class="product-info">
+    <div class="pill-row">
+      <span class="pill pill-cat">Peptide Blend</span>
+      <span class="pill pill-purity">≥98% Pure</span>
+      <span class="pill pill-tested">Third-Party Tested</span>
+    </div>
+
+    <div class="product-title">BPC-157 / TB-500 Combination</div>
+    <div class="product-subtitle">Lyophilized Powder &nbsp;•&nbsp; 10mg + 10mg per vial</div>
+
+    <div class="price-row">
+      <span class="price-main">$40</span>
+      <span class="price-compare">Best price — save up to 40%</span>
+    </div>
+    <div class="price-note">Compare at $67+ from other vendors</div>
+
+    <button class="btn-cart">Add to Cart</button>
+    <button class="btn-secondary">View Certificate of Analysis</button>
+
+    <div class="trust-row">
+      <div class="trust-item"><span class="ti-icon">🔬</span>Lab Tested</div>
+      <div class="trust-item"><span class="ti-icon">📋</span>COA Included</div>
+      <div class="trust-item"><span class="ti-icon">🚚</span>Same-Day Ship</div>
+      <div class="trust-item"><span class="ti-icon">❄️</span>Cold Chain</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="divider"></div>
+  <div class="section-header">About This Compound</div>
+  <p class="desc-text">A synergistic combination of Body Protection Compound-157, a pentadecapeptide partial sequence, and Thymosin Beta-4 fragment (TB-500). BPC-157 demonstrates cytoprotective properties in gastric mucosa research, while TB-500 promotes actin polymerization and cell migration in experimental models. This combination enables investigation of complementary regenerative mechanisms.</p>
+
+  <div class="divider"></div>
+  <div class="section-header">Research Applications</div>
+  <div class="tag-grid">
+    <span class="tag">Wound Healing Models</span>
+    <span class="tag">Angiogenesis Research</span>
+    <span class="tag">Cytoprotection Studies</span>
+    <span class="tag">Collagen Formation</span>
+    <span class="tag">Anti-Inflammatory Pathways</span>
+    <span class="tag">Cell Migration Assays</span>
+    <span class="tag">Gastric Mucosa Research</span>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-header">Specifications</div>
+  <table class="specs-table">
+    <tr><td>Molecular Formula (BPC-157)</td><td>C₆₂H₉₈N₁₆O₂₂</td></tr>
+    <tr><td>CAS Number</td><td>137525-51-0</td></tr>
+    <tr><td>Molecular Weight</td><td>1419.5 g/mol</td></tr>
+    <tr><td>Purity</td><td>≥98% (HPLC verified)</td></tr>
+    <tr><td>Form</td><td>Lyophilized Powder</td></tr>
+    <tr><td>Quantity</td><td>10mg BPC-157 + 10mg TB-500</td></tr>
+    <tr><td>Appearance</td><td>White to off-white powder</td></tr>
+    <tr><td>Solubility</td><td>Bacteriostatic water, sterile water</td></tr>
+  </table>
+
+  <div style="margin-top:14px">
+    <div class="coa-card">
+      <span class="coa-icon">📋</span>
+      <div class="coa-text">Certificate of Analysis available for current batch.<br><a href="#">Download COA (PDF)</a> &nbsp;•&nbsp; Batch #PRC-BT-20260201</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-header">Storage & Handling</div>
+  <div class="storage-grid">
+    <div class="storage-card">
+      <div class="sc-label">Before Reconstitution</div>
+      <div class="sc-value">-20°C or below</div>
+      <div class="sc-note">Lyophilized, sealed vial</div>
+    </div>
+    <div class="storage-card">
+      <div class="sc-label">After Reconstitution</div>
+      <div class="sc-value">2–8°C</div>
+      <div class="sc-note">Use within 30 days</div>
+    </div>
+    <div class="storage-card">
+      <div class="sc-label">Reconstitution</div>
+      <div class="sc-value">Bacteriostatic Water</div>
+      <div class="sc-note">Sterile water also accepted</div>
+    </div>
+    <div class="storage-card">
+      <div class="sc-label">Handling</div>
+      <div class="sc-value">Avoid freeze-thaw</div>
+      <div class="sc-note">Single reconstitution preferred</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-header">Researchers Also Explore</div>
+  <div class="explore-grid">
+    <a href="#" class="explore-row">
+      <div class="er-icon">GHK</div>
+      <div class="er-info">
+        <div class="er-name">GHK-Cu 100mg</div>
+        <div class="er-reason">Copper peptide complex — collagen synthesis research</div>
+      </div>
+      <div class="er-price">$31</div>
+    </a>
+    <a href="#" class="explore-row">
+      <div class="er-icon">KPV</div>
+      <div class="er-info">
+        <div class="er-name">KPV 10mg</div>
+        <div class="er-reason">Anti-inflammatory tripeptide — NF-κB pathway</div>
+      </div>
+      <div class="er-price">$36</div>
+    </a>
+    <a href="#" class="explore-row">
+      <div class="er-icon">LL37</div>
+      <div class="er-info">
+        <div class="er-name">LL-37 5mg</div>
+        <div class="er-reason">Cathelicidin antimicrobial peptide</div>
+      </div>
+      <div class="er-price">$29</div>
+    </a>
+  </div>
+</div>
+
+<div class="disclaimer-bar">
+  ⚠️ For research use only. Not for human consumption. No medical claims made or implied. Products not evaluated by any regulatory agency. Purchasers assume responsibility for compliance with applicable regulations.
+</div>
+
+<div class="footer">
+  <div class="f-brand">PEPTIDE RESOURCE CENTER</div>
+  <div class="f-tagline">Research-Grade Peptides · Since 2024</div>
+  <div class="f-links">
+    <a href="#">Shop All</a>
+    <a href="#">Price Comparison</a>
+    <a href="#">COA Library</a>
+    <a href="#">Legal</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="f-copy">© 2026 Peptide Resource Center. All rights reserved. All products intended for research use only.</div>
+</div>
+
+</body>
+</html>

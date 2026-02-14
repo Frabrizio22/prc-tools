@@ -1,0 +1,170 @@
+{
+  "scrapeDate": "2026-02-13",
+  "method": "web_fetch",
+  "overallStatus": "partial_success",
+  "notes": "Many vendors use JavaScript-dependent catalogs, age gates, or login requirements that block simple HTTP scraping. Browser automation would be needed for complete coverage.",
+  "vendors": {
+    "PRC": {
+      "status": "partial",
+      "productsFound": 24,
+      "url": "https://www.peptideresourcecenter.com/items-in-stock",
+      "notes": "Successfully retrieved product list, but page appears truncated"
+    },
+    "AIO": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://aiopeptides.com",
+      "error": "Product pages return 404, shop page shows only sale banner",
+      "notes": "Site is live but product catalog not accessible via standard URLs"
+    },
+    "AMP": {
+      "status": "alive",
+      "productsFound": 49,
+      "url": "https://ameanopeptides.com/shop",
+      "notes": "Successfully retrieved full product catalog with prices"
+    },
+    "Authentic Aminos": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://authenticaminos.com",
+      "error": "All product URLs return 404, only disclaimer visible",
+      "notes": "Site structure prevents catalog access"
+    },
+    "BC9": {
+      "status": "partial",
+      "productsFound": 293,
+      "url": "https://bc9.co/shop",
+      "notes": "Found 293 products across 19 pages but prices shown as ranges - need individual product page scraping. Mix of peptides, nootropics, and other compounds."
+    },
+    "Biolongevity Labs": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://biolongevitylabs.com",
+      "error": "All URLs return disclaimers or 404s",
+      "notes": "Product catalog not accessible via web_fetch"
+    },
+    "Biopeptide": {
+      "status": "partial",
+      "productsFound": 10,
+      "url": "https://biopeptitech.com/shop",
+      "notes": "Retrieved first page of products with discounted prices visible"
+    },
+    "EQNO": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://eqno.com",
+      "error": "Only disclaimer pages visible",
+      "notes": "Product catalog blocked or requires JavaScript"
+    },
+    "EZ": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://ezpeptides.com/shop",
+      "error": "Only company description visible, no products",
+      "notes": "Catalog may require account/login"
+    },
+    "Elev8": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://peptidetherapy.shop",
+      "error": "Only marketing copy visible, no product listings",
+      "notes": "Products likely behind JavaScript or gated access"
+    },
+    "FelixChem": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://felixchem.is",
+      "error": "Age gate / terms acceptance required",
+      "notes": "Site redirects to gated landing page"
+    },
+    "Ignition": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://ignitionchems.com/shop",
+      "error": "Only disclaimer visible",
+      "notes": "Products not accessible"
+    },
+    "Instant": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://instantpeptides.com/shop",
+      "error": "Research access page only",
+      "notes": "May require login or verification"
+    },
+    "Orbitrex": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://orbitrexpeptide.is/shop",
+      "error": "Only disclaimer visible",
+      "notes": "Products not accessible via web_fetch"
+    },
+    "Penguin": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://penguinpeptides.com/shop",
+      "error": "Only disclaimer visible",
+      "notes": "Product catalog blocked"
+    },
+    "RetaOne": {
+      "status": "alive",
+      "productsFound": 21,
+      "url": "https://retaonelabs.com/shop",
+      "notes": "Successfully retrieved all 21 products across 2 pages with complete pricing"
+    },
+    "Royal": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://royal-peptides.com/shop",
+      "error": "Age/qualification gate blocking access",
+      "notes": "Requires user agreement before viewing products"
+    },
+    "SportsTech": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://sportstechnologylabs.com/shop",
+      "error": "Only disclaimer visible",
+      "notes": "Product catalog not accessible"
+    },
+    "Strate": {
+      "status": "partial",
+      "productsFound": 11,
+      "url": "https://stratelabs.is/shop",
+      "notes": "Retrieved first page showing price ranges, appears to have more products via pagination"
+    },
+    "Synagenics": {
+      "status": "partial",
+      "productsFound": 4,
+      "url": "https://synagenics.com/shop",
+      "notes": "Retrieved partial product list with price ranges"
+    },
+    "TCore": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://tcorebiotech.com/shop",
+      "error": "Only navigation and disclaimer visible",
+      "notes": "Products not visible in scraped content"
+    },
+    "TruLab": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://trulabpeptides.com/shop",
+      "error": "Only disclaimer visible",
+      "notes": "Product catalog blocked"
+    },
+    "Tydes": {
+      "status": "dead",
+      "productsFound": 0,
+      "url": "https://tydes.is/shop",
+      "error": "Redirects to login page",
+      "notes": "Requires account to view products"
+    }
+  },
+  "summary": {
+    "totalVendors": 23,
+    "accessible": 3,
+    "partial": 5,
+    "inaccessible": 15,
+    "totalProductsExtracted": 412,
+    "recommendedApproach": "Use Playwright/Puppeteer browser automation to bypass age gates and JavaScript-rendered catalogs"
+  }
+}

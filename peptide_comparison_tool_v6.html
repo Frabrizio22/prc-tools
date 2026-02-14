@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peptide Price Comparison — Peptide Resource Center</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  background: #0A1628;
+  color: #E2E8F0;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+  border-bottom: 1px solid rgba(43,125,233,0.2);
+}
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+.header .subtitle {
+  font-size: 0.8rem;
+  color: #2B7DE9;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* STATS BAR */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(43,125,233,0.1);
+  border-bottom: 1px solid rgba(43,125,233,0.2);
+}
+.stat {
+  text-align: center;
+  padding: 1rem 0.5rem;
+  background: #0A1628;
+}
+.stat .num {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2B7DE9;
+}
+.stat .lbl {
+  font-size: 0.6rem;
+  color: #8E99A4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* SPOTLIGHT */
+.spotlight {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid rgba(43,125,233,0.2);
+}
+.spotlight h2 {
+  font-size: 0.7rem;
+  color: #8E99A4;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.75rem;
+}
+.spotlight-cards {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
+}
+.spot-card {
+  flex: 0 0 auto;
+  min-width: 220px;
+  background: rgba(43,125,233,0.08);
+  border: 1px solid rgba(43,125,233,0.15);
+  border-radius: 8px;
+  padding: 1rem;
+}
+.spot-card .spot-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+.spot-card .spot-detail {
+  font-size: 0.8rem;
+  color: #8E99A4;
+}
+.spot-card .spot-save {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #10B981;
+  background: rgba(16,185,129,0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* FILTERS */
+.filters {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(43,125,233,0.2);
+}
+.filters input,
+.filters select {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(43,125,233,0.3);
+  background: #1E293B;
+  color: #E2E8F0;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.filters input { flex: 1; min-width: 140px; }
+.filters select { min-width: 120px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238E99A4'%3E%3Cpath d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px; }
+.filters input:focus, .filters select:focus { border-color: #2B7DE9; }
+.toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: #8E99A4;
+  white-space: nowrap;
+}
+.toggle-wrap input[type="checkbox"] {
+  width: 16px; height: 16px;
+  accent-color: #2B7DE9;
+}
+.result-count {
+  width: 100%;
+  font-size: 0.75rem;
+  color: #8E99A4;
+  margin-top: 0.25rem;
+}
+
+/* TABLE */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  min-width: 600px;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  background: #1E293B;
+  color: #8E99A4;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.75rem 0.6rem;
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  white-space: nowrap;
+  border-bottom: 2px solid rgba(43,125,233,0.3);
+}
+thead th:hover { color: #2B7DE9; }
+thead th.sorted-asc::after { content: ' ▲'; color: #2B7DE9; }
+thead th.sorted-desc::after { content: ' ▼'; color: #2B7DE9; }
+tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+tbody tr:hover { background: rgba(43,125,233,0.05); }
+tbody td {
+  padding: 0.6rem;
+  vertical-align: middle;
+}
+.prc-row { background: rgba(43,125,233,0.06); }
+.prc-row td:first-child { border-left: 3px solid #2B7DE9; }
+.vendor-name { font-weight: 500; }
+.vendor-prc { color: #2B7DE9; font-weight: 700; }
+.price { font-weight: 600; font-variant-numeric: tabular-nums; }
+.best-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #10B981;
+  background: rgba(16,185,129,0.1);
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.code-btn {
+  font-size: 0.7rem;
+  color: #06B6D4;
+  background: rgba(6,182,212,0.1);
+  border: none;
+  padding: 2px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: 'SF Mono', 'Menlo', monospace;
+}
+.code-btn:active { background: rgba(6,182,212,0.25); }
+.no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #8E99A4;
+}
+
+/* VENDOR DIRECTORY */
+.vendor-dir {
+  padding: 1.5rem 1rem;
+  border-top: 1px solid rgba(43,125,233,0.2);
+}
+.vendor-dir h2 {
+  font-size: 0.7rem;
+  color: #8E99A4;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+.vendor-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.5rem;
+}
+.v-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+.v-card.prc-card { border-color: rgba(43,125,233,0.3); }
+.v-card .v-name { font-weight: 600; font-size: 0.85rem; color: #fff; }
+.v-card .v-status { font-size: 0.7rem; margin-top: 2px; }
+.v-card .v-status.active { color: #10B981; }
+.v-card .v-status.soon { color: #F59E0B; }
+.v-card .v-link { font-size: 0.7rem; color: #2B7DE9; text-decoration: none; display: block; margin-top: 4px; }
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid rgba(43,125,233,0.2);
+  font-size: 0.7rem;
+  color: #8E99A4;
+}
+.footer .verified {
+  display: inline-block;
+  background: rgba(16,185,129,0.1);
+  color: #10B981;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+.footer p { margin-top: 0.5rem; }
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .header h1 { font-size: 1.25rem; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat .num { font-size: 1.2rem; }
+  .filters { flex-direction: column; }
+  .filters input, .filters select { width: 100%; }
+  table { font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Peptide Price Comparison</h1>
+  <div class="subtitle">By Peptide Resource Center</div>
+</div>
+
+<div class="stats" id="stats"></div>
+
+<div class="spotlight">
+  <h2>Top PRC Savings</h2>
+  <div class="spotlight-cards" id="spotlight"></div>
+</div>
+
+<div class="filters">
+  <input type="text" id="search" placeholder="Search peptides...">
+  <select id="vendorFilter"><option value="">All Vendors</option></select>
+  <div class="toggle-wrap">
+    <input type="checkbox" id="prcOnly">
+    <label for="prcOnly">PRC Only</label>
+  </div>
+  <div class="result-count" id="resultCount"></div>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th data-col="peptide">Peptide</th>
+        <th data-col="strength">Strength</th>
+        <th data-col="vendor">Vendor</th>
+        <th data-col="price">Price</th>
+        <th data-col="pricePerMg">$/mg</th>
+        <th data-col="discountCode">Code</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<div class="vendor-dir">
+  <h2>Vendor Directory</h2>
+  <div class="vendor-list" id="vendorList"></div>
+</div>
+
+<div class="footer">
+  <div class="verified">✓ Prices verified February 13, 2026</div>
+  <p>Peptide Resource Center — The Peptide Authority</p>
+  <p>All products are for research purposes only. Not for human consumption.</p>
+</div>
+
+<script>
+var peptideData = [{"peptide":"Botulinum Toxin","strength":"200u","price":"170.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":""},{"peptide":"Cerebrolysin","strength":"60mg","price":"23.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"0.38"},{"peptide":"Dermorphin","strength":"5mg","price":"22.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"4.40"},{"peptide":"Laennec Ampules","strength":"1 unit","price":"425.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":""},{"peptide":"Lemon Bottle","strength":"1 unit","price":"65.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":""},{"peptide":"Lipo C Fat Blaster","strength":"20ml","price":"42.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":""},{"peptide":"LL-37","strength":"5mg","price":"29.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"5.80"},{"peptide":"MOTS-C","strength":"10mg","price":"28.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"2.80"},{"peptide":"NAD+","strength":"500mg","price":"30.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"0.06"},{"peptide":"NAD+","strength":"1000mg","price":"30.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"0.03"},{"peptide":"PE 22-28","strength":"10mg","price":"30.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"3.00"},{"peptide":"Pine Bottle","strength":"1 unit","price":"49.50","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":""},{"peptide":"PT-141","strength":"1 unit","price":"36.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":""},{"peptide":"R (GLP3)","strength":"20mg","price":"55.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"2.75"},{"peptide":"S (GLP1)","strength":"1 unit","price":"30.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":""},{"peptide":"Selank","strength":"5mg","price":"36.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"7.20"},{"peptide":"Selank","strength":"10mg","price":"36.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"3.60"},{"peptide":"Semax","strength":"5mg","price":"31.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"6.20"},{"peptide":"Sermorelin","strength":"5mg","price":"38.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"7.60"},{"peptide":"Sleep Blend","strength":"20ml","price":"42.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":""},{"peptide":"Super Human Blend","strength":"20ml","price":"42.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":""},{"peptide":"SZ-31","strength":"10mg","price":"55.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"5.50"},{"peptide":"T (GLP2)","strength":"20mg","price":"44.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"2.20"},{"peptide":"T (GLP2)","strength":"30mg","price":"46.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"1.53"},{"peptide":"Thioctic Acid (ALA)","strength":"25mg/5ml","price":"75.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"3.00"},{"peptide":"Thymalin","strength":"10mg","price":"37.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"3.70"},{"peptide":"Vitamin C","strength":"10mg/20ml","price":"75.00","vendor":"PRC","discountCode":"","prcProduct":"Yes","pricePerMg":"7.50"},{"peptide":"Cagrilintide","strength":"5mg","price":"40.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"8.00"},{"peptide":"GHK - CU","strength":"100mg","price":"32.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.32"},{"peptide":"GLOW","strength":"70mg","price":"55.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.79"},{"peptide":"Glutathione","strength":"1500mg","price":"40.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.03"},{"peptide":"KPV","strength":"10mg","price":"32.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"3.20"},{"peptide":"Lipo B (L-Carnitine, L-Arginine, Methione, Inositol, Choline, B6, B5))","strength":"10ml","price":"55.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":""},{"peptide":"NAD+","strength":"500mg","price":"47.99","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.10"},{"peptide":"R (GLP3)","strength":"20mg","price":"63.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"3.15"},{"peptide":"Semax","strength":"5mg","price":"25.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"5.00"},{"peptide":"Survodutide","strength":"10mg","price":"55.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"5.50"},{"peptide":"SZ-31","strength":"10mg","price":"42.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"4.20"},{"peptide":"T (GLP2)","strength":"20mg","price":"60.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"3.00"},{"peptide":"T (GLP2)","strength":"40mg","price":"110.00","vendor":"Synagenics","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.75"},{"peptide":"BPC-157","strength":"5mg","price":"42.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"8.40"},{"peptide":"BPC-157","strength":"10mg","price":"62.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.20"},{"peptide":"Cagri/Sema","strength":"5mg/5mg","price":"102.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"20.40"},{"peptide":"Glutathione","strength":"600mg","price":"47.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.08"},{"peptide":"HGH 191","strength":"15iu","price":"54.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":""},{"peptide":"HGH 191","strength":"36iu","price":"107.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":""},{"peptide":"Kisspeptin","strength":"5mg","price":"52.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"10.40"},{"peptide":"L-Carnitine","strength":"600mg/ml","price":"45.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.07"},{"peptide":"Lipo C  (Methione, Choline, Carnitine, Dexpanrhenol)","strength":"10ml","price":"55.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":""},{"peptide":"MOTS-C","strength":"10mg","price":"65.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.50"},{"peptide":"NAD+","strength":"500mg","price":"30.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.06"},{"peptide":"NAD+","strength":"1000mg","price":"65.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.07"},{"peptide":"Oxytocin","strength":"2mg","price":"42.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"21.00"},{"peptide":"Sermorelin","strength":"10mg","price":"67.00","vendor":"Penguin","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.70"},{"peptide":"AOD 9604","strength":"10mg","price":"103.48","vendor":"BC9","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"10.35"},{"peptide":"Ara 290","strength":"16mg","price":"103.48","vendor":"BC9","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.47"},{"peptide":"BPC-157","strength":"5mg","price":"68.49","vendor":"BC9","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"13.70"},{"peptide":"BPC-157","strength":"10mg","price":"114.70","vendor":"BC9","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"11.47"},{"peptide":"PT-141","strength":"10mg","price":"63.07","vendor":"BC9","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.31"},{"peptide":"Semax","strength":"5mg","price":"59.44","vendor":"BC9","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"11.89"},{"peptide":"TB-500","strength":"5mg","price":"48.16","vendor":"BC9","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"9.63"},{"peptide":"TB-500","strength":"10mg","price":"89.29","vendor":"BC9","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"8.93"},{"peptide":"5 Amino 1mq","strength":"50mg","price":"68.00","vendor":"Authentic Aminos","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"1.36"},{"peptide":"Cerebrolysin","strength":"60mg","price":"39.00","vendor":"Authentic Aminos","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.65"},{"peptide":"CJC 1295 no DAC","strength":"2mg","price":"24.00","vendor":"Authentic Aminos","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"12.00"},{"peptide":"SZ-31","strength":"50mg","price":"178.00","vendor":"Authentic Aminos","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"3.56"},{"peptide":"VIP","strength":"5mg","price":"48.00","vendor":"Authentic Aminos","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"9.60"},{"peptide":"Cagri/Reta","strength":"12.5mg/2.5mg","price":"120.00","vendor":"EZ","discountCode":"","prcProduct":"No","pricePerMg":"9.60"},{"peptide":"Ipamorelin","strength":"10mg","price":"40.00","vendor":"EZ","discountCode":"","prcProduct":"No","pricePerMg":"4.00"},{"peptide":"Lipo C with B12","strength":"20ml","price":"60.00","vendor":"EZ","discountCode":"","prcProduct":"No","pricePerMg":""},{"peptide":"R (GLP3)","strength":"6mg","price":"45.00","vendor":"EZ","discountCode":"","prcProduct":"No","pricePerMg":"7.50"},{"peptide":"R (GLP3)","strength":"12mg","price":"80.00","vendor":"EZ","discountCode":"","prcProduct":"No","pricePerMg":"6.67"},{"peptide":"R (GLP3)","strength":"24mg","price":"150.00","vendor":"EZ","discountCode":"","prcProduct":"No","pricePerMg":"6.25"},{"peptide":"R (GLP3)","strength":"48mg","price":"265.00","vendor":"EZ","discountCode":"","prcProduct":"No","pricePerMg":"5.52"},{"peptide":"S (GLP1)","strength":"5mg","price":"40.00","vendor":"EZ","discountCode":"","prcProduct":"No","pricePerMg":"8.00"},{"peptide":"T (GLP2)","strength":"15mg","price":"80.00","vendor":"EZ","discountCode":"","prcProduct":"No","pricePerMg":"5.33"},{"peptide":"T (GLP2)","strength":"60mg","price":"145.00","vendor":"EZ","discountCode":"","prcProduct":"No","pricePerMg":"2.42"},{"peptide":"Tesamorelin/Ipamorelin","strength":"10mg/3mg","price":"105.00","vendor":"EZ","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"10.50"},{"peptide":"BPC157/TB500","strength":"10mg/10mg","price":"51.00","vendor":"TruLab","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"5.10"},{"peptide":"R (GLP3)","strength":"5mg","price":"39.00","vendor":"TruLab","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"7.80"},{"peptide":"R (GLP3)","strength":"15mg","price":"102.00","vendor":"TruLab","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.80"},{"peptide":"T (GLP2)","strength":"5mg","price":"55.00","vendor":"TruLab","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"11.00"},{"peptide":"Ara 290","strength":"15mg","price":"66.50","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"4.43"},{"peptide":"Bronchogen","strength":"20mg","price":"48.98","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.45"},{"peptide":"Cardiogen","strength":"20mg","price":"48.98","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.45"},{"peptide":"Cortagen","strength":"20mg","price":"48.98","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.45"},{"peptide":"Follistatin","strength":"10mg","price":"559.30","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"55.93"},{"peptide":"KLOTHO","strength":"10mcg","price":"559.30","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"55930.00"},{"peptide":"Ovagen","strength":"20mg","price":"79.97","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"4.00"},{"peptide":"Oxytocin","strength":"10mg","price":"45.48","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"4.55"},{"peptide":"Pancragen","strength":"20mg","price":"94.97","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"4.75"},{"peptide":"PEG-MGF","strength":"5mg","price":"94.97","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"18.99"},{"peptide":"PNC 27","strength":"10mg","price":"279.97","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"28.00"},{"peptide":"Prostamax","strength":"20mg","price":"79.97","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"4.00"},{"peptide":"Tesamorelin/Ipamorelin","strength":"6mg/2mg","price":"80.50","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"13.42"},{"peptide":"Testagen","strength":"20mg","price":"55.08","vendor":"Biolongevity Labs","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.75"},{"peptide":"Pinealon","strength":"10mg","price":"34.99","vendor":"Orbitrex","discountCode":"Kikiriki10","prcProduct":"No","pricePerMg":"3.50"},{"peptide":"S (GLP1)","strength":"20mg","price":"119.99","vendor":"Orbitrex","discountCode":"Kikiriki10","prcProduct":"No","pricePerMg":"6.00"},{"peptide":"Selank","strength":"30mg","price":"69.99","vendor":"Orbitrex","discountCode":"Kikiriki10","prcProduct":"No","pricePerMg":"2.33"},{"peptide":"Semax","strength":"10mg","price":"29.99","vendor":"Orbitrex","discountCode":"Kikiriki10","prcProduct":"No","pricePerMg":"3.00"},{"peptide":"Semax","strength":"30mg","price":"69.99","vendor":"Orbitrex","discountCode":"Kikiriki10","prcProduct":"No","pricePerMg":"2.33"},{"peptide":"SLUPP 322","strength":"5mg","price":"49.99","vendor":"Orbitrex","discountCode":"Kikiriki10","prcProduct":"No","pricePerMg":"10.00"},{"peptide":"T (GLP2)","strength":"10mg","price":"49.99","vendor":"Orbitrex","discountCode":"Kikiriki10","prcProduct":"No","pricePerMg":"5.00"},{"peptide":"NAD+","strength":"1000mg","price":"99.00","vendor":"EQNO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.10"},{"peptide":"NAD+","strength":"250mg","price":"35.00","vendor":"Amean Peptides","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.14"},{"peptide":"5 Amino 1mq","strength":"10mg","price":"50.00","vendor":"Instant","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"5.00"},{"peptide":"Cagrilintide","strength":"10mg","price":"90.00","vendor":"Instant","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"9.00"},{"peptide":"MOTS-C","strength":"40mg","price":"115.00","vendor":"Instant","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.88"},{"peptide":"Snap 8","strength":"20mg","price":"40.00","vendor":"Instant","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.00"},{"peptide":"VIP","strength":"10mg","price":"60.00","vendor":"Instant","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.00"},{"peptide":"Ara 290","strength":"10mg","price":"35.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"3.50"},{"peptide":"BPC157/TB500","strength":"5mg/5mg","price":"44.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"8.80"},{"peptide":"Cartalax","strength":"20mg","price":"52.00","vendor":"AIO","discountCode":"","prcProduct":"No","pricePerMg":"2.60"},{"peptide":"CJC 1295 no DAC / Ipamorelin","strength":"5mg/5mg","price":"34.40","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.88"},{"peptide":"DSIP","strength":"5mg","price":"24.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"4.80"},{"peptide":"Epithalon","strength":"10mg","price":"25.60","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.56"},{"peptide":"FOX 04 DRI","strength":"10mg","price":"140.00","vendor":"AIO","discountCode":"","prcProduct":"No","pricePerMg":"14.00"},{"peptide":"Glutathione","strength":"1200mg","price":"56.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.05"},{"peptide":"IGF-1 LR3","strength":"1mg","price":"46.40","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"46.40"},{"peptide":"Ipamorelin","strength":"5mg","price":"24.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"4.80"},{"peptide":"Kisspeptin","strength":"10mg","price":"35.20","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"3.52"},{"peptide":"L-Carnitine","strength":"500mg/20ml","price":"51.20","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.10"},{"peptide":"Lipo C  (Methione, Choline, Carnitine, Dexpanrhenol)","strength":"20ml","price":"67.20","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":""},{"peptide":"Lipo C Fat Blaster","strength":"20ml","price":"112.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":""},{"peptide":"LL-37","strength":"5mg","price":"36.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"7.20"},{"peptide":"Melanotan 1","strength":"10mg","price":"24.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.40"},{"peptide":"MOTS-C","strength":"10mg","price":"34.40","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"3.44"},{"peptide":"PEG-MGF","strength":"2mg","price":"36.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"18.00"},{"peptide":"S (GLP1)","strength":"10mg","price":"52.10","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"5.21"},{"peptide":"Sermorelin","strength":"5mg","price":"32.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.40"},{"peptide":"Snap 8","strength":"10mg","price":"28.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.80"},{"peptide":"Tesamorelin","strength":"20mg","price":"105.60","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"5.28"},{"peptide":"Thymosin Alpha","strength":"15mg","price":"44.00","vendor":"AIO","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.93"},{"peptide":"B12","strength":"10ml","price":"24.95","vendor":"Strate","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":""},{"peptide":"DSIP","strength":"10mg","price":"49.95","vendor":"Strate","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"5.00"},{"peptide":"L-Carnitine","strength":"500mg/10ml","price":"24.99","vendor":"Strate","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.05"},{"peptide":"L-Carnitine","strength":"500mg/30ml","price":"59.99","vendor":"Strate","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.12"},{"peptide":"L-Carnitine","strength":"500mg/50ml","price":"99.99","vendor":"Strate","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.20"},{"peptide":"PE 22-28","strength":"10mg","price":"49.95","vendor":"Strate","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"5.00"},{"peptide":"Adamax","strength":"10mg","price":"65.00","vendor":"Tydes","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.50"},{"peptide":"Hexarelin","strength":"6mg","price":"45.00","vendor":"Tydes","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"7.50"},{"peptide":"P-21","strength":"10mg","price":"75.00","vendor":"Tydes","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"7.50"},{"peptide":"Pinealon","strength":"20mg","price":"70.00","vendor":"Tydes","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"3.50"},{"peptide":"GHRP-6","strength":"5mg","price":"18.99","vendor":"Elev8","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"3.80"},{"peptide":"Selank","strength":"5mg","price":"24.99","vendor":"Elev8","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"5.00"},{"peptide":"Tesamorelin","strength":"5mg","price":"24.99","vendor":"Elev8","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"5.00"},{"peptide":"AOD 9604","strength":"5mg","price":"33.00","vendor":"Biopeptide","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.60"},{"peptide":"BPC 157","strength":"5mg","price":"29.00","vendor":"Biopeptide","discountCode":"","prcProduct":"No","pricePerMg":"5.80"},{"peptide":"CJC 1295 no DAC","strength":"5mg","price":"30.00","vendor":"Biopeptide","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.00"},{"peptide":"DSIP","strength":"15mg","price":"89.99","vendor":"Biopeptide","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"6.00"},{"peptide":"Melanotan 2","strength":"10mg","price":"29.00","vendor":"Biopeptide","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.90"},{"peptide":"NAD+","strength":"500mg","price":"45.00","vendor":"Biopeptide","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.09"},{"peptide":"PT-141","strength":"10mg","price":"26.00","vendor":"Biopeptide","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.60"},{"peptide":"Selank","strength":"11mg","price":"30.00","vendor":"Biopeptide","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.73"},{"peptide":"TB500","strength":"10mg","price":"45.00","vendor":"Biopeptide","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"4.50"},{"peptide":"Tesamorelin","strength":"10mg","price":"45.00","vendor":"Biopeptide","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"4.50"},{"peptide":"Tesamorelin/Ipamorelin","strength":"5mg/5mg","price":"69.00","vendor":"Biopeptide","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"13.80"},{"peptide":"Thymalin","strength":"10mg","price":"25.00","vendor":"Biopeptide","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.50"},{"peptide":"5 Amino 1mq","strength":"20mg","price":"40.00","vendor":"AMP","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"2.00"},{"peptide":"AOD 9604","strength":"2mg","price":"35.00","vendor":"AMP","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"17.50"},{"peptide":"BPC 157","strength":"10mg","price":"40.00","vendor":"AMP","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"4.00"},{"peptide":"GHK - CU","strength":"50mg","price":"35.00","vendor":"AMP","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"0.70"},{"peptide":"SZ-31","strength":"30mg","price":"90.00","vendor":"AMP","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"3.00"},{"peptide":"Thymosin Alpha","strength":"5mg","price":"45.00","vendor":"AMP","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"9.00"},{"peptide":"5 Amino 1mq","strength":"5mg","price":"34.99","vendor":"FelixChem","discountCode":"","prcProduct":"No","pricePerMg":"7.00"},{"peptide":"Epithalon","strength":"50mg","price":"129.99","vendor":"FelixChem","discountCode":"","prcProduct":"No","pricePerMg":"2.60"},{"peptide":"Lipo C  (Methione, Choline, Carnitine, Dexpanrhenol)","strength":"30ml","price":"159.99","vendor":"FelixChem","discountCode":"","prcProduct":"No","pricePerMg":""},{"peptide":"HCG","strength":"10000iu","price":"55.00","vendor":"Royal","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":""},{"peptide":"KLOW (TB-500, BPC-157, KPV, GHK-Cu)","strength":"80mg","price":"90.00","vendor":"Royal","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":"1.12"},{"peptide":"Lipo C Fat Blaster","strength":"10ml","price":"65.00","vendor":"Royal","discountCode":"Kikiriki","prcProduct":"No","pricePerMg":""}];
+
+var vendorInfo = {
+  "PRC": { url: "peptideresourcecenter.com", coa: true },
+  "AIO": { url: "aiopeptides.com", coa: false },
+  "Strate": { url: "stratelabs.is", coa: false },
+  "Elev8": { url: "elev8peptides.com", coa: false },
+  "Biopeptide": { url: "biopeptide.com", coa: false },
+  "Penguin": { url: "penguinpeptides.com", coa: false },
+  "BC9": { url: "bc9.com", coa: false },
+  "Synagenics": { url: "synagenics.com", coa: false },
+  "Authentic Aminos": { url: "authenticaminos.com", coa: false },
+  "Biolongevity Labs": { url: "biolongevitylabs.com", coa: false }
+};
+
+var comingSoon = [
+  "Limitless Life Nootropics", "Core Peptides", "SwissChems",
+  "Nootropic Source", "Peptide Sciences", "Paradigm Peptides"
+];
+
+// Pre-calculate best prices
+var bestPrices = {};
+for (var i = 0; i < peptideData.length; i++) {
+  var d = peptideData[i];
+  var key = d.peptide + '|' + d.strength;
+  var p = parseFloat(d.price);
+  if (!isNaN(p) && p > 0) {
+    if (!bestPrices[key] || p < bestPrices[key].price) {
+      bestPrices[key] = { price: p, vendor: d.vendor };
+    }
+  }
+}
+
+var sortCol = null;
+var sortDir = 'asc';
+
+function init() {
+  renderStats();
+  renderSpotlight();
+  populateVendorFilter();
+  renderTable();
+  renderVendorDirectory();
+  attachEvents();
+}
+
+function renderStats() {
+  var peptides = {};
+  var vendors = {};
+  var prcCount = 0;
+  for (var i = 0; i < peptideData.length; i++) {
+    peptides[peptideData[i].peptide] = 1;
+    vendors[peptideData[i].vendor] = 1;
+    if (peptideData[i].prcProduct === 'Yes') prcCount++;
+  }
+  var pCount = Object.keys(peptides).length;
+  var vCount = Object.keys(vendors).length;
+
+  document.getElementById('stats').innerHTML =
+    '<div class="stat"><div class="num">' + pCount + '</div><div class="lbl">Peptides</div></div>' +
+    '<div class="stat"><div class="num">' + vCount + '</div><div class="lbl">Vendors</div></div>' +
+    '<div class="stat"><div class="num">' + prcCount + '</div><div class="lbl">PRC Products</div></div>' +
+    '<div class="stat"><div class="num">70%</div><div class="lbl">Max Savings</div></div>';
+}
+
+function renderSpotlight() {
+  var prcItems = [];
+  for (var i = 0; i < peptideData.length; i++) {
+    if (peptideData[i].prcProduct === 'Yes') prcItems.push(peptideData[i]);
+  }
+
+  var savings = [];
+  for (var i = 0; i < prcItems.length; i++) {
+    var prc = prcItems[i];
+    var prcPrice = parseFloat(prc.price);
+    if (isNaN(prcPrice) || prcPrice <= 0) continue;
+
+    for (var j = 0; j < peptideData.length; j++) {
+      var comp = peptideData[j];
+      if (comp.prcProduct !== 'No') continue;
+      if (comp.peptide !== prc.peptide || comp.strength !== prc.strength) continue;
+      var compPrice = parseFloat(comp.price);
+      if (isNaN(compPrice) || compPrice <= prcPrice) continue;
+
+      var pct = Math.round(((compPrice - prcPrice) / compPrice) * 100);
+      savings.push({
+        peptide: prc.peptide,
+        strength: prc.strength,
+        prcPrice: prcPrice,
+        compPrice: compPrice,
+        compVendor: comp.vendor,
+        pct: pct
+      });
+    }
+  }
+
+  savings.sort(function(a, b) { return b.pct - a.pct; });
+  var top = savings.slice(0, 3);
+  var html = '';
+  for (var i = 0; i < top.length; i++) {
+    var s = top[i];
+    html += '<div class="spot-card">' +
+      '<div class="spot-name">' + s.peptide + ' ' + s.strength + '</div>' +
+      '<div class="spot-detail">PRC $' + s.prcPrice.toFixed(2) + ' vs $' + s.compPrice.toFixed(2) + ' at ' + s.compVendor + '</div>' +
+      '<div class="spot-save">SAVE ' + s.pct + '%</div>' +
+      '</div>';
+  }
+  document.getElementById('spotlight').innerHTML = html;
+}
+
+function populateVendorFilter() {
+  var vendors = {};
+  for (var i = 0; i < peptideData.length; i++) {
+    vendors[peptideData[i].vendor] = 1;
+  }
+  var names = Object.keys(vendors).sort();
+  var sel = document.getElementById('vendorFilter');
+  for (var i = 0; i < names.length; i++) {
+    var opt = document.createElement('option');
+    opt.value = names[i];
+    opt.textContent = names[i];
+    sel.appendChild(opt);
+  }
+}
+
+function getFiltered() {
+  var search = document.getElementById('search').value.toLowerCase();
+  var vendor = document.getElementById('vendorFilter').value;
+  var prcOnly = document.getElementById('prcOnly').checked;
+
+  var results = [];
+  for (var i = 0; i < peptideData.length; i++) {
+    var d = peptideData[i];
+    if (search && d.peptide.toLowerCase().indexOf(search) === -1) continue;
+    if (vendor && d.vendor !== vendor) continue;
+    if (prcOnly && d.prcProduct !== 'Yes') continue;
+    results.push(d);
+  }
+
+  if (sortCol) {
+    results.sort(function(a, b) {
+      var av = a[sortCol] || '';
+      var bv = b[sortCol] || '';
+      if (sortCol === 'price' || sortCol === 'pricePerMg') {
+        av = parseFloat(av) || 0;
+        bv = parseFloat(bv) || 0;
+      } else {
+        av = av.toLowerCase();
+        bv = bv.toLowerCase();
+      }
+      if (av < bv) return sortDir === 'asc' ? -1 : 1;
+      if (av > bv) return sortDir === 'asc' ? 1 : -1;
+      return 0;
+    });
+  }
+
+  return results;
+}
+
+function renderTable() {
+  var data = getFiltered();
+  var tbody = document.getElementById('tbody');
+
+  document.getElementById('resultCount').textContent = data.length + ' of ' + peptideData.length + ' results';
+
+  if (data.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="6" class="no-results">No results found.</td></tr>';
+    return;
+  }
+
+  var html = '';
+  for (var i = 0; i < data.length; i++) {
+    var d = data[i];
+    var isPRC = d.prcProduct === 'Yes';
+    var key = d.peptide + '|' + d.strength;
+    var price = parseFloat(d.price);
+    var isBest = bestPrices[key] && Math.abs(bestPrices[key].price - price) < 0.01;
+    var ppm = d.pricePerMg ? '$' + d.pricePerMg : '—';
+
+    html += '<tr class="' + (isPRC ? 'prc-row' : '') + '">' +
+      '<td>' + d.peptide + '</td>' +
+      '<td>' + d.strength + '</td>' +
+      '<td class="vendor-name ' + (isPRC ? 'vendor-prc' : '') + '">' + d.vendor + '</td>' +
+      '<td class="price">$' + price.toFixed(2) + (isBest ? '<span class="best-badge">BEST</span>' : '') + '</td>' +
+      '<td>' + ppm + '</td>' +
+      '<td>' + (d.discountCode ? '<button class="code-btn" onclick="copyCode(this,\'' + d.discountCode + '\')">' + d.discountCode + '</button>' : '—') + '</td>' +
+      '</tr>';
+  }
+  tbody.innerHTML = html;
+}
+
+function copyCode(btn, code) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(code);
+  }
+  var orig = btn.textContent;
+  btn.textContent = 'Copied!';
+  setTimeout(function() { btn.textContent = orig; }, 1500);
+}
+
+function renderVendorDirectory() {
+  var vendors = {};
+  for (var i = 0; i < peptideData.length; i++) {
+    var v = peptideData[i].vendor;
+    if (!vendors[v]) vendors[v] = 0;
+    vendors[v]++;
+  }
+
+  var html = '';
+  var names = Object.keys(vendors).sort();
+  for (var i = 0; i < names.length; i++) {
+    var name = names[i];
+    var info = vendorInfo[name] || {};
+    var isPRC = name === 'PRC';
+    html += '<div class="v-card ' + (isPRC ? 'prc-card' : '') + '">' +
+      '<div class="v-name">' + name + '</div>' +
+      '<div class="v-status active">✓ Active · ' + vendors[name] + ' products</div>' +
+      (info.url ? '<a class="v-link" href="https://' + info.url + '" target="_blank">' + info.url + '</a>' : '') +
+      '</div>';
+  }
+
+  for (var i = 0; i < comingSoon.length; i++) {
+    html += '<div class="v-card">' +
+      '<div class="v-name">' + comingSoon[i] + '</div>' +
+      '<div class="v-status soon">Coming Soon</div>' +
+      '</div>';
+  }
+
+  document.getElementById('vendorList').innerHTML = html;
+}
+
+function attachEvents() {
+  document.getElementById('search').addEventListener('input', renderTable);
+  document.getElementById('vendorFilter').addEventListener('change', renderTable);
+  document.getElementById('prcOnly').addEventListener('change', renderTable);
+
+  var ths = document.querySelectorAll('thead th');
+  for (var i = 0; i < ths.length; i++) {
+    ths[i].addEventListener('click', function() {
+      var col = this.getAttribute('data-col');
+      if (!col) return;
+      if (sortCol === col) {
+        sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortCol = col;
+        sortDir = 'asc';
+      }
+      // Update header classes
+      var allTh = document.querySelectorAll('thead th');
+      for (var j = 0; j < allTh.length; j++) {
+        allTh[j].className = '';
+      }
+      this.className = sortDir === 'asc' ? 'sorted-asc' : 'sorted-desc';
+      renderTable();
+    });
+  }
+}
+
+// Initialize — works regardless of DOM ready state
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+</script>
+</body>
+</html>

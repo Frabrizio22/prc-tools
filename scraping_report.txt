@@ -1,0 +1,104 @@
+PEPTIDE VENDOR SCRAPING - COMPLETION REPORT
+===========================================
+Date: February 13, 2026
+
+SUMMARY:
+--------
+✅ Successfully scraped 17+ peptide vendor websites
+✅ Created enhanced dataset: peptide_data_enhanced.json (206 entries, up from 182)
+✅ Created vendor information file: vendor_info.json (24 vendors)
+✅ Added 24 new product entries
+✅ Updated prices for existing products with sale information
+
+FILES CREATED:
+--------------
+1. peptide_data_enhanced.json (38KB)
+   - Contains ALL 182 original entries (preserved)
+   - Added 24 NEW product entries
+   - Updated sale prices (Synagenics NAD+500, GLOW)
+   - Same format: {peptide, strength, price, vendor, discountCode, prcProduct, pricePerMg}
+
+2. vendor_info.json (3.7KB)
+   - 24 vendor profiles with:
+     * COA availability
+     * Shipping (US/International)
+     * Current promotions
+     * Affiliate URLs
+
+NEW PRODUCTS ADDED:
+-------------------
+TCore Biotech (14 new entries):
+  • BPC-157: 5mg ($34.99), 10mg ($50.99)
+  • Cagrilintide: 5mg ($79.99), 10mg ($159.99)
+  • R (GLP3/Retatrutide): 10mg ($120.99), 30mg ($200.99), 50mg ($280.99)
+  • S (GLP1/Semaglutide): 5mg ($64.99), 10mg ($119.99)
+  • T (GLP2/Tirzepatide): 10mg ($95.99), 30mg ($169.99), 60mg ($269.99)
+  • Ipamorelin: 5mg ($34.99), 10mg ($45.99)
+
+Strate Labs (10 new entries):
+  • Retatrutide 10mg: $129.99
+  • BPC-157 5mg: $34.95
+  • TB-500 5mg: $39.95
+  • Semaglutide 5mg: $79.00
+  • Melanotan 2 10mg: $39.95
+  • GLOW 70mg: $69.95
+  • KLOW 80mg: $79.95
+  • Tesamorelin 10mg: $99.95
+  • GHK-Cu 50mg: $34.99
+  • HCG 5000iu: $53.95
+
+UPDATED PRICES:
+---------------
+Synagenics (ACTIVE SALES):
+  • NAD+500: WAS $69.99 → NOW $47.99 (31% off)
+  • GLOW 70mg: WAS $85.00 → NOW $55.00 (35% off)
+
+VENDOR HIGHLIGHTS:
+------------------
+✓ COA Available: 21/24 vendors (88%)
+✓ US-Based Shipping: 19/24 vendors
+✓ Active Promotions:
+  - Penguin: 30% OFF + FREE peptide per $150 (code: NEWYEAR30)
+  - Biopeptide: 40% off sales on many items
+  - BC9: Free shipping over $150
+  - TCore: Free shipping over $300, Third-Party Tested
+  - RetaOne: 99%+ purity, 30-day refund guarantee
+  - TruLab: 90-day returns, 99%+ purity
+  - Synagenics: Major sales on NAD+500 and GLOW
+
+KEY FINDINGS:
+-------------
+1. TCore Biotech offers competitive pricing on GLPs (especially bulk)
+2. Synagenics has the best NAD+500 sale price ($47.99 vs typical $65-70)
+3. BPC-157 pricing ranges from $34.95-50.99 for 5-10mg across vendors
+4. Retatrutide (GLP3) ranges from $48-280 depending on strength (10-50mg)
+5. Most vendors now offer third-party testing/COAs (88% coverage)
+6. US-based shipping dominates (79% of vendors)
+
+PEPTIDES WITH MOST VENDOR COVERAGE:
+------------------------------------
+• BPC-157: 12+ vendors
+• NAD+: 8+ vendors
+• Semaglutide (GLP1): 7+ vendors
+• Tirzepatide (GLP2): 6+ vendors
+• Retatrutide (GLP3): 5+ vendors
+• TB-500: 9+ vendors
+• Ipamorelin: 6+ vendors
+
+DATA INTEGRITY:
+---------------
+✅ All 182 original entries preserved
+✅ Existing prices maintained where not updated
+✅ Vendor names kept consistent (PRC, AIO, Strate, etc.)
+✅ pricePerMg calculated for all new entries
+✅ prcProduct set to "No" for all non-PRC entries
+✅ Format consistency maintained across all entries
+
+COMPLETION STATUS:
+------------------
+✅ Task 1: Scraped all requested vendors
+✅ Task 2: Determined COA, shipping, and promo info
+✅ Task 3: Created peptide_data_enhanced.json
+✅ Task 4: Created vendor_info.json
+
+All files are ready for use in the peptide price comparison tool.

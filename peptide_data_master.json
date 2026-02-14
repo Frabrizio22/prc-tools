@@ -1,0 +1,3476 @@
+[
+  {
+    "peptide": "Selank",
+    "strength": "10mg",
+    "price": "36.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "3.60"
+  },
+  {
+    "peptide": "Botulinum Toxin",
+    "strength": "200iu",
+    "price": "170.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "30mg",
+    "price": "46.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "1.53"
+  },
+  {
+    "peptide": "Laennec Ampules",
+    "strength": "",
+    "price": "425.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "1000mg",
+    "price": "30.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "0.03"
+  },
+  {
+    "peptide": "Cerebrolysin",
+    "strength": "60mg",
+    "price": "23.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "0.38"
+  },
+  {
+    "peptide": "Vitamin C",
+    "strength": "10mg/20ml",
+    "price": "75.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "20mg",
+    "price": "44.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "2.20"
+  },
+  {
+    "peptide": "Thymalin",
+    "strength": "10mg",
+    "price": "37.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "3.70"
+  },
+  {
+    "peptide": "Thioctic Acid (ALA)",
+    "strength": "25mg/5ml",
+    "price": "75.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Super Human Blend",
+    "strength": "",
+    "price": "42.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "SS-31",
+    "strength": "10mg",
+    "price": "55.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "5.50"
+  },
+  {
+    "peptide": "Sleep Blend",
+    "strength": "",
+    "price": "42.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Sermorelin",
+    "strength": "5mg",
+    "price": "38.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "7.60"
+  },
+  {
+    "peptide": "Semax",
+    "strength": "5mg",
+    "price": "31.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "6.20"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "",
+    "price": "30.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Selank",
+    "strength": "5mg",
+    "price": "36.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "7.20"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "20mg",
+    "price": "55.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "2.75"
+  },
+  {
+    "peptide": "PT-141",
+    "strength": "",
+    "price": "36.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "PE-22-28",
+    "strength": "10mg",
+    "price": "30.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "3.00"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "500mg",
+    "price": "30.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "0.06"
+  },
+  {
+    "peptide": "MOTS-C",
+    "strength": "10mg",
+    "price": "28.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "2.80"
+  },
+  {
+    "peptide": "LL-37",
+    "strength": "5mg",
+    "price": "29.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": "5.80"
+  },
+  {
+    "peptide": "Lipo C Fat Blaster",
+    "strength": "",
+    "price": "42.00",
+    "vendor": "PRC",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Beauty Blend (GHK-Cu/KPV)",
+    "strength": "50mg/20mg",
+    "price": "85.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "SNAP-8",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "TB-500 Frag 17-23",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "250mg",
+    "price": "35.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "0.14"
+  },
+  {
+    "peptide": "AOD-9604",
+    "strength": "2mg",
+    "price": "35.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "17.50"
+  },
+  {
+    "peptide": "L-Carnitine",
+    "strength": "500mg/mL",
+    "price": "60.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Thymosin Alpha-1",
+    "strength": "10mg",
+    "price": "55.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "5.50"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "10mg",
+    "price": "35.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "peptide": "5-Amino-1MQ",
+    "strength": "50mg",
+    "price": "65.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "1.30"
+  },
+  {
+    "peptide": "Survodutide",
+    "strength": "10mg",
+    "price": "95.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "9.50"
+  },
+  {
+    "peptide": "GHK-Cu",
+    "strength": "100mg",
+    "price": "44.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "0.44"
+  },
+  {
+    "peptide": "Tesamorelin/Ipamorelin Blend",
+    "strength": "10mg/3mg",
+    "price": "85.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "AMP-3P",
+    "strength": "48mg",
+    "price": "215.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "4.48"
+  },
+  {
+    "peptide": "BPC-157/TB4 Blend",
+    "strength": "5mg/5mg",
+    "price": "48.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "4.80"
+  },
+  {
+    "peptide": "CJC-1295 (no DAC)/Ipamorelin Blend",
+    "strength": "5mg/5mg",
+    "price": "48.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "4.80"
+  },
+  {
+    "peptide": "DSIP",
+    "strength": "5mg",
+    "price": "30.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "6.00"
+  },
+  {
+    "peptide": "Epitalon",
+    "strength": "10mg",
+    "price": "35.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "peptide": "Bacteriostatic Water",
+    "strength": "10mL",
+    "price": "12.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Melanotan 1",
+    "strength": "10mg",
+    "price": "35.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "peptide": "Sermorelin",
+    "strength": "5mg",
+    "price": "39.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "7.80"
+  },
+  {
+    "peptide": "Thymosin Alpha-1",
+    "strength": "5mg",
+    "price": "35.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "7.00"
+  },
+  {
+    "peptide": "CJC-1295 No DAC",
+    "strength": "5mg",
+    "price": "32.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "6.40"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "500mg",
+    "price": "55.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "0.11"
+  },
+  {
+    "peptide": "Bacteriostatic Water",
+    "strength": "30mL",
+    "price": "28.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "GHK-Cu",
+    "strength": "50mg",
+    "price": "28.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "0.56"
+  },
+  {
+    "peptide": "AMP-2P",
+    "strength": "20mg",
+    "price": "84.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "4.20"
+  },
+  {
+    "peptide": "Cagrilintide",
+    "strength": "5mg",
+    "price": "49.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "9.80"
+  },
+  {
+    "peptide": "Selank",
+    "strength": "10mg",
+    "price": "38.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "3.80"
+  },
+  {
+    "peptide": "PT-141",
+    "strength": "10mg",
+    "price": "38.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "3.80"
+  },
+  {
+    "peptide": "AMP-1P",
+    "strength": "5mg",
+    "price": "35.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "7.00"
+  },
+  {
+    "peptide": "LIPO-C with B12",
+    "strength": "10mL",
+    "price": "65.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "MOTS-C",
+    "strength": "10mg",
+    "price": "35.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "peptide": "Semax",
+    "strength": "10mg",
+    "price": "38.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "3.80"
+  },
+  {
+    "peptide": "AMP-3P",
+    "strength": "6mg",
+    "price": "50.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "8.33"
+  },
+  {
+    "peptide": "AMP-3P",
+    "strength": "12mg",
+    "price": "75.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "6.25"
+  },
+  {
+    "peptide": "AMP-3P",
+    "strength": "24mg",
+    "price": "110.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "4.58"
+  },
+  {
+    "peptide": "AMP-1P",
+    "strength": "10mg",
+    "price": "54.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "5.40"
+  },
+  {
+    "peptide": "TB-500 (Thymosin Beta-4)",
+    "strength": "10mg",
+    "price": "75.00",
+    "vendor": "AMP",
+    "prcProduct": "No",
+    "pricePerMg": "7.50"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "30mg",
+    "price": "135.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "Cagrilintide",
+    "strength": "10mg",
+    "price": "99.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "9.90"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "10mg",
+    "price": "84.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "8.40"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "10mg",
+    "price": "90.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "9.00"
+  },
+  {
+    "peptide": "SLU-PP332",
+    "strength": "700mcg",
+    "price": "85.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Thymosin Alpha-1",
+    "strength": "5mg",
+    "price": "51.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "10.20"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "500mg",
+    "price": "45.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "0.09"
+  },
+  {
+    "peptide": "BPC-157/TB-500 Blend",
+    "strength": "5mg/5mg",
+    "price": "54.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "5.40"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "10mg",
+    "price": "48.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "4.80"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "20mg",
+    "price": "89.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "4.45"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "30mg",
+    "price": "124.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "4.13"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "40mg",
+    "price": "179.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "4.48"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "50mg",
+    "price": "209.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "4.18"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "60mg",
+    "price": "239.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "3.98"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "30mg",
+    "price": "72.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "2.40"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "60mg",
+    "price": "159.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "2.65"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "10mg",
+    "price": "39.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "3.90"
+  },
+  {
+    "peptide": "Reconstitution Kit",
+    "strength": "",
+    "price": "34.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "GHK-Cu",
+    "strength": "50mg",
+    "price": "36.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "0.72"
+  },
+  {
+    "peptide": "GHK-Cu Topical Serum",
+    "strength": "30mL",
+    "price": "39.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "GLOW Blend",
+    "strength": "70mg",
+    "price": "67.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "KLOW Blend",
+    "strength": "80mg",
+    "price": "79.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "500mg",
+    "price": "59.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "0.12"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "10mg",
+    "price": "49.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": "4.90"
+  },
+  {
+    "peptide": "Tesofensine",
+    "strength": "500mcg",
+    "price": "99.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Hospira Bacteriostatic Water",
+    "strength": "30mL",
+    "price": "24.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "BAC Water",
+    "strength": "3mL",
+    "price": "8.00",
+    "vendor": "RetaOne",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "10mg",
+    "price": "49.95",
+    "vendor": "Strate",
+    "prcProduct": "No",
+    "pricePerMg": "4.995"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "5mg",
+    "price": "34.95",
+    "vendor": "Strate",
+    "prcProduct": "No",
+    "pricePerMg": "6.99"
+  },
+  {
+    "peptide": "Tadalafil Liquid",
+    "strength": "20mg/mL",
+    "price": "34.99",
+    "vendor": "Strate",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "GHK-Cu",
+    "strength": "50mg",
+    "price": "39.99",
+    "vendor": "Strate",
+    "prcProduct": "No",
+    "pricePerMg": "0.80"
+  },
+  {
+    "peptide": "BAC Water",
+    "strength": "10mL",
+    "price": "14.99",
+    "vendor": "Strate",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "BAC Water",
+    "strength": "30mL",
+    "price": "19.95",
+    "vendor": "Strate",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "HCG",
+    "strength": "5000iu",
+    "price": "53.95",
+    "vendor": "Strate",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "HGH",
+    "strength": "10iu",
+    "price": "249.95",
+    "vendor": "Strate",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Tadalafil Capsules",
+    "strength": "20mg x60",
+    "price": "49.95",
+    "vendor": "Strate",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "L-Carnitine",
+    "strength": "500mg/mL",
+    "price": "24.99",
+    "vendor": "Strate",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "500mg",
+    "price": "47.99",
+    "vendor": "Synagenics",
+    "prcProduct": "No",
+    "pricePerMg": "0.10"
+  },
+  {
+    "peptide": "Glow Blend",
+    "strength": "70mg",
+    "price": "55.00",
+    "vendor": "Synagenics",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "ACE-031",
+    "strength": "1mg",
+    "price": "135.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "135.99"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "5mg",
+    "price": "38.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "7.80"
+  },
+  {
+    "peptide": "CJC-1295 with DAC",
+    "strength": "2mg",
+    "price": "46.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "23.50"
+  },
+  {
+    "peptide": "CJC-1295 without DAC",
+    "strength": "2mg",
+    "price": "41.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "21.00"
+  },
+  {
+    "peptide": "GHRP-2",
+    "strength": "5mg",
+    "price": "18.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "3.80"
+  },
+  {
+    "peptide": "GHRP-6",
+    "strength": "5mg",
+    "price": "18.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "3.80"
+  },
+  {
+    "peptide": "Glutathione",
+    "strength": "600mg",
+    "price": "49.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "0.08"
+  },
+  {
+    "peptide": "HMG",
+    "strength": "75iu",
+    "price": "36.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "N/A"
+  },
+  {
+    "peptide": "IGF-1 DES",
+    "strength": "1mg",
+    "price": "54.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "54.99"
+  },
+  {
+    "peptide": "IGF-1 LR3",
+    "strength": "1mg",
+    "price": "58.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "58.99"
+  },
+  {
+    "peptide": "Ipamorelin",
+    "strength": "2mg",
+    "price": "16.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "8.50"
+  },
+  {
+    "peptide": "Oxytocin",
+    "strength": "10mg",
+    "price": "49.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "PEG MGF",
+    "strength": "2mg",
+    "price": "45.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "23.00"
+  },
+  {
+    "peptide": "PT-141",
+    "strength": "10mg",
+    "price": "25.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "2.60"
+  },
+  {
+    "peptide": "Selank",
+    "strength": "5mg",
+    "price": "24.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "5mg",
+    "price": "149.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "30.00"
+  },
+  {
+    "peptide": "Semorelin",
+    "strength": "2mg",
+    "price": "24.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "12.50"
+  },
+  {
+    "peptide": "TB-500",
+    "strength": "5mg",
+    "price": "79.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "16.00"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "2mg",
+    "price": "24.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "12.50"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "10mg",
+    "price": "139.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "14.00"
+  },
+  {
+    "peptide": "MOTS-C",
+    "strength": "10mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "10mg",
+    "price": "30.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.00"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "10mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "GHK-Cu",
+    "strength": "50mg",
+    "price": "28.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "0.56"
+  },
+  {
+    "peptide": "GHK-Cu",
+    "strength": "100mg",
+    "price": "43.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "0.43"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "12mg",
+    "price": "70.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "5.83"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "6mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "7.50"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "24mg",
+    "price": "105.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.38"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "500mg",
+    "price": "50.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "0.10"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "250mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "0.14"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "30mg",
+    "price": "90.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.00"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "10mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "20mg",
+    "price": "80.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "60mg",
+    "price": "145.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "2.42"
+  },
+  {
+    "peptide": "CJC-1295 no DAC / Ipamorelin Blend",
+    "strength": "5mg/5mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "KPV",
+    "strength": "10mg",
+    "price": "38.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.80"
+  },
+  {
+    "peptide": "Glow Blend (BPC-157/TB-500/GHK-Cu)",
+    "strength": "70mg",
+    "price": "70.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "1.00"
+  },
+  {
+    "peptide": "BPC-157 / TB-500 Blend",
+    "strength": "5mg/5mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "Klow Blend",
+    "strength": "80mg",
+    "price": "90.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "1.13"
+  },
+  {
+    "peptide": "Ipamorelin",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "Cagrilintide",
+    "strength": "5mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "9.00"
+  },
+  {
+    "peptide": "Epitalon",
+    "strength": "10mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "peptide": "TB-500 Frag 17-23",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "Semax",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "Retatrutide / Cagrilintide Blend",
+    "strength": "12.5mg/2.5mg",
+    "price": "120.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "8.00"
+  },
+  {
+    "peptide": "Selank",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "AOD-9604",
+    "strength": "2mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "17.50"
+  },
+  {
+    "peptide": "5-Amino-1MQ",
+    "strength": "50mg",
+    "price": "60.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "1.20"
+  },
+  {
+    "peptide": "Tesamorelin / Ipamorelin Blend",
+    "strength": "10mg/3mg",
+    "price": "80.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "6.15"
+  },
+  {
+    "peptide": "PT-141",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "DSIP",
+    "strength": "10mg",
+    "price": "60.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "6.00"
+  },
+  {
+    "peptide": "Sermorelin",
+    "strength": "5mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "7.00"
+  },
+  {
+    "peptide": "Thymosin Alpha-1",
+    "strength": "10mg",
+    "price": "55.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "5.50"
+  },
+  {
+    "peptide": "Melanotan II",
+    "strength": "10mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "5mg",
+    "price": "29.99",
+    "vendor": "Ignition",
+    "prcProduct": "No",
+    "pricePerMg": "6.00"
+  },
+  {
+    "peptide": "HCG",
+    "strength": "5000iu",
+    "price": "39.99",
+    "vendor": "Ignition",
+    "prcProduct": "No",
+    "pricePerMg": "N/A"
+  },
+  {
+    "peptide": "Melanotan-2",
+    "strength": "10mg",
+    "price": "32.99",
+    "vendor": "Ignition",
+    "prcProduct": "No",
+    "pricePerMg": "3.30"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "5mg",
+    "price": "64.99",
+    "vendor": "Ignition",
+    "prcProduct": "No",
+    "pricePerMg": "13.00"
+  },
+  {
+    "peptide": "TB-500",
+    "strength": "5mg",
+    "price": "34.99",
+    "vendor": "Ignition",
+    "prcProduct": "No",
+    "pricePerMg": "7.00"
+  },
+  {
+    "peptide": "5-Amino-1MQ",
+    "strength": "5mg",
+    "price": "63.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "12.60"
+  },
+  {
+    "peptide": "AOD-9604",
+    "strength": "5mg",
+    "price": "42.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "8.40"
+  },
+  {
+    "peptide": "Ara-290",
+    "strength": "10mg",
+    "price": "62.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "6.20"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "5mg",
+    "price": "42.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "8.40"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "10mg",
+    "price": "62.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "6.20"
+  },
+  {
+    "peptide": "BPC-157 + TB-500",
+    "strength": "5mg/5mg",
+    "price": "58.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "5.80"
+  },
+  {
+    "peptide": "BPC-157 + TB-500",
+    "strength": "10mg/10mg",
+    "price": "100.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "AOD-9604",
+    "strength": "5mg",
+    "price": "74.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "15.00"
+  },
+  {
+    "peptide": "BPC-157 + TB-500",
+    "strength": "5mg/5mg",
+    "price": "119.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "12.00"
+  },
+  {
+    "peptide": "CJC-1295 + Ipamorelin",
+    "strength": "5mg/5mg",
+    "price": "134.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "13.50"
+  },
+  {
+    "peptide": "IGF-1 LR3",
+    "strength": "1mg",
+    "price": "129.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "129.99"
+  },
+  {
+    "peptide": "KPV",
+    "strength": "5mg",
+    "price": "54.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "11.00"
+  },
+  {
+    "peptide": "Sermorelin",
+    "strength": "5mg",
+    "price": "54.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "11.00"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "2mg",
+    "price": "49.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "25.00"
+  },
+  {
+    "peptide": "5-Amino-1MQ",
+    "strength": "5mg",
+    "price": "70.99",
+    "vendor": "TCore",
+    "prcProduct": "No",
+    "pricePerMg": "14.20"
+  },
+  {
+    "peptide": "AOD-9604",
+    "strength": "5mg",
+    "price": "44.99",
+    "vendor": "TCore",
+    "prcProduct": "No",
+    "pricePerMg": "9.00"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "5mg",
+    "price": "34.99",
+    "vendor": "TCore",
+    "prcProduct": "No",
+    "pricePerMg": "7.00"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "10mg",
+    "price": "50.99",
+    "vendor": "TCore",
+    "prcProduct": "No",
+    "pricePerMg": "5.10"
+  },
+  {
+    "peptide": "5-Amino-1MQ",
+    "strength": "5mg",
+    "price": "55.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "11.00"
+  },
+  {
+    "peptide": "AOD9604",
+    "strength": "5mg",
+    "price": "33.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "6.60"
+  },
+  {
+    "peptide": "B12",
+    "strength": "10mg",
+    "price": "55.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "5.50"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "10mg",
+    "price": "57.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "5.70"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "5mg",
+    "price": "29.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "5.80"
+  },
+  {
+    "peptide": "BPC-157 + TB-500",
+    "strength": "20mg",
+    "price": "69.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "3.45"
+  },
+  {
+    "peptide": "BPC-157 + TB-500",
+    "strength": "10mg",
+    "price": "54.00",
+    "vendor": "Biopeptide",
+    "prcProduct": "No",
+    "pricePerMg": "5.40"
+  },
+  {
+    "peptide": "Prostamax",
+    "strength": "20mg",
+    "price": "64.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "3.20"
+  },
+  {
+    "peptide": "Retatrutide/Cagrilintide",
+    "strength": "8mg/2mg",
+    "price": "92.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Cerebrolysin",
+    "strength": "60mg",
+    "price": "64.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "1.07"
+  },
+  {
+    "peptide": "Tesamorelin/Ipamorelin",
+    "strength": "12mg/6mg",
+    "price": "100.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "VIP",
+    "strength": "5mg",
+    "price": "48.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "9.60"
+  },
+  {
+    "peptide": "Vesugen",
+    "strength": "20mg",
+    "price": "64.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "3.20"
+  },
+  {
+    "peptide": "Bronchogen",
+    "strength": "20mg",
+    "price": "64.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "3.20"
+  },
+  {
+    "peptide": "AHK-Cu",
+    "strength": "100mg",
+    "price": "52.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "0.52"
+  },
+  {
+    "peptide": "ARA-290",
+    "strength": "10mg",
+    "price": "44.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "4.40"
+  },
+  {
+    "peptide": "AICAR",
+    "strength": "50mg",
+    "price": "54.40",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "1.09"
+  },
+  {
+    "peptide": "Lipo-C Super Human",
+    "strength": "1 vial",
+    "price": "120.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "SNAP-8",
+    "strength": "10mg",
+    "price": "28.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "2.80"
+  },
+  {
+    "peptide": "GHRP-2",
+    "strength": "5mg",
+    "price": "30.40",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "6.08"
+  },
+  {
+    "peptide": "HCG",
+    "strength": "5000IU",
+    "price": "45.60",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Lipo-C Fat Blaster",
+    "strength": "1 vial",
+    "price": "112.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Lipo-C Focus",
+    "strength": "1 vial",
+    "price": "104.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "FOX04-DRI",
+    "strength": "10mg",
+    "price": "140.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "14.00"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "30mg",
+    "price": "184.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "6.13"
+  },
+  {
+    "peptide": "Cartalax",
+    "strength": "20mg",
+    "price": "52.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "2.60"
+  },
+  {
+    "peptide": "PEG-MGF",
+    "strength": "2mg",
+    "price": "36.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "18.00"
+  },
+  {
+    "peptide": "Thymalin",
+    "strength": "10mg",
+    "price": "36.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "3.60"
+  },
+  {
+    "peptide": "Pinealon",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "LL-37",
+    "strength": "5mg",
+    "price": "36.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "7.20"
+  },
+  {
+    "peptide": "Melanotan I",
+    "strength": "10mg",
+    "price": "24.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "2.40"
+  },
+  {
+    "peptide": "PT-141",
+    "strength": "10mg",
+    "price": "35.20",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "3.52"
+  },
+  {
+    "peptide": "L-Carnitine",
+    "strength": "5000mg",
+    "price": "51.20",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "0.01"
+  },
+  {
+    "peptide": "Lipo-C MIC-B12",
+    "strength": "1 vial",
+    "price": "67.20",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Cagrilintide",
+    "strength": "10mg",
+    "price": "102.40",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "10.24"
+  },
+  {
+    "peptide": "Kisspeptin",
+    "strength": "10mg",
+    "price": "35.20",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "3.52"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "60mg",
+    "price": "260.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "4.33"
+  },
+  {
+    "peptide": "KPV",
+    "strength": "10mg",
+    "price": "64.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "6.40"
+  },
+  {
+    "peptide": "Epitalon",
+    "strength": "10mg",
+    "price": "25.60",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "2.56"
+  },
+  {
+    "peptide": "MOTS-C",
+    "strength": "10mg",
+    "price": "34.40",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "3.44"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "10mg",
+    "price": "53.60",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "5.36"
+  },
+  {
+    "peptide": "Glutathione",
+    "strength": "1200mg",
+    "price": "56.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "0.05"
+  },
+  {
+    "peptide": "Thymosin Alpha-1",
+    "strength": "5mg",
+    "price": "44.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "8.80"
+  },
+  {
+    "peptide": "KLOW",
+    "strength": "80mg",
+    "price": "116.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "1.45"
+  },
+  {
+    "peptide": "Semax",
+    "strength": "10mg",
+    "price": "38.40",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "3.84"
+  },
+  {
+    "peptide": "Selank",
+    "strength": "10mg",
+    "price": "38.40",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "3.84"
+  },
+  {
+    "peptide": "5-Amino-1MQ",
+    "strength": "10mg",
+    "price": "54.40",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "5.44"
+  },
+  {
+    "peptide": "TB-500",
+    "strength": "10mg",
+    "price": "49.60",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "4.96"
+  },
+  {
+    "peptide": "GLOW",
+    "strength": "70mg",
+    "price": "96.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "1.37"
+  },
+  {
+    "peptide": "IGF-1 LR3",
+    "strength": "1mg",
+    "price": "46.40",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "46.40"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "20mg",
+    "price": "112.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "5.60"
+  },
+  {
+    "peptide": "AOD-9604",
+    "strength": "5mg",
+    "price": "33.60",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "6.72"
+  },
+  {
+    "peptide": "DSIP",
+    "strength": "5mg",
+    "price": "24.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "4.80"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "10mg",
+    "price": "56.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "5.60"
+  },
+  {
+    "peptide": "GHK-Cu",
+    "strength": "100mg",
+    "price": "36.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "0.36"
+  },
+  {
+    "peptide": "Ipamorelin",
+    "strength": "5mg",
+    "price": "24.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "4.80"
+  },
+  {
+    "peptide": "Ipamorelin/CJC-1295 no DAC",
+    "strength": "5mg/5mg",
+    "price": "34.40",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "500mg",
+    "price": "49.60",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "0.10"
+  },
+  {
+    "peptide": "Sermorelin",
+    "strength": "5mg",
+    "price": "32.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "6.40"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "10mg",
+    "price": "60.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "6.00"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "15mg",
+    "price": "86.40",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "5.76"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "30mg",
+    "price": "151.20",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "5.04"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "10mg",
+    "price": "64.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "6.40"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "20mg",
+    "price": "124.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": "6.20"
+  },
+  {
+    "peptide": "BPC-157/TB-500",
+    "strength": "5mg/5mg",
+    "price": "44.00",
+    "vendor": "AIO",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Ara 290",
+    "strength": "10mg",
+    "price": "35.00",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "peptide": "BPC157/TB500",
+    "strength": "5mg/5mg",
+    "price": "44.00",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "8.80"
+  },
+  {
+    "peptide": "CJC 1295 no DAC / Ipamorelin",
+    "strength": "5mg/5mg",
+    "price": "34.40",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.88"
+  },
+  {
+    "peptide": "Epithalon",
+    "strength": "10mg",
+    "price": "25.60",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.56"
+  },
+  {
+    "peptide": "FOX 04 DRI",
+    "strength": "10mg",
+    "price": "140.00",
+    "vendor": "AIO",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "14.00"
+  },
+  {
+    "peptide": "L-Carnitine",
+    "strength": "500mg/20ml",
+    "price": "51.20",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.10"
+  },
+  {
+    "peptide": "Lipo C  (Methione, Choline, Carnitine, Dexpanrhenol)",
+    "strength": "20ml",
+    "price": "67.20",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Lipo C Fat Blaster",
+    "strength": "20ml",
+    "price": "112.00",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Melanotan 1",
+    "strength": "10mg",
+    "price": "24.00",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.40"
+  },
+  {
+    "peptide": "S (GLP1)",
+    "strength": "10mg",
+    "price": "52.10",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "5.21"
+  },
+  {
+    "peptide": "Snap 8",
+    "strength": "10mg",
+    "price": "28.00",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.80"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "20mg",
+    "price": "105.60",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "5.28"
+  },
+  {
+    "peptide": "Thymosin Alpha",
+    "strength": "15mg",
+    "price": "44.00",
+    "vendor": "AIO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.93"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "250mg",
+    "price": "35.00",
+    "vendor": "Amean Peptides",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.14"
+  },
+  {
+    "peptide": "5 Amino 1mq",
+    "strength": "20mg",
+    "price": "40.00",
+    "vendor": "AMP",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.00"
+  },
+  {
+    "peptide": "AOD 9604",
+    "strength": "2mg",
+    "price": "35.00",
+    "vendor": "AMP",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "17.50"
+  },
+  {
+    "peptide": "BPC 157",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "AMP",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "GHK - CU",
+    "strength": "50mg",
+    "price": "35.00",
+    "vendor": "AMP",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.70"
+  },
+  {
+    "peptide": "SZ-31",
+    "strength": "30mg",
+    "price": "90.00",
+    "vendor": "AMP",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "3.00"
+  },
+  {
+    "peptide": "Thymosin Alpha",
+    "strength": "5mg",
+    "price": "45.00",
+    "vendor": "AMP",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "9.00"
+  },
+  {
+    "peptide": "5 Amino 1mq",
+    "strength": "50mg",
+    "price": "68.00",
+    "vendor": "Authentic Aminos",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "1.36"
+  },
+  {
+    "peptide": "Cerebrolysin",
+    "strength": "60mg",
+    "price": "39.00",
+    "vendor": "Authentic Aminos",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.65"
+  },
+  {
+    "peptide": "CJC 1295 no DAC",
+    "strength": "2mg",
+    "price": "24.00",
+    "vendor": "Authentic Aminos",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "12.00"
+  },
+  {
+    "peptide": "SZ-31",
+    "strength": "50mg",
+    "price": "178.00",
+    "vendor": "Authentic Aminos",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "3.56"
+  },
+  {
+    "peptide": "VIP",
+    "strength": "5mg",
+    "price": "48.00",
+    "vendor": "Authentic Aminos",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "9.60"
+  },
+  {
+    "peptide": "AOD 9604",
+    "strength": "10mg",
+    "price": "103.48",
+    "vendor": "BC9",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "10.35"
+  },
+  {
+    "peptide": "Ara 290",
+    "strength": "16mg",
+    "price": "103.48",
+    "vendor": "BC9",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.47"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "5mg",
+    "price": "68.49",
+    "vendor": "BC9",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "13.70"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "10mg",
+    "price": "114.70",
+    "vendor": "BC9",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "11.47"
+  },
+  {
+    "peptide": "PT-141",
+    "strength": "10mg",
+    "price": "63.07",
+    "vendor": "BC9",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.31"
+  },
+  {
+    "peptide": "Semax",
+    "strength": "5mg",
+    "price": "59.44",
+    "vendor": "BC9",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "11.89"
+  },
+  {
+    "peptide": "TB-500",
+    "strength": "5mg",
+    "price": "48.16",
+    "vendor": "BC9",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "9.63"
+  },
+  {
+    "peptide": "TB-500",
+    "strength": "10mg",
+    "price": "89.29",
+    "vendor": "BC9",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "8.93"
+  },
+  {
+    "peptide": "Ara 290",
+    "strength": "15mg",
+    "price": "66.50",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.43"
+  },
+  {
+    "peptide": "Bronchogen",
+    "strength": "20mg",
+    "price": "48.98",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.45"
+  },
+  {
+    "peptide": "Cardiogen",
+    "strength": "20mg",
+    "price": "48.98",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.45"
+  },
+  {
+    "peptide": "Cortagen",
+    "strength": "20mg",
+    "price": "48.98",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.45"
+  },
+  {
+    "peptide": "Follistatin",
+    "strength": "10mg",
+    "price": "559.30",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "55.93"
+  },
+  {
+    "peptide": "KLOTHO",
+    "strength": "10mcg",
+    "price": "559.30",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "55930.00"
+  },
+  {
+    "peptide": "Ovagen",
+    "strength": "20mg",
+    "price": "79.97",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "Oxytocin",
+    "strength": "10mg",
+    "price": "45.48",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.55"
+  },
+  {
+    "peptide": "Pancragen",
+    "strength": "20mg",
+    "price": "94.97",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.75"
+  },
+  {
+    "peptide": "PEG-MGF",
+    "strength": "5mg",
+    "price": "94.97",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "18.99"
+  },
+  {
+    "peptide": "PNC 27",
+    "strength": "10mg",
+    "price": "279.97",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "28.00"
+  },
+  {
+    "peptide": "Prostamax",
+    "strength": "20mg",
+    "price": "79.97",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "Tesamorelin/Ipamorelin",
+    "strength": "6mg/2mg",
+    "price": "80.50",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "13.42"
+  },
+  {
+    "peptide": "Testagen",
+    "strength": "20mg",
+    "price": "55.08",
+    "vendor": "Biolongevity Labs",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.75"
+  },
+  {
+    "peptide": "AOD 9604",
+    "strength": "5mg",
+    "price": "33.00",
+    "vendor": "Biopeptide",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.60"
+  },
+  {
+    "peptide": "BPC 157",
+    "strength": "5mg",
+    "price": "29.00",
+    "vendor": "Biopeptide",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "5.80"
+  },
+  {
+    "peptide": "CJC 1295 no DAC",
+    "strength": "5mg",
+    "price": "30.00",
+    "vendor": "Biopeptide",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.00"
+  },
+  {
+    "peptide": "DSIP",
+    "strength": "15mg",
+    "price": "89.99",
+    "vendor": "Biopeptide",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.00"
+  },
+  {
+    "peptide": "Melanotan 2",
+    "strength": "10mg",
+    "price": "29.00",
+    "vendor": "Biopeptide",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.90"
+  },
+  {
+    "peptide": "PT-141",
+    "strength": "10mg",
+    "price": "26.00",
+    "vendor": "Biopeptide",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.60"
+  },
+  {
+    "peptide": "Selank",
+    "strength": "11mg",
+    "price": "30.00",
+    "vendor": "Biopeptide",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.73"
+  },
+  {
+    "peptide": "TB500",
+    "strength": "10mg",
+    "price": "45.00",
+    "vendor": "Biopeptide",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "10mg",
+    "price": "45.00",
+    "vendor": "Biopeptide",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "Tesamorelin/Ipamorelin",
+    "strength": "5mg/5mg",
+    "price": "69.00",
+    "vendor": "Biopeptide",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "13.80"
+  },
+  {
+    "peptide": "Thymalin",
+    "strength": "10mg",
+    "price": "25.00",
+    "vendor": "Biopeptide",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.50"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "5mg",
+    "price": "24.99",
+    "vendor": "Elev8",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "1000mg",
+    "price": "99.00",
+    "vendor": "EQNO",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.10"
+  },
+  {
+    "peptide": "Cagri/Reta",
+    "strength": "12.5mg/2.5mg",
+    "price": "120.00",
+    "vendor": "EZ",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "9.60"
+  },
+  {
+    "peptide": "Lipo C with B12",
+    "strength": "20ml",
+    "price": "60.00",
+    "vendor": "EZ",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "6mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "7.50"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "12mg",
+    "price": "80.00",
+    "vendor": "EZ",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "6.67"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "24mg",
+    "price": "150.00",
+    "vendor": "EZ",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "6.25"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "48mg",
+    "price": "265.00",
+    "vendor": "EZ",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "5.52"
+  },
+  {
+    "peptide": "S (GLP1)",
+    "strength": "5mg",
+    "price": "40.00",
+    "vendor": "EZ",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "8.00"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "15mg",
+    "price": "80.00",
+    "vendor": "EZ",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "5.33"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "60mg",
+    "price": "145.00",
+    "vendor": "EZ",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "2.42"
+  },
+  {
+    "peptide": "Tesamorelin/Ipamorelin",
+    "strength": "10mg/3mg",
+    "price": "105.00",
+    "vendor": "EZ",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "10.50"
+  },
+  {
+    "peptide": "5 Amino 1mq",
+    "strength": "5mg",
+    "price": "34.99",
+    "vendor": "FelixChem",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "7.00"
+  },
+  {
+    "peptide": "Epithalon",
+    "strength": "50mg",
+    "price": "129.99",
+    "vendor": "FelixChem",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "2.60"
+  },
+  {
+    "peptide": "Lipo C  (Methione, Choline, Carnitine, Dexpanrhenol)",
+    "strength": "30ml",
+    "price": "159.99",
+    "vendor": "FelixChem",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "TB500",
+    "strength": "5mg",
+    "price": "36.99",
+    "vendor": "Ignition",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "7.40"
+  },
+  {
+    "peptide": "5 Amino 1mq",
+    "strength": "10mg",
+    "price": "50.00",
+    "vendor": "Instant",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "Cagrilintide",
+    "strength": "10mg",
+    "price": "90.00",
+    "vendor": "Instant",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "9.00"
+  },
+  {
+    "peptide": "MOTS-C",
+    "strength": "40mg",
+    "price": "115.00",
+    "vendor": "Instant",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.88"
+  },
+  {
+    "peptide": "Snap 8",
+    "strength": "20mg",
+    "price": "40.00",
+    "vendor": "Instant",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.00"
+  },
+  {
+    "peptide": "VIP",
+    "strength": "10mg",
+    "price": "60.00",
+    "vendor": "Instant",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.00"
+  },
+  {
+    "peptide": "Pinealon",
+    "strength": "10mg",
+    "price": "34.99",
+    "vendor": "Orbitrex",
+    "discountCode": "Kikiriki10",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "peptide": "S (GLP1)",
+    "strength": "20mg",
+    "price": "119.99",
+    "vendor": "Orbitrex",
+    "discountCode": "Kikiriki10",
+    "prcProduct": "No",
+    "pricePerMg": "6.00"
+  },
+  {
+    "peptide": "Selank",
+    "strength": "30mg",
+    "price": "69.99",
+    "vendor": "Orbitrex",
+    "discountCode": "Kikiriki10",
+    "prcProduct": "No",
+    "pricePerMg": "2.33"
+  },
+  {
+    "peptide": "Semax",
+    "strength": "10mg",
+    "price": "29.99",
+    "vendor": "Orbitrex",
+    "discountCode": "Kikiriki10",
+    "prcProduct": "No",
+    "pricePerMg": "3.00"
+  },
+  {
+    "peptide": "Semax",
+    "strength": "30mg",
+    "price": "69.99",
+    "vendor": "Orbitrex",
+    "discountCode": "Kikiriki10",
+    "prcProduct": "No",
+    "pricePerMg": "2.33"
+  },
+  {
+    "peptide": "SLUPP 322",
+    "strength": "5mg",
+    "price": "49.99",
+    "vendor": "Orbitrex",
+    "discountCode": "Kikiriki10",
+    "prcProduct": "No",
+    "pricePerMg": "10.00"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "10mg",
+    "price": "49.99",
+    "vendor": "Orbitrex",
+    "discountCode": "Kikiriki10",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "Cagri/Sema",
+    "strength": "5mg/5mg",
+    "price": "102.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "20.40"
+  },
+  {
+    "peptide": "Glutathione",
+    "strength": "600mg",
+    "price": "47.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.08"
+  },
+  {
+    "peptide": "HGH 191",
+    "strength": "15iu",
+    "price": "54.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "HGH 191",
+    "strength": "36iu",
+    "price": "107.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Kisspeptin",
+    "strength": "5mg",
+    "price": "52.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "10.40"
+  },
+  {
+    "peptide": "L-Carnitine",
+    "strength": "600mg/ml",
+    "price": "45.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.07"
+  },
+  {
+    "peptide": "Lipo C  (Methione, Choline, Carnitine, Dexpanrhenol)",
+    "strength": "10ml",
+    "price": "55.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "MOTS-C",
+    "strength": "10mg",
+    "price": "65.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.50"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "500mg",
+    "price": "30.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.06"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "1000mg",
+    "price": "65.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.07"
+  },
+  {
+    "peptide": "Oxytocin",
+    "strength": "2mg",
+    "price": "42.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "21.00"
+  },
+  {
+    "peptide": "Sermorelin",
+    "strength": "10mg",
+    "price": "67.00",
+    "vendor": "Penguin",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.70"
+  },
+  {
+    "peptide": "Botulinum Toxin",
+    "strength": "200u",
+    "price": "170.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Dermorphin",
+    "strength": "5mg",
+    "price": "22.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": "4.40"
+  },
+  {
+    "peptide": "Laennec Ampules",
+    "strength": "1 unit",
+    "price": "425.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Lemon Bottle",
+    "strength": "1 unit",
+    "price": "65.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Lipo C Fat Blaster",
+    "strength": "20ml",
+    "price": "42.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "PE 22-28",
+    "strength": "10mg",
+    "price": "30.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": "3.00"
+  },
+  {
+    "peptide": "Pine Bottle",
+    "strength": "1 unit",
+    "price": "49.50",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "PT-141",
+    "strength": "1 unit",
+    "price": "36.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "20mg",
+    "price": "55.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": "2.75"
+  },
+  {
+    "peptide": "S (GLP1)",
+    "strength": "1 unit",
+    "price": "30.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Sleep Blend",
+    "strength": "20ml",
+    "price": "42.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "Super Human Blend",
+    "strength": "20ml",
+    "price": "42.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "SZ-31",
+    "strength": "10mg",
+    "price": "55.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": "5.50"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "20mg",
+    "price": "44.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": "2.20"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "30mg",
+    "price": "46.00",
+    "vendor": "PRC",
+    "discountCode": "",
+    "prcProduct": "Yes",
+    "pricePerMg": "1.53"
+  },
+  {
+    "peptide": "GLOW",
+    "strength": "80mg",
+    "price": "79.00",
+    "vendor": "RetaOne",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "0.99"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "10mg",
+    "price": "48.00",
+    "vendor": "RetaOne",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "4.80"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "30mg",
+    "price": "124.00",
+    "vendor": "RetaOne",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "4.13"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "40mg",
+    "price": "179.00",
+    "vendor": "RetaOne",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "4.47"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "50mg",
+    "price": "209.00",
+    "vendor": "RetaOne",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "4.18"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "60mg",
+    "price": "239.00",
+    "vendor": "RetaOne",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "3.98"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "30mg",
+    "price": "72.00",
+    "vendor": "RetaOne",
+    "discountCode": "",
+    "prcProduct": "No",
+    "pricePerMg": "2.40"
+  },
+  {
+    "peptide": "HCG",
+    "strength": "10000iu",
+    "price": "55.00",
+    "vendor": "Royal",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "KLOW (TB-500, BPC-157, KPV, GHK-Cu)",
+    "strength": "80mg",
+    "price": "90.00",
+    "vendor": "Royal",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "1.12"
+  },
+  {
+    "peptide": "Lipo C Fat Blaster",
+    "strength": "10ml",
+    "price": "65.00",
+    "vendor": "Royal",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "B12",
+    "strength": "10ml",
+    "price": "24.95",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "DSIP",
+    "strength": "10mg",
+    "price": "49.95",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "GHK - CU",
+    "strength": "50mg",
+    "price": "34.99",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.70"
+  },
+  {
+    "peptide": "GLOW",
+    "strength": "70mg",
+    "price": "69.95",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "1.00"
+  },
+  {
+    "peptide": "KLOW",
+    "strength": "80mg",
+    "price": "79.95",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "1.00"
+  },
+  {
+    "peptide": "L-Carnitine",
+    "strength": "500mg/10ml",
+    "price": "24.99",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.05"
+  },
+  {
+    "peptide": "L-Carnitine",
+    "strength": "500mg/30ml",
+    "price": "59.99",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.12"
+  },
+  {
+    "peptide": "L-Carnitine",
+    "strength": "500mg/50ml",
+    "price": "99.99",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.20"
+  },
+  {
+    "peptide": "Melanotan 2",
+    "strength": "10mg",
+    "price": "39.95",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "PE 22-28",
+    "strength": "10mg",
+    "price": "49.95",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "10mg",
+    "price": "129.99",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "13.00"
+  },
+  {
+    "peptide": "S (GLP1)",
+    "strength": "5mg",
+    "price": "79.00",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "15.80"
+  },
+  {
+    "peptide": "TB-500",
+    "strength": "5mg",
+    "price": "39.95",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "7.99"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "10mg",
+    "price": "99.95",
+    "vendor": "Strate",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "10.00"
+  },
+  {
+    "peptide": "Cagrilintide",
+    "strength": "5mg",
+    "price": "40.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "8.00"
+  },
+  {
+    "peptide": "GHK - CU",
+    "strength": "100mg",
+    "price": "32.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.32"
+  },
+  {
+    "peptide": "GLOW",
+    "strength": "70mg",
+    "price": "55.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.79"
+  },
+  {
+    "peptide": "Glutathione",
+    "strength": "1500mg",
+    "price": "40.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "0.03"
+  },
+  {
+    "peptide": "KPV",
+    "strength": "10mg",
+    "price": "32.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "3.20"
+  },
+  {
+    "peptide": "Lipo B (L-Carnitine, L-Arginine, Methione, Inositol, Choline, B6, B5))",
+    "strength": "10ml",
+    "price": "55.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": ""
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "20mg",
+    "price": "63.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "3.15"
+  },
+  {
+    "peptide": "Semax",
+    "strength": "5mg",
+    "price": "25.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "Survodutide",
+    "strength": "10mg",
+    "price": "55.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "5.50"
+  },
+  {
+    "peptide": "SZ-31",
+    "strength": "10mg",
+    "price": "42.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.20"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "20mg",
+    "price": "60.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "3.00"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "40mg",
+    "price": "110.00",
+    "vendor": "Synagenics",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "2.75"
+  },
+  {
+    "peptide": "Cagrilintide",
+    "strength": "5mg",
+    "price": "79.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "16.00"
+  },
+  {
+    "peptide": "Cagrilintide",
+    "strength": "10mg",
+    "price": "159.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "16.00"
+  },
+  {
+    "peptide": "Hexarelin",
+    "strength": "5mg",
+    "price": "44.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "9.00"
+  },
+  {
+    "peptide": "Ipamorelin",
+    "strength": "5mg",
+    "price": "34.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "7.00"
+  },
+  {
+    "peptide": "Ipamorelin",
+    "strength": "10mg",
+    "price": "45.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.60"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "10mg",
+    "price": "120.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "12.10"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "30mg",
+    "price": "200.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.70"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "50mg",
+    "price": "280.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "5.62"
+  },
+  {
+    "peptide": "S (GLP1)",
+    "strength": "5mg",
+    "price": "64.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "13.00"
+  },
+  {
+    "peptide": "S (GLP1)",
+    "strength": "10mg",
+    "price": "119.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "12.00"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "10mg",
+    "price": "95.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "9.60"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "30mg",
+    "price": "169.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "5.67"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "60mg",
+    "price": "269.99",
+    "vendor": "TCore",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "BPC157/TB500",
+    "strength": "10mg/10mg",
+    "price": "51.00",
+    "vendor": "TruLab",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "5.10"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "5mg",
+    "price": "39.00",
+    "vendor": "TruLab",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "7.80"
+  },
+  {
+    "peptide": "R (GLP3)",
+    "strength": "15mg",
+    "price": "102.00",
+    "vendor": "TruLab",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.80"
+  },
+  {
+    "peptide": "T (GLP2)",
+    "strength": "5mg",
+    "price": "55.00",
+    "vendor": "TruLab",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "11.00"
+  },
+  {
+    "peptide": "Adamax",
+    "strength": "10mg",
+    "price": "65.00",
+    "vendor": "Tydes",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "6.50"
+  },
+  {
+    "peptide": "Hexarelin",
+    "strength": "6mg",
+    "price": "45.00",
+    "vendor": "Tydes",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "7.50"
+  },
+  {
+    "peptide": "P-21",
+    "strength": "10mg",
+    "price": "75.00",
+    "vendor": "Tydes",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "7.50"
+  },
+  {
+    "peptide": "Pinealon",
+    "strength": "20mg",
+    "price": "70.00",
+    "vendor": "Tydes",
+    "discountCode": "Kikiriki",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  }
+]

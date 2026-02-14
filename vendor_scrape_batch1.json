@@ -1,0 +1,628 @@
+[
+  {
+    "vendor": "AIO",
+    "status": "dead",
+    "error": "Shop page shows 0 products, /products returns 404, site appears non-functional or requires login"
+  },
+  {
+    "peptide": "ACE-031",
+    "strength": "1mg",
+    "price": "135.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "135.99"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "5mg",
+    "price": "38.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "7.80"
+  },
+  {
+    "peptide": "CJC-1295 with DAC",
+    "strength": "2mg",
+    "price": "46.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "23.50"
+  },
+  {
+    "peptide": "CJC-1295 without DAC",
+    "strength": "2mg",
+    "price": "41.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "21.00"
+  },
+  {
+    "peptide": "GHRP-2",
+    "strength": "5mg",
+    "price": "18.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "3.80"
+  },
+  {
+    "peptide": "GHRP-6",
+    "strength": "5mg",
+    "price": "18.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "3.80"
+  },
+  {
+    "peptide": "Glutathione",
+    "strength": "600mg",
+    "price": "49.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "0.08"
+  },
+  {
+    "peptide": "HMG",
+    "strength": "75iu",
+    "price": "36.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "N/A"
+  },
+  {
+    "peptide": "IGF-1 DES",
+    "strength": "1mg",
+    "price": "54.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "54.99"
+  },
+  {
+    "peptide": "IGF-1 LR3",
+    "strength": "1mg",
+    "price": "58.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "58.99"
+  },
+  {
+    "peptide": "Ipamorelin",
+    "strength": "2mg",
+    "price": "16.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "8.50"
+  },
+  {
+    "peptide": "Oxytocin",
+    "strength": "10mg",
+    "price": "49.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "PEG MGF",
+    "strength": "2mg",
+    "price": "45.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "23.00"
+  },
+  {
+    "peptide": "PT-141",
+    "strength": "10mg",
+    "price": "25.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "2.60"
+  },
+  {
+    "peptide": "Selank",
+    "strength": "5mg",
+    "price": "24.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "5mg",
+    "price": "149.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "30.00"
+  },
+  {
+    "peptide": "Semorelin",
+    "strength": "2mg",
+    "price": "24.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "12.50"
+  },
+  {
+    "peptide": "TB-500",
+    "strength": "5mg",
+    "price": "79.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "16.00"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "2mg",
+    "price": "24.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "12.50"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "10mg",
+    "price": "139.99",
+    "vendor": "Elev8",
+    "prcProduct": "No",
+    "pricePerMg": "14.00"
+  },
+  {
+    "peptide": "MOTS-C",
+    "strength": "10mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "10mg",
+    "price": "30.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.00"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "10mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "GHK-Cu",
+    "strength": "50mg",
+    "price": "28.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "0.56"
+  },
+  {
+    "peptide": "GHK-Cu",
+    "strength": "100mg",
+    "price": "43.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "0.43"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "12mg",
+    "price": "70.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "5.83"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "6mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "7.50"
+  },
+  {
+    "peptide": "Tirzepatide",
+    "strength": "24mg",
+    "price": "105.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.38"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "500mg",
+    "price": "50.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "0.10"
+  },
+  {
+    "peptide": "NAD+",
+    "strength": "250mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "0.14"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "30mg",
+    "price": "90.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.00"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "10mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "20mg",
+    "price": "80.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "Semaglutide",
+    "strength": "60mg",
+    "price": "145.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "2.42"
+  },
+  {
+    "peptide": "CJC-1295 no DAC / Ipamorelin Blend",
+    "strength": "5mg/5mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "KPV",
+    "strength": "10mg",
+    "price": "38.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.80"
+  },
+  {
+    "peptide": "Glow Blend (BPC-157/TB-500/GHK-Cu)",
+    "strength": "70mg",
+    "price": "70.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "1.00"
+  },
+  {
+    "peptide": "BPC-157 / TB-500 Blend",
+    "strength": "5mg/5mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.50"
+  },
+  {
+    "peptide": "Klow Blend",
+    "strength": "80mg",
+    "price": "90.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "1.13"
+  },
+  {
+    "peptide": "Ipamorelin",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "Cagrilintide",
+    "strength": "5mg",
+    "price": "45.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "9.00"
+  },
+  {
+    "peptide": "Epitalon",
+    "strength": "10mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "peptide": "TB-500 Frag 17-23",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "Semax",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "Retatrutide / Cagrilintide Blend",
+    "strength": "12.5mg/2.5mg",
+    "price": "120.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "8.00"
+  },
+  {
+    "peptide": "Selank",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "AOD-9604",
+    "strength": "2mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "17.50"
+  },
+  {
+    "peptide": "5-Amino-1MQ",
+    "strength": "50mg",
+    "price": "60.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "1.20"
+  },
+  {
+    "peptide": "Tesamorelin / Ipamorelin Blend",
+    "strength": "10mg/3mg",
+    "price": "80.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "6.15"
+  },
+  {
+    "peptide": "PT-141",
+    "strength": "10mg",
+    "price": "40.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "4.00"
+  },
+  {
+    "peptide": "DSIP",
+    "strength": "10mg",
+    "price": "60.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "6.00"
+  },
+  {
+    "peptide": "Sermorelin",
+    "strength": "5mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "7.00"
+  },
+  {
+    "peptide": "Thymosin Alpha-1",
+    "strength": "10mg",
+    "price": "55.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "5.50"
+  },
+  {
+    "peptide": "Melanotan II",
+    "strength": "10mg",
+    "price": "35.00",
+    "vendor": "EZ",
+    "prcProduct": "No",
+    "pricePerMg": "3.50"
+  },
+  {
+    "vendor": "FelixChem",
+    "status": "dead",
+    "error": "Requires login/registration to view products - cannot scrape without account"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "5mg",
+    "price": "29.99",
+    "vendor": "Ignition",
+    "prcProduct": "No",
+    "pricePerMg": "6.00"
+  },
+  {
+    "peptide": "HCG",
+    "strength": "5000iu",
+    "price": "39.99",
+    "vendor": "Ignition",
+    "prcProduct": "No",
+    "pricePerMg": "N/A"
+  },
+  {
+    "peptide": "Melanotan-2",
+    "strength": "10mg",
+    "price": "32.99",
+    "vendor": "Ignition",
+    "prcProduct": "No",
+    "pricePerMg": "3.30"
+  },
+  {
+    "peptide": "Retatrutide",
+    "strength": "5mg",
+    "price": "64.99",
+    "vendor": "Ignition",
+    "prcProduct": "No",
+    "pricePerMg": "13.00"
+  },
+  {
+    "peptide": "TB-500",
+    "strength": "5mg",
+    "price": "34.99",
+    "vendor": "Ignition",
+    "prcProduct": "No",
+    "pricePerMg": "7.00"
+  },
+  {
+    "peptide": "5-Amino-1MQ",
+    "strength": "5mg",
+    "price": "63.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "12.60"
+  },
+  {
+    "peptide": "AOD-9604",
+    "strength": "5mg",
+    "price": "42.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "8.40"
+  },
+  {
+    "peptide": "Ara-290",
+    "strength": "10mg",
+    "price": "62.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "6.20"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "5mg",
+    "price": "42.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "8.40"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "10mg",
+    "price": "62.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "6.20"
+  },
+  {
+    "peptide": "BPC-157 + TB-500",
+    "strength": "5mg/5mg",
+    "price": "58.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "5.80"
+  },
+  {
+    "peptide": "BPC-157 + TB-500",
+    "strength": "10mg/10mg",
+    "price": "100.00",
+    "vendor": "Penguin",
+    "prcProduct": "No",
+    "pricePerMg": "5.00"
+  },
+  {
+    "peptide": "AOD-9604",
+    "strength": "5mg",
+    "price": "74.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "15.00"
+  },
+  {
+    "peptide": "BPC-157 + TB-500",
+    "strength": "5mg/5mg",
+    "price": "119.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "12.00"
+  },
+  {
+    "peptide": "CJC-1295 + Ipamorelin",
+    "strength": "5mg/5mg",
+    "price": "134.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "13.50"
+  },
+  {
+    "peptide": "IGF-1 LR3",
+    "strength": "1mg",
+    "price": "129.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "129.99"
+  },
+  {
+    "peptide": "KPV",
+    "strength": "5mg",
+    "price": "54.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "11.00"
+  },
+  {
+    "peptide": "Sermorelin",
+    "strength": "5mg",
+    "price": "54.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "11.00"
+  },
+  {
+    "peptide": "Tesamorelin",
+    "strength": "2mg",
+    "price": "49.99",
+    "vendor": "SportsTech",
+    "prcProduct": "No",
+    "pricePerMg": "25.00"
+  },
+  {
+    "peptide": "5-Amino-1MQ",
+    "strength": "5mg",
+    "price": "70.99",
+    "vendor": "TCore",
+    "prcProduct": "No",
+    "pricePerMg": "14.20"
+  },
+  {
+    "peptide": "AOD-9604",
+    "strength": "5mg",
+    "price": "44.99",
+    "vendor": "TCore",
+    "prcProduct": "No",
+    "pricePerMg": "9.00"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "5mg",
+    "price": "34.99",
+    "vendor": "TCore",
+    "prcProduct": "No",
+    "pricePerMg": "7.00"
+  },
+  {
+    "peptide": "BPC-157",
+    "strength": "10mg",
+    "price": "50.99",
+    "vendor": "TCore",
+    "prcProduct": "No",
+    "pricePerMg": "5.10"
+  }
+]

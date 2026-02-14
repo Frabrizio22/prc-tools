@@ -1,0 +1,65 @@
+[
+  {
+    "vendor": "BC9",
+    "status": "requires_automation",
+    "url": "https://bc9.co/shop/",
+    "total_products": 293,
+    "pages": 19,
+    "note": "WooCommerce site with 293 products across 19 pages. Prices loaded via JavaScript when variants selected. Sample products: BPC-157 (5mg: $68.49, 10mg: $114.70), TB-500 ($48.16-$189.29), Adipotide ($12.00-$42.00), Ipamorelin ($76.52), Sermorelin ($123.57), Tesamorelin ($47.00-$166.34), CJC-1295, and many others. 101 products in Peptides category. Requires automated click-through for each product's variant selector."
+  },
+  {
+    "vendor": "Biopeptide",
+    "status": "complete",
+    "url": "https://biopeptitech.com/collections/all",
+    "total_products": 68,
+    "products_extracted": 11,
+    "note": "Shopify store with 68 total products (55 in stock). Successfully extracted peptide products below."
+  },
+  {"peptide": "Tirzepatide", "strength": "30mg", "price": "135.00", "vendor": "Biopeptide", "prcProduct": "No", "pricePerMg": "4.50"},
+  {"peptide": "Cagrilintide", "strength": "10mg", "price": "99.00", "vendor": "Biopeptide", "prcProduct": "No", "pricePerMg": "9.90"},
+  {"peptide": "Retatrutide", "strength": "10mg", "price": "84.00", "vendor": "Biopeptide", "prcProduct": "No", "pricePerMg": "8.40"},
+  {"peptide": "Semaglutide", "strength": "10mg", "price": "90.00", "vendor": "Biopeptide", "prcProduct": "No", "pricePerMg": "9.00"},
+  {"peptide": "5-Amino-1MQ", "strength": "5mg", "price": "55.00", "vendor": "Biopeptide", "prcProduct": "No", "pricePerMg": "11.00"},
+  {"peptide": "AOD9604", "strength": "5mg", "price": "33.00", "vendor": "Biopeptide", "prcProduct": "No", "pricePerMg": "6.60"},
+  {"peptide": "B12", "strength": "10mg", "price": "55.00", "vendor": "Biopeptide", "prcProduct": "No", "pricePerMg": "5.50"},
+  {"peptide": "BPC-157", "strength": "10mg", "price": "57.00", "vendor": "Biopeptide", "prcProduct": "No", "pricePerMg": "5.70"},
+  {"peptide": "BPC-157", "strength": "5mg", "price": "29.00", "vendor": "Biopeptide", "prcProduct": "No", "pricePerMg": "5.80"},
+  {"peptide": "BPC-157 + TB-500", "strength": "20mg", "price": "69.00", "vendor": "Biopeptide", "prcProduct": "No", "pricePerMg": "3.45"},
+  {"peptide": "BPC-157 + TB-500", "strength": "10mg", "price": "54.00", "vendor": "Biopeptide", "prcProduct": "No", "pricePerMg": "5.40"},
+  {
+    "vendor": "Royal",
+    "status": "requires_automation",
+    "url": "https://royal-peptides.com/shop/",
+    "note": "WooCommerce site with variant-based pricing. Sample products: KLOW 80mg Peptide Blend ($90.00-$560.00), Selank + Semax Blend 20mg ($75.00-$560.00), BPC-157/TB-500 Wolverine Blend. Multiple product categories including 10-Vial Kits, GLP/GIP Research, Healing & Growth. Requires individual variant selection for exact prices."
+  },
+  {
+    "vendor": "Strate",
+    "status": "not_accessed",
+    "url": "https://stratelabs.is",
+    "note": "Not accessed due to time/token constraints. Previous batch noted only 11 products found - needs complete extraction with exact prices."
+  },
+  {
+    "vendor": "Synagenics",
+    "status": "not_accessed",
+    "url": "https://synagenics.com",
+    "note": "Not accessed due to time/token constraints. Previous batch noted only 4 products found - needs complete extraction."
+  },
+  {
+    "vendor": "TruLab",
+    "status": "not_accessed",
+    "url": "https://trulabpeptides.com",
+    "note": "Not accessed due to time/token constraints. Needs full product catalog extraction."
+  },
+  {
+    "vendor": "Orbitrex",
+    "status": "not_accessed",
+    "url": "https://orbitrexpeptide.is",
+    "note": "Not accessed due to time/token constraints. Needs full product catalog extraction."
+  },
+  {
+    "vendor": "Biolongevity Labs",
+    "status": "not_accessed",
+    "url": "https://biolongevitylabs.com",
+    "note": "Not accessed due to time/token constraints. Needs full product catalog extraction."
+  }
+]
