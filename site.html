@@ -142,9 +142,11 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 .footer-disc{font-size:0.65rem;color:rgba(255,255,255,0.3);max-width:500px;margin:0 auto;line-height:1.5}
 .footer-copy{font-size:0.62rem;color:rgba(255,255,255,0.25);margin-top:12px}
 
-.calc-section{margin-top:24px;padding:24px;background:#f8f9fa;border-radius:12px;border:1px solid #e5e7eb}
-.calc-title{font-size:1rem;font-weight:800;color:#0A1628;margin-bottom:4px}
-.calc-subtitle{font-size:0.75rem;color:#64748b;margin-bottom:20px;line-height:1.4}
+.calc-section{margin-top:24px;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden}
+.calc-header{background:linear-gradient(135deg,#0A1628 0%,#1a2744 100%);padding:20px 24px}
+.calc-title{font-size:1rem;font-weight:800;color:#fff;margin-bottom:4px}
+.calc-subtitle{font-size:0.75rem;color:rgba(255,255,255,0.6);line-height:1.4}
+.calc-body{padding:24px;background:#fff}
 .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:640px){.calc-grid{grid-template-columns:1fr}}
 .calc-field{display:flex;flex-direction:column;gap:4px}
@@ -283,8 +285,11 @@ function calcRecon() {
 </div>
 
 <div class="calc-section" id="peptide-calc">
+<div class="calc-header">
 <div class="calc-title">Reconstitution Calculator</div>
 <div class="calc-subtitle">Calculate the correct volume to draw for your desired dose after reconstituting a peptide vial.</div>
+</div>
+<div class="calc-body">
 <div class="calc-grid">
 <div class="calc-field">
 <span class="calc-label">Peptide in Vial (mg)</span>
@@ -322,6 +327,7 @@ function calcRecon() {
 </div>
 </div>
 <div class="calc-note">For research and educational purposes only. Not medical advice. Always verify calculations independently. 1 mg = 1000 mcg. Standard insulin syringe: 100 units = 1 mL.</div>
+</div>
 </div>
 
 <div class="res-section" id="review-resources">
