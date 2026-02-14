@@ -215,6 +215,9 @@ function calcRecon() {
   document.getElementById("calcVol").textContent = volMl.toFixed(3) + " mL (" + volUnits.toFixed(1) + " units)";
   document.getElementById("calcDoses").textContent = totalDoses + " doses";
   document.getElementById("calcDays").textContent = days + " day" + (days !== 1 ? "s" : "");
+  var summary = document.getElementById("calcSummary");
+  summary.style.display = "block";
+  summary.innerHTML = "<strong>Summary:</strong> Add " + water + " mL of bacteriostatic water to your " + pep + " mg vial. For a " + dose + " mcg dose, draw <strong>" + volUnits.toFixed(1) + " units</strong> (" + volMl.toFixed(3) + " mL) on your insulin syringe. This vial gives you <strong>" + totalDoses + " doses</strong> and lasts <strong>" + days + " day" + (days !== 1 ? "s" : "") + "</strong>.";
 }
 </script>
 </head>
@@ -290,6 +293,13 @@ function calcRecon() {
 <div class="calc-subtitle">Calculate the correct volume to draw for your desired dose after reconstituting a peptide vial.</div>
 </div>
 <div class="calc-body">
+<div style="margin-bottom:20px;padding:16px;background:#f0f7ff;border-radius:8px;font-size:0.78rem;line-height:1.6;color:#334155">
+<div style="font-weight:700;color:#0A1628;margin-bottom:8px">How to use this calculator:</div>
+<div style="margin-bottom:4px"><strong>1.</strong> <strong>Peptide in Vial</strong> — The total mg listed on your peptide vial (e.g. 5mg, 10mg)</div>
+<div style="margin-bottom:4px"><strong>2.</strong> <strong>Bacteriostatic Water</strong> — How much water you add to reconstitute. Common amounts: 1mL or 2mL</div>
+<div style="margin-bottom:4px"><strong>3.</strong> <strong>Desired Dose</strong> — The mcg you want per injection (check your research protocol)</div>
+<div><strong>4.</strong> <strong>Doses Per Day</strong> — How many times per day</div>
+</div>
 <div class="calc-grid">
 <div class="calc-field">
 <span class="calc-label">Peptide in Vial (mg)</span>
@@ -326,6 +336,7 @@ function calcRecon() {
 <span class="calc-result-value" id="calcDays">—</span>
 </div>
 </div>
+<div id="calcSummary" style="display:none;margin-top:16px;padding:14px 16px;background:#f0fdf4;border-radius:8px;border-left:4px solid #10B981;font-size:0.8rem;line-height:1.6;color:#334155"></div>
 <div class="calc-note">For research and educational purposes only. Not medical advice. Always verify calculations independently. 1 mg = 1000 mcg. Standard insulin syringe: 100 units = 1 mL.</div>
 </div>
 </div>
