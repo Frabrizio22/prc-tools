@@ -961,18 +961,28 @@ function switchTab(id) {
   }
   window.scrollTo(0,0);
 }
-// Attach to ALL labels with tab- targets
-document.addEventListener("click", function(e) {
-  var el = e.target;
-  while (el && el.tagName !== "LABEL") el = el.parentElement;
-  if (!el) return;
-  var f = el.getAttribute("for");
-  if (f && f.indexOf("tab-") === 0) {
-    e.preventDefault();
-    e.stopPropagation();
-    switchTab(f);
-  }
-});
+// Attach click handlers directly to each label
+var allTabLabels = document.querySelectorAll("label[for^='tab-']");
+for (var li = 0; li < allTabLabels.length; li++) {
+  allTabLabels[li].onclick = (function(lbl) {
+    return function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      switchTab(lbl.getAttribute("for"));
+      return false;
+    };
+  })(allTabLabels[li]);
+}
+// Also handle hero buttons and quick tiles
+var heroBtns = document.querySelectorAll(".btn-primary[for], .btn-outline[for], .quick-tile[for]");
+for (var hi = 0; hi < heroBtns.length; hi++) {
+  heroBtns[hi].onclick = (function(btn) {
+    return function(e) {
+      var f = btn.getAttribute("for");
+      if (f && f.indexOf("tab-") === 0) { e.preventDefault(); switchTab(f); return false; }
+    };
+  })(heroBtns[hi]);
+}
 // Init: show resources tab
 switchTab("tab-resources");
 
