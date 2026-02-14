@@ -441,32 +441,72 @@ var html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n' +
 
 // Vendor Directory placeholder removed — real directory generated below
 
-// Review Resources
+// Review Resources — Real community review platforms
 '<div class="res-section" id="review-resources">\n' +
-'<h3>Review Resources</h3>\n' +
-'<ul>\n' +
-'<li>Community vendor reviews and ratings</li>\n' +
-'<li>Third-party testing comparison reports</li>\n' +
-'<li>Vendor reliability tracking</li>\n' +
-'<li>Shipping speed and customer service ratings</li>\n' +
-'</ul>\n' +
+'<h3>Where to Find Vendor Reviews</h3>\n' +
+'<p style="margin-bottom:12px">Before purchasing from any vendor, check these community resources for real user feedback and independent testing results.</p>\n' +
+'<div style="display:flex;flex-direction:column;gap:12px">\n' +
+'<div style="padding:12px 16px;background:#f8f9fa;border-radius:8px;border-left:3px solid #2B7DE9">\n' +
+'<div style="font-weight:700;font-size:0.82rem;color:#0A1628;margin-bottom:4px">Reddit Communities</div>\n' +
+'<div style="font-size:0.75rem;color:#475569;line-height:1.5">r/Peptides — Largest peptide research community. Vendor reviews, experience reports, and sourcing discussions. Search vendor names before ordering.</div>\n' +
+'</div>\n' +
+'<div style="padding:12px 16px;background:#f8f9fa;border-radius:8px;border-left:3px solid #2B7DE9">\n' +
+'<div style="font-weight:700;font-size:0.82rem;color:#0A1628;margin-bottom:4px">Trustpilot</div>\n' +
+'<div style="font-size:0.75rem;color:#475569;line-height:1.5">Many peptide vendors have Trustpilot profiles with verified customer reviews. Look for vendors with 50+ reviews and 4+ star ratings. Be cautious of vendors with no reviews.</div>\n' +
+'</div>\n' +
+'<div style="padding:12px 16px;background:#f8f9fa;border-radius:8px;border-left:3px solid #2B7DE9">\n' +
+'<div style="font-weight:700;font-size:0.82rem;color:#0A1628;margin-bottom:4px">Peptide Forums &amp; Discord</div>\n' +
+'<div style="font-size:0.75rem;color:#475569;line-height:1.5">Dedicated peptide research forums and Discord servers where researchers share testing results, vendor comparisons, and sourcing experiences. Ask for invite links in Reddit communities.</div>\n' +
+'</div>\n' +
+'<div style="padding:12px 16px;background:#f8f9fa;border-radius:8px;border-left:3px solid #2B7DE9">\n' +
+'<div style="font-weight:700;font-size:0.82rem;color:#0A1628;margin-bottom:4px">What to Look For in Reviews</div>\n' +
+'<div style="font-size:0.75rem;color:#475569;line-height:1.5">Third-party lab testing results (HPLC purity reports) • Shipping speed and packaging quality • Customer service responsiveness • Consistency between batches • Return/refund policies • Payment security</div>\n' +
+'</div>\n' +
+'</div>\n' +
 '</div>\n\n' +
 
-// Testing Labs
+// Testing Labs — Real third-party labs
 '<div class="res-section" id="testing-labs">\n' +
-'<h3>Testing Labs</h3>\n' +
-'<p>Independent third-party laboratories offering HPLC purity analysis, mass spectrometry, and endotoxin testing for research peptides. Always verify your compounds through independent analysis to ensure research integrity.</p>\n' +
+'<h3>Third-Party Testing Laboratories</h3>\n' +
+'<p style="margin-bottom:12px">Independent labs that test peptide purity, identity, and sterility. Sending samples for third-party verification is the gold standard for ensuring product quality.</p>\n' +
+'<div style="display:flex;flex-direction:column;gap:12px">\n' +
+'<div style="padding:12px 16px;background:#f8f9fa;border-radius:8px;border-left:3px solid #10B981">\n' +
+'<div style="font-weight:700;font-size:0.82rem;color:#0A1628;margin-bottom:4px">Janoshik Analytical</div>\n' +
+'<div style="font-size:0.75rem;color:#475569;line-height:1.5">Czech Republic-based. The most widely used independent lab in the peptide community. Offers HPLC purity testing, mass spectrometry, and amino acid analysis. Results typically within 5-10 business days. Trusted by researchers worldwide.</div>\n' +
+'</div>\n' +
+'<div style="padding:12px 16px;background:#f8f9fa;border-radius:8px;border-left:3px solid #10B981">\n' +
+'<div style="font-weight:700;font-size:0.82rem;color:#0A1628;margin-bottom:4px">Lab Testing Basics</div>\n' +
+'<div style="font-size:0.75rem;color:#475569;line-height:1.5"><strong>HPLC (High-Performance Liquid Chromatography)</strong> — Measures peptide purity percentage. Look for ≥98% purity for research-grade compounds.<br><strong>Mass Spectrometry</strong> — Confirms molecular identity. Verifies you received the correct peptide.<br><strong>Endotoxin Testing (LAL)</strong> — Checks for bacterial contamination. Critical for injectable research compounds.<br><strong>Sterility Testing</strong> — Confirms absence of microbial contamination.</div>\n' +
+'</div>\n' +
+'<div style="padding:12px 16px;background:#f8f9fa;border-radius:8px;border-left:3px solid #10B981">\n' +
+'<div style="font-weight:700;font-size:0.82rem;color:#0A1628;margin-bottom:4px">Reading a Certificate of Analysis (COA)</div>\n' +
+'<div style="font-size:0.75rem;color:#475569;line-height:1.5">A legitimate COA should include: lab name and contact info, date of analysis, batch/lot number, peptide name and sequence, purity percentage (HPLC), molecular weight confirmation (MS), appearance description, and storage conditions. Be wary of COAs missing any of these elements.</div>\n' +
+'</div>\n' +
+'</div>\n' +
 '</div>\n\n' +
 
-// Books
+// Books — with descriptions
 '<div class="res-section">\n' +
-'<h3>Books &amp; Reading</h3>\n' +
-'<ul>\n' +
-'<li><strong>Peptide Chemistry and Drug Design</strong> by Ben M. Dunn</li>\n' +
-'<li><strong>Introduction to Peptides and Proteins</strong> by Ulo Langel et al.</li>\n' +
-'<li><strong>Peptide Drug Discovery and Development</strong> by Miguel Castanho</li>\n' +
-'<li><strong>The Handbook of Biologically Active Peptides</strong> by Abba Kastin</li>\n' +
-'</ul>\n' +
+'<h3>Books &amp; Further Reading</h3>\n' +
+'<p style="margin-bottom:12px">Essential references for understanding peptide science, research methodology, and drug development.</p>\n' +
+'<div style="display:flex;flex-direction:column;gap:10px">\n' +
+'<div style="padding:10px 16px;background:#f8f9fa;border-radius:8px">\n' +
+'<div style="font-weight:700;font-size:0.82rem;color:#0A1628">Peptide Chemistry and Drug Design</div>\n' +
+'<div style="font-size:0.72rem;color:#64748b">by Ben M. Dunn — Comprehensive overview of peptide synthesis, structure-activity relationships, and therapeutic applications.</div>\n' +
+'</div>\n' +
+'<div style="padding:10px 16px;background:#f8f9fa;border-radius:8px">\n' +
+'<div style="font-weight:700;font-size:0.82rem;color:#0A1628">Introduction to Peptides and Proteins</div>\n' +
+'<div style="font-size:0.72rem;color:#64748b">by Ulo Langel et al. — Foundational textbook covering peptide biology, cell-penetrating peptides, and research methodologies.</div>\n' +
+'</div>\n' +
+'<div style="padding:10px 16px;background:#f8f9fa;border-radius:8px">\n' +
+'<div style="font-weight:700;font-size:0.82rem;color:#0A1628">Peptide Drug Discovery and Development</div>\n' +
+'<div style="font-size:0.72rem;color:#64748b">by Miguel Castanho — From lab bench to clinical trials. Covers peptide drug design, delivery systems, and regulatory pathways.</div>\n' +
+'</div>\n' +
+'<div style="padding:10px 16px;background:#f8f9fa;border-radius:8px">\n' +
+'<div style="font-weight:700;font-size:0.82rem;color:#0A1628">The Handbook of Biologically Active Peptides</div>\n' +
+'<div style="font-size:0.72rem;color:#64748b">by Abba Kastin — The definitive reference. 1,600+ pages covering every major peptide family, their mechanisms, and research applications.</div>\n' +
+'</div>\n' +
+'</div>\n' +
 '</div>\n\n' +
 
 // Vendor Directory Full List
