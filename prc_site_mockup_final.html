@@ -77,6 +77,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Ar
 .vendor-row{padding:12px 16px;border-bottom:1px solid #f0f0f0;background:#fff;display:flex;flex-direction:column;gap:4px;transition:background 0.1s;border-left:4px solid transparent}
 .vendor-row[data-tier="green"]{border-left-color:#10B981;background:#f0fdf4}
 .vendor-row[data-tier="yellow"]{border-left-color:#F59E0B;background:#fffbeb}
+.vendor-row[data-tier="yellow"]{border-left-color:#EAB308;background:#fefce8}
 .vendor-row[data-tier="orange"]{border-left-color:#F97316;background:#fff7ed}
 .vendor-row[data-tier="red"]{border-left-color:#EF4444;background:#fef2f2}
 .vendor-row:last-child{border-bottom:none}
@@ -283,6 +284,7 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <p style="margin-bottom:12px;font-size:0.82rem;color:#475569;line-height:1.6">We do not rate nor explicitly recommend vendors, although we are affiliated with some. Each researcher must conduct their due diligence to verify the vendor's Certificate of Analysis and guarantees. We have organized them in Green, Orange, and Red categories.</p>
 <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;font-size:0.78rem;line-height:1.5">
 <div style="padding:10px 14px;border-left:4px solid #10B981;background:#f0fdf4;border-radius:0 6px 6px 0"><strong style="color:#10B981">Green</strong> <span style="color:#475569">— Vendors we have personally used in our research and/or that have a wide positive reputation in multiple peptide research communities. Vendors that thoroughly test each item are also in this category.</span></div>
+<div style="padding:10px 14px;border-left:4px solid #EAB308;background:#fefce8;border-radius:0 6px 6px 0"><strong style="color:#EAB308">Yellow</strong> <span style="color:#475569">— Vendors we don't have information on, haven't heard anything negative about, or haven't worked with. We are affiliated with some because we believe they are good and will try them in the future.</span></div>
 <div style="padding:10px 14px;border-left:4px solid #F97316;background:#fff7ed;border-radius:0 6px 6px 0"><strong style="color:#F97316">Orange</strong> <span style="color:#475569">— Vendors in this category raised some flags for us and we recommend extra caution until new information is available.</span></div>
 <div style="padding:10px 14px;border-left:4px solid #EF4444;background:#fef2f2;border-radius:0 6px 6px 0"><strong style="color:#EF4444">Red</strong> <span style="color:#475569">— Vendors we would avoid due to lack of information on their website, negative reviews from the general community, or bad experiences. We always try to update our listings and if they change the info on their sites we will adjust their status accordingly.</span></div>
 </div>
@@ -290,7 +292,8 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <div class="vendor-controls">
 <div class="vendor-filter-pills">
 <button class="v-pill active" onclick="filterVendors(this,'all')">All (326)</button>
-<button class="v-pill" onclick="filterVendors(this,'green')" style="--v-color:#10B981">Green (162)</button>
+<button class="v-pill" onclick="filterVendors(this,'green')" style="--v-color:#10B981">Green (54)</button>
+<button class="v-pill" onclick="filterVendors(this,'yellow')" style="--v-color:#EAB308">Yellow (108)</button>
 <button class="v-pill" onclick="filterVendors(this,'orange')" style="--v-color:#F97316">Orange (25)</button>
 <button class="v-pill" onclick="filterVendors(this,'red')" style="--v-color:#EF4444">Red (139)</button>
 </div>
@@ -358,114 +361,114 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <div class="vendor-row" data-tier="green" data-name="nuscience peptides"><div class="vendor-name">Nuscience Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-notes">Account registration required</div></div>
 <div class="vendor-row" data-tier="green" data-name="nutrycore"><div class="vendor-name">NutryCore</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
 <div class="vendor-row" data-tier="green" data-name="oath peptides"><div class="vendor-name">Oath Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="omega peptides"><div class="vendor-name">Omega Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="orbitrex peptides"><div class="vendor-name">Orbitrex Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-aff">Code: <strong>Kikiriki10</strong></div></div>
-<div class="vendor-row" data-tier="green" data-name="oros research"><div class="vendor-name">Oros Research</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="parasyn labs"><div class="vendor-name">Parasyn Labs</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="particle peptides"><div class="vendor-name">Particle Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peak force labs"><div class="vendor-name">Peak Force Labs</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peak peptides"><div class="vendor-name">Peak Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="penguin peptides"><div class="vendor-name">Penguin Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pep amino"><div class="vendor-name">Pep Amino</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pep essentials"><div class="vendor-name">Pep Essentials</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pepolution"><div class="vendor-name">Pepolution</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peppy depot"><div class="vendor-name">Peppy Depot</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide basix"><div class="vendor-name">Peptide Basix</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide bio labs"><div class="vendor-name">Peptide Bio Labs</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide gurus"><div class="vendor-name">Peptide Gurus</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide hub"><div class="vendor-name">Peptide Hub</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide hubs"><div class="vendor-name">Peptide Hubs</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide king"><div class="vendor-name">Peptide King</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide nova"><div class="vendor-name">Peptide Nova</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide partners"><div class="vendor-name">Peptide Partners</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide pros"><div class="vendor-name">Peptide Pros</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide research store"><div class="vendor-name">Peptide Research Store</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide research supply"><div class="vendor-name">Peptide Research Supply</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptide-protocol"><div class="vendor-name">Peptide-Protocol</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptides4research"><div class="vendor-name">Peptides4Research</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptidist"><div class="vendor-name">Peptidist</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptidology"><div class="vendor-name">Peptidology</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="peptilab research"><div class="vendor-name">Peptilab Research</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="performance labz"><div class="vendor-name">Performance Labz</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="performance peptides"><div class="vendor-name">Performance Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pharma grade peptides"><div class="vendor-name">Pharma Grade Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pharma lab global"><div class="vendor-name">Pharma Lab Global</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-notes">Mexico-based</div></div>
-<div class="vendor-row" data-tier="green" data-name="pink pony peptides"><div class="vendor-name">Pink Pony Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="planet peptide"><div class="vendor-name">Planet Peptide</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="platinum cryo"><div class="vendor-name">Platinum Cryo</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="platinum lion peptides"><div class="vendor-name">Platinum Lion Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="platinum peptides"><div class="vendor-name">Platinum Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="polaris peptides"><div class="vendor-name">Polaris Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-notes">Account registration required</div></div>
-<div class="vendor-row" data-tier="green" data-name="popular peptides"><div class="vendor-name">Popular Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="power peptides"><div class="vendor-name">Power Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-notes">Membership required</div></div>
-<div class="vendor-row" data-tier="green" data-name="precision bio care"><div class="vendor-name">Precision Bio Care</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="precision peptides"><div class="vendor-name">Precision Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pretty packs"><div class="vendor-name">Pretty Packs</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="prime lab peptides"><div class="vendor-name">Prime Lab Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="prime peptides"><div class="vendor-name">Prime Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="priority peptides"><div class="vendor-name">Priority Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pulse peptides"><div class="vendor-name">Pulse Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pur peptide"><div class="vendor-name">Pur Peptide</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pure bio labs"><div class="vendor-name">Pure Bio Labs</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pure pep research"><div class="vendor-name">Pure Pep Research</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-notes">Account registration required</div></div>
-<div class="vendor-row" data-tier="green" data-name="pure peps"><div class="vendor-name">Pure Peps</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pure peptide labs"><div class="vendor-name">Pure Peptide Labs</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pure rawz"><div class="vendor-name">Pure Rawz</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="pure rx peptides"><div class="vendor-name">Pure RX Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="purity sports style"><div class="vendor-name">Purity Sports Style</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="purus peptides"><div class="vendor-name">Purus Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="quana nova"><div class="vendor-name">Quana Nova</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="quanta peptides"><div class="vendor-name">Quanta Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="raw amino"><div class="vendor-name">Raw Amino</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="rcs research"><div class="vendor-name">RCS Research</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-notes">Account registration required</div></div>
-<div class="vendor-row" data-tier="green" data-name="rebel peptides"><div class="vendor-name">Rebel Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="rejuvenation wellness"><div class="vendor-name">Rejuvenation Wellness</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-aff">Code: <strong>bts8am95</strong></div></div>
-<div class="vendor-row" data-tier="green" data-name="research 1 peptides"><div class="vendor-name">Research 1 Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="research chem"><div class="vendor-name">Research Chem</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="research purpose labs"><div class="vendor-name">Research Purpose Labs</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="research ready"><div class="vendor-name">Research Ready</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="reta one labs"><div class="vendor-name">Reta One Labs</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-aff">Code: <strong>5cby8</strong></div></div>
-<div class="vendor-row" data-tier="green" data-name="reta peptide"><div class="vendor-name">Reta Peptide</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="revivacore"><div class="vendor-name">Revivacore</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="royal peptides"><div class="vendor-name">Royal Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-aff">Code: <strong>kikiriki</strong></div></div>
-<div class="vendor-row" data-tier="green" data-name="sacramento peptides"><div class="vendor-name">Sacramento Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="short chain aminos"><div class="vendor-name">Short Chain Aminos</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="sigma audley peptides"><div class="vendor-name">Sigma Audley Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="sigma peptides"><div class="vendor-name">Sigma Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="simple peptide"><div class="vendor-name">Simple Peptide</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="singular supplies"><div class="vendor-name">Singular Supplies</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="socal bio research"><div class="vendor-name">SoCal Bio Research</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="solid peptides"><div class="vendor-name">Solid Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="soma chems"><div class="vendor-name">Soma Chems</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-notes">Formerly Amino Asylum</div></div>
-<div class="vendor-row" data-tier="green" data-name="source peptides"><div class="vendor-name">Source Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="sports technology labs"><div class="vendor-name">Sports Technology Labs</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="sunrise bio research"><div class="vendor-name">Sunrise Bio Research</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="synagenics"><div class="vendor-name">Synagenics</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="t core biotech"><div class="vendor-name">T Core Biotech</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="tegridy research"><div class="vendor-name">Tegridy Research</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="the peptide haven"><div class="vendor-name">The Peptide Haven</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="transforma peptides"><div class="vendor-name">Transforma Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="treasure coast peptides"><div class="vendor-name">Treasure Coast Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="triumphant labs"><div class="vendor-name">Triumphant Labs</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-notes">Account registration required</div></div>
-<div class="vendor-row" data-tier="green" data-name="tru lab peptides"><div class="vendor-name">Tru Lab Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-aff">Code: <strong>Kikiriki</strong></div></div>
-<div class="vendor-row" data-tier="green" data-name="trusted peptides store"><div class="vendor-name">Trusted Peptides Store</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="ug freak"><div class="vendor-name">UG Freak</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="umbrella labs"><div class="vendor-name">Umbrella Labs</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="uniting wellness"><div class="vendor-name">Uniting Wellness</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="us peptide co"><div class="vendor-name">US Peptide Co</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-notes">Account required to order</div></div>
-<div class="vendor-row" data-tier="green" data-name="uther peptide"><div class="vendor-name">Uther Peptide</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="veteran peptides"><div class="vendor-name">Veteran Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="vigor peptides"><div class="vendor-name">Vigor Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="vital core research"><div class="vendor-name">Vital Core Research</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="vital vials"><div class="vendor-name">Vital Vials</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="wellness peptides"><div class="vendor-name">Wellness Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="wholesale peptides"><div class="vendor-name">Wholesale Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="wise peptide"><div class="vendor-name">Wise Peptide</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="xcel peptides"><div class="vendor-name">Xcel Peptides</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="your soma"><div class="vendor-name">Your Soma</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="zenaminos"><div class="vendor-name">Zenaminos</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="zenergy peps"><div class="vendor-name">Zenergy Peps</div><span class="vendor-tier" style="color:#10B981">Green/span></div>
-<div class="vendor-row" data-tier="green" data-name="zphc"><div class="vendor-name">ZPHC</div><span class="vendor-tier" style="color:#10B981">Green/span><div class="vendor-notes">Also carries non-peptide products</div></div>
+<div class="vendor-row" data-tier="yellow" data-name="omega peptides"><div class="vendor-name">Omega Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="orbitrex peptides"><div class="vendor-name">Orbitrex Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-aff">Code: <strong>Kikiriki10</strong></div></div>
+<div class="vendor-row" data-tier="yellow" data-name="oros research"><div class="vendor-name">Oros Research</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="parasyn labs"><div class="vendor-name">Parasyn Labs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="particle peptides"><div class="vendor-name">Particle Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peak force labs"><div class="vendor-name">Peak Force Labs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peak peptides"><div class="vendor-name">Peak Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="penguin peptides"><div class="vendor-name">Penguin Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pep amino"><div class="vendor-name">Pep Amino</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pep essentials"><div class="vendor-name">Pep Essentials</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pepolution"><div class="vendor-name">Pepolution</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peppy depot"><div class="vendor-name">Peppy Depot</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide basix"><div class="vendor-name">Peptide Basix</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide bio labs"><div class="vendor-name">Peptide Bio Labs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide gurus"><div class="vendor-name">Peptide Gurus</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide hub"><div class="vendor-name">Peptide Hub</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide hubs"><div class="vendor-name">Peptide Hubs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide king"><div class="vendor-name">Peptide King</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide nova"><div class="vendor-name">Peptide Nova</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide partners"><div class="vendor-name">Peptide Partners</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide pros"><div class="vendor-name">Peptide Pros</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide research store"><div class="vendor-name">Peptide Research Store</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide research supply"><div class="vendor-name">Peptide Research Supply</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptide-protocol"><div class="vendor-name">Peptide-Protocol</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptides4research"><div class="vendor-name">Peptides4Research</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptidist"><div class="vendor-name">Peptidist</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptidology"><div class="vendor-name">Peptidology</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="peptilab research"><div class="vendor-name">Peptilab Research</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="performance labz"><div class="vendor-name">Performance Labz</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="performance peptides"><div class="vendor-name">Performance Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pharma grade peptides"><div class="vendor-name">Pharma Grade Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pharma lab global"><div class="vendor-name">Pharma Lab Global</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-notes">Mexico-based</div></div>
+<div class="vendor-row" data-tier="yellow" data-name="pink pony peptides"><div class="vendor-name">Pink Pony Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="planet peptide"><div class="vendor-name">Planet Peptide</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="platinum cryo"><div class="vendor-name">Platinum Cryo</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="platinum lion peptides"><div class="vendor-name">Platinum Lion Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="platinum peptides"><div class="vendor-name">Platinum Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="polaris peptides"><div class="vendor-name">Polaris Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-notes">Account registration required</div></div>
+<div class="vendor-row" data-tier="yellow" data-name="popular peptides"><div class="vendor-name">Popular Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="power peptides"><div class="vendor-name">Power Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-notes">Membership required</div></div>
+<div class="vendor-row" data-tier="yellow" data-name="precision bio care"><div class="vendor-name">Precision Bio Care</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="precision peptides"><div class="vendor-name">Precision Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pretty packs"><div class="vendor-name">Pretty Packs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="prime lab peptides"><div class="vendor-name">Prime Lab Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="prime peptides"><div class="vendor-name">Prime Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="priority peptides"><div class="vendor-name">Priority Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pulse peptides"><div class="vendor-name">Pulse Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pur peptide"><div class="vendor-name">Pur Peptide</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pure bio labs"><div class="vendor-name">Pure Bio Labs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pure pep research"><div class="vendor-name">Pure Pep Research</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-notes">Account registration required</div></div>
+<div class="vendor-row" data-tier="yellow" data-name="pure peps"><div class="vendor-name">Pure Peps</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pure peptide labs"><div class="vendor-name">Pure Peptide Labs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pure rawz"><div class="vendor-name">Pure Rawz</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="pure rx peptides"><div class="vendor-name">Pure RX Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="purity sports style"><div class="vendor-name">Purity Sports Style</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="purus peptides"><div class="vendor-name">Purus Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="quana nova"><div class="vendor-name">Quana Nova</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="quanta peptides"><div class="vendor-name">Quanta Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="raw amino"><div class="vendor-name">Raw Amino</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="rcs research"><div class="vendor-name">RCS Research</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-notes">Account registration required</div></div>
+<div class="vendor-row" data-tier="yellow" data-name="rebel peptides"><div class="vendor-name">Rebel Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="rejuvenation wellness"><div class="vendor-name">Rejuvenation Wellness</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-aff">Code: <strong>bts8am95</strong></div></div>
+<div class="vendor-row" data-tier="yellow" data-name="research 1 peptides"><div class="vendor-name">Research 1 Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="research chem"><div class="vendor-name">Research Chem</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="research purpose labs"><div class="vendor-name">Research Purpose Labs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="research ready"><div class="vendor-name">Research Ready</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="reta one labs"><div class="vendor-name">Reta One Labs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-aff">Code: <strong>5cby8</strong></div></div>
+<div class="vendor-row" data-tier="yellow" data-name="reta peptide"><div class="vendor-name">Reta Peptide</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="revivacore"><div class="vendor-name">Revivacore</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="royal peptides"><div class="vendor-name">Royal Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-aff">Code: <strong>kikiriki</strong></div></div>
+<div class="vendor-row" data-tier="yellow" data-name="sacramento peptides"><div class="vendor-name">Sacramento Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="short chain aminos"><div class="vendor-name">Short Chain Aminos</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="sigma audley peptides"><div class="vendor-name">Sigma Audley Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="sigma peptides"><div class="vendor-name">Sigma Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="simple peptide"><div class="vendor-name">Simple Peptide</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="singular supplies"><div class="vendor-name">Singular Supplies</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="socal bio research"><div class="vendor-name">SoCal Bio Research</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="solid peptides"><div class="vendor-name">Solid Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="soma chems"><div class="vendor-name">Soma Chems</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-notes">Formerly Amino Asylum</div></div>
+<div class="vendor-row" data-tier="yellow" data-name="source peptides"><div class="vendor-name">Source Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="sports technology labs"><div class="vendor-name">Sports Technology Labs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="sunrise bio research"><div class="vendor-name">Sunrise Bio Research</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="synagenics"><div class="vendor-name">Synagenics</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="t core biotech"><div class="vendor-name">T Core Biotech</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="tegridy research"><div class="vendor-name">Tegridy Research</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="the peptide haven"><div class="vendor-name">The Peptide Haven</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="transforma peptides"><div class="vendor-name">Transforma Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="treasure coast peptides"><div class="vendor-name">Treasure Coast Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="triumphant labs"><div class="vendor-name">Triumphant Labs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-notes">Account registration required</div></div>
+<div class="vendor-row" data-tier="yellow" data-name="tru lab peptides"><div class="vendor-name">Tru Lab Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-aff">Code: <strong>Kikiriki</strong></div></div>
+<div class="vendor-row" data-tier="yellow" data-name="trusted peptides store"><div class="vendor-name">Trusted Peptides Store</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="ug freak"><div class="vendor-name">UG Freak</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="umbrella labs"><div class="vendor-name">Umbrella Labs</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="uniting wellness"><div class="vendor-name">Uniting Wellness</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="us peptide co"><div class="vendor-name">US Peptide Co</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-notes">Account required to order</div></div>
+<div class="vendor-row" data-tier="yellow" data-name="uther peptide"><div class="vendor-name">Uther Peptide</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="veteran peptides"><div class="vendor-name">Veteran Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="vigor peptides"><div class="vendor-name">Vigor Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="vital core research"><div class="vendor-name">Vital Core Research</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="vital vials"><div class="vendor-name">Vital Vials</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="wellness peptides"><div class="vendor-name">Wellness Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="wholesale peptides"><div class="vendor-name">Wholesale Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="wise peptide"><div class="vendor-name">Wise Peptide</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="xcel peptides"><div class="vendor-name">Xcel Peptides</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="your soma"><div class="vendor-name">Your Soma</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="zenaminos"><div class="vendor-name">Zenaminos</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="zenergy peps"><div class="vendor-name">Zenergy Peps</div><span class="vendor-tier" style="color:#EAB308">Yellow/span></div>
+<div class="vendor-row" data-tier="yellow" data-name="zphc"><div class="vendor-name">ZPHC</div><span class="vendor-tier" style="color:#EAB308">Yellow/span><div class="vendor-notes">Also carries non-peptide products</div></div>
 <div class="vendor-row" data-tier="orange" data-name="alpha pharmacist canada"><div class="vendor-name">Alpha Pharmacist Canada</div><span class="vendor-tier" style="color:#F97316">Orange/span><div class="vendor-notes">COA transparency limited</div></div>
 <div class="vendor-row" data-tier="orange" data-name="amino annex"><div class="vendor-name">Amino Annex</div><span class="vendor-tier" style="color:#F97316">Orange/span><div class="vendor-notes">Registration required; COAs not independently verified</div></div>
 <div class="vendor-row" data-tier="orange" data-name="amino nova"><div class="vendor-name">Amino Nova</div><span class="vendor-tier" style="color:#F97316">Orange/span><div class="vendor-notes">COA sourcing unclear — may originate from manufacturer</div></div>
@@ -492,7 +495,7 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <div class="vendor-row" data-tier="orange" data-name="swiss chem"><div class="vendor-name">Swiss Chem</div><span class="vendor-tier" style="color:#F97316">Orange/span><div class="vendor-notes">In-house testing only; no third-party verification</div></div>
 <div class="vendor-row" data-tier="orange" data-name="the pep effect"><div class="vendor-name">The Pep Effect</div><span class="vendor-tier" style="color:#F97316">Orange/span><div class="vendor-notes">Password-protected site</div></div>
 <div class="vendor-row" data-tier="red" data-name="2pepmoms"><div class="vendor-name">2PepMoms</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available</div></div>
-<div class="vendor-row" data-tier="red" data-name="808 research"><div class="vendor-name">808 Research</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">COAs not posted publicly</div></div>
+<div class="vendor-row" data-tier="red" data-name="808 research"><div class="vendor-name">808 Research</div><span class="vendor-tier" style="color:#EF4444">Red</span><div class="vendor-notes">COAs not posted publicly; available upon request only</div></div>
 <div class="vendor-row" data-tier="red" data-name="99x peptides"><div class="vendor-name">99X Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="adiuvo research labs"><div class="vendor-name">Adiuvo Research Labs</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">Website not yet launched</div></div>
 <div class="vendor-row" data-tier="red" data-name="alimo peptide"><div class="vendor-name">Alimo Peptide</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">Website under construction</div></div>
@@ -597,7 +600,7 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <div class="vendor-row" data-tier="red" data-name="primal peptides"><div class="vendor-name">Primal Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available; Netherlands-based</div></div>
 <div class="vendor-row" data-tier="red" data-name="pro gen peptide"><div class="vendor-name">Pro Gen Peptide</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="pro tide health"><div class="vendor-name">Pro Tide Health</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available</div></div>
-<div class="vendor-row" data-tier="red" data-name="purgo labs"><div class="vendor-name">Purgo Labs</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">COAs inaccessible despite being listed</div></div>
+<div class="vendor-row" data-tier="red" data-name="purgo labs"><div class="vendor-name">Purgo Labs</div><span class="vendor-tier" style="color:#EF4444">Red</span><div class="vendor-notes">COAs listed for download but inaccessible</div></div>
 <div class="vendor-row" data-tier="red" data-name="purified aminos"><div class="vendor-name">Purified Aminos</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">Community reports of service issues</div></div>
 <div class="vendor-row" data-tier="red" data-name="rapid research products"><div class="vendor-name">Rapid Research Products</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="rcd bio"><div class="vendor-name">RCD Bio</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">In-house testing only; no third-party verification</div></div>
@@ -605,9 +608,9 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <div class="vendor-row" data-tier="red" data-name="research chemicals"><div class="vendor-name">Research Chemicals</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="research peps"><div class="vendor-name">Research Peps</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="revacta labs"><div class="vendor-name">Revacta Labs</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available</div></div>
-<div class="vendor-row" data-tier="red" data-name="roid bazaar"><div class="vendor-name">Roid Bazaar</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">Marketplace model; no COAs; product quality reports</div></div>
+<div class="vendor-row" data-tier="red" data-name="roid bazaar"><div class="vendor-name">Roid Bazaar</div><span class="vendor-tier" style="color:#EF4444">Red</span><div class="vendor-notes">Reports of product quality concerns; marketplace model; no COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="san diego peptides"><div class="vendor-name">San Diego Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available</div></div>
-<div class="vendor-row" data-tier="red" data-name="select peptides"><div class="vendor-name">Select Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">COA reports inaccessible</div></div>
+<div class="vendor-row" data-tier="red" data-name="select peptides"><div class="vendor-name">Select Peptides</div><span class="vendor-tier" style="color:#EF4444">Red</span><div class="vendor-notes">Unable to access COA reports</div></div>
 <div class="vendor-row" data-tier="red" data-name="spade labs peptides"><div class="vendor-name">Spade Labs Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">COAs only upon request</div></div>
 <div class="vendor-row" data-tier="red" data-name="spartan peptides"><div class="vendor-name">Spartan Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">Website unavailable</div></div>
 <div class="vendor-row" data-tier="red" data-name="squid peptides"><div class="vendor-name">Squid Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">In-house testing only; COAs upon request</div></div>
@@ -616,19 +619,19 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <div class="vendor-row" data-tier="red" data-name="sun coast peptides"><div class="vendor-name">Sun Coast Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">Minimal information available</div></div>
 <div class="vendor-row" data-tier="red" data-name="synthelite"><div class="vendor-name">Synthelite</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">Account suspended</div></div>
 <div class="vendor-row" data-tier="red" data-name="the peptide boutique"><div class="vendor-name">The Peptide Boutique</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available</div></div>
-<div class="vendor-row" data-tier="red" data-name="the peptide company"><div class="vendor-name">The Peptide Company</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No website available</div></div>
+<div class="vendor-row" data-tier="red" data-name="the peptide company"><div class="vendor-name">The Peptide Company</div><span class="vendor-tier" style="color:#EF4444">Red</span><div class="vendor-notes">No website available yet</div></div>
 <div class="vendor-row" data-tier="red" data-name="the peptide source"><div class="vendor-name">The Peptide Source</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="the peptide theory co"><div class="vendor-name">The Peptide Theory Co</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">COA documentation inconsistent and unreliable</div></div>
 <div class="vendor-row" data-tier="red" data-name="the vibrant life"><div class="vendor-name">The Vibrant Life</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">Website redirects to Facebook; no COAs found</div></div>
 <div class="vendor-row" data-tier="red" data-name="trident group peptides"><div class="vendor-name">Trident Group Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">COAs require purchase to access; UK-based</div></div>
 <div class="vendor-row" data-tier="red" data-name="true peptide"><div class="vendor-name">True Peptide</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">COAs only upon request</div></div>
 <div class="vendor-row" data-tier="red" data-name="true science peptides"><div class="vendor-name">True Science Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">Website flagged as potentially unsafe</div></div>
-<div class="vendor-row" data-tier="red" data-name="ultimate peptides"><div class="vendor-name">Ultimate Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">No COAs publicly available</div></div>
+<div class="vendor-row" data-tier="red" data-name="ultimate peptides"><div class="vendor-name">Ultimate Peptides</div><span class="vendor-tier" style="color:#EF4444">Red</span><div class="vendor-notes">No COAs publicly available; request required</div></div>
 <div class="vendor-row" data-tier="red" data-name="usa peptide"><div class="vendor-name">USA Peptide</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">Website redirects; no COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="valar peptides"><div class="vendor-name">Valar Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">In-house testing only</div></div>
 <div class="vendor-row" data-tier="red" data-name="warrior makers"><div class="vendor-name">Warrior Makers</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">COAs from unidentified foreign laboratory</div></div>
 <div class="vendor-row" data-tier="red" data-name="wellness urge"><div class="vendor-name">Wellness Urge</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">COA documentation unreliable</div></div>
-<div class="vendor-row" data-tier="red" data-name="zenix peptides"><div class="vendor-name">Zenix Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">COAs not publicly posted</div></div>
+<div class="vendor-row" data-tier="red" data-name="zenix peptides"><div class="vendor-name">Zenix Peptides</div><span class="vendor-tier" style="color:#EF4444">Red</span><div class="vendor-notes">COAs not publicly posted; available upon request only</div></div>
 <div class="vendor-row" data-tier="red" data-name="zy bio peptides"><div class="vendor-name">Zy Bio Peptides</div><span class="vendor-tier" style="color:#EF4444">Red/span><div class="vendor-notes">Website flagged as potentially unsafe</div></div>
 </div>
 </div>
