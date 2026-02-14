@@ -293,19 +293,19 @@ function calcRecon() {
 <div class="calc-grid">
 <div class="calc-field">
 <span class="calc-label">Peptide in Vial (mg)</span>
-<input type="number" class="calc-input" id="calcPeptide" placeholder="e.g. 5" step="any" min="0" oninput="calcRecon()">
+<input type="text" inputmode="decimal" class="calc-input" id="calcPeptide" placeholder="e.g. 5" oninput="calcRecon()" onkeyup="calcRecon()" onchange="calcRecon()">
 </div>
 <div class="calc-field">
 <span class="calc-label">Bacteriostatic Water Added (mL)</span>
-<input type="number" class="calc-input" id="calcWater" placeholder="e.g. 2" step="any" min="0" oninput="calcRecon()">
+<input type="text" inputmode="decimal" class="calc-input" id="calcWater" placeholder="e.g. 2" oninput="calcRecon()" onkeyup="calcRecon()" onchange="calcRecon()">
 </div>
 <div class="calc-field">
 <span class="calc-label">Desired Dose (mcg)</span>
-<input type="number" class="calc-input" id="calcDose" placeholder="e.g. 250" step="any" min="0" oninput="calcRecon()">
+<input type="text" inputmode="decimal" class="calc-input" id="calcDose" placeholder="e.g. 250" oninput="calcRecon()" onkeyup="calcRecon()" onchange="calcRecon()">
 </div>
 <div class="calc-field">
 <span class="calc-label">Doses Per Day</span>
-<input type="number" class="calc-input" id="calcFreq" placeholder="e.g. 1" value="1" step="1" min="1" oninput="calcRecon()">
+<input type="text" inputmode="numeric" class="calc-input" id="calcFreq" placeholder="e.g. 1" value="1" oninput="calcRecon()" onkeyup="calcRecon()" onchange="calcRecon()">
 </div>
 </div>
 <div class="calc-results" id="calcResults" style="display:none">
