@@ -52,6 +52,25 @@
 - price_comparison_analysis.md — competitive analysis
 - product_descriptions.md — rewritten product descriptions
 
+## Reconstitution Calculator
+- Built into Resources tab on site mockup
+- Calculates concentration, volume to draw, doses per vial, vial duration
+- iOS Safari needs type="text" inputmode="decimal" (not type="number") for reliable input events
+
+## Jessie Design Feedback (Feb 13)
+- Called current mockup "trash" — looks like 200 other websites
+- Wants: font variety, cohesive themes, dynamic movement, visual engagement, personality
+- She wants PRC to STAND OUT with its own identity
+- Need her to send screenshots of sites she likes — fastest path to her vision
+- Real design polish belongs on WooCommerce, not static mockup
+
+## Affiliate Revenue
+- **26 affiliate vendors** with links/codes in vendor directory + comparison tool
+- 4 referral-tracked URLs (EZ, FelixChem, Ignition, RetaOne)
+- 25 discount codes (mostly "Kikiriki" variants)
+- Vendor names styled blue = clickable, non-affiliate stays black
+- All verified against Frabrizio's .docx source file
+
 ## Telegram Groups
 - DM: 513307658
 - "PRC" (Frabrizio + girlfriend Jessie + bot): -5185517505
