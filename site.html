@@ -34,9 +34,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Ar
 .tab-bar{position:sticky;top:49px;z-index:150;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;justify-content:center;gap:0}
 .tab-bar label{padding:12px 20px;font-size:0.82rem;font-weight:600;color:#64748b;cursor:pointer;border-bottom:2.5px solid transparent;transition:all 0.15s}
 .tab-bar label:hover{color:#0A1628}
-#tab-resources:checked ~ .tab-bar label[for="tab-resources"],#tab-shop:checked ~ .tab-bar label[for="tab-shop"],#tab-learn:checked ~ .tab-bar label[for="tab-learn"],#tab-contact:checked ~ .tab-bar label[for="tab-contact"]{color:#2B7DE9;border-bottom-color:#2B7DE9}
+#tab-resources:checked ~ .tab-bar label[for="tab-resources"],#tab-vendors:checked ~ .tab-bar label[for="tab-vendors"],#tab-shop:checked ~ .tab-bar label[for="tab-shop"],#tab-learn:checked ~ .tab-bar label[for="tab-learn"],#tab-contact:checked ~ .tab-bar label[for="tab-contact"]{color:#2B7DE9;border-bottom-color:#2B7DE9}
 .tab-content{display:none}
 #tab-resources:checked ~ .tabs-container .content-resources{display:block}
+#tab-vendors:checked ~ .tabs-container .content-vendors{display:block}
 #tab-shop:checked ~ .tabs-container .content-shop{display:block}
 #tab-learn:checked ~ .tabs-container .content-learn{display:block}
 #tab-contact:checked ~ .tabs-container .content-contact{display:block}
@@ -138,6 +139,7 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <body>
 
 <input type="radio" name="tab" id="tab-resources" class="tab-radio" checked>
+<input type="radio" name="tab" id="tab-vendors" class="tab-radio">
 <input type="radio" name="tab" id="tab-shop" class="tab-radio">
 <input type="radio" name="tab" id="tab-learn" class="tab-radio">
 <input type="radio" name="tab" id="tab-contact" class="tab-radio">
@@ -150,6 +152,7 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <nav class="header-nav">
 <label for="tab-resources">Home</label>
 <label for="tab-resources">Resources</label>
+<label for="tab-vendors">Vendors</label>
 <label for="tab-shop">Shop</label>
 <label for="tab-learn">Learn</label>
 <label for="tab-contact">Contact</label>
@@ -162,13 +165,13 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <p class="hero-sub">Your comprehensive destination for research peptide resources, education, and premium products</p>
 <div class="hero-stats">
 <span><strong>44+</strong> Products</span>
-<span><strong>23+</strong> Vendors Compared</span>
+<span><strong>326</strong> Vendors Reviewed</span>
 <span><strong>10</strong> Categories</span>
 <span><strong>&ge;98%</strong> Purity</span>
 </div>
 <div class="hero-btns">
 <label for="tab-resources" class="btn-primary">Explore Resources</label>
-<label for="tab-shop" class="btn-outline">Shop Products</label>
+<label for="tab-vendors" class="btn-outline">Vendor Directory</label>
 </div>
 </section>
 
@@ -176,6 +179,7 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 
 <div class="tab-bar">
 <label for="tab-resources">Resources</label>
+<label for="tab-vendors">Vendors</label>
 <label for="tab-shop">Shop</label>
 <label for="tab-learn">Learn</label>
 <label for="tab-contact">Contact</label>
@@ -192,7 +196,7 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 </div>
 
 <div class="quick-grid">
-<a href="#vendor-dir" class="quick-tile" onclick="document.getElementById('vendor-dir').scrollIntoView({behavior:'smooth'});return false"><h4>Vendor Directory</h4><p>328 vendors reviewed</p></a>
+<label for="tab-vendors" class="quick-tile"><h4>Vendor Directory</h4><p>326 vendors reviewed</p></label>
 <label for="tab-learn" class="quick-tile"><h4>Peptide Education</h4><p>Learn the science</p></label>
 <a href="#review-resources" class="quick-tile" onclick="document.getElementById('review-resources').scrollIntoView({behavior:'smooth'});return false"><h4>Vendor Reviews</h4><p>Community feedback</p></a>
 <a href="#testing-labs" class="quick-tile" onclick="document.getElementById('testing-labs').scrollIntoView({behavior:'smooth'});return false"><h4>Testing Labs</h4><p>Third-party analysis</p></a>
@@ -263,20 +267,27 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 </div>
 </div>
 
+</div>
+</div>
+</div>
+</div>
+
+<div class="tab-content content-vendors">
+<div class="content-wrap">
 <div class="res-section">
 <h3 id="vendor-dir">Complete Vendor Directory</h3>
-<p style="margin-bottom:8px">Browse 328 research peptide vendors organized by trust level. Each vendor was individually reviewed for COA transparency, website legitimacy, and community feedback.</p>
+<p style="margin-bottom:8px">Browse 326 research peptide vendors organized by trust level. Each vendor was individually reviewed for COA transparency, website legitimacy, and community feedback.</p>
 <p style="margin-bottom:4px;font-size:0.72rem;color:#94a3b8"><strong>How we evaluate:</strong> We visit each vendor website, check for publicly available Certificates of Analysis (COAs), verify third-party testing claims, and monitor community reports. Vendors are re-evaluated periodically.</p>
 <p style="margin-bottom:12px;font-size:0.68rem;color:#94a3b8;font-style:italic">Last reviewed: February 2026. Vendor status may change. Always conduct your own due diligence before purchasing. Think a listing needs updating? Contact us.</p>
 <div class="vendor-controls">
 <div class="vendor-filter-pills">
-<button class="v-pill active" onclick="filterVendors(this,'all')">All (328)</button>
+<button class="v-pill active" onclick="filterVendors(this,'all')">All (326)</button>
 <button class="v-pill" onclick="filterVendors(this,'green')" style="--v-color:#10B981">Trusted (162)</button>
 <button class="v-pill" onclick="filterVendors(this,'yellow')" style="--v-color:#F59E0B">Caution (25)</button>
-<button class="v-pill" onclick="filterVendors(this,'red')" style="--v-color:#EF4444">Flagged (141)</button>
+<button class="v-pill" onclick="filterVendors(this,'red')" style="--v-color:#EF4444">Flagged (139)</button>
 </div>
 <input type="text" class="vendor-search" id="vendorSearch" placeholder="Search vendors...">
-<div class="vendor-count" id="vendorCount">Showing 328 vendors</div>
+<div class="vendor-count" id="vendorCount">Showing 326 vendors</div>
 </div>
 <div class="vendor-list" id="vendorList"><div class="vendor-row" data-tier="green" data-name="flawless compounds"><div class="vendor-name">Flawless Compounds</div><span class="vendor-tier" style="color:#10B981">Trusted</span></div>
 <div class="vendor-row" data-tier="green" data-name="frozen peptides"><div class="vendor-name">Frozen Peptides</div><span class="vendor-tier" style="color:#10B981">Trusted</span></div>
@@ -486,7 +497,6 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <div class="vendor-row" data-tier="red" data-name="bio health peptides proteins"><div class="vendor-name">Bio Health Peptides Proteins</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">Limited information available</div></div>
 <div class="vendor-row" data-tier="red" data-name="bio peps uk"><div class="vendor-name">Bio Peps UK</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">No COAs available; UK-based</div></div>
 <div class="vendor-row" data-tier="red" data-name="bio synergen"><div class="vendor-name">Bio Synergen</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">Website unavailable</div></div>
-<div class="vendor-row" data-tier="red" data-name="bio tech peptides"><div class="vendor-name">Bio Tech Peptides</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="black helix labs"><div class="vendor-name">Black Helix Labs</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="cenexa labs"><div class="vendor-name">Cenexa Labs</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="cerberus research"><div class="vendor-name">Cerberus Research</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">Limited information available</div></div>
@@ -517,7 +527,6 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <div class="vendor-row" data-tier="red" data-name="intrinsic peptides"><div class="vendor-name">Intrinsic Peptides</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="iron mountain labz"><div class="vendor-name">Iron Mountain Labz</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">Community reports of product quality concerns</div></div>
 <div class="vendor-row" data-tier="red" data-name="k2 compounds"><div class="vendor-name">K2 Compounds</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">No COAs available</div></div>
-<div class="vendor-row" data-tier="red" data-name="lab sourced"><div class="vendor-name">Lab Sourced</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="lawless labs"><div class="vendor-name">Lawless Labs</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">Website temporarily shut down</div></div>
 <div class="vendor-row" data-tier="red" data-name="lean labs"><div class="vendor-name">Lean Labs</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">No COAs available</div></div>
 <div class="vendor-row" data-tier="red" data-name="legion peptides"><div class="vendor-name">Legion Peptides</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">COAs only upon request</div></div>
@@ -606,8 +615,6 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <div class="vendor-row" data-tier="red" data-name="wellness urge"><div class="vendor-name">Wellness Urge</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">COA documentation unreliable</div></div>
 <div class="vendor-row" data-tier="red" data-name="zenix peptides"><div class="vendor-name">Zenix Peptides</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">COAs not publicly posted</div></div>
 <div class="vendor-row" data-tier="red" data-name="zy bio peptides"><div class="vendor-name">Zy Bio Peptides</div><span class="vendor-tier" style="color:#EF4444">Flagged</span><div class="vendor-notes">Website flagged as potentially unsafe</div></div>
-</div>
-</div>
 </div>
 </div>
 
@@ -723,6 +730,7 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 <div class="footer-sub">The Peptide Authority</div>
 <div class="footer-links">
 <label for="tab-resources">Resources</label>
+<label for="tab-vendors">Vendors</label>
 <label for="tab-shop">Shop</label>
 <label for="tab-learn">Learn</label>
 <label for="tab-contact">Contact</label>
