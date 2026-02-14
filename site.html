@@ -141,6 +141,23 @@ footer{background:#0A1628;padding:32px 20px;text-align:center}
 .footer-links label:hover{color:#fff}
 .footer-disc{font-size:0.65rem;color:rgba(255,255,255,0.3);max-width:500px;margin:0 auto;line-height:1.5}
 .footer-copy{font-size:0.62rem;color:rgba(255,255,255,0.25);margin-top:12px}
+
+.calc-section{margin-top:24px;padding:24px;background:#f8f9fa;border-radius:12px;border:1px solid #e5e7eb}
+.calc-title{font-size:1rem;font-weight:800;color:#0A1628;margin-bottom:4px}
+.calc-subtitle{font-size:0.75rem;color:#64748b;margin-bottom:20px;line-height:1.4}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.calc-grid{grid-template-columns:1fr}}
+.calc-field{display:flex;flex-direction:column;gap:4px}
+.calc-label{font-size:0.72rem;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:0.3px}
+.calc-input{padding:10px 12px;border:1.5px solid #d1d5db;border-radius:8px;font-size:0.9rem;font-weight:600;color:#0A1628;background:#fff;font-family:inherit;transition:border-color 0.15s}
+.calc-input:focus{outline:none;border-color:#2B7DE9}
+.calc-results{margin-top:20px;padding:16px;background:#fff;border-radius:10px;border:1.5px solid #e5e7eb}
+.calc-result-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f0f0f0}
+.calc-result-row:last-child{border-bottom:none}
+.calc-result-label{font-size:0.78rem;color:#475569;font-weight:500}
+.calc-result-value{font-size:1rem;font-weight:800;color:#0A1628}
+.calc-result-value.highlight{color:#2B7DE9;font-size:1.1rem}
+.calc-note{margin-top:12px;font-size:0.68rem;color:#94a3b8;line-height:1.4;font-style:italic}
 </style>
 <script>
 var tcIds = ["tc-resources","tc-vendors","tc-shop","tc-learn","tc-contact"];
@@ -170,6 +187,32 @@ function switchTab(id) {
     }
   }
   window.scrollTo(0,0);
+}
+
+function calcRecon() {
+  var pep = parseFloat(document.getElementById("calcPeptide").value);
+  var water = parseFloat(document.getElementById("calcWater").value);
+  var dose = parseFloat(document.getElementById("calcDose").value);
+  var freq = parseInt(document.getElementById("calcFreq").value) || 1;
+  var results = document.getElementById("calcResults");
+  if (!pep || !water || pep <= 0 || water <= 0) { results.style.display = "none"; return; }
+  results.style.display = "block";
+  var concMcg = (pep * 1000) / water;
+  var concMg = pep / water;
+  document.getElementById("calcConc").textContent = concMg.toFixed(2) + " mg/mL (" + concMcg.toFixed(0) + " mcg/mL)";
+  if (!dose || dose <= 0) {
+    document.getElementById("calcVol").textContent = "Enter desired dose";
+    document.getElementById("calcDoses").textContent = "—";
+    document.getElementById("calcDays").textContent = "—";
+    return;
+  }
+  var volMl = dose / concMcg;
+  var volUnits = volMl * 100;
+  var totalDoses = Math.floor((pep * 1000) / dose);
+  var days = Math.floor(totalDoses / freq);
+  document.getElementById("calcVol").textContent = volMl.toFixed(3) + " mL (" + volUnits.toFixed(1) + " units)";
+  document.getElementById("calcDoses").textContent = totalDoses + " doses";
+  document.getElementById("calcDays").textContent = days + " day" + (days !== 1 ? "s" : "");
 }
 </script>
 </head>
@@ -235,7 +278,50 @@ function switchTab(id) {
 <label for="tab-vendors" class="quick-tile"><h4>Vendor Directory</h4><p>393 vendors reviewed</p></label>
 <label for="tab-learn" class="quick-tile"><h4>Peptide Education</h4><p>Learn the science</p></label>
 <a href="#review-resources" class="quick-tile" onclick="document.getElementById('review-resources').scrollIntoView({behavior:'smooth'});return false"><h4>Vendor Reviews</h4><p>Community feedback</p></a>
+<a href="#peptide-calc" class="quick-tile" onclick="document.getElementById('peptide-calc').scrollIntoView({behavior:'smooth'});return false"><h4>Peptide Calculator</h4><p>Reconstitution tool</p></a>
 <a href="#testing-labs" class="quick-tile" onclick="document.getElementById('testing-labs').scrollIntoView({behavior:'smooth'});return false"><h4>Testing Labs</h4><p>Third-party analysis</p></a>
+</div>
+
+<div class="calc-section" id="peptide-calc">
+<div class="calc-title">Reconstitution Calculator</div>
+<div class="calc-subtitle">Calculate the correct volume to draw for your desired dose after reconstituting a peptide vial.</div>
+<div class="calc-grid">
+<div class="calc-field">
+<span class="calc-label">Peptide in Vial (mg)</span>
+<input type="number" class="calc-input" id="calcPeptide" placeholder="e.g. 5" step="any" min="0" oninput="calcRecon()">
+</div>
+<div class="calc-field">
+<span class="calc-label">Bacteriostatic Water Added (mL)</span>
+<input type="number" class="calc-input" id="calcWater" placeholder="e.g. 2" step="any" min="0" oninput="calcRecon()">
+</div>
+<div class="calc-field">
+<span class="calc-label">Desired Dose (mcg)</span>
+<input type="number" class="calc-input" id="calcDose" placeholder="e.g. 250" step="any" min="0" oninput="calcRecon()">
+</div>
+<div class="calc-field">
+<span class="calc-label">Doses Per Day</span>
+<input type="number" class="calc-input" id="calcFreq" placeholder="e.g. 1" value="1" step="1" min="1" oninput="calcRecon()">
+</div>
+</div>
+<div class="calc-results" id="calcResults" style="display:none">
+<div class="calc-result-row">
+<span class="calc-result-label">Concentration</span>
+<span class="calc-result-value" id="calcConc">—</span>
+</div>
+<div class="calc-result-row">
+<span class="calc-result-label">Volume to Draw</span>
+<span class="calc-result-value highlight" id="calcVol">—</span>
+</div>
+<div class="calc-result-row">
+<span class="calc-result-label">Doses Per Vial</span>
+<span class="calc-result-value" id="calcDoses">—</span>
+</div>
+<div class="calc-result-row">
+<span class="calc-result-label">Vial Lasts</span>
+<span class="calc-result-value" id="calcDays">—</span>
+</div>
+</div>
+<div class="calc-note">For research and educational purposes only. Not medical advice. Always verify calculations independently. 1 mg = 1000 mcg. Standard insulin syringe: 100 units = 1 mL.</div>
 </div>
 
 <div class="res-section" id="review-resources">
