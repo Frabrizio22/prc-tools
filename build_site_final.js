@@ -433,22 +433,13 @@ var html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n' +
 
 // Quick links
 '<div class="quick-grid">\n' +
-'<a href="#vendor-dir" class="quick-tile" onclick="document.getElementById(\'vendor-dir\').scrollIntoView({behavior:\'smooth\'});return false"><h4>Vendor Directory</h4><p>Trusted suppliers</p></a>\n' +
+'<a href="#vendor-dir" class="quick-tile" onclick="document.getElementById(\'vendor-dir\').scrollIntoView({behavior:\'smooth\'});return false"><h4>Vendor Directory</h4><p>' + (vendors.green.length + vendors.yellow.length + vendors.red.length) + ' vendors reviewed</p></a>\n' +
 '<label for="tab-learn" class="quick-tile"><h4>Peptide Education</h4><p>Learn the science</p></label>\n' +
 '<a href="#review-resources" class="quick-tile" onclick="document.getElementById(\'review-resources\').scrollIntoView({behavior:\'smooth\'});return false"><h4>Vendor Reviews</h4><p>Community feedback</p></a>\n' +
 '<a href="#testing-labs" class="quick-tile" onclick="document.getElementById(\'testing-labs\').scrollIntoView({behavior:\'smooth\'});return false"><h4>Testing Labs</h4><p>Third-party analysis</p></a>\n' +
 '</div>\n\n' +
 
-// Vendor Directory
-'<div class="res-section" id="vendor-dir">\n' +
-'<h3>Vendor Directory</h3>\n' +
-'<p>Curated list of research peptide suppliers organized by region and specialty.</p>\n' +
-'<div class="vendor-cards">\n' +
-'<div class="vendor-card"><h4>US-Based Vendors</h4><p>Domestic suppliers with fast shipping, US-based customer support, and domestic quality testing.</p></div>\n' +
-'<div class="vendor-card"><h4>International Vendors</h4><p>Global suppliers offering competitive pricing with international shipping options.</p></div>\n' +
-'<div class="vendor-card"><h4>Specialty Vendors</h4><p>Niche suppliers focusing on rare peptides, custom synthesis, and specialty compounds.</p></div>\n' +
-'</div>\n' +
-'</div>\n\n' +
+// Vendor Directory placeholder removed — real directory generated below
 
 // Review Resources
 '<div class="res-section" id="review-resources">\n' +
@@ -480,8 +471,10 @@ var html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n' +
 
 // Vendor Directory Full List
 '<div class="res-section">\n' +
-'<h3>Complete Vendor Directory</h3>\n' +
-'<p style="margin-bottom:12px">Browse ' + allVendors.length + ' research peptide vendors organized by trust level. All data sourced from peptideresourcecenter.com (Feb 2026).</p>\n' +
+'<h3 id="vendor-dir">Complete Vendor Directory</h3>\n' +
+'<p style="margin-bottom:8px">Browse ' + allVendors.length + ' research peptide vendors organized by trust level. Each vendor was individually reviewed for COA transparency, website legitimacy, and community feedback.</p>\n' +
+'<p style="margin-bottom:4px;font-size:0.72rem;color:#94a3b8"><strong>How we evaluate:</strong> We visit each vendor website, check for publicly available Certificates of Analysis (COAs), verify third-party testing claims, and monitor community reports. Vendors are re-evaluated periodically.</p>\n' +
+'<p style="margin-bottom:12px;font-size:0.68rem;color:#94a3b8;font-style:italic">Last reviewed: February 2026. Vendor status may change. Always conduct your own due diligence before purchasing. Think a listing needs updating? Contact us.</p>\n' +
 '<div class="vendor-controls">\n' +
 '<div class="vendor-filter-pills">\n' +
 '<button class="v-pill active" onclick="filterVendors(this,\'all\')">All (' + allVendors.length + ')</button>\n' +
