@@ -3,50 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Peptide Resource Center | THE PEPTIDE AUTHORITY</title>
+<title>Peptide Resource Center | The Peptide Authority</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;color:#334155;line-height:1.6;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
+/* SVG icon base */
+.ic{display:inline-block;width:24px;height:24px;vertical-align:middle;fill:currentColor}
+.ic-lg{width:32px;height:32px}
+.ic-xl{width:40px;height:40px}
+.ic-wh{fill:#fff}
 
 /* Header */
 .top-bar{height:3px;background:linear-gradient(90deg,#0A1628,#2B7DE9,#06B6D4,#8B5CF6,#EC4899)}
 .site-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid #e2e8f0;padding:0.6rem 0}
 .header-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:1.4rem;font-weight:900;color:#0A1628;letter-spacing:-0.5px}
-.logo span{color:#2B7DE9}
-.logo-sub{font-size:0.55rem;text-transform:uppercase;letter-spacing:3px;color:#8E99A4;display:block;margin-top:-2px}
+.logo-area{display:flex;flex-direction:column}
+.logo-name{font-size:1.35rem;font-weight:900;color:#0A1628;letter-spacing:-0.5px;line-height:1.1}
+.logo-name span{color:#2B7DE9}
+.logo-sub{font-size:0.55rem;text-transform:uppercase;letter-spacing:3px;color:#8E99A4;margin-top:1px}
 .nav-links{display:flex;gap:1.25rem;font-size:0.82rem;font-weight:600;color:#64748B;align-items:center}
 .nav-links a:hover{color:#2B7DE9}
 .nav-links a.nav-cta{color:#fff;background:linear-gradient(135deg,#2B7DE9,#06B6D4);padding:0.4rem 1rem;border-radius:8px;font-weight:700;transition:opacity 0.2s}
 .nav-links a.nav-cta:hover{opacity:0.85}
-@media(max-width:640px){.nav-links{display:none}}
+/* CSS-only dropdown */
+.nav-dd{position:relative}
+.nav-dd>a{cursor:pointer}
+.nav-dd-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:0.5rem 0;min-width:200px;box-shadow:0 8px 30px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transform:translateY(8px);transition:all 0.2s;z-index:100}
+.nav-dd:hover .nav-dd-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-dd-menu a{display:block;padding:0.5rem 1rem;font-size:0.8rem;color:#475569;font-weight:500}
+.nav-dd-menu a:hover{background:#f1f5f9;color:#2B7DE9}
+@media(max-width:768px){.nav-links{display:none}}
 
 /* Hero */
 .hero{background:linear-gradient(135deg,#0A1628 0%,#0d2847 30%,#1a2744 60%,#0A1628 100%);color:#fff;padding:5rem 1.5rem 4rem;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;top:-50%;right:-20%;width:70%;height:200%;background:radial-gradient(ellipse,rgba(43,125,233,0.2) 0%,transparent 70%);pointer-events:none;-webkit-animation:hg1 6s ease-in-out infinite alternate;animation:hg1 6s ease-in-out infinite alternate}
-.hero::after{content:"";position:absolute;bottom:-40%;left:-20%;width:60%;height:180%;background:radial-gradient(ellipse,rgba(139,92,246,0.12) 0%,transparent 70%);pointer-events:none;-webkit-animation:hg2 8s ease-in-out infinite alternate;animation:hg2 8s ease-in-out infinite alternate}
-@-webkit-keyframes hg1{0%{-webkit-transform:translate(0,0);opacity:0.5}100%{-webkit-transform:translate(-30px,20px);opacity:1}}
+.hero::before{content:"";position:absolute;top:-50%;right:-20%;width:70%;height:200%;background:radial-gradient(ellipse,rgba(43,125,233,0.2) 0%,transparent 70%);pointer-events:none;animation:hg1 6s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;bottom:-40%;left:-20%;width:60%;height:180%;background:radial-gradient(ellipse,rgba(139,92,246,0.12) 0%,transparent 70%);pointer-events:none;animation:hg2 8s ease-in-out infinite alternate}
 @keyframes hg1{0%{transform:translate(0,0);opacity:0.5}100%{transform:translate(-30px,20px);opacity:1}}
-@-webkit-keyframes hg2{0%{-webkit-transform:translate(0,0);opacity:0.4}100%{-webkit-transform:translate(20px,-15px);opacity:0.9}}
 @keyframes hg2{0%{transform:translate(0,0);opacity:0.4}100%{transform:translate(20px,-15px);opacity:0.9}}
-/* Geometric decoration */
-.hero-geo{position:absolute;top:15%;right:5%;width:200px;height:200px;border:1px solid rgba(43,125,233,0.15);border-radius:50%;pointer-events:none;-webkit-animation:spin 30s linear infinite;animation:spin 30s linear infinite}
+.hero-geo{position:absolute;top:15%;right:5%;width:200px;height:200px;border:1px solid rgba(43,125,233,0.15);border-radius:50%;pointer-events:none;animation:spin 30s linear infinite}
 .hero-geo2{position:absolute;bottom:10%;left:8%;width:120px;height:120px;border:1px solid rgba(6,182,212,0.1);transform:rotate(45deg);pointer-events:none}
-@-webkit-keyframes spin{to{-webkit-transform:rotate(360deg)}}
+.hero-geo3{position:absolute;top:40%;left:15%;width:60px;height:60px;border:1px solid rgba(139,92,246,0.1);border-radius:50%;pointer-events:none;animation:spin 20s linear infinite reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
 .hero-inner{max-width:850px;margin:0 auto;position:relative;z-index:1}
-.hero-authority{font-size:0.7rem;text-transform:uppercase;letter-spacing:6px;color:rgba(255,255,255,0.5);font-weight:600;margin-bottom:0.75rem}
-.hero h1{font-size:3.5rem;font-weight:900;letter-spacing:-2px;line-height:1.05;margin-bottom:0.75rem}
+.hero h1{font-size:3.2rem;font-weight:900;letter-spacing:-2px;line-height:1.05;margin-bottom:0.5rem}
 .hero h1 .gradient-text{background:linear-gradient(135deg,#2B7DE9,#06B6D4,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-subtitle{font-size:1.1rem;color:#94a3b8;margin-bottom:1.25rem;font-weight:400}
-.hero-tagline{display:inline-block;border:1px solid rgba(43,125,233,0.35);border-radius:100px;padding:0.4rem 1.5rem;margin-bottom:2rem;background:rgba(43,125,233,0.06)}
-.hero-tagline span{font-size:0.75rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#06B6D4}
+.hero-tagline{font-size:1.1rem;color:#06B6D4;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.75rem}
+.hero-subtitle{font-size:1rem;color:#94a3b8;margin-bottom:2rem;font-weight:400;max-width:600px;margin-left:auto;margin-right:auto}
 .hero-ctas{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
 .hero-cta{display:inline-block;font-size:0.9rem;font-weight:700;padding:0.8rem 2rem;border-radius:10px;transition:all 0.25s;min-height:44px;line-height:1.5}
 .hero-cta-primary{background:linear-gradient(135deg,#2B7DE9,#1d6ad4);color:#fff;border:2px solid transparent;box-shadow:0 4px 20px rgba(43,125,233,0.3)}
-.hero-cta-primary:hover{box-shadow:0 6px 30px rgba(43,125,233,0.5);-webkit-transform:translateY(-1px);transform:translateY(-1px)}
+.hero-cta-primary:hover{box-shadow:0 6px 30px rgba(43,125,233,0.5);transform:translateY(-1px)}
 .hero-cta-secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.25)}
 .hero-cta-secondary:hover{border-color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.05)}
 .hero-stats{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap}
@@ -54,18 +62,18 @@ a{text-decoration:none;color:inherit}
 .stat-num{font-size:2.25rem;font-weight:900;color:#fff;line-height:1}
 .stat-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#64748B;margin-top:0.25rem}
 .stat-divider{width:1px;background:rgba(255,255,255,0.1);align-self:stretch}
-@media(max-width:640px){.hero{padding:3rem 1.25rem 2.5rem}.hero h1{font-size:2rem;letter-spacing:-1px}.hero-stats{gap:1.25rem}.stat-num{font-size:1.6rem}.hero-ctas{flex-direction:column;align-items:center}.hero-cta{width:100%;max-width:280px;text-align:center}.stat-divider{display:none}.hero-geo,.hero-geo2{display:none}}
+@media(max-width:640px){.hero{padding:3rem 1.25rem 2.5rem}.hero h1{font-size:2rem;letter-spacing:-1px}.hero-stats{gap:1.25rem}.stat-num{font-size:1.6rem}.hero-ctas{flex-direction:column;align-items:center}.hero-cta{width:100%;max-width:280px;text-align:center}.stat-divider{display:none}.hero-geo,.hero-geo2,.hero-geo3{display:none}}
 
 /* Trust bar */
-.trust{background:#f8fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;padding:1.5rem}
+.trust{background:#f8fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;padding:1.25rem}
 .trust-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center}
-.trust-item{padding:0.75rem}
-.trust-icon{font-size:1.5rem;margin-bottom:0.25rem}
-.trust-title{font-size:0.72rem;font-weight:800;color:#0A1628;text-transform:uppercase;letter-spacing:1px}
-.trust-sub{font-size:0.68rem;color:#8E99A4}
+.trust-item{padding:0.5rem;display:flex;align-items:center;justify-content:center;gap:0.5rem}
+.trust-item .ic{color:#2B7DE9;flex-shrink:0}
+.trust-text .trust-title{font-size:0.72rem;font-weight:800;color:#0A1628;text-transform:uppercase;letter-spacing:1px}
+.trust-text .trust-sub{font-size:0.65rem;color:#8E99A4}
 @media(max-width:640px){.trust-inner{grid-template-columns:repeat(2,1fr);gap:0.5rem}}
 
-/* Section styling */
+/* Sections */
 .section-alt{background:#f8fafc}
 .section-white{background:#fff}
 .section-pad{padding:4rem 1.5rem}
@@ -73,29 +81,39 @@ a{text-decoration:none;color:inherit}
 .section-header{text-align:center;margin-bottom:2.5rem}
 .section-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:4px;color:#2B7DE9;font-weight:700;margin-bottom:0.4rem}
 .section-title{font-size:2.25rem;font-weight:900;color:#0A1628;letter-spacing:-1.5px;margin-bottom:0.4rem}
-.section-sub{font-size:0.9rem;color:#8E99A4;max-width:550px;margin:0 auto}
+.section-sub{font-size:0.9rem;color:#8E99A4;max-width:600px;margin:0 auto}
 
-/* Categories grid */
-.cat-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem}
-.cat-tile{border-radius:12px;padding:1.25rem 1rem;text-align:center;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden;border:1px solid transparent}
-.cat-tile:hover{-webkit-transform:translateY(-3px);transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,0.12)}
-.cat-tile-icon{font-size:2rem;margin-bottom:0.4rem;display:block}
-.cat-tile-name{font-size:0.78rem;font-weight:800;color:#fff;margin-bottom:0.15rem}
-.cat-tile-count{font-size:0.65rem;font-weight:600;color:rgba(255,255,255,0.75)}
-@media(max-width:900px){.cat-tiles{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:500px){.cat-tiles{grid-template-columns:repeat(2,1fr)}}
+/* Why PRC */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1000px;margin:0 auto}
+.why-card{padding:2rem 1.5rem;border-radius:12px;background:#fff;border:1px solid #e2e8f0;text-align:center;transition:all 0.25s}
+.why-card:hover{box-shadow:0 8px 25px rgba(0,0,0,0.08);transform:translateY(-2px)}
+.why-card .ic{color:#2B7DE9;margin-bottom:1rem}
+.why-card h3{font-size:1rem;font-weight:800;color:#0A1628;margin-bottom:0.5rem}
+.why-card p{font-size:0.85rem;color:#64748B;line-height:1.6}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr}}
 
-/* Featured section */
+/* Resource cards */
+.resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;max-width:1100px;margin:0 auto}
+.resource-card{background:#fff;border-radius:12px;padding:1.5rem;border:1px solid #e2e8f0;border-left:4px solid #2B7DE9;transition:all 0.25s;display:flex;flex-direction:column}
+.resource-card:hover{box-shadow:0 8px 25px rgba(0,0,0,0.1);transform:translateY(-3px)}
+.resource-card .rc-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.resource-card h3{font-size:0.95rem;font-weight:800;color:#0A1628;margin-bottom:0.4rem}
+.resource-card p{font-size:0.82rem;color:#64748B;line-height:1.5;flex:1;margin-bottom:1rem}
+.rc-btn{display:inline-block;font-size:0.75rem;font-weight:700;color:#2B7DE9;padding:0.4rem 0.8rem;border:1.5px solid #2B7DE9;border-radius:8px;transition:all 0.2s;min-height:32px;line-height:1.6}
+.rc-btn:hover{background:#2B7DE9;color:#fff}
+@media(max-width:768px){.resource-grid{grid-template-columns:1fr}}
+
+/* Featured */
 .featured-bg{background:linear-gradient(135deg,#f0f7ff 0%,#faf5ff 50%,#f0fdfa 100%);padding:4rem 1.5rem;position:relative}
 .featured-bg::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#e2e8f0,transparent)}
 .featured-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;max-width:1280px;margin:0 auto}
 .featured-card{background:#fff;border-radius:12px;padding:1.25rem;transition:all 0.3s;position:relative;border:1px solid #e2e8f0;overflow:hidden}
 .featured-card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px}
-.featured-card:hover{box-shadow:0 12px 35px rgba(0,0,0,0.1);-webkit-transform:translateY(-4px);transform:translateY(-4px)}
+.featured-card:hover{box-shadow:0 12px 35px rgba(0,0,0,0.1);transform:translateY(-4px)}
 .fc-badge{position:absolute;top:0.75rem;right:0.75rem;font-size:0.6rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:0.2rem 0.5rem;border-radius:4px;color:#fff}
 .fc-badge-popular{background:#EC4899}
 .fc-badge-new{background:#10B981}
-.fc-icon{font-size:1.75rem;margin-bottom:0.5rem;display:block}
+.fc-icon-wrap{margin-bottom:0.5rem}
 .cat-tag{display:inline-block;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:0.15rem 0.5rem;border-radius:20px;margin-bottom:0.5rem}
 .fc-name{font-size:0.92rem;font-weight:800;color:#0A1628;margin-bottom:0.35rem;line-height:1.25}
 .fc-desc{font-size:0.78rem;color:#64748B;line-height:1.5;margin-bottom:0.75rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -104,19 +122,16 @@ a{text-decoration:none;color:inherit}
 @media(max-width:1024px){.featured-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.featured-grid{grid-template-columns:1fr;gap:0.75rem}}
 
-/* Compare section */
-.compare-section{background:linear-gradient(135deg,#0A1628,#1a2744);padding:4rem 1.5rem;position:relative;overflow:hidden}
-.compare-section::before{content:"";position:absolute;top:-30%;right:-10%;width:50%;height:160%;background:radial-gradient(ellipse,rgba(43,125,233,0.15),transparent 70%);pointer-events:none}
-.compare-inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.compare-icon{font-size:3rem;margin-bottom:1rem}
-.compare-title{font-size:2.25rem;font-weight:900;color:#fff;letter-spacing:-1px;margin-bottom:0.5rem}
-.compare-subtitle{font-size:0.95rem;color:#94a3b8;margin-bottom:1.5rem}
-.compare-stats{display:flex;justify-content:center;gap:3rem;margin:1.5rem 0 2rem;flex-wrap:wrap}
-.compare-stat{text-align:center}
-.compare-stat-num{font-size:2.5rem;font-weight:900;color:#06B6D4}
-.compare-stat-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:2px;color:#64748B}
-.compare-cta{display:inline-block;font-size:1rem;font-weight:700;padding:0.85rem 2.5rem;border-radius:10px;background:linear-gradient(135deg,#2B7DE9,#06B6D4);color:#fff;transition:all 0.25s;min-height:44px;box-shadow:0 4px 20px rgba(43,125,233,0.3)}
-.compare-cta:hover{-webkit-transform:translateY(-2px);transform:translateY(-2px);box-shadow:0 6px 30px rgba(43,125,233,0.5)}
+/* Category tiles */
+.cat-tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem}
+.cat-tile{border-radius:12px;padding:1.25rem 1rem;text-align:center;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden;border:1px solid transparent}
+.cat-tile:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,0.12)}
+.cat-tile-icon{margin-bottom:0.4rem;display:flex;justify-content:center}
+.cat-tile-icon .ic{fill:#fff;width:28px;height:28px}
+.cat-tile-name{font-size:0.78rem;font-weight:800;color:#fff;margin-bottom:0.15rem}
+.cat-tile-count{font-size:0.65rem;font-weight:600;color:rgba(255,255,255,0.75)}
+@media(max-width:900px){.cat-tiles{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:500px){.cat-tiles{grid-template-columns:repeat(2,1fr)}}
 
 /* Catalog */
 .catalog-header{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-bottom:1rem}
@@ -127,14 +142,12 @@ a{text-decoration:none;color:inherit}
 .filter-tab:hover{border-color:#94a3b8;color:#334155}
 .filter-tab.active{color:#fff;border-color:transparent}
 .no-results{display:none;text-align:center;padding:3rem 1rem;color:#8E99A4;font-size:0.95rem}
-
-/* COMPACT PRODUCT TILES */
 .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem}
 .grid-card{background:#fff;border:1px solid #e2e8f0;border-radius:10px;transition:all 0.25s;display:flex;flex-direction:column;overflow:hidden;cursor:default}
-.grid-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.1);-webkit-transform:translateY(-3px) scale(1.01);transform:translateY(-3px) scale(1.01)}
+.grid-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.1);transform:translateY(-3px) scale(1.01)}
 .grid-card.hidden{display:none}
 .gc-color-band{padding:0.6rem 0.75rem 0.4rem;display:flex;align-items:center;gap:0.4rem}
-.gc-cat-icon{font-size:1.1rem}
+.gc-color-band .ic{fill:#fff;width:18px;height:18px}
 .gc-cat-label{font-size:0.58rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;opacity:0.9}
 .gc-body{padding:0.6rem 0.75rem 0.75rem;flex:1;display:flex;flex-direction:column}
 .gc-name{font-size:0.85rem;font-weight:800;color:#0A1628;line-height:1.25;margin-bottom:0.3rem}
@@ -142,7 +155,7 @@ a{text-decoration:none;color:inherit}
 .gc-view-btn{display:block;font-size:0.7rem;font-weight:700;text-align:center;padding:0.4rem;border:1.5px solid;border-radius:6px;transition:all 0.2s;cursor:pointer;background:none;font-family:inherit;min-height:32px;width:100%}
 .gc-view-btn:hover{color:#fff !important}
 
-/* Detail modal overlay */
+/* Detail modal */
 .detail-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,22,40,0.7);z-index:2000;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);overflow-y:auto;padding:2rem 1rem}
 .detail-overlay.active{display:flex;align-items:flex-start;justify-content:center}
 .detail-card{background:#fff;border-radius:16px;max-width:700px;width:100%;margin:auto;padding:2rem;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
@@ -151,35 +164,66 @@ a{text-decoration:none;color:inherit}
 .detail-cat{display:inline-block;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:0.25rem 0.75rem;border-radius:20px;margin-bottom:0.75rem}
 .detail-name{font-size:1.5rem;font-weight:900;color:#0A1628;margin-bottom:0.75rem;letter-spacing:-0.5px}
 .detail-desc{font-size:0.88rem;color:#475569;line-height:1.75;margin-bottom:1.25rem}
+.detail-section-title{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#2B7DE9;margin-bottom:0.5rem;margin-top:1rem}
 .detail-apps{display:flex;flex-wrap:wrap;gap:0.4rem}
 .detail-app{font-size:0.7rem;padding:0.25rem 0.6rem;border-radius:20px;background:#f1f5f9;color:#475569;font-weight:500}
+.detail-mol{font-size:0.8rem;color:#64748B;line-height:1.7;margin-bottom:0.75rem}
+.detail-storage{font-size:0.8rem;color:#64748B;line-height:1.7;margin-bottom:0.75rem;padding:0.75rem;background:#f8fafc;border-radius:8px;border-left:3px solid #06B6D4}
 
 @media(max-width:1100px){.product-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:768px){.product-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.product-grid{grid-template-columns:1fr}.gc-name{font-size:0.9rem}}
+@media(max-width:480px){.product-grid{grid-template-columns:1fr}}
+
+/* Info sections */
+.info-section{padding:4rem 1.5rem}
+.info-inner{max-width:1000px;margin:0 auto}
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2rem}
+.info-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.5rem;transition:all 0.25s}
+.info-card:hover{box-shadow:0 4px 15px rgba(0,0,0,0.06)}
+.info-card .ic{color:#2B7DE9;margin-bottom:0.75rem}
+.info-card h3{font-size:0.95rem;font-weight:800;color:#0A1628;margin-bottom:0.4rem}
+.info-card p{font-size:0.82rem;color:#64748B;line-height:1.6}
+@media(max-width:640px){.info-grid{grid-template-columns:1fr}}
+.info-note{text-align:center;margin-top:1.5rem;font-size:0.82rem;color:#8E99A4;font-style:italic}
+
+/* Vendor directory */
+.vendor-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}
+.vendor-cat{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.5rem;text-align:center}
+.vendor-cat .ic{color:#2B7DE9;margin-bottom:0.75rem}
+.vendor-cat h3{font-size:0.95rem;font-weight:800;color:#0A1628;margin-bottom:0.4rem}
+.vendor-cat p{font-size:0.82rem;color:#64748B;line-height:1.5}
+@media(max-width:640px){.vendor-cats{grid-template-columns:1fr}}
+
+/* Books */
+.book-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2rem;max-width:800px;margin-left:auto;margin-right:auto}
+.book-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:1.5rem;display:flex;gap:1rem;align-items:flex-start}
+.book-card .ic{color:#6366F1;flex-shrink:0;margin-top:0.2rem}
+.book-card h3{font-size:0.9rem;font-weight:800;color:#0A1628;margin-bottom:0.15rem}
+.book-card .book-author{font-size:0.75rem;color:#8B5CF6;font-weight:600;margin-bottom:0.3rem}
+.book-card p{font-size:0.78rem;color:#64748B;line-height:1.5}
+@media(max-width:640px){.book-list{grid-template-columns:1fr}}
 
 /* Back to top */
-.btt{position:fixed;bottom:1.5rem;right:1.5rem;width:44px;height:44px;background:#0A1628;color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:999;opacity:0;visibility:hidden;-webkit-transform:translateY(10px);transform:translateY(10px);transition:all 0.3s;display:flex;align-items:center;justify-content:center}
+.btt{position:fixed;bottom:1.5rem;right:1.5rem;width:44px;height:44px;background:#0A1628;color:#fff;border:none;border-radius:50%;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:999;opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.3s;display:flex;align-items:center;justify-content:center}
 .btt:hover{background:#2B7DE9}
-.btt.show{opacity:1;visibility:visible;-webkit-transform:translateY(0);transform:translateY(0)}
+.btt.show{opacity:1;visibility:visible;transform:translateY(0)}
 
 /* Footer */
 footer{background:#0A1628;color:#8E99A4;padding:3rem 1.5rem 2rem}
 .footer-inner{max-width:1280px;margin:0 auto}
-.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-top{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08)}
 .footer-col h4{font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#fff;margin-bottom:0.75rem;font-weight:700}
 .footer-col a{display:block;font-size:0.82rem;color:#8E99A4;margin-bottom:0.4rem;transition:color 0.2s}
 .footer-col a:hover{color:#2B7DE9}
 .footer-col p{font-size:0.82rem;color:#8E99A4;line-height:1.6}
 .footer-brand-area{text-align:center;margin-bottom:2rem}
-.footer-brand{font-size:1.75rem;font-weight:900;color:#fff;margin-bottom:0.15rem}
-.footer-brand span{color:#2B7DE9}
+.footer-brand{font-size:1.3rem;font-weight:900;color:#fff;margin-bottom:0.15rem}
 .footer-tag{font-size:0.6rem;text-transform:uppercase;letter-spacing:4px;color:#475569}
 .disclaimer-box{max-width:700px;margin:0 auto 2rem;padding:1.25rem 1.5rem;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;text-align:left}
 .disclaimer-box h4{font-size:0.65rem;text-transform:uppercase;letter-spacing:2px;color:#F59E0B;margin-bottom:0.5rem}
 .disclaimer-box p{font-size:0.78rem;line-height:1.7;color:#94A3B8}
 .footer-bottom{font-size:0.68rem;color:#475569;text-align:center}
-@media(max-width:640px){.footer-top{flex-direction:column;gap:1.5rem}}
+@media(max-width:640px){.footer-top{grid-template-columns:repeat(2,1fr);gap:1.5rem}}
 </style>
 </head>
 <body>
@@ -188,12 +232,25 @@ footer{background:#0A1628;color:#8E99A4;padding:3rem 1.5rem 2rem}
 
 <header class="site-header">
 <div class="header-inner">
-<div class="logo"><span>PRC</span> Peptide Resource Center<span class="logo-sub">The Peptide Authority</span></div>
+<div class="logo-area">
+<div class="logo-name"><span>PEPTIDE</span> RESOURCE CENTER</div>
+<div class="logo-sub">The Peptide Authority</div>
+</div>
 <nav class="nav-links">
-<a href="#categories">Categories</a>
-<a href="#featured">Featured</a>
-<a href="#catalog">Catalog</a>
+<a href="#">Home</a>
+<div class="nav-dd">
+<a href="#resources">Resources &#9662;</a>
+<div class="nav-dd-menu">
+<a href="#vendors">Vendor Directory</a>
+<a href="#education">Peptide Education</a>
+<a href="#reviews">Review Sites</a>
+<a href="#labs">Testing Labs</a>
+<a href="#books">Books &amp; Reading</a>
+</div>
+</div>
+<a href="#catalog">Shop</a>
 <a href="https://frabrizio22.github.io/prc-tools/" class="nav-cta">Compare Prices</a>
+<a href="#footer-contact">Contact</a>
 </nav>
 </div>
 </header>
@@ -202,34 +259,130 @@ footer{background:#0A1628;color:#8E99A4;padding:3rem 1.5rem 2rem}
 <section class="hero">
 <div class="hero-geo"></div>
 <div class="hero-geo2"></div>
+<div class="hero-geo3"></div>
 <div class="hero-inner">
-<div class="hero-authority">Peptide Resource Center</div>
-<h1><span class="gradient-text">THE PEPTIDE<br>AUTHORITY</span></h1>
-<p class="hero-subtitle">Your one-stop destination for premium research peptides</p>
-<div class="hero-tagline"><span>Precision Is Not Optional</span></div>
+<h1><span class="gradient-text">PEPTIDE RESOURCE<br>CENTER</span></h1>
+<div class="hero-tagline">The Peptide Authority</div>
+<p class="hero-subtitle">Your comprehensive destination for research peptide resources, education, and premium products</p>
 <div class="hero-ctas">
-<a href="#catalog" class="hero-cta hero-cta-primary">Browse Catalog &#8595;</a>
-<a href="https://frabrizio22.github.io/prc-tools/" class="hero-cta hero-cta-secondary">Compare Prices &#8594;</a>
+<a href="#catalog" class="hero-cta hero-cta-primary">Shop Products &#8595;</a>
+<a href="#resources" class="hero-cta hero-cta-secondary">Explore Resources &#8595;</a>
 </div>
 <div class="hero-stats">
 <div class="stat"><div class="stat-num" id="statProducts">44+</div><div class="stat-label">Products</div></div>
 <div class="stat-divider"></div>
+<div class="stat"><div class="stat-num">23+</div><div class="stat-label">Vendors</div></div>
+<div class="stat-divider"></div>
 <div class="stat"><div class="stat-num" id="statCats">10</div><div class="stat-label">Categories</div></div>
 <div class="stat-divider"></div>
-<div class="stat"><div class="stat-num">23+</div><div class="stat-label">Vendors Compared</div></div>
-<div class="stat-divider"></div>
-<div class="stat"><div class="stat-num">&ge;98%</div><div class="stat-label">Purity Standard</div></div>
+<div class="stat"><div class="stat-num">&ge;98%</div><div class="stat-label">Purity</div></div>
 </div>
 </div>
 </section>
 
-<!-- Trust bar -->
+<!-- Trust -->
 <section class="trust">
 <div class="trust-inner">
-<div class="trust-item"><div class="trust-icon">&#9878;</div><div class="trust-title">Research Grade</div><div class="trust-sub">&ge;98% purity verified</div></div>
-<div class="trust-item"><div class="trust-icon">&#9889;</div><div class="trust-title">Fast Shipping</div><div class="trust-sub">Priority processing</div></div>
-<div class="trust-item"><div class="trust-icon">&#128274;</div><div class="trust-title">Secure Payments</div><div class="trust-sub">Encrypted transactions</div></div>
-<div class="trust-item"><div class="trust-icon">&#128172;</div><div class="trust-title">Expert Support</div><div class="trust-sub">Knowledgeable team</div></div>
+<div class="trust-item"><svg class="ic" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg><div class="trust-text"><div class="trust-title">Research Grade</div><div class="trust-sub">&ge;98% purity verified</div></div></div>
+<div class="trust-item"><svg class="ic" viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zM18 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg><div class="trust-text"><div class="trust-title">Fast Shipping</div><div class="trust-sub">Priority processing</div></div></div>
+<div class="trust-item"><svg class="ic" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3-9H9V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2z"/></svg><div class="trust-text"><div class="trust-title">Secure Payments</div><div class="trust-sub">Encrypted transactions</div></div></div>
+<div class="trust-item"><svg class="ic" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg><div class="trust-text"><div class="trust-title">Expert Support</div><div class="trust-sub">Knowledgeable team</div></div></div>
+</div>
+</section>
+
+<!-- WHY PRC -->
+<section class="section-alt section-pad">
+<div class="section-inner">
+<div class="section-header">
+<div class="section-label">Why PRC</div>
+<h2 class="section-title">The PRC Difference</h2>
+<p class="section-sub">More than a store &mdash; a complete research ecosystem</p>
+</div>
+<div class="why-grid">
+<div class="why-card">
+<svg class="ic ic-xl" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+<h3>No Gatekeeping</h3>
+<p>We compare prices across 23+ vendors transparently. Your research, your choice.</p>
+</div>
+<div class="why-card">
+<svg class="ic ic-xl" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg>
+<h3>Research-Grade Quality</h3>
+<p>&ge;98% purity standard. Every compound verified for research integrity.</p>
+</div>
+<div class="why-card">
+<svg class="ic ic-xl" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM10 9h8v2h-8V9zm0 3h4v2h-4v-2zm0-6h8v2h-8V6z"/></svg>
+<h3>The Complete Resource</h3>
+<p>Vendor directories, testing labs, educational content, and expert guidance &mdash; all in one place.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- RESOURCES HUB -->
+<section class="section-white section-pad" id="resources">
+<div class="section-inner">
+<div class="section-header">
+<div class="section-label">Resources</div>
+<h2 class="section-title">Your Research Toolkit</h2>
+<p class="section-sub">More than a store &mdash; we're building the most comprehensive peptide resource on the internet.</p>
+</div>
+<div class="resource-grid">
+<div class="resource-card" style="border-left-color:#2B7DE9">
+<div class="rc-icon" style="background:#2B7DE915"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#2B7DE9"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div>
+<h3>Price Comparison Tool</h3>
+<p>Compare 387 products across 23 vendors. Find the best prices instantly.</p>
+<a href="https://frabrizio22.github.io/prc-tools/" class="rc-btn">Compare Now &rarr;</a>
+</div>
+<div class="resource-card" style="border-left-color:#10B981">
+<div class="rc-icon" style="background:#10B98115"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#10B981"><path fill="currentColor" d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg></div>
+<h3>Vendor Directory</h3>
+<p>Curated directory of verified research peptide vendors, organized by specialty and reputation.</p>
+<a href="#vendors" class="rc-btn">Browse Vendors &rarr;</a>
+</div>
+<div class="resource-card" style="border-left-color:#8B5CF6">
+<div class="rc-icon" style="background:#8B5CF615"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#8B5CF6"><path fill="currentColor" d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg></div>
+<h3>Peptide Education</h3>
+<p>In-depth guides on research peptides &mdash; mechanisms, applications, and methodology.</p>
+<a href="#education" class="rc-btn">Start Learning &rarr;</a>
+</div>
+<div class="resource-card" style="border-left-color:#F59E0B">
+<div class="rc-icon" style="background:#F59E0B15"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#F59E0B"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+<h3>Vendor Reviews</h3>
+<p>Community-sourced vendor review sites to help you make informed decisions.</p>
+<a href="#reviews" class="rc-btn">Read Reviews &rarr;</a>
+</div>
+<div class="resource-card" style="border-left-color:#06B6D4">
+<div class="rc-icon" style="background:#06B6D415"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#06B6D4"><path fill="currentColor" d="M13 11.33L18 18H6l5-6.67V6h2v5.33zM15 4h1V2H8v2h1v2.33L4 11.84V22h16V11.84L15 6.33V4z"/></svg></div>
+<h3>Testing Labs</h3>
+<p>Independent third-party testing laboratories for peptide analysis and verification.</p>
+<a href="#labs" class="rc-btn">Find Labs &rarr;</a>
+</div>
+<div class="resource-card" style="border-left-color:#6366F1">
+<div class="rc-icon" style="background:#6366F115"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#6366F1"><path fill="currentColor" d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg></div>
+<h3>Books &amp; Reading</h3>
+<p>Recommended reading for serious peptide researchers.</p>
+<a href="#books" class="rc-btn">See List &rarr;</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured-bg" id="featured">
+<div class="section-header">
+<div class="section-label">Shop</div>
+<h2 class="section-title">Shop Our Products</h2>
+<p class="section-sub">Premium research peptides, sourced and verified for research integrity.</p>
+</div>
+<div class="featured-grid">
+<div class="featured-card" style="border-top:4px solid #EC4899"><span class="fc-badge fc-badge-popular">Popular</span><div class="fc-icon-wrap"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#EC4899"><path fill="currentColor" d="M4.5 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S6 12.83 6 12s-.67-1.5-1.5-1.5zm15 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S21 12.83 21 12s-.67-1.5-1.5-1.5zm-7.5 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg></div><span class="cat-tag" style="background:#EC489915;color:#EC4899">GLP-1 Agonist</span><h3 class="fc-name">Semaglutide</h3><p class="fc-desc">The benchmark long-acting GLP-1 receptor agonist with fatty acid modification for extended half-life.</p><a class="fc-btn" onclick="scrollToProduct('semaglutide')">View in Catalog</a></div>
+<div class="featured-card" style="border-top:4px solid #EC4899"><span class="fc-badge fc-badge-popular">Popular</span><div class="fc-icon-wrap"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#EC4899"><path fill="currentColor" d="M4.5 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S6 12.83 6 12s-.67-1.5-1.5-1.5zm15 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S21 12.83 21 12s-.67-1.5-1.5-1.5zm-7.5 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg></div><span class="cat-tag" style="background:#EC489915;color:#EC4899">Dual GLP-1/GIP</span><h3 class="fc-name">Tirzepatide (20mg)</h3><p class="fc-desc">First dual incretin receptor agonist &mdash; simultaneous GLP-1 and GIP pathway activation.</p><a class="fc-btn" onclick="scrollToProduct('tirzepatide (20mg)')">View in Catalog</a></div>
+<div class="featured-card" style="border-top:4px solid #10B981"><span class="fc-badge fc-badge-popular">Popular</span><div class="fc-icon-wrap"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#10B981"><path fill="currentColor" d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg></div><span class="cat-tag" style="background:#10B98115;color:#10B981">Tissue Repair</span><h3 class="fc-name">BPC-157/TB-500 (10mg/10mg)</h3><p class="fc-desc">Multi-phase tissue repair combining angiogenesis, cell migration, and cytoprotection.</p><a class="fc-btn" onclick="scrollToProduct('bpc-157')">View in Catalog</a></div>
+<div class="featured-card" style="border-top:4px solid #06B6D4"><span class="fc-badge fc-badge-new">New</span><div class="fc-icon-wrap"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#06B6D4"><path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg></div><span class="cat-tag" style="background:#06B6D415;color:#06B6D4">Antioxidants</span><h3 class="fc-name">NAD+ (1000mg)</h3><p class="fc-desc">Central redox cofactor essential for 500+ enzymatic reactions, sirtuin activation, and DNA repair.</p><a class="fc-btn" onclick="scrollToProduct('nad+ (1000mg)')">View in Catalog</a></div>
+<div class="featured-card" style="border-top:4px solid #2B7DE9"><div class="fc-icon-wrap"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#2B7DE9"><path fill="currentColor" d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div><span class="cat-tag" style="background:#2B7DE915;color:#2B7DE9">Growth Hormone</span><h3 class="fc-name">CJC-1295/Ipamorelin (5mg/5mg)</h3><p class="fc-desc">Dual-pathway GH secretagogue targeting GHRH and ghrelin for amplified pulse dynamics.</p><a class="fc-btn" onclick="scrollToProduct('cjc-1295/ipamorelin')">View in Catalog</a></div>
+<div class="featured-card" style="border-top:4px solid #8B5CF6"><div class="fc-icon-wrap"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#8B5CF6"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span class="cat-tag" style="background:#8B5CF615;color:#8B5CF6">Neuropeptides</span><h3 class="fc-name">Selank (10mg)</h3><p class="fc-desc">Dual-action neuropeptide: GABAergic anxiolytic with cytokine-modulating activity.</p><a class="fc-btn" onclick="scrollToProduct('selank (10mg)')">View in Catalog</a></div>
+<div class="featured-card" style="border-top:4px solid #6366F1"><span class="fc-badge fc-badge-new">New</span><div class="fc-icon-wrap"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#6366F1"><path fill="currentColor" d="M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07C6.1 17.29 4.58 17.6 3.26 17c-.56-.26-1.02-.64-1.38-1.12L2 18.41V22h20v-3.59l.12-2.53c-.36.48-.82.86-1.38 1.12-1.32.6-2.84.29-4.14-1.01zM16 9H8l-2 6h1.5l1 2h7l1-2H18l-2-6z"/></svg></div><span class="cat-tag" style="background:#6366F115;color:#6366F1">Longevity</span><h3 class="fc-name">Epithalon (50mg)</h3><p class="fc-desc">Synthetic tetrapeptide telomerase activator from decades of Russian gerontology research.</p><a class="fc-btn" onclick="scrollToProduct('epithalon')">View in Catalog</a></div>
+<div class="featured-card" style="border-top:4px solid #F59E0B"><div class="fc-icon-wrap"><svg class="ic ic-lg" viewBox="0 0 24 24" style="color:#F59E0B"><path fill="currentColor" d="M7 2v11h3v9l7-12h-4l4-8z"/></svg></div><span class="cat-tag" style="background:#F59E0B15;color:#F59E0B">Metabolic</span><h3 class="fc-name">MOTS-c (10mg)</h3><p class="fc-desc">Mitochondrial-derived peptide that activates AMPK and regulates metabolic homeostasis.</p><a class="fc-btn" onclick="scrollToProduct('mots-c')">View in Catalog</a></div>
 </div>
 </section>
 
@@ -239,58 +392,25 @@ footer{background:#0A1628;color:#8E99A4;padding:3rem 1.5rem 2rem}
 <div class="section-header">
 <div class="section-label">Browse by Category</div>
 <h2 class="section-title">10 Research Categories</h2>
-<p class="section-sub">Click any category to jump to filtered products</p>
+<p class="section-sub">Click any category to filter the catalog</p>
 </div>
 <div class="cat-tiles">
-<div class="cat-tile" data-filter="neuropeptides" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><span class="cat-tile-icon">&#129504;</span><div class="cat-tile-name">Neuropeptides</div><div class="cat-tile-count">6 products</div></div>
-<div class="cat-tile" data-filter="glp-agonists" style="background:linear-gradient(135deg,#EC4899,#db2777)"><span class="cat-tile-icon">&#128138;</span><div class="cat-tile-name">GLP Agonists</div><div class="cat-tile-count">5 products</div></div>
-<div class="cat-tile" data-filter="growth-hormone" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><span class="cat-tile-icon">&#128200;</span><div class="cat-tile-name">Growth Hormone</div><div class="cat-tile-count">5 products</div></div>
-<div class="cat-tile" data-filter="tissue-repair" style="background:linear-gradient(135deg,#10B981,#059669)"><span class="cat-tile-icon">&#128295;</span><div class="cat-tile-name">Tissue Repair</div><div class="cat-tile-count">6 products</div></div>
-<div class="cat-tile" data-filter="metabolic" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><span class="cat-tile-icon">&#9889;</span><div class="cat-tile-name">Metabolic</div><div class="cat-tile-count">7 products</div></div>
-<div class="cat-tile" data-filter="antioxidants" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><span class="cat-tile-icon">&#128737;</span><div class="cat-tile-name">Antioxidants</div><div class="cat-tile-count">7 products</div></div>
-<div class="cat-tile" data-filter="longevity" style="background:linear-gradient(135deg,#6366F1,#4f46e5)"><span class="cat-tile-icon">&#129516;</span><div class="cat-tile-name">Longevity</div><div class="cat-tile-count">3 products</div></div>
-<div class="cat-tile" data-filter="melanocortin" style="background:linear-gradient(135deg,#F97316,#ea580c)"><span class="cat-tile-icon">&#127919;</span><div class="cat-tile-name">Melanocortin</div><div class="cat-tile-count">2 products</div></div>
-<div class="cat-tile" data-filter="cosmetic" style="background:linear-gradient(135deg,#D946EF,#c026d3)"><span class="cat-tile-icon">&#10024;</span><div class="cat-tile-name">Cosmetic</div><div class="cat-tile-count">2 products</div></div>
-<div class="cat-tile" data-filter="advanced" style="background:linear-gradient(135deg,#64748B,#475569)"><span class="cat-tile-icon">&#128300;</span><div class="cat-tile-name">Tissue Protection</div><div class="cat-tile-count">1 product</div></div>
+<div class="cat-tile" data-filter="neuropeptides" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><div class="cat-tile-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><div class="cat-tile-name">Neuropeptides</div><div class="cat-tile-count">6 products</div></div>
+<div class="cat-tile" data-filter="glp-agonists" style="background:linear-gradient(135deg,#EC4899,#db2777)"><div class="cat-tile-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S6 12.83 6 12s-.67-1.5-1.5-1.5zm15 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S21 12.83 21 12s-.67-1.5-1.5-1.5zm-7.5 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg></div><div class="cat-tile-name">GLP Agonists</div><div class="cat-tile-count">5 products</div></div>
+<div class="cat-tile" data-filter="growth-hormone" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><div class="cat-tile-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div><div class="cat-tile-name">Growth Hormone</div><div class="cat-tile-count">5 products</div></div>
+<div class="cat-tile" data-filter="tissue-repair" style="background:linear-gradient(135deg,#10B981,#059669)"><div class="cat-tile-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg></div><div class="cat-tile-name">Tissue Repair</div><div class="cat-tile-count">6 products</div></div>
+<div class="cat-tile" data-filter="metabolic" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><div class="cat-tile-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg></div><div class="cat-tile-name">Metabolic</div><div class="cat-tile-count">7 products</div></div>
+<div class="cat-tile" data-filter="antioxidants" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><div class="cat-tile-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg></div><div class="cat-tile-name">Antioxidants</div><div class="cat-tile-count">7 products</div></div>
+<div class="cat-tile" data-filter="longevity" style="background:linear-gradient(135deg,#6366F1,#4f46e5)"><div class="cat-tile-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07C6.1 17.29 4.58 17.6 3.26 17c-.56-.26-1.02-.64-1.38-1.12L2 18.41V22h20v-3.59l.12-2.53c-.36.48-.82.86-1.38 1.12-1.32.6-2.84.29-4.14-1.01zM16 9H8l-2 6h1.5l1 2h7l1-2H18l-2-6z"/></svg></div><div class="cat-tile-name">Longevity</div><div class="cat-tile-count">3 products</div></div>
+<div class="cat-tile" data-filter="melanocortin" style="background:linear-gradient(135deg,#F97316,#ea580c)"><div class="cat-tile-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg></div><div class="cat-tile-name">Melanocortin</div><div class="cat-tile-count">2 products</div></div>
+<div class="cat-tile" data-filter="cosmetic" style="background:linear-gradient(135deg,#D946EF,#c026d3)"><div class="cat-tile-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16l-6.4 5.2L8 14 2 9.2h7.6z"/></svg></div><div class="cat-tile-name">Cosmetic</div><div class="cat-tile-count">2 products</div></div>
+<div class="cat-tile" data-filter="advanced" style="background:linear-gradient(135deg,#64748B,#475569)"><div class="cat-tile-icon"><svg class="ic" viewBox="0 0 24 24"><path d="M13 11.33L18 18H6l5-6.67V6h2v5.33zM15 4h1V2H8v2h1v2.33L4 11.84V22h16V11.84L15 6.33V4z"/></svg></div><div class="cat-tile-name">Tissue Protection</div><div class="cat-tile-count">1 product</div></div>
 </div>
-</div>
-</section>
-
-<!-- FEATURED -->
-<section class="featured-bg" id="featured">
-<div class="section-header">
-<div class="section-label">Popular Picks</div>
-<h2 class="section-title">Featured Products</h2>
-<p class="section-sub">Our most requested research compounds</p>
-</div>
-<div class="featured-grid">
-<div class="featured-card" style="border-top:4px solid #EC4899"><span class="fc-badge fc-badge-popular">Popular</span><span class="fc-icon">&#128138;</span><span class="cat-tag" style="background:#EC489915;color:#EC4899">glp agonists</span><h3 class="fc-name">Semaglutide (GLP-1 Receptor Agonist)</h3><p class="fc-desc">Culmination of decades of incretin biology research with strategic fatty acid modification for extended half-life.</p><a class="fc-btn" onclick="scrollToProduct('semaglutide')">View in Catalog</a></div>
-<div class="featured-card" style="border-top:4px solid #EC4899"><span class="fc-badge fc-badge-popular">Popular</span><span class="fc-icon">&#128138;</span><span class="cat-tag" style="background:#EC489915;color:#EC4899">glp agonists</span><h3 class="fc-name">Tirzepatide (20mg)</h3><p class="fc-desc">Paradigm shift: dual GIP/GLP-1 receptor agonist for synergistic metabolic signaling research.</p><a class="fc-btn" onclick="scrollToProduct('tirzepatide (20mg)')">View in Catalog</a></div>
-<div class="featured-card" style="border-top:4px solid #10B981"><span class="fc-badge fc-badge-popular">Popular</span><span class="fc-icon">&#128295;</span><span class="cat-tag" style="background:#10B98115;color:#10B981">tissue repair</span><h3 class="fc-name">BPC-157/TB-500 Combo (10mg/10mg)</h3><p class="fc-desc">Multi-phase tissue repair: angiogenesis + cell migration + cytoprotection in one formulation.</p><a class="fc-btn" onclick="scrollToProduct('bpc-157')">View in Catalog</a></div>
-<div class="featured-card" style="border-top:4px solid #06B6D4"><span class="fc-badge fc-badge-new">New</span><span class="fc-icon">&#128737;</span><span class="cat-tag" style="background:#06B6D415;color:#06B6D4">antioxidants</span><h3 class="fc-name">NAD+ (500mg)</h3><p class="fc-desc">Central to cellular biochemistry: electron carrier, sirtuin substrate, and PARP cofactor.</p><a class="fc-btn" onclick="scrollToProduct('nad+ (500mg)')">View in Catalog</a></div>
-<div class="featured-card" style="border-top:4px solid #8B5CF6"><span class="fc-icon">&#129504;</span><span class="cat-tag" style="background:#8B5CF615;color:#8B5CF6">neuropeptides</span><h3 class="fc-name">Selank (10mg)</h3><p class="fc-desc">Dual-action neuropeptide: GABAergic anxiolytic + immune modulation via tuftsin scaffold.</p><a class="fc-btn" onclick="scrollToProduct('selank (10mg)')">View in Catalog</a></div>
-<div class="featured-card" style="border-top:4px solid #2B7DE9"><span class="fc-icon">&#128200;</span><span class="cat-tag" style="background:#2B7DE915;color:#2B7DE9">growth hormone</span><h3 class="fc-name">CJC-1295/Ipamorelin (5mg/5mg)</h3><p class="fc-desc">Dual-pathway GH secretagogue: GHRH + ghrelin synergy for amplified pulse dynamics.</p><a class="fc-btn" onclick="scrollToProduct('cjc-1295/ipamorelin')">View in Catalog</a></div>
-<div class="featured-card" style="border-top:4px solid #F59E0B"><span class="fc-icon">&#9889;</span><span class="cat-tag" style="background:#F59E0B15;color:#F59E0B">metabolic</span><h3 class="fc-name">MOTS-c (10mg)</h3><p class="fc-desc">Mitochondrial-derived peptide: AMPK activation, folate metabolism, insulin sensitivity.</p><a class="fc-btn" onclick="scrollToProduct('mots-c')">View in Catalog</a></div>
-<div class="featured-card" style="border-top:4px solid #6366F1"><span class="fc-icon">&#129516;</span><span class="cat-tag" style="background:#6366F115;color:#6366F1">longevity</span><h3 class="fc-name">Epithalon (50mg)</h3><p class="fc-desc">Tetrapeptide telomerase activator from decades of Russian gerontology research.</p><a class="fc-btn" onclick="scrollToProduct('epithalon')">View in Catalog</a></div>
-</div>
-</section>
-
-<!-- COMPARE -->
-<section class="compare-section">
-<div class="compare-inner">
-<div class="compare-icon">&#128202;</div>
-<h2 class="compare-title">Price Comparison Tool</h2>
-<p class="compare-subtitle">The most comprehensive research peptide price index</p>
-<div class="compare-stats">
-<div class="compare-stat"><div class="compare-stat-num">387</div><div class="compare-stat-label">Products Compared</div></div>
-<div class="compare-stat"><div class="compare-stat-num">23</div><div class="compare-stat-label">Vendors Indexed</div></div>
-</div>
-<a href="https://frabrizio22.github.io/prc-tools/" class="compare-cta">Launch Price Comparison &#8594;</a>
 </div>
 </section>
 
 <!-- FULL CATALOG -->
-<section class="section-white section-pad" id="catalog">
+<section class="section-alt section-pad" id="catalog">
 <div class="section-inner">
 <div class="section-header">
 <div class="section-label">Full Catalog</div>
@@ -298,7 +418,7 @@ footer{background:#0A1628;color:#8E99A4;padding:3rem 1.5rem 2rem}
 <p class="section-sub">Browse all products across 10 categories</p>
 </div>
 <div class="catalog-header">
-<input type="text" class="search-box" id="searchInput" placeholder="&#128269; Search products&hellip;">
+<input type="text" class="search-box" id="searchInput" placeholder="Search products...">
 </div>
 <div class="filter-wrap" id="filterWrap">
 <button class="filter-tab active" data-cat="all">All (44)</button>
@@ -317,102 +437,101 @@ footer{background:#0A1628;color:#8E99A4;padding:3rem 1.5rem 2rem}
 <div class="product-grid" id="productGrid">
 
 <!-- NEUROPEPTIDES (6) -->
-<div class="grid-card" data-cat="neuropeptides" data-name="selank (5mg)" id="prod-0"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><span class="gc-cat-icon">&#129504;</span><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">Selank (5mg)</h3><p class="gc-summary">Synthetic heptapeptide with anxiolytic &amp; immune modulation</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics&#8212;a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This compound demonstrates anxiolytic properties through GABAergic modulation while simultaneously engaging immune system pathways, offering a unique dual-action profile for neuroscience research.</p><div class="gc-apps-data">Anxiety model studies|cognitive function research|immune-neuro axis modulation|GABAergic pathway studies</div></div></div>
+<div class="grid-card" data-cat="neuropeptides" data-name="selank (5mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">Selank (5mg)</h3><p class="gc-summary">Synthetic anxiolytic heptapeptide with immune modulation via tuftsin scaffold</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Developed at Moscow's Institute of Molecular Genetics, Selank is a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. It demonstrates the rare capacity to simultaneously modulate IL-6 expression and influence monoaminergic neurotransmitter systems, bridging neuroimmune signaling. Its dual action on GABA and serotonin pathways has positioned it as a cornerstone tool in anxiety neurobiology research.</p><div class="gc-mol-data">Formula: C33H57N11O9 | MW: 751.9 g/mol | CAS: 129954-34-3</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; maintain at 2-8&deg;C and use within 30 days. Avoid freeze-thaw cycles.</div><div class="gc-apps-data">Anxiety model studies|Cognitive function research|Immune-neuro axis modulation|GABAergic pathway studies|Stress response mechanisms|Cytokine regulation research</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="neuropeptides" data-name="selank (10mg)" id="prod-1"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><span class="gc-cat-icon">&#129504;</span><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">Selank (10mg)</h3><p class="gc-summary">Higher-dose anxiolytic neuropeptide for extended research</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics&#8212;a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This compound demonstrates anxiolytic properties through GABAergic modulation while simultaneously engaging immune system pathways, offering a unique dual-action profile for neuroscience research.</p><div class="gc-apps-data">Anxiety model studies|cognitive function research|immune-neuro axis modulation|GABAergic pathway studies</div></div></div>
+<div class="grid-card" data-cat="neuropeptides" data-name="selank (10mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">Selank (10mg)</h3><p class="gc-summary">Higher-dose anxiolytic neuropeptide for extended neurochemical research</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Developed at Moscow's Institute of Molecular Genetics, Selank is a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. It demonstrates the rare capacity to simultaneously modulate IL-6 expression and influence monoaminergic neurotransmitter systems. Over two decades of Russian neurochemical research have characterized its mechanism across multiple systems.</p><div class="gc-mol-data">Formula: C33H57N11O9 | MW: 751.9 g/mol | CAS: 129954-34-3</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; maintain at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">Anxiety model studies|Cognitive function research|Immune-neuro axis modulation|GABAergic pathway studies|Stress response mechanisms|Cytokine regulation research</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="neuropeptides" data-name="semax (5mg)" id="prod-2"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><span class="gc-cat-icon">&#129504;</span><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">Semax (5mg)</h3><p class="gc-summary">ACTH fragment analogue for BDNF upregulation research</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Semax emerged from the same Moscow laboratory that produced Selank, but with an entirely different objective: augmenting cognitive capacity through neurotrophic upregulation. This heptapeptide analogue of the ACTH(4-10) fragment stimulates brain-derived neurotrophic factor (BDNF) expression and activates downstream signaling cascades critical for synaptic plasticity, neuronal survival, and cognitive performance in research models.</p><div class="gc-apps-data">BDNF upregulation research|cognitive enhancement models|neuroprotection studies|cerebrovascular function research</div></div></div>
+<div class="grid-card" data-cat="neuropeptides" data-name="semax (5mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">Semax (5mg)</h3><p class="gc-summary">ACTH(4-10) analogue for BDNF upregulation and cognitive neuroscience</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Semax emerged from the same Moscow laboratory that produced Selank. This heptapeptide analogue of the ACTH(4-10) fragment crosses the blood-brain barrier intact and directly increases brain-derived neurotrophic factor expression in cortical and hippocampal regions, enhancing neuroplasticity and improving dopaminergic and serotonergic tone.</p><div class="gc-mol-data">Formula: C37H51N9O10S | MW: 813.9 g/mol | CAS: 80714-61-0</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from light. Reconstitute with bacteriostatic water; use within 30 days at 2-8&deg;C.</div><div class="gc-apps-data">BDNF upregulation research|Cognitive enhancement models|Neuroprotection studies|Cerebrovascular function research|Memory mechanisms</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="neuropeptides" data-name="dsip (5mg)" id="prod-3"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><span class="gc-cat-icon">&#129504;</span><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">DSIP (5mg)</h3><p class="gc-summary">Delta sleep-inducing peptide for chronobiology research</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Delta Sleep-Inducing Peptide represents a landmark discovery in chronobiology. Isolated from the cerebral venous blood of sleeping rabbits in 1977, DSIP modulates delta-wave sleep patterns through complex interactions with GABAergic, serotonergic, and glutamatergic systems, providing researchers with a unique tool for studying the neuroendocrine regulation of sleep-wake cycles.</p><div class="gc-apps-data">Sleep architecture studies|circadian rhythm regulation|stress-response neuroendocrine pathways|pain perception modulation</div></div></div>
+<div class="grid-card" data-cat="neuropeptides" data-name="dsip (5mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">DSIP (5mg)</h3><p class="gc-summary">Delta sleep-inducing nonapeptide for chronobiology and circadian research</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Delta Sleep-Inducing Peptide, isolated from rabbit cerebral venous blood in 1977, opened scientific inquiry into endogenous sleep architecture modulation. Unlike sedatives, this nonapeptide facilitates natural sleep-wake transitions through circadian rhythm entrainment and stress hormone regulation, while exhibiting analgesic and cortisol-modulating properties.</p><div class="gc-mol-data">Formula: C35H48N10O15 | MW: 848.8 g/mol | CAS: 62568-57-4</div><div class="gc-storage-data">Store lyophilized at -20&deg;C in amber vial. Reconstitute and store at 2-8&deg;C; use within 30 days.</div><div class="gc-apps-data">Sleep architecture studies|Circadian rhythm regulation|Stress-response neuroendocrine pathways|Pain perception modulation|Delta wave sleep mechanisms</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="neuropeptides" data-name="dsip night blend" id="prod-4"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><span class="gc-cat-icon">&#129504;</span><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">DSIP Night Blend</h3><p class="gc-summary">Multi-compound blend for comprehensive sleep research</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Sleep architecture involves layered neurochemical systems&#8212;GABAergic inhibition, serotonergic tone, melatonergic timing, and neuropeptide signaling all converge to orchestrate restorative sleep. This proprietary blend combines multiple sleep-modulating compounds to target these parallel pathways simultaneously, enabling researchers to study multi-system sleep regulation.</p><div class="gc-apps-data">Multi-peptide sleep architecture studies|circadian entrainment mechanisms|neurotransmitter interaction models|restorative sleep pathway research</div></div></div>
+<div class="grid-card" data-cat="neuropeptides" data-name="dsip night blend"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">DSIP Night Blend</h3><p class="gc-summary">Multi-peptide synergistic formulation for comprehensive sleep research</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>A proprietary multi-peptide formulation combining three complementary sleep-regulating neuropeptides. This blend targets distinct but overlapping pathways in sleep-wake regulation&mdash;GABAergic inhibition, serotonergic tone, melatonergic timing, and neuropeptide signaling&mdash;enabling multi-system sleep modulation research.</p><div class="gc-mol-data">Proprietary blend (component specifications available upon request)</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from light and moisture. Reconstituted solution stable at 2-8&deg;C for up to 30 days.</div><div class="gc-apps-data">Multi-peptide sleep architecture studies|Circadian entrainment mechanisms|Neurotransmitter interaction models|Restorative sleep pathway research</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="neuropeptides" data-name="cerebrolysin (60mg)" id="prod-5"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><span class="gc-cat-icon">&#129504;</span><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">Cerebrolysin (60mg)</h3><p class="gc-summary">Multi-pathway neuropeptide mix for neuroplasticity</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Cerebrolysin stands apart in neuroprotection research: this pharmaceutical-grade preparation contains a complex mixture of low-molecular-weight neuropeptides and amino acids derived from porcine brain tissue. This multi-component approach mirrors the brain's own neurotrophic factor milieu, simultaneously engaging BDNF, GDNF, NGF, and CNTF pathways.</p><div class="gc-apps-data">Multi-pathway neuroprotection|neurodegenerative disease models|post-stroke neuroplasticity|synaptic preservation studies</div></div></div>
+<div class="grid-card" data-cat="neuropeptides" data-name="cerebrolysin (60mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#8B5CF6,#7c3aed)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span class="gc-cat-label">Neuropeptides</span></div><div class="gc-body"><h3 class="gc-name">Cerebrolysin (60mg)</h3><p class="gc-summary">Pharmaceutical-grade multi-factor neurotrophic peptide complex</p><button class="gc-view-btn" style="color:#8B5CF6;border-color:#8B5CF6" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Cerebrolysin stands apart in neuroprotection research: this pharmaceutical-grade preparation contains a complex mixture of low-molecular-weight neuropeptides and amino acids derived from porcine brain tissue. It simultaneously activates multiple neurotrophic signaling cascades&mdash;mimicking BDNF, NGF, CNTF, and GDNF pathways. Over 300 published studies in neurodegenerative disease models.</p><div class="gc-mol-data">Complex mixture of biologically active neuropeptides (&lt;10 kDa) and free amino acids</div><div class="gc-storage-data">Store refrigerated at 2-8&deg;C in original sealed ampules. Do not freeze. Use immediately upon opening.</div><div class="gc-apps-data">Multi-pathway neuroprotection|Neurodegenerative disease models|Post-stroke neuroplasticity|Synaptic preservation studies|Cognitive impairment research</div><div class="gc-injectable">1</div></div></div>
 
 <!-- GLP AGONISTS (5) -->
-<div class="grid-card" data-cat="glp-agonists" data-name="semaglutide (glp-1 receptor agonist)" id="prod-6"><div class="gc-color-band" style="background:linear-gradient(135deg,#EC4899,#db2777)"><span class="gc-cat-icon">&#128138;</span><span class="gc-cat-label">GLP Agonists</span></div><div class="gc-body"><h3 class="gc-name">Semaglutide (GLP-1 Receptor Agonist)</h3><p class="gc-summary">Long-acting GLP-1 analogue for incretin biology research</p><button class="gc-view-btn" style="color:#EC4899;border-color:#EC4899" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Semaglutide represents the culmination of decades of incretin biology research. Engineered with a strategic fatty acid modification that enables albumin binding and dramatically extends the half-life beyond native GLP-1. This structural innovation allows sustained GLP-1 receptor activation, making it invaluable for studying glucose homeostasis, pancreatic beta-cell function, and appetite regulation pathways.</p><div class="gc-apps-data">GLP-1 receptor binding and signaling studies|glucose homeostasis mechanisms|pancreatic beta-cell function research|appetite regulation pathways</div></div></div>
+<div class="grid-card" data-cat="glp-agonists" data-name="semaglutide (glp-1 receptor agonist)"><div class="gc-color-band" style="background:linear-gradient(135deg,#EC4899,#db2777)"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S6 12.83 6 12s-.67-1.5-1.5-1.5zm15 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S21 12.83 21 12s-.67-1.5-1.5-1.5zm-7.5 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg><span class="gc-cat-label">GLP Agonists</span></div><div class="gc-body"><h3 class="gc-name">Semaglutide (GLP-1 Receptor Agonist)</h3><p class="gc-summary">Benchmark long-acting GLP-1 analogue for incretin biology research</p><button class="gc-view-btn" style="color:#EC4899;border-color:#EC4899" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Semaglutide represents the culmination of decades of incretin biology research. Engineered with a strategic fatty acid modification enabling albumin binding, it dramatically extends GLP-1's half-life from minutes to days. This compound is the gold standard in metabolic research models investigating glucose homeostasis, pancreatic beta-cell function, and appetite regulation via hypothalamic pathways.</p><div class="gc-mol-data">Formula: C187H291N45O59 | MW: 4113.6 g/mol | CAS: 910463-68-2</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from light. Reconstitute with bacteriostatic water; store at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">GLP-1 receptor binding and signaling|Glucose homeostasis mechanisms|Pancreatic beta-cell function|Appetite regulation pathways|Incretin pharmacology</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="glp-agonists" data-name="tirzepatide (20mg)" id="prod-7"><div class="gc-color-band" style="background:linear-gradient(135deg,#EC4899,#db2777)"><span class="gc-cat-icon">&#128138;</span><span class="gc-cat-label">GLP Agonists</span></div><div class="gc-body"><h3 class="gc-name">Tirzepatide (20mg)</h3><p class="gc-summary">Dual GIP/GLP-1 receptor agonist for metabolic research</p><button class="gc-view-btn" style="color:#EC4899;border-color:#EC4899" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Tirzepatide represents a paradigm shift in incretin biology. This novel peptide activates both glucose-dependent insulinotropic polypeptide (GIP) and GLP-1 receptors simultaneously, producing synergistic effects on metabolic signaling cascades for studying receptor crosstalk and integrated incretin pathway biology.</p><div class="gc-apps-data">Dual incretin pathway research|GIP/GLP-1 receptor synergy|incretin receptor pharmacology|metabolic signaling cascade studies</div></div></div>
+<div class="grid-card" data-cat="glp-agonists" data-name="tirzepatide (20mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#EC4899,#db2777)"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S6 12.83 6 12s-.67-1.5-1.5-1.5zm15 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S21 12.83 21 12s-.67-1.5-1.5-1.5zm-7.5 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg><span class="gc-cat-label">GLP Agonists</span></div><div class="gc-body"><h3 class="gc-name">Tirzepatide (20mg)</h3><p class="gc-summary">First dual GLP-1/GIP receptor agonist for synergistic metabolic research</p><button class="gc-view-btn" style="color:#EC4899;border-color:#EC4899" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Tirzepatide represents a paradigm shift in incretin biology. This novel peptide activates both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) receptors with balanced potency, creating a dual agonist profile impossible to achieve with natural hormones. GIP enhances insulin secretion while GLP-1 provides appetite suppression and delays gastric emptying.</p><div class="gc-mol-data">Formula: C225H348N48O68 | MW: 4813.5 g/mol | CAS: 2023788-19-2</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; maintain at 2-8&deg;C for up to 30 days.</div><div class="gc-apps-data">Dual incretin pathway research|GIP/GLP-1 receptor synergy|Incretin receptor pharmacology|Metabolic signaling cascade studies|Pancreatic islet function</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="glp-agonists" data-name="tirzepatide (30mg)" id="prod-8"><div class="gc-color-band" style="background:linear-gradient(135deg,#EC4899,#db2777)"><span class="gc-cat-icon">&#128138;</span><span class="gc-cat-label">GLP Agonists</span></div><div class="gc-body"><h3 class="gc-name">Tirzepatide (30mg)</h3><p class="gc-summary">Higher-quantity dual agonist for extended protocols</p><button class="gc-view-btn" style="color:#EC4899;border-color:#EC4899" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Tirzepatide represents a paradigm shift in incretin biology. This higher-quantity format supports extended research protocols requiring sustained dual-receptor activation studies across multiple experimental timepoints.</p><div class="gc-apps-data">Dual incretin pathway research|GIP/GLP-1 receptor synergy|incretin receptor pharmacology|metabolic signaling cascade studies</div></div></div>
+<div class="grid-card" data-cat="glp-agonists" data-name="tirzepatide (30mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#EC4899,#db2777)"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S6 12.83 6 12s-.67-1.5-1.5-1.5zm15 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S21 12.83 21 12s-.67-1.5-1.5-1.5zm-7.5 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg><span class="gc-cat-label">GLP Agonists</span></div><div class="gc-body"><h3 class="gc-name">Tirzepatide (30mg)</h3><p class="gc-summary">Higher-quantity dual GLP-1/GIP agonist for extended protocols</p><button class="gc-view-btn" style="color:#EC4899;border-color:#EC4899" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Tirzepatide in a higher-quantity format for extended research protocols. This dual GLP-1/GIP receptor agonist simultaneously activates both incretin pathways with balanced potency, enabling investigation of receptor cross-talk, synergistic metabolic signaling, and the distinct contributions of GIP versus GLP-1 pathways.</p><div class="gc-mol-data">Formula: C225H348N48O68 | MW: 4813.5 g/mol | CAS: 2023788-19-2</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; maintain at 2-8&deg;C for up to 30 days.</div><div class="gc-apps-data">Dual incretin pathway research|GIP/GLP-1 receptor synergy|Incretin receptor pharmacology|Metabolic signaling cascade studies</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="glp-agonists" data-name="retatrutide (20mg)" id="prod-9"><div class="gc-color-band" style="background:linear-gradient(135deg,#EC4899,#db2777)"><span class="gc-cat-icon">&#128138;</span><span class="gc-cat-label">GLP Agonists</span></div><div class="gc-body"><h3 class="gc-name">Retatrutide (20mg)</h3><p class="gc-summary">Triple GLP-1/GIP/glucagon receptor agonist</p><button class="gc-view-btn" style="color:#EC4899;border-color:#EC4899" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Retatrutide represents the frontier of incretin research. This peptide has an unprecedented pharmacological profile: balanced activation of GLP-1, GIP, and glucagon receptors simultaneously, opening new avenues for studying metabolic signaling integration and energy expenditure mechanisms.</p><div class="gc-apps-data">Triple-receptor agonism studies|GLP-1/GIP/glucagon pathway synergy|energy expenditure mechanisms|complex metabolic signaling</div></div></div>
+<div class="grid-card" data-cat="glp-agonists" data-name="retatrutide (20mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#EC4899,#db2777)"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S6 12.83 6 12s-.67-1.5-1.5-1.5zm15 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S21 12.83 21 12s-.67-1.5-1.5-1.5zm-7.5 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg><span class="gc-cat-label">GLP Agonists</span></div><div class="gc-body"><h3 class="gc-name">Retatrutide (20mg)</h3><p class="gc-summary">Triple GLP-1/GIP/Glucagon receptor agonist &mdash; first of its kind</p><button class="gc-view-btn" style="color:#EC4899;border-color:#EC4899" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Retatrutide represents the frontier of incretin research&mdash;the world's first triple-agonist peptide simultaneously activating GLP-1, GIP, and glucagon receptors. The addition of glucagon receptor activity proves synergistic when balanced with GLP-1 and GIP signaling, creating metabolic effects unattainable through dual agonism alone, including enhanced energy expenditure and thermogenesis.</p><div class="gc-mol-data">Formula: C221H342N46O68 | MW: 4731.0 g/mol | CAS: 2381089-83-2</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from moisture. Reconstitute with bacteriostatic water; stable at 2-8&deg;C for 30 days.</div><div class="gc-apps-data">Triple-receptor agonism studies|GLP-1/GIP/Glucagon pathway synergy|Energy expenditure mechanisms|Thermogenesis research|Next-generation incretin biology</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="glp-agonists" data-name="cagrilintide (5mg)" id="prod-10"><div class="gc-color-band" style="background:linear-gradient(135deg,#EC4899,#db2777)"><span class="gc-cat-icon">&#128138;</span><span class="gc-cat-label">GLP Agonists</span></div><div class="gc-body"><h3 class="gc-name">Cagrilintide (5mg)</h3><p class="gc-summary">Long-acting amylin receptor agonist for satiety research</p><button class="gc-view-btn" style="color:#EC4899;border-color:#EC4899" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Cagrilintide reimagines amylin pharmacology. Structural modifications created a long-acting amylin receptor agonist suitable for sustained research protocols, enabling detailed investigation of amylin receptor signaling, gastric emptying mechanisms, and satiety pathway biology.</p><div class="gc-apps-data">Amylin receptor signaling research|gastric emptying mechanisms|satiety pathway studies|pancreatic beta-cell co-secretion</div></div></div>
+<div class="grid-card" data-cat="glp-agonists" data-name="cagrilintide (5mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#EC4899,#db2777)"><svg class="ic" viewBox="0 0 24 24"><path d="M4.5 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S6 12.83 6 12s-.67-1.5-1.5-1.5zm15 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5S21 12.83 21 12s-.67-1.5-1.5-1.5zm-7.5 0c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg><span class="gc-cat-label">GLP Agonists</span></div><div class="gc-body"><h3 class="gc-name">Cagrilintide (5mg)</h3><p class="gc-summary">Next-generation long-acting amylin receptor agonist</p><button class="gc-view-btn" style="color:#EC4899;border-color:#EC4899" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Cagrilintide reimagines amylin pharmacology. Novo Nordisk's structural modifications created a compound with dramatically extended receptor residence time and proteolytic resistance, enabling sustained study of amylin's role in satiety, gastric emptying, and glucose regulation that short-acting compounds cannot illuminate.</p><div class="gc-mol-data">Formula: C194H312N54O59S2 | MW: 4409.5 g/mol | CAS: 2374769-38-1</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute and maintain at 2-8&deg;C; use within 30 days.</div><div class="gc-apps-data">Amylin receptor signaling|Gastric emptying mechanisms|Satiety pathway studies|Pancreatic beta-cell co-secretion|Calcitonin receptor family research</div><div class="gc-injectable">1</div></div></div>
 
 <!-- GROWTH HORMONE (5) -->
-<div class="grid-card" data-cat="growth-hormone" data-name="sermorelin (5mg)" id="prod-11"><div class="gc-color-band" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><span class="gc-cat-icon">&#128200;</span><span class="gc-cat-label">Growth Hormone</span></div><div class="gc-body"><h3 class="gc-name">Sermorelin (5mg)</h3><p class="gc-summary">Truncated GHRH analogue, reference standard for GH research</p><button class="gc-view-btn" style="color:#2B7DE9;border-color:#2B7DE9" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Sermorelin represents elegant peptide design: the minimal bioactive sequence within full-length GHRH(1-44), with identical receptor activity but enhanced stability. This truncated GHRH analogue (amino acids 1-29) retains full biological potency at the pituitary GHRH receptor.</p><div class="gc-apps-data">GHRH receptor binding studies|pituitary somatotroph function|growth hormone secretion dynamics|pulsatile GH release mechanisms</div></div></div>
+<div class="grid-card" data-cat="growth-hormone" data-name="sermorelin (5mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><svg class="ic" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg><span class="gc-cat-label">Growth Hormone</span></div><div class="gc-body"><h3 class="gc-name">Sermorelin (5mg)</h3><p class="gc-summary">GHRH(1-29) fragment &mdash; fully bioactive truncated analogue</p><button class="gc-view-btn" style="color:#2B7DE9;border-color:#2B7DE9" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Sermorelin represents elegant peptide design: the minimal bioactive 29-amino acid sequence within full-length GHRH(1-44), retaining complete receptor activity with enhanced stability and reduced immunogenicity. It binds selectively to GHRH receptors on pituitary somatotrophs, triggering endogenous GH release through natural pulsatile mechanisms.</p><div class="gc-mol-data">Formula: C149H246N44O42S | MW: 3357.9 g/mol | CAS: 86168-78-7</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from light. Reconstitute with bacteriostatic water; use within 30 days at 2-8&deg;C.</div><div class="gc-apps-data">GHRH receptor binding studies|Pituitary somatotroph function|Growth hormone secretion dynamics|Pulsatile GH release mechanisms|IGF-1 pathway research</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="growth-hormone" data-name="ipamorelin (5mg)" id="prod-12"><div class="gc-color-band" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><span class="gc-cat-icon">&#128200;</span><span class="gc-cat-label">Growth Hormone</span></div><div class="gc-body"><h3 class="gc-name">Ipamorelin (5mg)</h3><p class="gc-summary">Highly selective GH secretagogue via ghrelin receptor</p><button class="gc-view-btn" style="color:#2B7DE9;border-color:#2B7DE9" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Ipamorelin achieves highly selective GH release through the ghrelin receptor (GHS-R1a) without affecting other pituitary hormones, providing researchers with the cleanest pharmacological tool for studying isolated GH secretion dynamics.</p><div class="gc-apps-data">Ghrelin receptor (GHS-R1a) pharmacology|selective GH secretion mechanisms|growth hormone pulse dynamics|somatotroph receptor selectivity</div></div></div>
+<div class="grid-card" data-cat="growth-hormone" data-name="ipamorelin (5mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><svg class="ic" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg><span class="gc-cat-label">Growth Hormone</span></div><div class="gc-body"><h3 class="gc-name">Ipamorelin (5mg)</h3><p class="gc-summary">Most selective GH secretagogue via ghrelin receptor (GHS-R1a)</p><button class="gc-view-btn" style="color:#2B7DE9;border-color:#2B7DE9" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Ipamorelin demonstrates near-exclusive selectivity for the ghrelin receptor (GHS-R1a) on somatotrophs, triggering GH secretion without elevating prolactin or cortisol. This selectivity makes it the gold standard for dissecting ghrelin receptor pharmacology and clean GH secretion studies.</p><div class="gc-mol-data">Formula: C38H49N9O5 | MW: 711.9 g/mol | CAS: 170851-70-4</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; refrigerate at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">Ghrelin receptor (GHS-R1a) pharmacology|Selective GH secretion mechanisms|Growth hormone pulse dynamics|Somatotroph receptor selectivity</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="growth-hormone" data-name="cjc-1295 no dac (5mg)" id="prod-13"><div class="gc-color-band" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><span class="gc-cat-icon">&#128200;</span><span class="gc-cat-label">Growth Hormone</span></div><div class="gc-body"><h3 class="gc-name">CJC-1295 no DAC (5mg)</h3><p class="gc-summary">Modified GRF 1-29 with enhanced metabolic stability</p><button class="gc-view-btn" style="color:#2B7DE9;border-color:#2B7DE9" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>CJC-1295 without Drug Affinity Complex (Modified GRF 1-29) represents refined GHRH analogue design. Targeted amino acid substitutions at positions vulnerable to enzymatic cleavage created enhanced metabolic stability while preserving the native GHRH receptor binding profile.</p><div class="gc-apps-data">GHRH analogue pharmacology|pulsatile GH release patterns|GHRH receptor binding kinetics|peptide stability mechanisms</div></div></div>
+<div class="grid-card" data-cat="growth-hormone" data-name="cjc-1295 no dac (5mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><svg class="ic" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg><span class="gc-cat-label">Growth Hormone</span></div><div class="gc-body"><h3 class="gc-name">CJC-1295 no DAC (5mg)</h3><p class="gc-summary">Modified GRF(1-29) with enhanced proteolytic resistance</p><button class="gc-view-btn" style="color:#2B7DE9;border-color:#2B7DE9" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>CJC-1295 without Drug Affinity Complex (Modified GRF 1-29) features targeted amino acid substitutions at positions vulnerable to enzymatic cleavage, providing significantly enhanced stability while preserving pulsatile GH release patterns ideal for studying natural GH architecture.</p><div class="gc-mol-data">Formula: C165H269N47O46 | MW: 3647.2 g/mol | CAS: 863288-34-0</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from light and moisture. Reconstitute with bacteriostatic water; stable at 2-8&deg;C for 30 days.</div><div class="gc-apps-data">GHRH analogue pharmacology|Pulsatile GH release patterns|GHRH receptor binding kinetics|Peptide stability mechanisms</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="growth-hormone" data-name="cjc-1295/ipamorelin combination (5mg/5mg)" id="prod-14"><div class="gc-color-band" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><span class="gc-cat-icon">&#128200;</span><span class="gc-cat-label">Growth Hormone</span></div><div class="gc-body"><h3 class="gc-name">CJC-1295/Ipamorelin (5mg/5mg)</h3><p class="gc-summary">Dual-pathway combo for synergistic GH pulse dynamics</p><button class="gc-view-btn" style="color:#2B7DE9;border-color:#2B7DE9" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Growth hormone release is governed by two parallel pathways: GHRH signaling and ghrelin via GHS-R1a receptors. Dual-pathway activation produces synergistic GH release exceeding either compound alone. The GHRH analogue primes somatotrophs while the ghrelin mimetic triggers release.</p><div class="gc-apps-data">Dual-pathway GH secretagogue studies|GHRH/ghrelin synergy mechanisms|amplified GH pulse research|combined secretagogue pharmacodynamics</div></div></div>
+<div class="grid-card" data-cat="growth-hormone" data-name="cjc-1295/ipamorelin combination (5mg/5mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><svg class="ic" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg><span class="gc-cat-label">Growth Hormone</span></div><div class="gc-body"><h3 class="gc-name">CJC-1295/Ipamorelin (5mg/5mg)</h3><p class="gc-summary">Dual-pathway GHRH + ghrelin combo for synergistic GH pulses</p><button class="gc-view-btn" style="color:#2B7DE9;border-color:#2B7DE9" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>A precision-balanced combination targeting both GHRH and ghrelin pathways. Dual-pathway activation produces supra-additive GH pulse amplitude&mdash;the combined effect exceeds the sum of individual stimulation through convergent intracellular signaling cascades on GH granule release.</p><div class="gc-mol-data">CJC-1295: C165H269N47O46, 3647.2 g/mol | Ipamorelin: C38H49N9O5, 711.9 g/mol</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute both components simultaneously; maintain at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">Dual-pathway GH secretagogue studies|GHRH/ghrelin synergy mechanisms|Amplified GH pulse research|Combined secretagogue pharmacodynamics</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="growth-hormone" data-name="hgh 191 (1500 iu)" id="prod-15"><div class="gc-color-band" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><span class="gc-cat-icon">&#128200;</span><span class="gc-cat-label">Growth Hormone</span></div><div class="gc-body"><h3 class="gc-name">HGH 191 (1500 IU)</h3><p class="gc-summary">Recombinant 191-amino acid somatotropin reference</p><button class="gc-view-btn" style="color:#2B7DE9;border-color:#2B7DE9" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Human somatotropin in its native form: 191 amino acids in the precise sequence and tertiary structure found in pituitary-derived growth hormone. Produced through recombinant DNA technology, this preparation is the gold-standard reference for GH receptor binding studies and IGF-1 pathway investigation.</p><div class="gc-apps-data">GH receptor binding and signaling|IGF-1 pathway research|somatotropin receptor pharmacology|anabolic signaling mechanisms</div></div></div>
+<div class="grid-card" data-cat="growth-hormone" data-name="hgh 191 (1500 iu)"><div class="gc-color-band" style="background:linear-gradient(135deg,#2B7DE9,#1d6ad4)"><svg class="ic" viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg><span class="gc-cat-label">Growth Hormone</span></div><div class="gc-body"><h3 class="gc-name">HGH 191 (1500 IU)</h3><p class="gc-summary">Bioidentical 191-amino acid recombinant somatotropin</p><button class="gc-view-btn" style="color:#2B7DE9;border-color:#2B7DE9" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Human somatotropin in its native 191-amino acid form, produced through recombinant DNA technology. Structurally indistinguishable from endogenous GH, enabling precise dose-response studies, receptor saturation experiments, and investigation of GH signaling independent of pituitary function.</p><div class="gc-mol-data">Formula: C990H1528N262O300S7 | MW: 22,124 g/mol | CAS: 12629-01-5</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from light. Reconstitute with bacteriostatic water; use within 14 days at 2-8&deg;C. Gently swirl to dissolve.</div><div class="gc-apps-data">GH receptor binding and signaling|IGF-1 pathway research|Somatotropin receptor pharmacology|Anabolic signaling mechanisms|Protein synthesis research</div><div class="gc-injectable">1</div></div></div>
 
 <!-- TISSUE REPAIR (6) -->
-<div class="grid-card" data-cat="tissue-repair" data-name="bpc-157/tb-500 combination (10mg/10mg)" id="prod-16"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><span class="gc-cat-icon">&#128295;</span><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">BPC-157/TB-500 Combo (10mg/10mg)</h3><p class="gc-summary">Multi-phase repair: angiogenesis + cell migration</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Tissue repair requires coordinated processes: inflammatory resolution, angiogenesis, cell migration, extracellular matrix remodeling, and cytoprotection. BPC-157 engages the FAK-paxillin pathway and promotes VEGF-mediated angiogenesis, while TB-500 facilitates actin polymerization and cell migration.</p><div class="gc-apps-data">Wound healing models|angiogenesis research|cytoprotection mechanisms|cell migration assays</div></div></div>
+<div class="grid-card" data-cat="tissue-repair" data-name="bpc-157/tb-500 combination (10mg/10mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><svg class="ic" viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">BPC-157/TB-500 (10mg/10mg)</h3><p class="gc-summary">Dual tissue repair: angiogenesis + cell migration + cytoprotection</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>The most widely researched tissue repair combination. BPC-157 demonstrates cytoprotective properties and promotes angiogenesis through VEGF modulation, while TB-500 (Thymosin Beta-4 fragment) facilitates actin polymerization and cytoskeletal reorganization, driving cell migration and extracellular matrix formation. Hundreds of published studies on each peptide individually.</p><div class="gc-mol-data">BPC-157: C62H98N16O22, 1419.5 g/mol, CAS 137525-51-0 | TB-500: Thymosin Beta-4 fragment</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Both peptides remain stable when co-reconstituted; maintain at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">Wound healing models|Angiogenesis research|Cytoprotection mechanisms|Cell migration assays|Collagen synthesis studies|Musculoskeletal repair models</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="tissue-repair" data-name="kpv (10mg)" id="prod-17"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><span class="gc-cat-icon">&#128295;</span><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">KPV (10mg)</h3><p class="gc-summary">Anti-inflammatory tripeptide via NF-&#954;B inhibition</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>KPV (Lysine-Proline-Valine), the C-terminal tripeptide of alpha-MSH, retains remarkable anti-inflammatory potency through direct NF-&#954;B signaling inhibition with superior tissue penetration and stability.</p><div class="gc-apps-data">NF-&#954;B signaling inhibition|inflammatory cytokine modulation|inflammatory bowel disease models|mucosal immunity research</div></div></div>
+<div class="grid-card" data-cat="tissue-repair" data-name="kpv (10mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><svg class="ic" viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">KPV (10mg)</h3><p class="gc-summary">Anti-inflammatory tripeptide via NF-&#954;B inhibition</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>KPV (Lysine-Proline-Valine), the C-terminal tripeptide of alpha-MSH, retains potent anti-inflammatory properties through NF-&#954;B pathway inhibition while eliminating melanocortin receptor-mediated effects like pigmentation. Effective in inflammatory bowel disease models, dermal inflammation studies, and wound healing research.</p><div class="gc-mol-data">Formula: C16H30N4O4 | MW: 342.4 g/mol | CAS: 61090-95-7</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; maintain at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">NF-&#954;B signaling inhibition|Inflammatory cytokine modulation|Inflammatory bowel disease models|Mucosal immunity research|Wound healing inflammation</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="tissue-repair" data-name="ghk-cu (100mg)" id="prod-18"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><span class="gc-cat-icon">&#128295;</span><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">GHK-Cu (100mg)</h3><p class="gc-summary">Copper peptide for collagen &amp; matrix remodeling</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Glycyl-L-Histidyl-L-Lysine bound to copper, first isolated from human plasma in the 1970s. GHK-Cu demonstrates that small peptide-metal complexes can orchestrate complex tissue remodeling including collagen synthesis, metalloproteinase regulation, and extracellular matrix restructuring.</p><div class="gc-apps-data">Collagen synthesis mechanisms|metalloproteinase regulation|copper-dependent enzyme research|extracellular matrix remodeling</div></div></div>
+<div class="grid-card" data-cat="tissue-repair" data-name="ghk-cu (100mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><svg class="ic" viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">GHK-Cu (100mg)</h3><p class="gc-summary">Copper peptide complex for collagen synthesis and matrix remodeling</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Glycyl-L-Histidyl-L-Lysine bound to copper, first isolated from human plasma in the 1970s. The copper ion activates collagen and glycosaminoglycan synthesis, modulates metalloproteinase activity for balanced extracellular matrix remodeling, and provides localized antioxidant effects. GHK-Cu plasma levels decline with age.</p><div class="gc-mol-data">Formula: C14H24N6O4&middot;Cu | MW: 404.0 g/mol | CAS: 49557-75-7</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from light. Reconstitute with sterile water; stable at 2-8&deg;C for 30 days. Avoid oxidizing agents.</div><div class="gc-apps-data">Collagen synthesis mechanisms|Metalloproteinase regulation|Copper-dependent enzyme research|Extracellular matrix remodeling|Tissue regeneration models</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="tissue-repair" data-name="ll-37 (5mg)" id="prod-19"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><span class="gc-cat-icon">&#128295;</span><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">LL-37 (5mg)</h3><p class="gc-summary">Human cathelicidin antimicrobial peptide</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>LL-37 is the only antimicrobial peptide produced by the human cathelicidin family. This 37-residue peptide disrupts microbial membranes through electrostatic interactions while simultaneously modulating host immune responses.</p><div class="gc-apps-data">Antimicrobial mechanism studies|innate immunity research|membrane disruption models|biofilm penetration research</div></div></div>
+<div class="grid-card" data-cat="tissue-repair" data-name="ll-37 (5mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><svg class="ic" viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">LL-37 (5mg)</h3><p class="gc-summary">Sole human cathelicidin antimicrobial peptide (37 amino acids)</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>LL-37 is the only antimicrobial peptide produced by the human cathelicidin family. This amphipathic alpha-helical peptide demonstrates broad-spectrum antimicrobial activity through membrane disruption, while also recruiting immune cells, modulating inflammation, and promoting wound closure. Its expression is induced by vitamin D.</p><div class="gc-mol-data">Formula: C205H340N60O53 | MW: 4493.3 g/mol | CAS: 154947-66-7</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute and maintain at 2-8&deg;C; use within 30 days. Gentle handling to prevent aggregation.</div><div class="gc-apps-data">Antimicrobial mechanism studies|Innate immunity research|Membrane disruption models|Biofilm penetration research|Wound healing immunity</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="tissue-repair" data-name="thymalin (10mg)" id="prod-20"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><span class="gc-cat-icon">&#128295;</span><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">Thymalin (10mg)</h3><p class="gc-summary">Thymus-derived bioregulator for T-cell research</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Thymalin belongs to bioregulators&#8212;short peptides extracted from specific organs with tissue-specific regulatory effects. Derived from thymus gland extracts, it supports T-cell differentiation and maturation research.</p><div class="gc-apps-data">T-cell differentiation studies|thymic function research|bioregulator peptide mechanisms|immune system modulation</div></div></div>
+<div class="grid-card" data-cat="tissue-repair" data-name="thymalin (10mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><svg class="ic" viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">Thymalin (10mg)</h3><p class="gc-summary">Thymus-derived bioregulator for T-cell differentiation research</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Thymalin belongs to bioregulators&mdash;short peptides extracted from specific organs with tissue-specific regulatory effects. Isolated from thymus tissue, it contains peptides that modulate T-cell differentiation and thymic function, possibly through chromatin remodeling and gene expression regulation. Decades of Russian research have characterized its immune effects.</p><div class="gc-mol-data">Complex mixture of short peptides (primarily 2-10 amino acids)</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from moisture. Reconstitute with bacteriostatic water; use within 30 days at 2-8&deg;C.</div><div class="gc-apps-data">T-cell differentiation studies|Thymic function research|Bioregulator peptide mechanisms|Immune system modulation|Immunosenescence models</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="tissue-repair" data-name="laennec ampules (human placental extract)" id="prod-21"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><span class="gc-cat-icon">&#128295;</span><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">Laennec Ampules</h3><p class="gc-summary">Japanese pharma-grade human placental extract</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Laennec represents biological complexity that single-molecule research cannot capture. This pharmaceutical-grade extract contains a rich mixture of growth factors, cytokines, and bioactive peptides manufactured under strict Japanese pharmaceutical standards.</p><div class="gc-apps-data">Multi-growth factor signaling|tissue regeneration models|cytokine interaction studies|complex biological system research</div></div></div>
-
+<div class="grid-card" data-cat="tissue-repair" data-name="laennec ampules"><div class="gc-color-band" style="background:linear-gradient(135deg,#10B981,#059669)"><svg class="ic" viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg><span class="gc-cat-label">Tissue Repair</span></div><div class="gc-body"><h3 class="gc-name">Laennec Ampules</h3><p class="gc-summary">Japanese pharmaceutical-grade human placental extract (50+ growth factors)</p><button class="gc-view-btn" style="color:#10B981;border-color:#10B981" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>A pharmaceutical-grade human placental hydrolysate containing over 50 identified growth factors&mdash;the most complex multi-factor biological preparation available. Manufactured under strict Japanese pharmaceutical standards, it contains FGF, EGF, VEGF, HGF families along with cytokines, amino acids, and minerals that collectively drive tissue regeneration.</p><div class="gc-mol-data">Complex biological extract containing multiple growth factor families (&gt;50 identified factors)</div><div class="gc-storage-data">Store refrigerated at 2-8&deg;C in sealed ampules. Do not freeze. Use immediately upon opening.</div><div class="gc-apps-data">Multi-growth factor signaling|Tissue regeneration models|Cytokine interaction studies|Complex biological system research|Angiogenesis research</div><div class="gc-injectable">1</div></div></div>
 <!-- METABOLIC (7) -->
-<div class="grid-card" data-cat="metabolic" data-name="aod-9604 (2mg)" id="prod-22"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><span class="gc-cat-icon">&#9889;</span><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">AOD-9604 (2mg)</h3><p class="gc-summary">GH C-terminal fragment for lipolysis research</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>AOD-9604 represents molecular surgery on growth hormone. The 176-191 C-terminal region activates lipid metabolism pathways independently of the GH receptor, dissociating lipolytic from growth-promoting activity.</p><div class="gc-apps-data">Lipolysis mechanism research|GH fragment biology|lipid metabolism studies|adipocyte signaling</div></div></div>
+<div class="grid-card" data-cat="metabolic" data-name="aod-9604 (2mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><svg class="ic" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">AOD-9604 (2mg)</h3><p class="gc-summary">Modified GH C-terminal fragment retaining lipolytic activity only</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>AOD-9604 represents molecular surgery on growth hormone. Australian researchers at Monash University identified the 176-191 C-terminal region as responsible for GH's lipolytic effects, then added stabilizing modifications to create a fragment that stimulates lipolysis without GH receptor binding, IGF-1 elevation, or growth-promoting effects.</p><div class="gc-mol-data">Formula: C78H123N23O23S2 | MW: 1815.1 g/mol | CAS: 221231-10-3</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; maintain at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">Lipolysis mechanism research|GH fragment biology|Lipid metabolism studies|Adipocyte signaling|Non-receptor GH effects</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="metabolic" data-name="mots-c (10mg)" id="prod-23"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><span class="gc-cat-icon">&#9889;</span><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">MOTS-c (10mg)</h3><p class="gc-summary">Mitochondrial-derived peptide, AMPK activator</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>MOTS-c, discovered in 2015 at USC, revealed that the mitochondrial genome contains open reading frames for bioactive signaling peptides. It activates AMPK signaling, modulates folate-methionine metabolism, and regulates insulin sensitivity.</p><div class="gc-apps-data">Mitochondrial-nuclear signaling|metabolic homeostasis mechanisms|AMPK pathway research|insulin sensitivity studies</div></div></div>
+<div class="grid-card" data-cat="metabolic" data-name="mots-c (10mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><svg class="ic" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">MOTS-c (10mg)</h3><p class="gc-summary">Mitochondrial-derived peptide, AMPK activator, exercise mimetic</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>MOTS-c, discovered in 2015 at USC, revealed that the mitochondrial genome contains open reading frames for signaling peptides. This 16-amino acid peptide translocates to the nucleus during metabolic stress, activates AMPK, enhances glucose uptake, and improves metabolic flexibility&mdash;positioning it at the intersection of aging, metabolic disease, and retrograde signaling research.</p><div class="gc-mol-data">Formula: C101H152N28O22S2 | MW: 2174.6 g/mol | CAS: 1627580-64-6</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from moisture. Reconstitute with bacteriostatic water; stable at 2-8&deg;C for 30 days.</div><div class="gc-apps-data">Mitochondrial-nuclear signaling|Metabolic homeostasis|AMPK pathway research|Insulin sensitivity studies|Retrograde signaling research</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="metabolic" data-name="5-amino-1mq (5mg)" id="prod-24"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><span class="gc-cat-icon">&#9889;</span><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">5-Amino-1MQ (5mg)</h3><p class="gc-summary">NNMT inhibitor boosting cellular NAD+ levels</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>5-Amino-1-methylquinolinium targets nicotinamide N-methyltransferase (NNMT). By inhibiting NNMT, it redirects nicotinamide toward NAD+ biosynthesis, simultaneously increasing cellular NAD+ levels and reducing methylated metabolites.</p><div class="gc-apps-data">NNMT biology research|NAD+ metabolism|cellular energy homeostasis|metabolic enzyme inhibition</div></div></div>
+<div class="grid-card" data-cat="metabolic" data-name="5-amino-1mq (5mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><svg class="ic" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">5-Amino-1MQ (5mg)</h3><p class="gc-summary">Oral NNMT inhibitor increasing cellular NAD+ availability</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>5-Amino-1-methylquinolinium targets nicotinamide N-methyltransferase (NNMT), an enzyme that consumes NAD+ precursors. By inhibiting NNMT, it preserves intracellular nicotinamide for recycling back to NAD+ through the salvage pathway. Note: This is an oral small molecule, not an injectable peptide.</p><div class="gc-mol-data">Formula: C10H11N2+ | MW: 159.2 g/mol | CAS: 42464-96-0 | Chemical class: Quinolinium compound</div><div class="gc-storage-data">Store at room temperature (15-30&deg;C) in sealed container protected from moisture. Excellent stability.</div><div class="gc-apps-data">NNMT biology research|NAD+ metabolism|Cellular energy homeostasis|Metabolic enzyme inhibition|Methylation pathway studies</div><div class="gc-injectable">0</div></div></div>
 
-<div class="grid-card" data-cat="metabolic" data-name="lipo-c max blend" id="prod-25"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><span class="gc-cat-icon">&#9889;</span><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">Lipo-C MAX Blend</h3><p class="gc-summary">MIC lipotropic factors for hepatic lipid research</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Methionine provides methyl groups for phosphatidylcholine synthesis, inositol supports insulin signaling and lipid transport, choline feeds into acetylcholine production and hepatic lipid export. Together they enable comprehensive study of hepatic lipid processing.</p><div class="gc-apps-data">Lipotropic factor research|hepatic lipid metabolism|methyl donor biology|choline metabolism</div></div></div>
+<div class="grid-card" data-cat="metabolic" data-name="lipo-c max blend"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><svg class="ic" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">Lipo-C MAX Blend</h3><p class="gc-summary">MIC lipotropic factors: methionine, inositol, choline, L-carnitine</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>A precision-formulated lipotropic blend combining the foundational MIC factors for hepatic lipid metabolism research. Methionine provides methyl groups, inositol participates in lipid signaling, choline prevents hepatic lipid accumulation, and L-carnitine shuttles fatty acids into mitochondria for beta-oxidation.</p><div class="gc-mol-data">Contains: Methionine, Inositol, Choline, L-Carnitine</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute and maintain at 2-8&deg;C; use within 30 days.</div><div class="gc-apps-data">Lipotropic factor research|Hepatic lipid metabolism|Methyl donor biology|Choline metabolism|Phospholipid synthesis</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="metabolic" data-name="l-carnitine (600mg)" id="prod-26"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><span class="gc-cat-icon">&#9889;</span><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">L-Carnitine (600mg)</h3><p class="gc-summary">Mitochondrial fatty acid shuttle for bioenergetics</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>L-Carnitine solves a fundamental problem: long-chain fatty acids cannot cross the inner mitochondrial membrane. Carnitine shuttles acyl groups via the carnitine palmitoyltransferase system, enabling mitochondrial fatty acid import and energy production.</p><div class="gc-apps-data">Mitochondrial fatty acid transport|beta-oxidation mechanisms|carnitine shuttle system research|acyl-carnitine metabolism</div></div></div>
+<div class="grid-card" data-cat="metabolic" data-name="l-carnitine (600mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><svg class="ic" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">L-Carnitine (600mg)</h3><p class="gc-summary">Essential mitochondrial fatty acid shuttle cofactor</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>L-Carnitine solves a fundamental problem in cellular energetics: long-chain fatty acids cannot cross the inner mitochondrial membrane. The carnitine palmitoyltransferase (CPT) system conjugates fatty acids to carnitine, transports them across the membrane, and releases them for beta-oxidation.</p><div class="gc-mol-data">Formula: C7H15NO3 | MW: 161.2 g/mol | CAS: 541-15-1</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; refrigerate at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">Mitochondrial fatty acid transport|Beta-oxidation mechanisms|Carnitine shuttle system|Acyl-carnitine metabolism|Energy substrate utilization</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="metabolic" data-name="lipo-c plus blend" id="prod-27"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><span class="gc-cat-icon">&#9889;</span><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">Lipo-C Plus Blend</h3><p class="gc-summary">Enhanced lipotropic formula with extra cofactors</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Building upon methionine, inositol, choline, and L-carnitine, the Lipo-C Plus formulation adds complementary factors for energy production, mitochondrial function, and metabolic cofactor recycling.</p><div class="gc-apps-data">Integrated metabolic pathway research|cellular bioenergetics|multi-cofactor synergy|performance metabolism models</div></div></div>
+<div class="grid-card" data-cat="metabolic" data-name="lipo-c plus blend"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><svg class="ic" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">Lipo-C Plus Blend</h3><p class="gc-summary">Enhanced lipotropic formula with amino acids and cofactors</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Building upon methionine, inositol, choline, and L-carnitine, the Lipo-C Plus formulation adds complementary factors for energy production, mitochondrial function, and metabolic performance. Enables investigation of integrated metabolic responses and multi-pathway synergy.</p><div class="gc-mol-data">Multi-component formulation including lipotropic factors, amino acids, and metabolic cofactors</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from moisture. Reconstitute and maintain at 2-8&deg;C; use within 30 days.</div><div class="gc-apps-data">Integrated metabolic pathway research|Cellular bioenergetics|Multi-cofactor synergy|Performance metabolism models</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="metabolic" data-name="lipo-c ultra blend" id="prod-28"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><span class="gc-cat-icon">&#9889;</span><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">Lipo-C Ultra Blend</h3><p class="gc-summary">Premium multi-component metabolic formulation</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Lipo-C Ultra is the apex of multi-component metabolic formulation: classic lipotropic factors, amino acids for methylation, B vitamins as enzymatic cofactors, and carnitine for mitochondrial transport. Enables comprehensive system-level bioenergetics research.</p><div class="gc-apps-data">Comprehensive metabolic system research|multi-pathway integration studies|maximal metabolic capacity models|system-level bioenergetics</div></div></div>
+<div class="grid-card" data-cat="metabolic" data-name="lipo-c ultra blend"><div class="gc-color-band" style="background:linear-gradient(135deg,#F59E0B,#d97706)"><svg class="ic" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg><span class="gc-cat-label">Metabolic</span></div><div class="gc-body"><h3 class="gc-name">Lipo-C Ultra Blend</h3><p class="gc-summary">Premium comprehensive metabolic research formulation</p><button class="gc-view-btn" style="color:#F59E0B;border-color:#F59E0B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>The most comprehensive metabolic research formulation available: lipotropic factors, amino acids, performance compounds, and mitochondrial cofactors. Enables investigation of fully-supported metabolic systems and system-level responses that emerge when all cofactors are available.</p><div class="gc-mol-data">Premium multi-component formulation with complete lipotropic profile, amino acids, and cofactors</div><div class="gc-storage-data">Store lyophilized at -20&deg;C with desiccant. Reconstitute and maintain at 2-8&deg;C; use within 30 days.</div><div class="gc-apps-data">Comprehensive metabolic system research|Multi-pathway integration|Maximal metabolic capacity|System-level bioenergetics</div><div class="gc-injectable">1</div></div></div>
 
 <!-- ANTIOXIDANTS (7) -->
-<div class="grid-card" data-cat="antioxidants" data-name="nad+ (500mg)" id="prod-29"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><span class="gc-cat-icon">&#128737;</span><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">NAD+ (500mg)</h3><p class="gc-summary">Central coenzyme for redox, sirtuins &amp; PARP</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Nicotinamide adenine dinucleotide serves as an electron carrier in redox reactions, a substrate for sirtuins (SIRT1-7), and a cofactor for PARP enzymes critical to DNA repair. Its central role makes it indispensable for studying cellular energy metabolism and aging biology.</p><div class="gc-apps-data">Redox biochemistry|sirtuin activation research|cellular energy metabolism|PARP enzyme function</div></div></div>
+<div class="grid-card" data-cat="antioxidants" data-name="nad+ (500mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">NAD+ (500mg)</h3><p class="gc-summary">Central redox cofactor for 500+ enzymatic reactions and sirtuin activation</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Nicotinamide adenine dinucleotide serves simultaneously as an electron carrier in redox reactions, a substrate for sirtuins (deacetylases regulating metabolism and longevity), a substrate for PARPs (DNA repair enzymes), and a precursor for calcium signaling molecules. NAD+ levels decline with age across tissues.</p><div class="gc-mol-data">Formula: C21H27N7O14P2 | MW: 663.4 g/mol | CAS: 53-84-9</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from light. Reconstitute with sterile water; use within 30 days at 2-8&deg;C. Avoid freeze-thaw cycles.</div><div class="gc-apps-data">Redox biochemistry|Sirtuin activation research|Cellular energy metabolism|PARP enzyme function|Cellular aging mechanisms</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="antioxidants" data-name="nad+ (1000mg)" id="prod-30"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><span class="gc-cat-icon">&#128737;</span><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">NAD+ (1000mg)</h3><p class="gc-summary">Higher quantity for extended NAD+ research protocols</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Nicotinamide adenine dinucleotide in a higher-quantity format for sustained NAD+ supplementation, sirtuin activation studies, PARP enzyme function assays, and comprehensive redox biochemistry investigations.</p><div class="gc-apps-data">Redox biochemistry|sirtuin activation research|cellular energy metabolism|PARP enzyme function</div></div></div>
+<div class="grid-card" data-cat="antioxidants" data-name="nad+ (1000mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">NAD+ (1000mg)</h3><p class="gc-summary">Higher-dose NAD+ for extended sirtuin and redox research protocols</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>The central redox cofactor in all living cells. This higher-quantity format supports sustained NAD+ supplementation, dose-response studies, sirtuin activation research, PARP enzyme function assays, and comprehensive investigation of age-related NAD+ decline.</p><div class="gc-mol-data">Formula: C21H27N7O14P2 | MW: 663.4 g/mol | CAS: 53-84-9</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from light. Reconstitute with sterile water; use within 30 days at 2-8&deg;C.</div><div class="gc-apps-data">Redox biochemistry|Sirtuin activation research|Cellular energy metabolism|PARP enzyme function|DNA repair pathways</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="antioxidants" data-name="glutathione (1200mg) - korean pharmaceutical grade (10 vials)" id="prod-31"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><span class="gc-cat-icon">&#128737;</span><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">Glutathione (1200mg) Korean Grade</h3><p class="gc-summary">Primary cellular antioxidant, 10 pharma-grade vials</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Glutathione is the primary reducing agent that neutralizes reactive oxygen species, regenerates other antioxidants (vitamins C and E), and serves as a substrate for glutathione peroxidase and glutathione S-transferase enzymes critical to cellular detoxification.</p><div class="gc-apps-data">Redox biology|oxidative stress models|glutathione peroxidase studies|cellular detoxification pathways</div></div></div>
+<div class="grid-card" data-cat="antioxidants" data-name="glutathione (1200mg) korean"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">Glutathione (1200mg) Korean Grade</h3><p class="gc-summary">Master antioxidant tripeptide, 10 pharmaceutical-grade vials</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Glutathione is the cell's master antioxidant&mdash;a thiol-containing tripeptide that neutralizes reactive oxygen species, regenerates other antioxidants, and serves as a cofactor for glutathione peroxidases and glutathione S-transferases. Manufactured in Korea to pharmaceutical standards.</p><div class="gc-mol-data">Formula: C10H17N3O6S | MW: 307.3 g/mol | CAS: 70-18-8</div><div class="gc-storage-data">Store refrigerated at 2-8&deg;C in sealed pharmaceutical vials. Use immediately after opening or within 7 days at 2-8&deg;C.</div><div class="gc-apps-data">Redox biology|Oxidative stress models|Glutathione peroxidase studies|Cellular detoxification pathways|GSH/GSSG ratio studies</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="antioxidants" data-name="glutathione (1500mg)" id="prod-32"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><span class="gc-cat-icon">&#128737;</span><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">Glutathione (1500mg)</h3><p class="gc-summary">Higher-concentration antioxidant for extended studies</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Glutathione in higher concentration for extended research protocols requiring larger quantities for oxidative stress models, detoxification pathway studies, and comprehensive redox biology investigations.</p><div class="gc-apps-data">Redox biology|oxidative stress models|glutathione peroxidase studies|cellular detoxification pathways</div></div></div>
+<div class="grid-card" data-cat="antioxidants" data-name="glutathione (1500mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">Glutathione (1500mg)</h3><p class="gc-summary">Higher-concentration reduced glutathione (GSH) for extended studies</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Glutathione in higher concentration for extended research requiring substantial antioxidant supplementation. Functions as the primary reducing agent that neutralizes ROS, regenerates vitamins C and E, and serves as substrate for critical detoxification enzymes.</p><div class="gc-mol-data">Formula: C10H17N3O6S | MW: 307.3 g/mol | CAS: 70-18-8</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from light and oxidizing conditions. Fresh solutions provide optimal reducing capacity.</div><div class="gc-apps-data">Redox biology|Oxidative stress models|Glutathione peroxidase studies|Thiol biochemistry|Xenobiotic metabolism</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="antioxidants" data-name="thioctic acid (alpha-lipoic acid) (25mg/5ml)" id="prod-33"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><span class="gc-cat-icon">&#128737;</span><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">Thioctic Acid (ALA) (25mg/5ml)</h3><p class="gc-summary">Amphipathic universal antioxidant &amp; mito cofactor</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Alpha-lipoic acid occupies a unique position in antioxidant biology: its amphipathic structure allows scavenging in both water-soluble and lipid compartments. As a mitochondrial cofactor for pyruvate dehydrogenase and alpha-ketoglutarate dehydrogenase, it directly participates in energy metabolism.</p><div class="gc-apps-data">Mitochondrial cofactor function|universal antioxidant mechanisms|antioxidant regeneration studies|glucose metabolism research</div></div></div>
+<div class="grid-card" data-cat="antioxidants" data-name="thioctic acid (25mg/5ml)"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">Thioctic Acid (ALA) (25mg/5ml)</h3><p class="gc-summary">Amphipathic universal antioxidant and mitochondrial cofactor</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Alpha-lipoic acid is the only antioxidant functioning in both aqueous and lipid environments. It serves as an essential cofactor for mitochondrial alpha-ketoacid dehydrogenase complexes while also regenerating other antioxidants&mdash;reducing oxidized vitamin C, vitamin E, and glutathione back to active forms.</p><div class="gc-mol-data">Formula: C8H14O2S2 | MW: 206.3 g/mol | CAS: 1077-28-7</div><div class="gc-storage-data">Store refrigerated at 2-8&deg;C protected from light. Use within 30 days after opening.</div><div class="gc-apps-data">Mitochondrial cofactor function|Universal antioxidant mechanisms|Antioxidant regeneration|Glucose metabolism research|Neuroprotection models</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="antioxidants" data-name="vitamin c (ascorbic acid) (10mg/20ml)" id="prod-34"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><span class="gc-cat-icon">&#128737;</span><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">Vitamin C (Ascorbic Acid)</h3><p class="gc-summary">Essential cofactor for collagen &amp; redox biology</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>L-Ascorbic acid serves multiple critical biochemical roles: cofactor for prolyl and lysyl hydroxylases required for collagen stabilization, participant in catecholamine biosynthesis, iron absorption, and antioxidant regeneration.</p><div class="gc-apps-data">Collagen hydroxylation research|ascorbate-dependent enzyme studies|antioxidant mechanism research|iron metabolism</div></div></div>
+<div class="grid-card" data-cat="antioxidants" data-name="vitamin c (10mg/20ml)"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">Vitamin C (Ascorbic Acid)</h3><p class="gc-summary">Essential water-soluble antioxidant and collagen synthesis cofactor</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>L-Ascorbic acid serves as a cofactor for prolyl and lysyl hydroxylases (essential for collagen stability), dopamine beta-hydroxylase (neurotransmitter synthesis), and functions as the primary aqueous-phase antioxidant. Synergistic with vitamin E through tocopheroxyl radical reduction.</p><div class="gc-mol-data">Formula: C6H8O6 | MW: 176.1 g/mol | CAS: 50-81-7</div><div class="gc-storage-data">Store refrigerated at 2-8&deg;C protected from light. Use within 14 days after opening. Do not freeze.</div><div class="gc-apps-data">Collagen hydroxylation research|Ascorbate-dependent enzyme studies|Antioxidant mechanism research|Iron metabolism|Neurotransmitter synthesis</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="antioxidants" data-name="ss-31 (elamipretide) (10mg)" id="prod-35"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><span class="gc-cat-icon">&#128737;</span><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">SS-31 (Elamipretide) (10mg)</h3><p class="gc-summary">Mitochondria-targeted cardiolipin stabilizer</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>SS-31 is a cell-permeable tetrapeptide with alternating cationic and aromatic residues that selectively accumulates in the inner mitochondrial membrane, stabilizing cardiolipin-dependent cristae structure and optimizing electron transport chain function.</p><div class="gc-apps-data">Mitochondrial membrane research|cardiolipin interaction studies|cristae structure biology|mitochondrial ROS modulation</div></div></div>
+<div class="grid-card" data-cat="antioxidants" data-name="ss-31 (elamipretide) (10mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#06B6D4,#0891b2)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg><span class="gc-cat-label">Antioxidants</span></div><div class="gc-body"><h3 class="gc-name">SS-31 (Elamipretide) (10mg)</h3><p class="gc-summary">Cardiolipin-targeting tetrapeptide stabilizing mitochondrial cristae</p><button class="gc-view-btn" style="color:#06B6D4;border-color:#06B6D4" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>SS-31 is a cell-permeable tetrapeptide (D-Arg-Dmt-Lys-Phe-NH2) with alternating cationic and aromatic residues that selectively accumulates at the inner mitochondrial membrane, binding cardiolipin to stabilize cristae architecture and reduce ROS production at the electron transport chain source.</p><div class="gc-mol-data">Formula: C32H49N9O5 | MW: 639.8 g/mol | CAS: 736992-21-5</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from light. Reconstitute with bacteriostatic water; use within 30 days at 2-8&deg;C.</div><div class="gc-apps-data">Mitochondrial membrane research|Cardiolipin interaction studies|Cristae structure biology|Mitochondrial ROS modulation|Ischemia-reperfusion models</div><div class="gc-injectable">1</div></div></div>
 
 <!-- LONGEVITY (3) -->
-<div class="grid-card" data-cat="longevity" data-name="foxo4-dri (10mg)" id="prod-36"><div class="gc-color-band" style="background:linear-gradient(135deg,#6366F1,#4f46e5)"><span class="gc-cat-icon">&#129516;</span><span class="gc-cat-label">Longevity</span></div><div class="gc-body"><h3 class="gc-name">FOXO4-DRI (10mg)</h3><p class="gc-summary">Senolytic peptide targeting senescent cells</p><button class="gc-view-btn" style="color:#6366F1;border-color:#6366F1" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>FOXO4-DRI disrupts the FOXO4-p53 interaction that protects senescent cells from apoptosis, selectively triggering their elimination while leaving healthy cells unaffected. The gold-standard research tool for senolytic mechanism studies.</p><div class="gc-apps-data">Senescent cell biology|FOXO4-p53 interaction studies|senolytic mechanism research|cellular aging models</div></div></div>
+<div class="grid-card" data-cat="longevity" data-name="foxo4-dri (10mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#6366F1,#4f46e5)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07C6.1 17.29 4.58 17.6 3.26 17c-.56-.26-1.02-.64-1.38-1.12L2 18.41V22h20v-3.59l.12-2.53c-.36.48-.82.86-1.38 1.12-1.32.6-2.84.29-4.14-1.01zM16 9H8l-2 6h1.5l1 2h7l1-2H18l-2-6z"/></svg><span class="gc-cat-label">Longevity</span></div><div class="gc-body"><h3 class="gc-name">FOXO4-DRI (10mg)</h3><p class="gc-summary">First peptide-based senolytic targeting senescent cell elimination</p><button class="gc-view-btn" style="color:#6366F1;border-color:#6366F1" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>FOXO4-DRI competitively disrupts the FOXO4-p53 interaction in senescent cells, freeing p53 to trigger apoptosis specifically in aged, non-dividing cells while leaving healthy cells unaffected. The D-retro-inverso modification provides exceptional proteolytic stability. Developed at Erasmus Medical Center, Netherlands.</p><div class="gc-mol-data">MW: ~5,040 g/mol | CAS: 1639871-79-4 | D-retro-inverso peptide</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from moisture. Reconstitute and maintain at 2-8&deg;C; use within 30 days.</div><div class="gc-apps-data">Senescent cell biology|FOXO4-p53 interaction studies|Senolytic mechanism research|Cellular aging models|SASP modulation</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="longevity" data-name="epithalon (50mg)" id="prod-37"><div class="gc-color-band" style="background:linear-gradient(135deg,#6366F1,#4f46e5)"><span class="gc-cat-icon">&#129516;</span><span class="gc-cat-label">Longevity</span></div><div class="gc-body"><h3 class="gc-name">Epithalon (50mg)</h3><p class="gc-summary">Tetrapeptide telomerase activator from pineal research</p><button class="gc-view-btn" style="color:#6366F1;border-color:#6366F1" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Epithalon (Ala-Glu-Asp-Gly) from decades of Russian gerontology research. This tetrapeptide activates telomerase in human somatic cells and modulates circadian melatonin secretion for studying telomere maintenance and biological aging.</p><div class="gc-apps-data">Telomerase activity research|telomere biology|circadian rhythm regulation|pineal peptide research</div></div></div>
+<div class="grid-card" data-cat="longevity" data-name="epithalon (50mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#6366F1,#4f46e5)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07C6.1 17.29 4.58 17.6 3.26 17c-.56-.26-1.02-.64-1.38-1.12L2 18.41V22h20v-3.59l.12-2.53c-.36.48-.82.86-1.38 1.12-1.32.6-2.84.29-4.14-1.01zM16 9H8l-2 6h1.5l1 2h7l1-2H18l-2-6z"/></svg><span class="gc-cat-label">Longevity</span></div><div class="gc-body"><h3 class="gc-name">Epithalon (50mg)</h3><p class="gc-summary">Tetrapeptide telomerase activator and circadian regulator</p><button class="gc-view-btn" style="color:#6366F1;border-color:#6366F1" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Epithalon (Ala-Glu-Asp-Gly) emerged from decades of Russian gerontology research by Professor Vladimir Khavinson. It demonstrates telomerase activation and circadian rhythm modulation through melatonin regulation, positioned at the intersection of cellular aging and chronobiology research.</p><div class="gc-mol-data">Formula: C14H22N4O9 | MW: 390.3 g/mol | CAS: 307297-39-8</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; maintain at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">Telomerase activity research|Telomere biology|Circadian rhythm regulation|Pineal peptide research|Melatonin regulation</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="longevity" data-name="pe 22-28 (10mg)" id="prod-38"><div class="gc-color-band" style="background:linear-gradient(135deg,#6366F1,#4f46e5)"><span class="gc-cat-icon">&#129516;</span><span class="gc-cat-label">Longevity</span></div><div class="gc-body"><h3 class="gc-name">PE 22-28 (10mg)</h3><p class="gc-summary">TREK-1 potassium channel modulator for neuroplasticity</p><button class="gc-view-btn" style="color:#6366F1;border-color:#6366F1" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>PE 22-28, corresponding to amino acids 22-28 of sortilin's propeptide region, modulates TREK-1 potassium channel activity for studying neuroplasticity mechanisms and potassium channel biology in neuroprotection research.</p><div class="gc-apps-data">TREK-1 channel modulation|neuroplasticity mechanisms|neuroprotection studies|potassium channel biology</div></div></div>
+<div class="grid-card" data-cat="longevity" data-name="pe 22-28 (10mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#6366F1,#4f46e5)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 6c1.11 0 2-.9 2-2 0-.38-.1-.73-.29-1.03L12 0l-1.71 2.97c-.19.3-.29.65-.29 1.03 0 1.1.9 2 2 2zm4.6 9.99l-1.07-1.07-1.08 1.07c-1.3 1.3-3.58 1.31-4.89 0l-1.07-1.07-1.09 1.07C6.1 17.29 4.58 17.6 3.26 17c-.56-.26-1.02-.64-1.38-1.12L2 18.41V22h20v-3.59l.12-2.53c-.36.48-.82.86-1.38 1.12-1.32.6-2.84.29-4.14-1.01zM16 9H8l-2 6h1.5l1 2h7l1-2H18l-2-6z"/></svg><span class="gc-cat-label">Longevity</span></div><div class="gc-body"><h3 class="gc-name">PE 22-28 (10mg)</h3><p class="gc-summary">TREK-1 potassium channel modulator for neuroplasticity research</p><button class="gc-view-btn" style="color:#6366F1;border-color:#6366F1" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>PE 22-28 corresponds to amino acids 22-28 of the sortilin propeptide. It modulates TREK-1 potassium channels (involved in neuronal excitability, synaptic plasticity, and stress response), influencing neuronal membrane potential with downstream effects on neurotrophic signaling and synaptic remodeling.</p><div class="gc-mol-data">Heptapeptide fragment (7 amino acids)</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; maintain at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">TREK-1 channel modulation|Neuroplasticity mechanisms|Neuroprotection studies|Potassium channel biology|Neurogenesis studies</div><div class="gc-injectable">1</div></div></div>
 
 <!-- MELANOCORTIN (2) -->
-<div class="grid-card" data-cat="melanocortin" data-name="pt-141 (bremelanotide)" id="prod-39"><div class="gc-color-band" style="background:linear-gradient(135deg,#F97316,#ea580c)"><span class="gc-cat-icon">&#127919;</span><span class="gc-cat-label">Melanocortin</span></div><div class="gc-body"><h3 class="gc-name">PT-141 (Bremelanotide)</h3><p class="gc-summary">MC3R/MC4R selective melanocortin receptor agonist</p><button class="gc-view-btn" style="color:#F97316;border-color:#F97316" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>PT-141, a metabolite of Melanotan II, shows preferential activity at MC3R and MC4R in the central nervous system, making it valuable for studying melanocortin receptor subtype pharmacology and central melanocortin pathway signaling.</p><div class="gc-apps-data">Melanocortin receptor subtype pharmacology|MC3R/MC4R signaling research|central melanocortin pathway studies|receptor selectivity research</div></div></div>
+<div class="grid-card" data-cat="melanocortin" data-name="pt-141 (bremelanotide)"><div class="gc-color-band" style="background:linear-gradient(135deg,#F97316,#ea580c)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg><span class="gc-cat-label">Melanocortin</span></div><div class="gc-body"><h3 class="gc-name">PT-141 (Bremelanotide)</h3><p class="gc-summary">MC3R/MC4R selective melanocortin receptor agonist</p><button class="gc-view-btn" style="color:#F97316;border-color:#F97316" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>PT-141, a cyclic heptapeptide metabolite of Melanotan II, demonstrates preferential activity at MC3R and MC4R with reduced MC1R activation&mdash;eliminating much of the pigmentation effect while retaining central melanocortin activity. Essential for dissecting hypothalamic melanocortin biology.</p><div class="gc-mol-data">Formula: C50H68N14O10 | MW: 1025.2 g/mol | CAS: 189691-06-3</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; maintain at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">Melanocortin receptor pharmacology|MC3R/MC4R signaling|Central melanocortin pathways|Receptor selectivity research|Hypothalamic signaling</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="melanocortin" data-name="dermorphin (5mg)" id="prod-40"><div class="gc-color-band" style="background:linear-gradient(135deg,#F97316,#ea580c)"><span class="gc-cat-icon">&#127919;</span><span class="gc-cat-label">Melanocortin</span></div><div class="gc-body"><h3 class="gc-name">Dermorphin (5mg)</h3><p class="gc-summary">Frog-derived &#956;-opioid receptor reference compound</p><button class="gc-view-btn" style="color:#F97316;border-color:#F97316" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Dermorphin, isolated from South American Phyllomedusa frogs, contains a rare D-alanine residue. Its extraordinary selectivity and potency at the &#956;-opioid receptor make it essential for studying opioid receptor pharmacology and structure-activity relationships.</p><div class="gc-apps-data">&#956;-opioid receptor pharmacology|receptor subtype selectivity studies|opioid receptor binding kinetics|structure-activity relationships</div></div></div>
+<div class="grid-card" data-cat="melanocortin" data-name="dermorphin (5mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#F97316,#ea580c)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg><span class="gc-cat-label">Melanocortin</span></div><div class="gc-body"><h3 class="gc-name">Dermorphin (5mg)</h3><p class="gc-summary">Frog-derived heptapeptide with extraordinary &mu;-opioid selectivity</p><button class="gc-view-btn" style="color:#F97316;border-color:#F97316" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Isolated from South American Phyllomedusa frogs, dermorphin contains a rare D-alanine in position 2, contributing to nanomolar &mu;-opioid receptor affinity and selectivity ratios exceeding 1000:1 for &mu; over &delta; and &kappa; receptors. Essential for precise opioid receptor pharmacology studies.</p><div class="gc-mol-data">Formula: C40H50N8O10 | MW: 802.9 g/mol | CAS: 77614-16-5</div><div class="gc-storage-data">Store lyophilized at -20&deg;C protected from moisture and light. Reconstitute and maintain at 2-8&deg;C; use within 30 days.</div><div class="gc-apps-data">&mu;-opioid receptor pharmacology|Receptor subtype selectivity|Opioid receptor binding kinetics|Structure-activity relationships|D-amino acid peptide biology</div><div class="gc-injectable">1</div></div></div>
 
 <!-- COSMETIC (2) -->
-<div class="grid-card" data-cat="cosmetic" data-name="botulinum toxin type a (100 units)" id="prod-41"><div class="gc-color-band" style="background:linear-gradient(135deg,#D946EF,#c026d3)"><span class="gc-cat-icon">&#10024;</span><span class="gc-cat-label">Cosmetic</span></div><div class="gc-body"><h3 class="gc-name">Botulinum Toxin Type A (100U)</h3><p class="gc-summary">SNARE-cleaving neurotoxin for exocytosis studies</p><button class="gc-view-btn" style="color:#D946EF;border-color:#D946EF" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Botulinum neurotoxin type A is the gold standard for studying exocytosis. Its light chain is a zinc metalloprotease that cleaves SNAP-25, specifically disrupting SNARE-mediated vesicle fusion at the neuromuscular junction.</p><div class="gc-apps-data">SNARE protein biology|synaptic vesicle fusion mechanisms|neuromuscular junction research|acetylcholine release studies</div></div></div>
+<div class="grid-card" data-cat="cosmetic" data-name="botulinum toxin type a (100 units)"><div class="gc-color-band" style="background:linear-gradient(135deg,#D946EF,#c026d3)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16l-6.4 5.2L8 14 2 9.2h7.6z"/></svg><span class="gc-cat-label">Cosmetic</span></div><div class="gc-body"><h3 class="gc-name">Botulinum Toxin Type A (100U)</h3><p class="gc-summary">SNAP-25 cleaving neurotoxin for SNARE biology and exocytosis research</p><button class="gc-view-btn" style="color:#D946EF;border-color:#D946EF" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>The most potent biological toxin known&mdash;a 150 kDa metalloprotease that cleaves SNAP-25 with absolute specificity, preventing SNARE complex formation and blocking neurotransmitter release. Essential for studying synaptic vesicle fusion mechanisms and neuromuscular junction physiology.</p><div class="gc-mol-data">MW: ~150 kDa | CAS: 93384-43-1 | Heavy chain (100 kDa) + Light chain (50 kDa)</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute and use immediately or within 4 hours at 2-8&deg;C. Follow institutional biosafety protocols.</div><div class="gc-apps-data">SNARE protein biology|Synaptic vesicle fusion|Neuromuscular junction research|Acetylcholine release studies|Exocytosis research</div><div class="gc-injectable">1</div></div></div>
 
-<div class="grid-card" data-cat="cosmetic" data-name="botulinum toxin type a (200 units)" id="prod-42"><div class="gc-color-band" style="background:linear-gradient(135deg,#D946EF,#c026d3)"><span class="gc-cat-icon">&#10024;</span><span class="gc-cat-label">Cosmetic</span></div><div class="gc-body"><h3 class="gc-name">Botulinum Toxin Type A (200U)</h3><p class="gc-summary">Higher-unit format for multi-site NMJ research</p><button class="gc-view-btn" style="color:#D946EF;border-color:#D946EF" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Botulinum neurotoxin type A in a higher-unit format for extended research protocols, dose-response studies, and comprehensive SNARE protein biology research across multiple experimental conditions.</p><div class="gc-apps-data">SNARE protein biology|synaptic vesicle fusion mechanisms|neuromuscular junction research|acetylcholine release studies</div></div></div>
+<div class="grid-card" data-cat="cosmetic" data-name="botulinum toxin type a (200 units)"><div class="gc-color-band" style="background:linear-gradient(135deg,#D946EF,#c026d3)"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16l-6.4 5.2L8 14 2 9.2h7.6z"/></svg><span class="gc-cat-label">Cosmetic</span></div><div class="gc-body"><h3 class="gc-name">Botulinum Toxin Type A (200U)</h3><p class="gc-summary">Higher-unit format for multi-site NMJ and dose-response studies</p><button class="gc-view-btn" style="color:#D946EF;border-color:#D946EF" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>Botulinum neurotoxin type A in a higher-unit format for extended research protocols. This zinc-dependent endopeptidase cleaves SNAP-25 to prevent synaptic vesicle fusion, enabling dose-response studies and comprehensive SNARE protein biology research across multiple conditions.</p><div class="gc-mol-data">MW: ~150 kDa | CAS: 93384-43-1 | Heavy chain (100 kDa) + Light chain (50 kDa)</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute and use immediately or within 4 hours at 2-8&deg;C. Follow institutional biosafety protocols.</div><div class="gc-apps-data">SNARE protein biology|Synaptic vesicle fusion|Neuromuscular junction research|Metalloprotease mechanism studies|Dose-response pharmacology</div><div class="gc-injectable">1</div></div></div>
 
 <!-- ADVANCED (1) -->
-<div class="grid-card" data-cat="advanced" data-name="ara-290 (10mg)" id="prod-43"><div class="gc-color-band" style="background:linear-gradient(135deg,#64748B,#475569)"><span class="gc-cat-icon">&#128300;</span><span class="gc-cat-label">Tissue Protection</span></div><div class="gc-body"><h3 class="gc-name">ARA-290 (10mg)</h3><p class="gc-summary">Selective innate repair receptor agonist (non-EPO)</p><button class="gc-view-btn" style="color:#64748B;border-color:#64748B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>ARA-290 selectively activates the heterodimeric innate repair receptor (EPOR + &#946;-common receptor) without erythropoietic effects, providing a specific tool for studying tissue protection and innate repair mechanisms.</p><div class="gc-apps-data">Innate repair receptor signaling|tissue protection mechanisms|EPO receptor biology|neuroprotection studies</div></div></div>
+<div class="grid-card" data-cat="advanced" data-name="ara-290 (10mg)"><div class="gc-color-band" style="background:linear-gradient(135deg,#64748B,#475569)"><svg class="ic" viewBox="0 0 24 24"><path d="M13 11.33L18 18H6l5-6.67V6h2v5.33zM15 4h1V2H8v2h1v2.33L4 11.84V22h16V11.84L15 6.33V4z"/></svg><span class="gc-cat-label">Tissue Protection</span></div><div class="gc-body"><h3 class="gc-name">ARA-290 (10mg)</h3><p class="gc-summary">Selective innate repair receptor agonist (EPO-derived, non-erythropoietic)</p><button class="gc-view-btn" style="color:#64748B;border-color:#64748B" onclick="showDetail(this)">View Details</button></div><div class="gc-detail-data" style="display:none"><p>An 11-amino acid fragment of erythropoietin that selectively activates the innate repair receptor (IRR)&mdash;a heteromeric complex triggering cell protection, inflammation reduction, and tissue repair&mdash;without engaging the erythropoietic EPO receptor. Enables clean investigation of EPO's tissue-protective mechanisms.</p><div class="gc-mol-data">Formula: C51H84N16O21 | MW: 1257.3 g/mol | CAS: 1448671-31-5</div><div class="gc-storage-data">Store lyophilized at -20&deg;C. Reconstitute with bacteriostatic water; maintain at 2-8&deg;C and use within 30 days.</div><div class="gc-apps-data">Innate repair receptor signaling|Tissue protection mechanisms|EPO receptor biology|Neuroprotection studies|Anti-inflammatory pathways</div><div class="gc-injectable">1</div></div></div>
 
 </div>
 </div>
@@ -426,33 +545,191 @@ footer{background:#0A1628;color:#8E99A4;padding:3rem 1.5rem 2rem}
 </div>
 </div>
 
+<!-- VENDOR DIRECTORY -->
+<section class="info-section section-alt" id="vendors">
+<div class="info-inner">
+<div class="section-header">
+<div class="section-label">Vendor Directory</div>
+<h2 class="section-title">Trusted Vendor Directory</h2>
+<p class="section-sub">Navigating the research peptide market with confidence</p>
+</div>
+<div class="vendor-cats">
+<div class="vendor-cat">
+<svg class="ic ic-xl" viewBox="0 0 24 24" style="color:#2B7DE9"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+<h3>US-Based Vendors</h3>
+<p>Domestic suppliers with established reputations, faster shipping, and local regulatory compliance. Our comparison tool indexes pricing across all major US vendors.</p>
+</div>
+<div class="vendor-cat">
+<svg class="ic ic-xl" viewBox="0 0 24 24" style="color:#06B6D4"><path fill="currentColor" d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg>
+<h3>International Vendors</h3>
+<p>Global suppliers offering competitive pricing and unique compound availability. Cross-referenced in our comparison tool for transparent price visibility.</p>
+</div>
+<div class="vendor-cat">
+<svg class="ic ic-xl" viewBox="0 0 24 24" style="color:#8B5CF6"><path fill="currentColor" d="M13 11.33L18 18H6l5-6.67V6h2v5.33zM15 4h1V2H8v2h1v2.33L4 11.84V22h16V11.84L15 6.33V4z"/></svg>
+<h3>Specialty &amp; Niche Vendors</h3>
+<p>Vendors specializing in rare compounds, custom synthesis, or specific research applications. Hard-to-find peptides sourced and verified.</p>
+</div>
+</div>
+<p class="info-note">Visit our <a href="https://frabrizio22.github.io/prc-tools/" style="color:#2B7DE9;font-weight:700">Price Comparison Tool</a> for detailed pricing across all 23+ vendors.</p>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section class="info-section section-white" id="education">
+<div class="info-inner">
+<div class="section-header">
+<div class="section-label">Education</div>
+<h2 class="section-title">Peptide Research Education</h2>
+<p class="section-sub">Build your foundation in peptide science</p>
+</div>
+<div class="info-grid">
+<div class="info-card">
+<svg class="ic ic-lg" viewBox="0 0 24 24"><path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+<h3>What Are Research Peptides?</h3>
+<p>Short chains of amino acids (typically 2-50 residues) used as tools in biochemical and pharmacological research. They serve as receptor ligands, enzyme substrates, and signaling molecules across virtually every field of biological science.</p>
+</div>
+<div class="info-card">
+<svg class="ic ic-lg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 15l-4-4 1.41-1.41L11 13.17l6.59-6.59L19 8l-8 8z"/></svg>
+<h3>Understanding Peptide Purity</h3>
+<p>Purity &ge;98% means fewer than 2% of the material consists of synthesis byproducts, truncated sequences, or degradation products. High purity is critical because impurities can produce confounding results, false signals, or cytotoxicity in sensitive assays.</p>
+</div>
+<div class="info-card">
+<svg class="ic ic-lg" viewBox="0 0 24 24"><path fill="currentColor" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4s1.79-4 4-4h.71C7.37 7.69 9.48 6 12 6c3.04 0 5.5 2.46 5.5 5.5v.5H19c1.66 0 3 1.34 3 3s-1.34 3-3 3z"/></svg>
+<h3>Proper Storage &amp; Handling</h3>
+<p>Lyophilized peptides should be stored at -20&deg;C or below. Upon reconstitution (typically with bacteriostatic water), maintain at 2-8&deg;C and use within 30 days. Protect from light, avoid freeze-thaw cycles, and maintain cold chain integrity during transport.</p>
+</div>
+<div class="info-card">
+<svg class="ic ic-lg" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+<h3>Reading Lab Results</h3>
+<p>HPLC (High-Performance Liquid Chromatography) separates peptide components to determine purity. Mass spectrometry confirms molecular identity by measuring exact molecular weight. Together, these verify both identity and purity of research peptides.</p>
+</div>
+</div>
+<p class="info-note">Full educational articles coming soon. Subscribe for updates.</p>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="info-section section-alt" id="reviews">
+<div class="info-inner">
+<div class="section-header">
+<div class="section-label">Reviews</div>
+<h2 class="section-title">Vendor Review Resources</h2>
+<p class="section-sub">Community-driven review sites help researchers make informed vendor choices</p>
+</div>
+<div class="info-grid" style="max-width:700px;margin:2rem auto 0">
+<div class="info-card">
+<svg class="ic ic-lg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+<h3>Community Review Sites</h3>
+<p>Independent forums and review platforms where researchers share experiences, compare vendors, and report on product quality and service reliability.</p>
+</div>
+<div class="info-card">
+<svg class="ic ic-lg" viewBox="0 0 24 24"><path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+<h3>Researcher Feedback</h3>
+<p>First-hand accounts from active researchers provide insights into vendor reliability, shipping times, product quality, and customer service responsiveness.</p>
+</div>
+</div>
+<p class="info-note">Use our <a href="https://frabrizio22.github.io/prc-tools/" style="color:#2B7DE9;font-weight:700">Price Comparison Tool</a> alongside review data for comprehensive vendor evaluation.</p>
+</div>
+</section>
+
+<!-- TESTING LABS -->
+<section class="info-section section-white" id="labs">
+<div class="info-inner">
+<div class="section-header">
+<div class="section-label">Testing</div>
+<h2 class="section-title">Independent Testing Laboratories</h2>
+<p class="section-sub">Third-party verification is the cornerstone of research integrity</p>
+</div>
+<div style="max-width:700px;margin:2rem auto 0;text-align:center">
+<svg class="ic ic-xl" viewBox="0 0 24 24" style="color:#06B6D4;margin-bottom:1rem"><path fill="currentColor" d="M13 11.33L18 18H6l5-6.67V6h2v5.33zM15 4h1V2H8v2h1v2.33L4 11.84V22h16V11.84L15 6.33V4z"/></svg>
+<p style="font-size:0.9rem;color:#475569;line-height:1.7;margin-bottom:1rem">Independent testing laboratories provide unbiased peptide analysis through HPLC purity testing, mass spectrometry identification, and endotoxin screening. Third-party verification eliminates vendor bias and ensures research compounds meet stated specifications.</p>
+<p style="font-size:0.9rem;color:#475569;line-height:1.7;margin-bottom:1.5rem">Whether verifying a new vendor or confirming batch consistency, independent lab testing is the gold standard for research integrity.</p>
+<p class="info-note">Coming soon: our curated list of verified testing laboratories with capabilities, turnaround times, and pricing.</p>
+</div>
+</div>
+</section>
+
+<!-- BOOKS -->
+<section class="info-section section-alt" id="books">
+<div class="info-inner">
+<div class="section-header">
+<div class="section-label">Reading</div>
+<h2 class="section-title">Recommended Reading</h2>
+<p class="section-sub">Essential references for serious peptide researchers</p>
+</div>
+<div class="book-list">
+<div class="book-card">
+<svg class="ic ic-lg" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="currentColor" d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+<div>
+<h3>Peptides: Chemistry and Biology</h3>
+<div class="book-author">Norbert Sewald &amp; Hans-Dieter Jakubke</div>
+<p>Comprehensive reference covering peptide synthesis, structure, biological activity, and applications. The standard academic text for understanding peptide chemistry fundamentals.</p>
+</div>
+</div>
+<div class="book-card">
+<svg class="ic ic-lg" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="currentColor" d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+<div>
+<h3>Introduction to Peptides and Proteins</h3>
+<div class="book-author">Ulo Langel, Benjamin F. Cravatt, et al.</div>
+<p>Accessible introduction covering peptide structure, function, and modern research applications. Ideal for researchers entering the peptide field.</p>
+</div>
+</div>
+<div class="book-card">
+<svg class="ic ic-lg" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="currentColor" d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+<div>
+<h3>Amino Acids, Peptides and Proteins in Organic Chemistry</h3>
+<div class="book-author">Andrew B. Hughes (Editor)</div>
+<p>Multi-volume series providing deep dives into peptide modification, protection strategies, and analytical methods used in modern peptide research.</p>
+</div>
+</div>
+<div class="book-card">
+<svg class="ic ic-lg" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="currentColor" d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+<div>
+<h3>The Practice of Peptide Synthesis</h3>
+<div class="book-author">Miklos Bodanszky &amp; Agnes Bodanszky</div>
+<p>Practical guide to solid-phase and solution-phase peptide synthesis. Essential for understanding how research peptides are manufactured and quality-controlled.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
 <footer id="footer-contact">
 <div class="footer-inner">
 <div class="footer-top">
 <div class="footer-col">
-<h4>Navigation</h4>
+<h4>Quick Links</h4>
 <a href="#">Home</a>
-<a href="#categories">Categories</a>
-<a href="#catalog">Catalog</a>
+<a href="#catalog">Shop</a>
 <a href="https://frabrizio22.github.io/prc-tools/">Compare Prices</a>
+<a href="#vendors">Vendor Directory</a>
+<a href="#education">Education</a>
 </div>
 <div class="footer-col">
-<h4>Follow Us</h4>
-<a href="https://www.facebook.com/profile.php?id=61583257480463">&#128279; Facebook</a>
+<h4>Resources</h4>
+<a href="#labs">Testing Labs</a>
+<a href="#reviews">Reviews</a>
+<a href="#books">Books</a>
+<a href="#disclaimer-section">Legal Disclaimers</a>
 </div>
 <div class="footer-col">
 <h4>Contact</h4>
 <p>&#9993; support@prcpeptides.com</p>
 <p>For research inquiries only.</p>
 </div>
+<div class="footer-col">
+<h4>Follow Us</h4>
+<a href="https://www.facebook.com/profile.php?id=61583257480463">Facebook</a>
+</div>
 </div>
 <div class="footer-brand-area">
-<div class="footer-brand"><span>PRC</span></div>
-<div class="footer-tag">Peptide Resource Center &mdash; The Peptide Authority</div>
+<div class="footer-brand">Peptide Resource Center</div>
+<div class="footer-tag">The Peptide Authority</div>
 </div>
-<div class="disclaimer-box">
+<div class="disclaimer-box" id="disclaimer-section">
 <h4>For Research Use Only</h4>
-<p>All products listed are intended for research and laboratory use only. Not for human consumption. The information provided is for educational and reference purposes. Products have not been evaluated by regulatory agencies for safety or efficacy in humans.</p>
+<p>All products listed are intended for research and laboratory use only. Not for human consumption. The information provided is for educational and reference purposes. Products have not been evaluated by regulatory agencies for safety or efficacy in humans. No medical claims are made or implied. Purchasers must be qualified researchers affiliated with recognized research institutions. By purchasing, buyers acknowledge products are for non-clinical research only and proper laboratory safety protocols will be followed.</p>
 </div>
 <div class="footer-bottom">&copy; 2026 Peptide Resource Center &middot; prcpeptides.com &middot; The Peptide Authority</div>
 </div>
@@ -474,111 +751,111 @@ var detailContent=document.getElementById("detailContent");
 var detailClose=document.getElementById("detailClose");
 
 function filterCards(){
-  var q=si?si.value.toLowerCase():"";
-  var visible=0;
-  for(var i=0;i<cards.length;i++){
-    var c=cards[i];
-    var matchCat=activeCat==="all"||c.getAttribute("data-cat")===activeCat;
-    var matchSearch=!q||c.getAttribute("data-name").indexOf(q)>-1;
-    if(matchCat&&matchSearch){c.classList.remove("hidden");visible++;}else{c.classList.add("hidden");}
-  }
-  if(noRes)noRes.style.display=visible===0?"block":"none";
+var q=si?si.value.toLowerCase():"";
+var visible=0;
+for(var i=0;i<cards.length;i++){
+var c=cards[i];
+var matchCat=activeCat==="all"||c.getAttribute("data-cat")===activeCat;
+var name=c.getAttribute("data-name")||"";
+var gcName=c.querySelector(".gc-name");
+var fullName=gcName?gcName.textContent.toLowerCase():"";
+var matchSearch=!q||name.indexOf(q)>-1||fullName.indexOf(q)>-1;
+if(matchCat&&matchSearch){c.classList.remove("hidden");visible++;}else{c.classList.add("hidden");}
+}
+if(noRes)noRes.style.display=visible===0?"block":"none";
 }
 
 function setActiveTab(cat){
-  activeCat=cat;
-  for(var j=0;j<tabs.length;j++){
-    tabs[j].classList.remove("active");tabs[j].style.background="";tabs[j].style.color="";tabs[j].style.borderColor="";
-  }
-  for(var j=0;j<tabs.length;j++){
-    if(tabs[j].getAttribute("data-cat")===cat){
-      tabs[j].classList.add("active");
-      var color=tabs[j].getAttribute("data-color");
-      if(color){tabs[j].style.background=color;tabs[j].style.color="#fff";tabs[j].style.borderColor=color;}
-      else{tabs[j].style.background="#0A1628";tabs[j].style.color="#fff";tabs[j].style.borderColor="#0A1628";}
-      break;
-    }
-  }
-  filterCards();
+activeCat=cat;
+for(var j=0;j<tabs.length;j++){
+tabs[j].classList.remove("active");tabs[j].style.background="";tabs[j].style.color="";tabs[j].style.borderColor="";
+}
+for(var j=0;j<tabs.length;j++){
+if(tabs[j].getAttribute("data-cat")===cat){
+tabs[j].classList.add("active");
+var color=tabs[j].getAttribute("data-color");
+if(color){tabs[j].style.background=color;tabs[j].style.color="#fff";tabs[j].style.borderColor=color;}
+else{tabs[j].style.background="#0A1628";tabs[j].style.color="#fff";tabs[j].style.borderColor="#0A1628";}
+break;
+}
+}
+filterCards();
 }
 
 if(si)si.addEventListener("input",filterCards);
 for(var t=0;t<tabs.length;t++){
-  tabs[t].addEventListener("click",function(){setActiveTab(this.getAttribute("data-cat"));});
+tabs[t].addEventListener("click",function(){setActiveTab(this.getAttribute("data-cat"));});
 }
 
-// Category tiles click
 var catTiles=document.querySelectorAll(".cat-tile");
 for(var ct=0;ct<catTiles.length;ct++){
-  catTiles[ct].addEventListener("click",function(){
-    var cat=this.getAttribute("data-filter");
-    setActiveTab(cat);
-    var el=document.getElementById("catalog");
-    if(el)el.scrollIntoView({behavior:"smooth"});
-  });
+catTiles[ct].addEventListener("click",function(){
+var cat=this.getAttribute("data-filter");
+setActiveTab(cat);
+var el=document.getElementById("catalog");
+if(el)el.scrollIntoView({behavior:"smooth"});
+});
 }
 
-// Detail overlay
 window.showDetail=function(btn){
-  var card=btn.closest(".grid-card");
-  var data=card.querySelector(".gc-detail-data");
-  if(!data||!overlay)return;
-  var name=card.querySelector(".gc-name").textContent;
-  var band=card.querySelector(".gc-color-band");
-  var bandStyle=band?band.getAttribute("style"):"";
-  var catLabel=card.querySelector(".gc-cat-label")?card.querySelector(".gc-cat-label").textContent:"";
-  var catIcon=card.querySelector(".gc-cat-icon")?card.querySelector(".gc-cat-icon").textContent:"";
-  var desc=data.querySelector("p")?data.querySelector("p").innerHTML:"";
-  var appsRaw=data.querySelector(".gc-apps-data")?data.querySelector(".gc-apps-data").textContent:"";
-  var apps=appsRaw.split("|");
-  var color=btn.style.color||"#2B7DE9";
-  var html='<div class="detail-cat" style="background:'+color+'15;color:'+color+'">'+catIcon+" "+catLabel+'</div>';
-  html+='<h2 class="detail-name">'+name+'</h2>';
-  html+='<div class="detail-desc">'+desc+'</div>';
-  html+='<div class="detail-apps">';
-  for(var i=0;i<apps.length;i++){
-    if(apps[i].trim())html+='<span class="detail-app">'+apps[i].trim()+'</span>';
-  }
-  html+='</div>';
-  detailContent.innerHTML=html;
-  overlay.classList.add("active");
-  document.body.style.overflow="hidden";
+var card=btn.closest(".grid-card");
+var data=card.querySelector(".gc-detail-data");
+if(!data||!overlay)return;
+var name=card.querySelector(".gc-name").textContent;
+var catLabel=card.querySelector(".gc-cat-label")?card.querySelector(".gc-cat-label").textContent:"";
+var desc=data.querySelector("p")?data.querySelector("p").innerHTML:"";
+var appsRaw=data.querySelector(".gc-apps-data")?data.querySelector(".gc-apps-data").textContent:"";
+var apps=appsRaw.split("|");
+var molData=data.querySelector(".gc-mol-data")?data.querySelector(".gc-mol-data").textContent:"";
+var storageData=data.querySelector(".gc-storage-data")?data.querySelector(".gc-storage-data").textContent:"";
+var isInjectable=data.querySelector(".gc-injectable")?data.querySelector(".gc-injectable").textContent==="1":false;
+var color=btn.style.color||"#2B7DE9";
+
+var html='<div class="detail-cat" style="background:'+color+'15;color:'+color+'">'+catLabel+'</div>';
+html+='<h2 class="detail-name">'+name+'</h2>';
+html+='<div class="detail-desc">'+desc+'</div>';
+if(molData){html+='<div class="detail-section-title">Molecular Profile</div><div class="detail-mol">'+molData+'</div>';}
+if(storageData){html+='<div class="detail-section-title">Handling &amp; Storage</div><div class="detail-storage">'+storageData+'</div>';}
+if(isInjectable&&apps.length>0){
+html+='<div class="detail-section-title">Research Applications</div><div class="detail-apps">';
+for(var i=0;i<apps.length;i++){if(apps[i].trim())html+='<span class="detail-app">'+apps[i].trim()+'</span>';}
+html+='</div>';
+}
+detailContent.innerHTML=html;
+overlay.classList.add("active");
+document.body.style.overflow="hidden";
 };
 if(detailClose)detailClose.addEventListener("click",function(){overlay.classList.remove("active");document.body.style.overflow="";});
 if(overlay)overlay.addEventListener("click",function(e){if(e.target===overlay){overlay.classList.remove("active");document.body.style.overflow="";}});
 
 window.scrollToProduct=function(name){
-  for(var i=0;i<cards.length;i++){
-    if(cards[i].getAttribute("data-name").indexOf(name)>-1){
-      // Reset filter
-      setActiveTab("all");
-      cards[i].scrollIntoView({behavior:"smooth",block:"center"});
-      cards[i].style.boxShadow="0 0 0 3px #2B7DE9";
-      setTimeout(function(c){c.style.boxShadow="";},2000,cards[i]);
-      break;
-    }
-  }
+for(var i=0;i<cards.length;i++){
+if(cards[i].getAttribute("data-name").indexOf(name)>-1){
+setActiveTab("all");
+cards[i].scrollIntoView({behavior:"smooth",block:"center"});
+cards[i].style.boxShadow="0 0 0 3px #2B7DE9";
+setTimeout(function(c){c.style.boxShadow="";},2000,cards[i]);
+break;
+}
+}
 };
 
-// Hover effect for view buttons
 var viewBtns=document.querySelectorAll(".gc-view-btn");
 for(var v=0;v<viewBtns.length;v++){
-  viewBtns[v].addEventListener("mouseenter",function(){this.style.backgroundColor=this.style.color;this.style.color="#fff";});
-  viewBtns[v].addEventListener("mouseleave",function(){var c=this.style.borderColor;this.style.color=c;this.style.backgroundColor="transparent";});
+viewBtns[v].addEventListener("mouseenter",function(){this.style.backgroundColor=this.style.color;this.style.color="#fff";});
+viewBtns[v].addEventListener("mouseleave",function(){var c=this.style.borderColor;this.style.color=c;this.style.backgroundColor="transparent";});
 }
 
-// Back to top
 var btt=document.getElementById("btt");
 if(btt){
-  window.addEventListener("scroll",function(){if(window.pageYOffset>600)btt.classList.add("show");else btt.classList.remove("show");});
-  btt.addEventListener("click",function(){window.scrollTo(0,0);});
+window.addEventListener("scroll",function(){if(window.pageYOffset>600)btt.classList.add("show");else btt.classList.remove("show");});
+btt.addEventListener("click",function(){window.scrollTo(0,0);});
 }
 
-// Animate stats
 function animateNum(el,end,suffix){
-  var start=0;var dur=1500;var st=null;
-  function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);el.textContent=Math.floor(p*end)+(suffix||"");if(p<1)requestAnimationFrame(step);}
-  requestAnimationFrame(step);
+var start=0;var dur=1500;var st=null;
+function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/dur,1);el.textContent=Math.floor(p*end)+(suffix||"");if(p<1)requestAnimationFrame(step);}
+requestAnimationFrame(step);
 }
 var sp=document.getElementById("statProducts");
 var sc=document.getElementById("statCats");
