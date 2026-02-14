@@ -874,6 +874,37 @@ if (vendorSearchInput) {
   });
 }
 
+// iOS Safari fallback for CSS-only tabs
+var tabIds = ["tab-resources","tab-vendors","tab-shop","tab-learn","tab-contact"];
+var contentClasses = ["content-resources","content-vendors","content-shop","content-learn","content-contact"];
+function switchTab(id) {
+  var radio = document.getElementById(id);
+  if (radio) radio.checked = true;
+  for (var i = 0; i < contentClasses.length; i++) {
+    var el = document.querySelector("." + contentClasses[i]);
+    if (el) el.style.display = (contentClasses[i] === "content-" + id.replace("tab-","")) ? "block" : "none";
+  }
+  var labels = document.querySelectorAll(".tab-bar label");
+  for (var j = 0; j < labels.length; j++) {
+    var f = labels[j].getAttribute("for");
+    labels[j].style.color = (f === id) ? "#2B7DE9" : "";
+    labels[j].style.borderBottomColor = (f === id) ? "#2B7DE9" : "";
+  }
+  window.scrollTo(0,0);
+}
+var allLabels = document.querySelectorAll("label[for^='tab-']");
+for (var li = 0; li < allLabels.length; li++) {
+  (function(lbl) {
+    lbl.addEventListener("click", function(e) {
+      var f = lbl.getAttribute("for");
+      if (f && f.indexOf("tab-") === 0) {
+        e.preventDefault();
+        switchTab(f);
+      }
+    });
+  })(allLabels[li]);
+}
+
 </script>
 </body>
 </html>
