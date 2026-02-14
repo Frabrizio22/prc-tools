@@ -25,30 +25,27 @@ h1,h2,h3,h4,h5,h6,.header-title,.hero-title,.res-section h3,.modal-name,.calc-ti
 .header-nav label,.header-nav a{font-size:0.82rem;color:#64748b;text-decoration:none;cursor:pointer;font-weight:500;padding:4px 0;border-bottom:2px solid transparent;transition:color 0.15s}
 .header-nav label:hover,.header-nav a:hover{color:#0A1628}
 @media(max-width:640px){.header-nav{display:none}}
-.hero{background:linear-gradient(135deg,#1E3A8A 0%,#2563EB 40%,#3B82F6 70%,#60A5FA 100%);position:relative;overflow:hidden;padding:40px 20px 36px;text-align:center}
-.hero::before{content:'';position:absolute;top:-50%;right:-30%;width:80%;height:200%;background:radial-gradient(ellipse,rgba(43,125,233,0.12) 0%,transparent 70%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-40%;left:-20%;width:60%;height:150%;background:radial-gradient(ellipse,rgba(6,182,212,0.06) 0%,transparent 70%);pointer-events:none}
-.hero-logo{position:relative;z-index:1;margin:0 auto 16px}
-.hero-logo img{border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
-.hero-title{position:relative;z-index:1;font-size:1.4rem;font-weight:900;color:#fff;letter-spacing:-0.3px;line-height:1.15;animation:fadeUp 0.8s ease-out;white-space:nowrap}
-.hero-auth{position:relative;z-index:1;font-size:0.7rem;color:#fff;text-transform:uppercase;letter-spacing:3px;margin-top:10px;font-weight:600;animation:fadeUpDelay1 0.8s ease-out 0.2s backwards}
-.hero-line{width:50px;height:1.5px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);margin:14px auto 0;animation:lineGrow 1s ease-out 0.6s backwards;position:relative;z-index:1}
+.hero{background:linear-gradient(170deg,#080E1E 0%,#0C1A3A 30%,#111E45 60%,#162050 100%);position:relative;overflow:hidden;padding:48px 20px 44px;text-align:center}
+.hero::before{content:'';position:absolute;top:0;right:0;width:100%;height:100%;background:radial-gradient(ellipse at 50% 0%,rgba(43,125,233,0.1) 0%,transparent 60%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,#2B7DE9,#06B6D4,#2B7DE9);pointer-events:none}
+.hero-logo{position:relative;z-index:1;margin:0 auto 24px}
+.hero-logo img{border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+.hero-title{position:relative;z-index:1;font-size:1.8rem;font-weight:900;letter-spacing:-0.5px;line-height:1.15;animation:fadeUp 0.8s ease-out;background:linear-gradient(135deg,#60A5FA,#A78BFA,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-auth{position:relative;z-index:1;font-size:0.72rem;color:#06B6D4;text-transform:uppercase;letter-spacing:4px;margin-top:12px;font-weight:600;animation:fadeUpDelay1 0.8s ease-out 0.2s backwards}
+.hero-line{display:none}
 /* hero props removed */
-.hero-stats{position:relative;z-index:1;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:20px;font-size:0.72rem;color:rgba(255,255,255,0.85);font-weight:500}
-.hero-stats span{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);padding:5px 12px;border-radius:20px;animation:statPop 0.5s ease-out backwards}
-.hero-stats span:nth-child(1){animation-delay:0.5s}
-.hero-stats span:nth-child(2){animation-delay:0.6s}
-.hero-stats span:nth-child(3){animation-delay:0.7s}
-.hero-stats span:nth-child(4){animation-delay:0.8s}
-.hero-stats strong{color:rgba(255,255,255,0.9)}
-.hero-btns{position:relative;z-index:1;margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:fadeUpDelay2 0.8s ease-out 0.5s backwards}
-.btn-primary{background:#fff;color:#1E3A8A;border:none;padding:12px 28px;border-radius:8px;font-size:0.82rem;font-weight:800;cursor:pointer;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;box-shadow:0 2px 12px rgba(0,0,0,0.15)}
-.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.3);padding:11px 24px;border-radius:8px;font-size:0.82rem;font-weight:700;cursor:pointer;text-decoration:none;transition:transform 0.2s ease,border-color 0.2s ease,box-shadow 0.2s ease}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.2)}
-.btn-outline:hover{border-color:#fff;transform:translateY(-2px)}
-.hero-sub{position:relative;z-index:1;font-size:0.85rem;color:#fff;margin-top:14px;line-height:1.5;max-width:520px;margin-left:auto;margin-right:auto;animation:fadeUpDelay1 0.8s ease-out 0.3s backwards;font-weight:400}
-.hero-research{position:relative;z-index:1;font-size:0.65rem;color:rgba(255,255,255,0.6);font-style:italic;margin-top:24px;letter-spacing:0.5px}
-@media(max-width:640px){.hero{padding:32px 16px 28px}.hero-title{font-size:1.15rem}.hero-logo img{width:90px!important}}
+.hero-sub{position:relative;z-index:1;font-size:0.88rem;color:rgba(255,255,255,0.55);margin-top:16px;line-height:1.6;max-width:480px;margin-left:auto;margin-right:auto;animation:fadeUpDelay1 0.8s ease-out 0.3s backwards;font-weight:400}
+.hero-btns{position:relative;z-index:1;margin-top:28px;display:flex;flex-direction:column;gap:12px;align-items:center;max-width:320px;margin-left:auto;margin-right:auto;animation:fadeUpDelay2 0.8s ease-out 0.5s backwards}
+.btn-primary{background:linear-gradient(135deg,#2B7DE9,#3B82F6);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-size:0.88rem;font-weight:800;cursor:pointer;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;box-shadow:0 4px 16px rgba(43,125,233,0.3);width:100%;text-align:center}
+.btn-outline{background:transparent;color:rgba(255,255,255,0.7);border:1.5px solid rgba(255,255,255,0.2);padding:13px 24px;border-radius:10px;font-size:0.85rem;font-weight:600;cursor:pointer;text-decoration:none;transition:transform 0.2s ease,border-color 0.2s ease;width:100%;text-align:center}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(43,125,233,0.4)}
+.btn-outline:hover{border-color:rgba(255,255,255,0.5);transform:translateY(-2px)}
+.hero-stats{position:relative;z-index:1;display:flex;justify-content:center;gap:32px;margin-top:36px;animation:fadeUpDelay2 0.8s ease-out 0.6s backwards}
+.hero-stats span{text-align:center}
+.hero-stats strong{display:block;font-size:1.6rem;font-weight:900;color:#fff;line-height:1}
+.hero-stats small{font-size:0.6rem;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.35);font-weight:600}
+.hero-research{position:relative;z-index:1;font-size:0.65rem;color:rgba(255,255,255,0.25);font-style:italic;margin-top:28px;letter-spacing:0.5px}
+@media(max-width:640px){.hero{padding:36px 16px 32px}.hero-title{font-size:1.6rem}.hero-logo img{width:100px!important}.hero-stats{gap:24px}.hero-stats strong{font-size:1.4rem}}
 .trust-bar{background:#f8f9fa;padding:10px 20px;text-align:center;font-size:0.72rem;color:#64748b;font-weight:500;letter-spacing:0.3px;border-bottom:1px solid #e5e7eb}
 .tab-radio{display:none}
 .tab-bar{position:sticky;top:49px;z-index:150;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;justify-content:center;gap:0}
@@ -68,7 +65,7 @@ h1,h2,h3,h4,h5,h6,.header-title,.hero-title,.res-section h3,.modal-name,.calc-ti
 @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .res-banner h3{font-size:1.1rem;font-weight:800;margin-bottom:6px}
 .res-banner p{font-size:0.8rem;color:rgba(255,255,255,0.7);margin-bottom:16px;line-height:1.5}
-.res-banner .btn-primary{font-size:0.78rem;padding:8px 20px;background:#fff;color:#1E3A8A}
+.res-banner .btn-primary{font-size:0.78rem;padding:8px 20px;width:auto;background:#fff;color:#1E3A8A;box-shadow:none}
 .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:32px}
 @media(min-width:768px){.quick-grid{grid-template-columns:1fr 1fr 1fr 1fr}}
 .quick-tile{background:#f8f9fa;border:1px solid #e5e7eb;border-radius:10px;padding:16px;text-align:center;cursor:pointer;text-decoration:none;color:#1a1a2e;transition:all 0.3s ease}
@@ -296,15 +293,14 @@ if (document.readyState === 'loading') {
 <div class="hero-auth">The Peptide Authority</div>
 <div class="hero-line"></div>
 <p class="hero-sub">Your comprehensive destination for research peptide resources, education, and vendor intelligence</p>
-<div class="hero-stats">
-<span><strong>393</strong> Vendors Reviewed</span>
-<span><strong>387</strong> Products Compared</span>
-<span><strong>10</strong> Categories</span>
-<span><strong>Updated</strong> Feb 2026</span>
-</div>
 <div class="hero-btns">
-<label for="tab-resources" class="btn-primary" onclick="switchTab('tab-resources');return false">Explore Resources</label>
-<label for="tab-vendors" class="btn-outline" onclick="switchTab('tab-vendors');return false">Vendor Directory</label>
+<label for="tab-resources" class="btn-primary" onclick="switchTab('tab-resources');return false">Explore Resources ↓</label>
+<label for="tab-vendors" class="btn-outline" onclick="switchTab('tab-vendors');return false">Vendor Directory ↓</label>
+</div>
+<div class="hero-stats">
+<span><strong>393</strong><small>Vendors</small></span>
+<span><strong>387</strong><small>Products</small></span>
+<span><strong>10</strong><small>Categories</small></span>
 </div>
 <div class="hero-research">For Research Use Only.</div>
 </section>
