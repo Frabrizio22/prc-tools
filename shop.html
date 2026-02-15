@@ -22,7 +22,7 @@
         header {
             background: #FFFFFF;
             border-bottom: 1px solid #E2E8F0;
-            padding: 12px 16px;
+            padding: 10px 16px;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -36,31 +36,41 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #2B7DE9;
-            letter-spacing: 1px;
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
         }
 
+        .logo-block { white-space: nowrap; }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #0A1628;
+            letter-spacing: 2px;
+        }
+
+        .logo span { color: #2B7DE9; }
+
         .tagline {
-            font-size: 0.65rem;
+            font-size: 0.55rem;
             color: #94A3B8;
             font-weight: 500;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
         nav {
             display: flex;
-            gap: 1.5rem;
+            gap: 20px;
             align-items: center;
         }
 
         nav a {
             color: #475569;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             transition: color 0.2s;
         }
@@ -108,19 +118,19 @@
         .nav-icons {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-left: 8px;
+            gap: 6px;
         }
 
         .nav-icon {
             position: relative;
             cursor: pointer;
-            font-size: 1.1rem;
-            color: #475569;
+            font-size: 0.85rem;
+            color: #94A3B8;
             transition: color 0.2s;
             background: none;
             border: none;
-            padding: 4px;
+            padding: 6px;
+            line-height: 1;
         }
 
         .nav-icon:hover { color: #2B7DE9; }
@@ -475,17 +485,19 @@
         }
 
         .product-card {
-            background: #F8FAFC;
+            background: #FFFFFF;
             border: 1px solid #E2E8F0;
+            border-left: 3px solid #2B7DE9;
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 1.25rem;
             transition: all 0.2s;
             cursor: pointer;
         }
 
         .product-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            border-left-color: #06B6D4;
         }
 
         .product-category {
@@ -708,23 +720,93 @@
             .product-card { padding: 12px; }
             .product-name { font-size: 0.95rem; }
             .product-description { font-size: 0.78rem; }
-            nav a.desktop-only { display: none; }
+            nav { display: none; }
+            .header-left { gap: 0; }
             .trust-item { font-size: 0.6rem; padding: 0 8px; }
+            .hamburger { display: flex; }
         }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 18px;
+            height: 2px;
+            background: #0A1628;
+            border-radius: 1px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 260px;
+            height: 100%;
+            background: #fff;
+            box-shadow: -4px 0 24px rgba(0,0,0,0.1);
+            z-index: 150;
+            padding: 60px 24px 24px;
+        }
+
+        .mobile-menu.active { display: block; }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            color: #1E293B;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .mobile-menu a:hover { color: #2B7DE9; }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 1.5rem;
+            color: #94A3B8;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 140;
+        }
+
+        .mobile-overlay.active { display: block; }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="header-content">
-            <div>
-                <div class="logo">PRC PEPTIDES</div>
-                <div class="tagline">Research-Grade Compounds</div>
-            </div>
-            <nav>
+            <div class="header-left">
+                <div class="logo-block">
+                    <div class="logo"><span>PRC</span> PEPTIDES</div>
+                </div>
+                <nav>
                 <a href="#shop" class="active">Shop</a>
                 <span class="nav-dropdown">
-                    <a href="#categories" onclick="event.preventDefault();this.parentElement.classList.toggle('open')">Categories ▾</a>
+                    <a href="#categories" onclick="event.preventDefault();this.parentElement.classList.toggle('open')" style="display:inline-flex;align-items:center;gap:3px">Categories <svg width="10" height="6" viewBox="0 0 10 6" fill="none" style="margin-top:1px"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
                     <div class="nav-dropdown-menu">
                         <a href="#" onclick="filterCat('GLP Receptor Agonists');return false">GLP Receptor Agonists</a>
                         <a href="#" onclick="filterCat('Tissue Repair');return false">Tissue Repair</a>
@@ -741,14 +823,26 @@
                 <a href="#" class="desktop-only" onclick="openPage('faq');return false">FAQ</a>
                 <a href="#" class="desktop-only" onclick="openPage('about');return false">About</a>
                 <a href="https://peptideresourcecenter.com" target="_blank" class="desktop-only">Resources ↗</a>
-                <div class="nav-icons">
-                    <button class="nav-icon" onclick="toggleSearch()" title="Search">🔍</button>
-                    <button class="nav-icon" onclick="openPage('about');return false" title="Account">👤</button>
-                    <button class="nav-icon" title="Cart">🛒<span class="cart-badge">0</span></button>
-                </div>
-            </nav>
+                </nav>
+            </div>
+            <div class="nav-icons">
+                <button class="nav-icon" onclick="toggleSearch()" title="Search">🔍</button>
+                <button class="nav-icon" title="Cart">🛒<span class="cart-badge">0</span></button>
+                <button class="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+            </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
+        <a href="#shop" onclick="toggleMobileMenu()">Shop</a>
+        <a href="#" onclick="openPage('faq');toggleMobileMenu();return false">FAQ</a>
+        <a href="#" onclick="openPage('about');toggleMobileMenu();return false">About</a>
+        <a href="https://peptideresourcecenter.com" target="_blank">Peptide Resource Center ↗</a>
+        <a href="mailto:support@prcpeptides.com">Contact</a>
+    </div>
 
     <!-- Hero Banner -->
     <section class="hero">
@@ -1309,6 +1403,12 @@
                 renderProducts(currentCategory);
             });
         });
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        }
 
         // Search
         function toggleSearch() {
