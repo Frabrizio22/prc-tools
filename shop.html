@@ -357,12 +357,12 @@
         }
 
         .trust-item {
-            font-size: 0.65rem;
+            font-size: 0.72rem;
             font-weight: 600;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.9);
             text-align: center;
             letter-spacing: 0.3px;
-            padding: 0 10px;
+            padding: 0 16px;
         }
 
         .trust-item + .trust-item {
@@ -378,7 +378,7 @@
 
         /* Featured Products Section */
         .featured-section {
-            display: none;
+            padding: 1rem 0 0.75rem;
         }
 
         .section-heading {
@@ -409,36 +409,35 @@
         .featured-card {
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
-            border-left: 3px solid #2B7DE9;
-            border-radius: 8px;
-            padding: 10px 12px;
-            min-width: 160px;
+            border-radius: 6px;
+            padding: 8px 12px;
+            min-width: 130px;
             flex-shrink: 0;
             cursor: pointer;
             transition: all 0.2s;
         }
 
         .featured-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-            border-left-color: #06B6D4;
+            border-color: #2B7DE9;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
 
         .featured-card .product-category {
             display: inline-block;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             padding: 0;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .featured-card .product-name {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
             color: #0A1628;
-            margin-bottom: 4px;
+            margin-bottom: 0;
+            line-height: 1.3;
         }
 
         .featured-card .product-description {
@@ -446,11 +445,7 @@
         }
 
         .featured-card .view-details {
-            display: inline-block;
-            color: #2B7DE9;
-            font-weight: 600;
-            font-size: 0.7rem;
-            text-decoration: none;
+            display: none;
         }
 
         /* Shop by Category Section */
@@ -934,7 +929,7 @@
             .featured-card { min-width: 180px; }
             nav { display: none; }
             .header-left { gap: 0; }
-            .trust-item { font-size: 0.55rem; padding: 0 6px; }
+            .trust-item { font-size: 0.68rem; padding: 0 12px; }
             .hamburger { display: flex !important; }
         }
 
@@ -1089,9 +1084,7 @@
         <div class="trust-content">
             <div class="trust-item">≥98% Purity</div>
             <div class="trust-item">Free Supplies</div>
-            <div class="trust-item">Fast US Shipping</div>
-            <div class="trust-item">Crypto Accepted</div>
-            <div class="trust-item">Research Only</div>
+            <div class="trust-item">Fast Shipping</div>
         </div>
     </section>
 
