@@ -403,7 +403,7 @@
 
         /* Featured Products Section */
         .featured-section {
-            padding: 1rem 0 0.75rem;
+            padding: 0.75rem 0 0.5rem;
         }
 
         .section-heading {
@@ -432,11 +432,11 @@
         .featured-products::-webkit-scrollbar { height: 0; }
 
         .featured-card {
-            background: #FFFFFF;
+            background: #F8FAFC;
             border: 1px solid #E2E8F0;
-            border-radius: 6px;
-            padding: 8px 12px;
-            min-width: 130px;
+            border-radius: 8px;
+            padding: 10px 12px;
+            min-width: 140px;
             flex-shrink: 0;
             cursor: pointer;
             transition: all 0.2s;
@@ -444,7 +444,8 @@
 
         .featured-card:hover {
             border-color: #2B7DE9;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background: #FFFFFF;
         }
 
         .featured-card .product-category {
@@ -547,7 +548,7 @@
 
         /* Catalog Section */
         .catalog-section {
-            padding: 0.75rem 0 0;
+            padding: 0.25rem 0 0;
         }
 
         .catalog-header {
@@ -664,15 +665,7 @@
         }
 
         .product-description {
-            font-size: 0.7rem;
-            color: #94A3B8;
-            margin-bottom: 6px;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            word-break: break-word;
+            display: none;
         }
 
         .card-top-row {
@@ -683,24 +676,42 @@
         }
 
         .product-price {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 800;
             color: #0A1628;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .featured-card .product-price {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #2B7DE9;
-            margin: 0;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #0A1628;
+            margin: 2px 0 0;
         }
 
         .coa-badge {
-            font-size: 0.5rem;
+            font-size: 0.55rem;
             font-weight: 700;
             color: #059669;
             letter-spacing: 0.3px;
+        }
+
+        .order-btn {
+            display: block;
+            background: #06B6D4;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 6px 0;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            transition: background 0.2s;
+        }
+
+        .order-btn:hover {
+            background: #0891B2;
         }
 
         .view-details {
@@ -1268,6 +1279,18 @@
         </div>
     </div>
 
+    <!-- Email Signup -->
+    <div style="background:#F1F5F9;padding:2rem 1.5rem;text-align:center">
+        <div style="max-width:500px;margin:0 auto">
+            <div style="font-size:1rem;font-weight:700;color:#0A1628;margin-bottom:0.25rem">Stay Updated</div>
+            <div style="font-size:0.75rem;color:#64748B;margin-bottom:1rem">New compounds, restocks, and exclusive offers. No spam.</div>
+            <div style="display:flex;gap:8px;max-width:400px;margin:0 auto">
+                <input type="email" placeholder="Your email" style="flex:1;padding:10px 14px;border:1px solid #E2E8F0;border-radius:6px;font-size:0.85rem;font-family:inherit;outline:none">
+                <button style="background:#2B7DE9;color:#fff;border:none;padding:10px 20px;border-radius:6px;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -1821,7 +1844,7 @@
                     '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
                     '<div class="product-name">' + product.name + '</div>' +
                     '<div class="product-price">$' + product.price + '</div>' +
-                    '<a href="#" class="view-details">View Details →</a>';
+                    '<a href="#" class="order-btn">Order Now</a>';
                 
                 card.addEventListener('click', function(e) {
                     e.preventDefault();
