@@ -314,90 +314,29 @@
             line-height: 1.7;
         }
 
-        /* Hero Banner */
+        /* Compact Hero */
         .hero {
-            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #3B82F6 100%);
-            padding: 2.5rem 1.5rem 2rem;
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            padding: 1.5rem 1rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
-            border-radius: 50%;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: #FFFFFF;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 0.25rem;
         }
 
         .hero p {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 1.25rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 1.25rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-stat {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 20px;
-            padding: 6px 14px;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             color: rgba(255,255,255,0.85);
-            backdrop-filter: blur(4px);
-        }
-
-        .hero-stat strong {
-            color: #fff;
-            font-weight: 700;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #FFFFFF;
-            color: #1E3A8A;
-            padding: 0.75rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            margin: 0;
         }
 
         /* Trust Bar */
@@ -433,12 +372,172 @@
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 1rem 2rem;
+        }
+
+        /* Featured Products Section */
+        .featured-section {
+            padding: 2rem 0 2.5rem;
+        }
+
+        .section-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-bottom: 1.25rem;
+        }
+
+        .featured-products {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 8px;
+        }
+
+        .featured-products::-webkit-scrollbar { height: 0; }
+
+        .featured-card {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 1.25rem;
+            min-width: 280px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            border-color: #2B7DE9;
+        }
+
+        .featured-card .product-category {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+
+        .featured-card .product-name {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-bottom: 0.5rem;
+        }
+
+        .featured-card .product-description {
+            font-size: 0.85rem;
+            color: #64748B;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .featured-card .view-details {
+            display: inline-block;
+            color: #2B7DE9;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+        }
+
+        /* Shop by Category Section */
+        .categories-section {
+            padding: 2rem 0 2.5rem;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .category-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-left-width: 3px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        .category-card-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .category-card-count {
+            font-size: 0.75rem;
+            color: #64748B;
+        }
+
+        /* Category-specific borders and colors */
+        .cat-glp { border-left-color: #2563EB; }
+        .cat-glp .category-card-name { color: #2563EB; }
+        
+        .cat-tissue { border-left-color: #059669; }
+        .cat-tissue .category-card-name { color: #059669; }
+        
+        .cat-gh { border-left-color: #EA580C; }
+        .cat-gh .category-card-name { color: #EA580C; }
+        
+        .cat-metabolic { border-left-color: #DC2626; }
+        .cat-metabolic .category-card-name { color: #DC2626; }
+        
+        .cat-antioxidants { border-left-color: #7C3AED; }
+        .cat-antioxidants .category-card-name { color: #7C3AED; }
+        
+        .cat-neuropeptides { border-left-color: #0891B2; }
+        .cat-neuropeptides .category-card-name { color: #0891B2; }
+        
+        .cat-longevity { border-left-color: #B45309; }
+        .cat-longevity .category-card-name { color: #B45309; }
+        
+        .cat-melanocortin { border-left-color: #DB2777; }
+        .cat-melanocortin .category-card-name { color: #DB2777; }
+        
+        .cat-cosmetic { border-left-color: #A21CAF; }
+        .cat-cosmetic .category-card-name { color: #A21CAF; }
+        
+        .cat-advanced { border-left-color: #475569; }
+        .cat-advanced .category-card-name { color: #475569; }
+
+        /* Catalog Section */
+        .catalog-section {
+            padding: 2rem 0 0;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .catalog-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .catalog-count {
+            font-size: 0.9rem;
+            color: #64748B;
+            font-weight: 500;
         }
 
         /* Category Filter */
         .filter-section {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .filter-pills {
@@ -479,9 +578,8 @@
         /* Product Grid */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
         }
 
         .product-card {
@@ -489,7 +587,7 @@
             border: 1px solid #E2E8F0;
             border-left: 3px solid #2B7DE9;
             border-radius: 8px;
-            padding: 1.25rem;
+            padding: 1rem;
             transition: all 0.2s;
             cursor: pointer;
         }
@@ -502,13 +600,13 @@
 
         .product-category {
             display: inline-block;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             padding: 0.25rem 0.75rem;
             border-radius: 4px;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .category-glp { background: #EFF6FF; color: #2563EB; border: 1px solid #93C5FD; }
@@ -523,16 +621,16 @@
         .category-advanced { background: #F1F5F9; color: #475569; border: 1px solid #CBD5E1; }
 
         .product-name {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 700;
             color: #0A1628;
             margin-bottom: 0.5rem;
         }
 
         .product-description {
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             color: #64748B;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             line-height: 1.5;
         }
 
@@ -540,7 +638,7 @@
             display: inline-block;
             color: #2B7DE9;
             font-weight: 600;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -656,6 +754,85 @@
             box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
         }
 
+        /* Age Gate Overlay */
+        .age-gate {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 22, 40, 0.85);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .age-gate.active {
+            display: flex;
+        }
+
+        .age-gate-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 460px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .age-gate-card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-bottom: 1rem;
+        }
+
+        .age-gate-card p {
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .age-gate-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-direction: column;
+        }
+
+        .age-gate-btn {
+            padding: 0.875rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-family: inherit;
+        }
+
+        .age-gate-btn-enter {
+            background: #2B7DE9;
+            color: #FFFFFF;
+        }
+
+        .age-gate-btn-enter:hover {
+            background: #1E40AF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(43, 125, 233, 0.3);
+        }
+
+        .age-gate-btn-leave {
+            background: #F1F5F9;
+            color: #64748B;
+        }
+
+        .age-gate-btn-leave:hover {
+            background: #E2E8F0;
+        }
+
         /* Footer */
         footer {
             background: #F8FAFC;
@@ -728,20 +905,37 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 1.5rem; }
-            .hero p { font-size: 0.85rem; }
-            .hero { padding: 2rem 1rem 1.5rem; }
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-            }
-            .product-card { padding: 12px; }
-            .product-name { font-size: 0.95rem; }
-            .product-description { font-size: 0.78rem; }
+            .hero h1 { font-size: 1.3rem; }
+            .hero p { font-size: 0.8rem; }
+            .hero { padding: 1.25rem 1rem; }
+            .section-heading { font-size: 1.25rem; }
+            .featured-card { min-width: 260px; }
             nav { display: none; }
             .header-left { gap: 0; }
             .trust-item { font-size: 0.6rem; padding: 0 8px; }
             .hamburger { display: flex !important; }
+        }
+
+        @media (min-width: 769px) {
+            .category-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.25rem;
+            }
+            .product-card {
+                padding: 1.25rem;
+            }
+            .product-name {
+                font-size: 1.125rem;
+            }
+            .product-description {
+                font-size: 0.875rem;
+            }
+            .view-details {
+                font-size: 0.875rem;
+            }
         }
 
         .mobile-menu {
@@ -797,6 +991,18 @@
     </style>
 </head>
 <body>
+    <!-- Age Gate -->
+    <div class="age-gate" id="ageGate">
+        <div class="age-gate-card">
+            <h2>Age Verification Required</h2>
+            <p>You must be 18 or older to access this site. All products are intended for research purposes only and are not for human consumption.</p>
+            <div class="age-gate-buttons">
+                <button class="age-gate-btn age-gate-btn-enter" onclick="acceptAgeGate()">I am 18 or older — Enter</button>
+                <button class="age-gate-btn age-gate-btn-leave" onclick="rejectAgeGate()">I am under 18 — Leave</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="header-content">
@@ -845,17 +1051,11 @@
         <a href="mailto:support@prcpeptides.com">Contact</a>
     </div>
 
-    <!-- Hero Banner -->
+    <!-- Compact Hero -->
     <section class="hero">
         <div class="hero-content">
             <h1>Research-Grade Peptides</h1>
-            <p>Direct sourcing · Rigorous testing · Fast shipping</p>
-            <div class="hero-stats">
-                <span class="hero-stat"><strong>44+</strong> Products</span>
-                <span class="hero-stat"><strong>10</strong> Categories</span>
-                <span class="hero-stat"><strong>≥98%</strong> Purity</span>
-            </div>
-            <a href="#shop" class="cta-button">Shop Now</a>
+            <p>44+ compounds · ≥98% purity · Fast US shipping</p>
         </div>
     </section>
 
@@ -871,26 +1071,50 @@
 
     <!-- Main Content -->
     <main id="shop">
-        <!-- Category Filter -->
-        <section class="filter-section" id="categories">
-            <div class="filter-pills">
-                <button class="filter-pill active" data-category="all">All (44)</button>
-                <button class="filter-pill" data-category="glp">GLP Receptor Agonists (5)</button>
-                <button class="filter-pill" data-category="tissue">Tissue Repair (6)</button>
-                <button class="filter-pill" data-category="gh">Growth Hormone (5)</button>
-                <button class="filter-pill" data-category="metabolic">Metabolic (7)</button>
-                <button class="filter-pill" data-category="antioxidants">Antioxidants (7)</button>
-                <button class="filter-pill" data-category="neuropeptides">Neuropeptides (6)</button>
-                <button class="filter-pill" data-category="longevity">Longevity (3)</button>
-                <button class="filter-pill" data-category="melanocortin">Melanocortin (2)</button>
-                <button class="filter-pill" data-category="cosmetic">Cosmetic (2)</button>
-                <button class="filter-pill" data-category="advanced">Advanced (1)</button>
+        <!-- Featured Products Section -->
+        <section class="featured-section">
+            <h2 class="section-heading">Popular Products</h2>
+            <div class="featured-products" id="featuredProducts">
+                <!-- Featured products will be inserted here by JS -->
             </div>
         </section>
 
-        <!-- Product Grid -->
-        <section class="product-grid" id="productGrid">
-            <!-- Products will be dynamically inserted here -->
+        <!-- Shop by Category Section -->
+        <section class="categories-section">
+            <h2 class="section-heading">Shop by Category</h2>
+            <div class="category-grid" id="categoryGrid">
+                <!-- Category cards will be inserted here by JS -->
+            </div>
+        </section>
+
+        <!-- Catalog Section -->
+        <section class="catalog-section" id="categories">
+            <div class="catalog-header">
+                <h2 class="section-heading">All Products</h2>
+                <span class="catalog-count" id="catalogCount">44 products</span>
+            </div>
+            
+            <!-- Category Filter -->
+            <div class="filter-section">
+                <div class="filter-pills">
+                    <button class="filter-pill active" data-category="all">All (44)</button>
+                    <button class="filter-pill" data-category="glp">GLP Receptor Agonists (5)</button>
+                    <button class="filter-pill" data-category="tissue">Tissue Repair (6)</button>
+                    <button class="filter-pill" data-category="gh">Growth Hormone (5)</button>
+                    <button class="filter-pill" data-category="metabolic">Metabolic (7)</button>
+                    <button class="filter-pill" data-category="antioxidants">Antioxidants (7)</button>
+                    <button class="filter-pill" data-category="neuropeptides">Neuropeptides (6)</button>
+                    <button class="filter-pill" data-category="longevity">Longevity (3)</button>
+                    <button class="filter-pill" data-category="melanocortin">Melanocortin (2)</button>
+                    <button class="filter-pill" data-category="cosmetic">Cosmetic (2)</button>
+                    <button class="filter-pill" data-category="advanced">Advanced (1)</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
         </section>
     </main>
 
@@ -1305,10 +1529,110 @@
             }
         ];
 
+        // Featured products list
+        var featuredProductNames = [
+            "Semaglutide",
+            "Tirzepatide 30mg",
+            "BPC-157/TB-500 10mg/10mg",
+            "NAD+ 1000mg",
+            "Sermorelin 5mg",
+            "Retatrutide 20mg"
+        ];
+
+        // Category data
+        var categoryData = [
+            { id: 'glp', name: 'GLP Receptor Agonists', count: 5 },
+            { id: 'tissue', name: 'Tissue Repair', count: 6 },
+            { id: 'gh', name: 'Growth Hormone', count: 5 },
+            { id: 'metabolic', name: 'Metabolic', count: 7 },
+            { id: 'antioxidants', name: 'Antioxidants', count: 7 },
+            { id: 'neuropeptides', name: 'Neuropeptides', count: 6 },
+            { id: 'longevity', name: 'Longevity', count: 3 },
+            { id: 'melanocortin', name: 'Melanocortin', count: 2 },
+            { id: 'cosmetic', name: 'Cosmetic', count: 2 },
+            { id: 'advanced', name: 'Advanced', count: 1 }
+        ];
+
         // Initialize
         var currentCategory = 'all';
         var modal = document.getElementById('productModal');
         var modalClose = document.getElementById('modalClose');
+
+        // Age gate check
+        function checkAgeGate() {
+            var verified = sessionStorage.getItem('ageVerified');
+            if (!verified) {
+                document.getElementById('ageGate').classList.add('active');
+            }
+        }
+
+        function acceptAgeGate() {
+            sessionStorage.setItem('ageVerified', 'true');
+            document.getElementById('ageGate').classList.remove('active');
+        }
+
+        function rejectAgeGate() {
+            window.location.href = 'https://www.google.com';
+        }
+
+        // Render featured products
+        function renderFeaturedProducts() {
+            var container = document.getElementById('featuredProducts');
+            container.innerHTML = '';
+            
+            featuredProductNames.forEach(function(name) {
+                var product = products.find(function(p) { return p.name === name; });
+                if (!product) return;
+                
+                var card = document.createElement('div');
+                card.className = 'featured-card';
+                
+                var categoryClass = 'category-' + product.category;
+                var categoryName = getCategoryName(product.category);
+                
+                card.innerHTML = 
+                    '<span class="product-category ' + categoryClass + '">' + categoryName + '</span>' +
+                    '<div class="product-name">' + product.name + '</div>' +
+                    '<div class="product-description">' + product.shortDesc + '</div>' +
+                    '<a href="#" class="view-details">View Details →</a>';
+                
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showModal(product);
+                });
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Render category cards
+        function renderCategories() {
+            var container = document.getElementById('categoryGrid');
+            container.innerHTML = '';
+            
+            categoryData.forEach(function(cat) {
+                var card = document.createElement('div');
+                card.className = 'category-card cat-' + cat.id;
+                card.innerHTML = 
+                    '<div class="category-card-name">' + cat.name + '</div>' +
+                    '<div class="category-card-count">' + cat.count + ' products</div>';
+                
+                card.addEventListener('click', function() {
+                    var filterButtons = document.querySelectorAll('.filter-pill');
+                    filterButtons.forEach(function(btn) {
+                        btn.classList.remove('active');
+                        if (btn.getAttribute('data-category') === cat.id) {
+                            btn.classList.add('active');
+                        }
+                    });
+                    currentCategory = cat.id;
+                    renderProducts(cat.id);
+                    document.querySelector('.catalog-section').scrollIntoView({ behavior: 'smooth' });
+                });
+                
+                container.appendChild(card);
+            });
+        }
 
         // Render products
         function renderProducts(category) {
@@ -1318,6 +1642,12 @@
             var filtered = category === 'all' ? products : products.filter(function(p) {
                 return p.category === category;
             });
+
+            // Update catalog count
+            var countEl = document.getElementById('catalogCount');
+            if (countEl) {
+                countEl.textContent = filtered.length + ' product' + (filtered.length !== 1 ? 's' : '');
+            }
 
             filtered.forEach(function(product) {
                 var card = document.createElement('div');
@@ -1455,7 +1785,7 @@
             filterButtons.forEach(function(b) { b.classList.remove('active'); if(b.getAttribute('data-category')===cat) b.classList.add('active'); });
             currentCategory = cat;
             renderProducts(cat);
-            var el = document.querySelector('.filter-section');
+            var el = document.querySelector('.catalog-section');
             if(el) el.scrollIntoView({behavior:'smooth'});
             // close dropdown
             var dd = document.querySelector('.nav-dropdown');
@@ -1469,6 +1799,9 @@
         });
 
         // Initial render
+        checkAgeGate();
+        renderFeaturedProducts();
+        renderCategories();
         renderProducts('all');
     </script>
 </body>
