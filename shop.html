@@ -675,6 +675,34 @@
             word-break: break-word;
         }
 
+        .card-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+
+        .product-price {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #0A1628;
+            margin-bottom: 4px;
+        }
+
+        .featured-card .product-price {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #2B7DE9;
+            margin: 0;
+        }
+
+        .coa-badge {
+            font-size: 0.5rem;
+            font-weight: 700;
+            color: #059669;
+            letter-spacing: 0.3px;
+        }
+
         .view-details {
             display: inline-block;
             color: #2B7DE9;
@@ -1266,6 +1294,8 @@
             {
                 name: "Semaglutide",
                 category: "glp",
+                price: 30,
+                coa: true,
                 shortDesc: "Benchmark long-acting GLP-1 receptor agonist with fatty acid modification for extended half-life.",
                 fullDesc: "Semaglutide represents the culmination of decades of incretin biology research. Novo Nordisk's scientists engineered this glucagon-like peptide-1 analogue with a strategic fatty acid modification that enables albumin binding, dramatically extending its half-life from minutes to days. This single molecular modification transformed GLP-1 into a sustained metabolic signaling tool.",
                 applications: "GLP-1 receptor binding and signaling studies, glucose homeostasis mechanisms, pancreatic beta-cell function research, appetite regulation pathways, incretin pharmacology, metabolic disease models"
@@ -1273,6 +1303,8 @@
             {
                 name: "Tirzepatide 30mg",
                 category: "glp",
+                price: 46,
+                coa: true,
                 shortDesc: "Higher-dose dual GLP-1/GIP receptor agonist for advanced incretin research.",
                 fullDesc: "Tirzepatide represents a paradigm shift in incretin biology. Where previous research focused on single-receptor agonism, Eli Lilly scientists engineered this novel peptide to activate both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) receptors with balanced potency.",
                 applications: "Dual incretin pathway research, GIP/GLP-1 receptor synergy, incretin receptor pharmacology, metabolic signaling cascade studies, pancreatic islet function, comparative incretin biology"
@@ -1280,6 +1312,8 @@
             {
                 name: "Tirzepatide 20mg",
                 category: "glp",
+                price: 44,
+                coa: true,
                 shortDesc: "First dual GLP-1/GIP receptor agonist with balanced potency for incretin synergy research.",
                 fullDesc: "Tirzepatide represents a paradigm shift in incretin biology. Where previous research focused on single-receptor agonism, Eli Lilly scientists engineered this novel peptide to activate both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) receptors with balanced potency. This dual incretin activation reveals synergistic metabolic effects.",
                 applications: "Dual incretin pathway research, GIP/GLP-1 receptor synergy, incretin receptor pharmacology, metabolic signaling cascade studies, pancreatic islet function, comparative incretin biology"
@@ -1287,6 +1321,8 @@
             {
                 name: "Retatrutide 20mg",
                 category: "glp",
+                price: 55,
+                coa: true,
                 shortDesc: "World's first triple GLP-1/GIP/Glucagon receptor agonist for multi-pathway metabolic research.",
                 fullDesc: "Retatrutide represents the frontier of incretin research. Building on tirzepatide's dual-agonist success, Eli Lilly scientists engineered this peptide with an unprecedented pharmacological profile: balanced activation of three distinct hormone receptors—GLP-1, GIP, and glucagon. This triple agonism creates a metabolic phenotype unattainable through any combination of existing compounds.",
                 applications: "Triple-receptor agonism studies, GLP-1/GIP/glucagon pathway synergy, energy expenditure mechanisms, complex metabolic signaling, thermogenesis research, next-generation incretin biology"
@@ -1294,6 +1330,8 @@
             {
                 name: "Cagrilintide 5mg",
                 category: "glp",
+                price: 25,
+                coa: true,
                 shortDesc: "Long-acting amylin receptor agonist for sustained satiety and gastric emptying research.",
                 fullDesc: "Cagrilintide reimagines amylin pharmacology. While the first-generation amylin analogue pramlintide required frequent dosing and suffered from limited stability, Novo Nordisk's structural modifications created a compound with dramatically extended receptor residence time and proteolytic resistance. This long-acting analogue enables researchers to study sustained amylin receptor activation.",
                 applications: "Amylin receptor signaling research, gastric emptying mechanisms, satiety pathway studies, pancreatic beta-cell co-secretion, pramlintide comparison pharmacology, calcitonin receptor family research"
@@ -1301,6 +1339,8 @@
             {
                 name: "BPC-157/TB-500 10mg/10mg",
                 category: "tissue",
+                price: 40,
+                coa: true,
                 shortDesc: "Dual tissue repair complex pairing cytoprotective and actin-mediated cell migration mechanisms.",
                 fullDesc: "Tissue repair requires coordinated processes: inflammatory resolution, angiogenesis, cell migration, extracellular matrix remodeling, and cytoprotection. This combination targets multiple phases simultaneously. BPC-157 demonstrates remarkable cytoprotective properties while promoting angiogenesis through VEGF modulation. TB-500 facilitates actin polymerization and cytoskeletal reorganization, driving cell migration.",
                 applications: "Wound healing models, angiogenesis research, cytoprotection mechanisms, cell migration assays, collagen synthesis studies, anti-inflammatory pathway research, musculoskeletal repair models"
@@ -1308,6 +1348,8 @@
             {
                 name: "KPV 10mg",
                 category: "tissue",
+                price: 36,
+                coa: true,
                 shortDesc: "Anti-inflammatory tripeptide from α-MSH that retains NF-κB inhibition without melanocortin activation.",
                 fullDesc: "KPV (Lysine-Proline-Valine) represents molecular dissection of anti-inflammatory signaling. As the C-terminal tripeptide of alpha-melanocyte stimulating hormone, KPV retains the parent molecule's remarkable anti-inflammatory properties while eliminating melanocortin receptor-mediated effects like pigmentation. This separation of functions makes KPV uniquely valuable.",
                 applications: "NF-κB signaling inhibition, inflammatory cytokine modulation, inflammatory bowel disease models, mucosal immunity research, wound healing inflammation control, melanocortin peptide fragment studies"
@@ -1315,6 +1357,8 @@
             {
                 name: "GHK-Cu 100mg",
                 category: "tissue",
+                price: 31,
+                coa: true,
                 shortDesc: "Copper-binding tripeptide that chelates Cu²⁺ to modulate metalloproteinases and collagen synthesis.",
                 fullDesc: "Glycyl-L-Histidyl-L-Lysine bound to copper represents one of nature's elegant metal-mediated signaling systems. First isolated from human plasma, GHK-Cu demonstrates the biological importance of copper-peptide coordination chemistry. The copper ion, precisely positioned by the peptide, activates biological functions: stimulating collagen synthesis, modulating metalloproteinase activity, and providing antioxidant effects.",
                 applications: "Collagen synthesis mechanisms, metalloproteinase regulation, copper-dependent enzyme research, extracellular matrix remodeling, wound healing biology, antioxidant copper chemistry, tissue regeneration models"
@@ -1322,6 +1366,8 @@
             {
                 name: "LL-37 5mg",
                 category: "tissue",
+                price: 29,
+                coa: true,
                 shortDesc: "The sole human cathelicidin with broad-spectrum antimicrobial and immunomodulatory activity.",
                 fullDesc: "LL-37 occupies a unique position in human immunology: it is the only antimicrobial peptide produced by the human cathelicidin family. Cleaved from the C-terminus of the hCAP18 precursor protein, this amphipathic alpha-helical peptide demonstrates broad-spectrum antimicrobial activity against bacteria, fungi, and enveloped viruses through membrane disruption.",
                 applications: "Antimicrobial mechanism studies, innate immunity research, membrane disruption models, biofilm penetration research, immune cell chemotaxis, wound healing immunity, vitamin D-dependent peptide regulation"
@@ -1329,6 +1375,8 @@
             {
                 name: "Thymalin 10mg",
                 category: "tissue",
+                price: 37,
+                coa: true,
                 shortDesc: "Pharmaceutical-grade thymic bioregulator for T-cell differentiation and adaptive immunity research.",
                 fullDesc: "Thymalin belongs to a unique category of biological compounds developed in the Soviet Union: bioregulators—short peptides extracted from specific organs that demonstrate tissue-specific regulatory effects. Isolated from thymus tissue, Thymalin contains peptides that appear to modulate T-cell differentiation and thymic function through mechanisms involving chromatin remodeling.",
                 applications: "T-cell differentiation studies, thymic function research, bioregulator peptide mechanisms, immune system modulation, immunosenescence models, adaptive immunity research, peptide-DNA interaction studies"
@@ -1336,6 +1384,8 @@
             {
                 name: "Laennec Ampules",
                 category: "tissue",
+                price: 425,
+                coa: true,
                 shortDesc: "Pharmaceutical-grade human placental extract containing over 50 identified growth factors.",
                 fullDesc: "Laennec represents the biological complexity that single-molecule research cannot capture. This pharmaceutical-grade extract, derived from healthy human placenta and manufactured under strict Japanese pharmaceutical standards, contains a remarkably diverse array of bioactive molecules: multiple growth factor families (FGF, EGF, VEGF, HGF), cytokines, amino acids, vitamins, and minerals.",
                 applications: "Multi-growth factor signaling, tissue regeneration models, cytokine interaction studies, complex biological system research, angiogenesis with multiple factors, cellular metabolism in growth factor-rich environments"
@@ -1343,6 +1393,8 @@
             {
                 name: "Sermorelin 5mg",
                 category: "gh",
+                price: 38,
+                coa: true,
                 shortDesc: "GHRH(1-29) fragment retaining complete growth hormone releasing activity.",
                 fullDesc: "Sermorelin represents elegant peptide design: by identifying the minimal bioactive sequence within full-length GHRH(1-44), researchers created a compound with identical receptor activity but enhanced stability and reduced immunogenicity. This 29-amino acid fragment contains the entire receptor-binding domain, making it indispensable for studying GHRH receptor pharmacology.",
                 applications: "GHRH receptor binding studies, pituitary somatotroph function, growth hormone secretion dynamics, pulsatile GH release mechanisms, IGF-1 pathway research, growth hormone axis physiology"
@@ -1350,6 +1402,8 @@
             {
                 name: "Ipamorelin 5mg",
                 category: "gh",
+                price: 21,
+                coa: true,
                 shortDesc: "Most selective growth hormone secretagogue with exceptional GH specificity.",
                 fullDesc: "Ipamorelin solved a critical problem in growth hormone secretagogue research: earlier ghrelin mimetics stimulated GH release but also elevated prolactin and cortisol through off-target receptor activation. Novo Nordisk's Ipamorelin demonstrates near-exclusive selectivity for the ghrelin receptor (GHS-R1a) on somatotrophs, triggering GH secretion without hormonal side effects.",
                 applications: "Ghrelin receptor (GHS-R1a) pharmacology, selective GH secretion mechanisms, growth hormone pulse dynamics, somatotroph receptor selectivity, GHRP comparative studies, non-GHRH secretagogue pathways"
@@ -1357,6 +1411,8 @@
             {
                 name: "CJC-1295 no DAC 5mg",
                 category: "gh",
+                price: 42,
+                coa: true,
                 shortDesc: "Modified GHRH analogue with enhanced proteolytic resistance for pulsatile GH research.",
                 fullDesc: "CJC-1295 without Drug Affinity Complex (commonly called Modified GRF 1-29) represents refined GHRH analogue design. Through targeted amino acid substitutions at positions vulnerable to enzymatic cleavage, researchers created a peptide significantly more stable than natural GHRH yet without the week-long half-life of DAC-conjugated versions.",
                 applications: "GHRH analogue pharmacology, pulsatile GH release patterns, GHRH receptor binding kinetics, peptide stability mechanisms, growth hormone secretion dynamics, somatotroph physiology"
@@ -1364,6 +1420,8 @@
             {
                 name: "CJC-1295/Ipamorelin 5mg/5mg",
                 category: "gh",
+                price: 42,
+                coa: true,
                 shortDesc: "Precision-balanced dual growth hormone secretagogue targeting GHRH and ghrelin pathways.",
                 fullDesc: "Growth hormone release is governed by two parallel pathways: GHRH signaling through pituitary GHRH receptors, and ghrelin acting via GHS-R1a receptors. This combination recognizes that dual-pathway activation produces supra-additive effects—the GH pulse amplitude from combined GHRH/ghrelin agonism exceeds the sum of individual stimulation.",
                 applications: "Dual-pathway GH secretagogue studies, GHRH/ghrelin synergy mechanisms, amplified GH pulse research, combined secretagogue pharmacodynamics, maximal endogenous GH release models"
@@ -1371,6 +1429,8 @@
             {
                 name: "HGH 191 1500iu",
                 category: "gh",
+                price: 28,
+                coa: true,
                 shortDesc: "Bioidentical 191-amino acid recombinant human growth hormone for direct GH receptor research.",
                 fullDesc: "This represents human somatotropin in its native form: 191 amino acids in the precise sequence and tertiary structure found in pituitary-derived growth hormone. Produced through recombinant DNA technology in E. coli expression systems, this rHGH is structurally indistinguishable from endogenous GH, making it the unambiguous choice for studying growth hormone receptor biology.",
                 applications: "GH receptor binding and signaling, IGF-1 pathway research, somatotropin receptor pharmacology, anabolic signaling mechanisms, direct GH effects vs. secretagogue comparison, protein synthesis research"
@@ -1378,6 +1438,8 @@
             {
                 name: "AOD-9604 2mg",
                 category: "metabolic",
+                price: 20,
+                coa: true,
                 shortDesc: "Modified growth hormone fragment retaining lipolytic activity without GH receptor activation.",
                 fullDesc: "AOD-9604 represents molecular surgery on growth hormone. Australian researchers at Monash University identified the 176-191 C-terminal region as responsible for GH's lipolytic effects, then added stabilizing modifications to create a fragment that stimulates lipolysis without growth hormone receptor binding. The result: fat-mobilizing properties without effects on growth or IGF-1.",
                 applications: "Lipolysis mechanism research, GH fragment biology, lipid metabolism studies, adipocyte signaling independent of GH receptor, selective metabolic pathway activation, non-receptor GH effects"
@@ -1385,6 +1447,8 @@
             {
                 name: "MOTS-c 10mg",
                 category: "metabolic",
+                price: 28,
+                coa: true,
                 shortDesc: "Mitochondrial genome-encoded peptide that translocates to nucleus to regulate metabolism.",
                 fullDesc: "MOTS-c represents a paradigm shift in cellular biology. Discovered in 2015, this peptide revealed that the mitochondrial genome contains open reading frames for signaling peptides that regulate nuclear gene expression. MOTS-c, encoded within the mitochondrial 12S rRNA gene, acts as a mitochondrial-to-nuclear messenger: during metabolic stress, it translocates to the nucleus and modulates gene expression.",
                 applications: "Mitochondrial-nuclear signaling, metabolic homeostasis mechanisms, AMPK pathway research, insulin sensitivity studies, mitochondrial genome function, retrograde signaling research, exercise mimetic studies"
@@ -1392,12 +1456,16 @@
             {
                 name: "5-Amino-1MQ 5mg",
                 category: "metabolic",
+                price: 25,
+                coa: true,
                 shortDesc: "Small molecule NNMT inhibitor increasing cellular NAD+ availability through enzymatic blockade.",
                 fullDesc: "5-Amino-1-methylquinolinium targets a metabolic bottleneck: nicotinamide N-methyltransferase (NNMT), an enzyme that consumes NAD+ precursors by methylating nicotinamide for excretion. By inhibiting NNMT, 5-Amino-1MQ preserves intracellular nicotinamide, allowing its recycling back to NAD+ through the salvage pathway. Note: This is an oral small molecule, not an injectable peptide."
             },
             {
                 name: "Lipo-C MAX Blend",
                 category: "metabolic",
+                price: 42,
+                coa: true,
                 shortDesc: "Precision lipotropic blend combining methionine, inositol, choline, and L-carnitine.",
                 fullDesc: "The Lipo-C MAX formulation recognizes that lipid metabolism requires multiple cofactors working in concert. Methionine provides methyl groups essential for phosphatidylcholine synthesis. Inositol participates in lipid messenger signaling. Choline serves as a precursor for phosphatidylcholine and prevents hepatic lipid accumulation. L-carnitine shuttles fatty acids into mitochondria.",
                 applications: "Lipotropic factor research, hepatic lipid metabolism, methyl donor biology, choline metabolism, mitochondrial fatty acid transport, one-carbon metabolism, phospholipid synthesis studies"
@@ -1405,6 +1473,8 @@
             {
                 name: "L-Carnitine 600mg",
                 category: "metabolic",
+                price: 26,
+                coa: true,
                 shortDesc: "Essential cofactor shuttling long-chain fatty acids across the mitochondrial membrane.",
                 fullDesc: "L-Carnitine solves a fundamental problem in cellular energetics: long-chain fatty acids cannot cross the inner mitochondrial membrane where beta-oxidation occurs. Carnitine serves as the shuttle—the carnitine palmitoyltransferase (CPT) system conjugates fatty acids to carnitine, transports them across the membrane, then releases them inside the mitochondrial matrix.",
                 applications: "Mitochondrial fatty acid transport, beta-oxidation mechanisms, carnitine shuttle system research, acyl-carnitine metabolism, energy substrate utilization, mitochondrial function studies, carnitine deficiency models"
@@ -1412,6 +1482,8 @@
             {
                 name: "Lipo-C Plus Blend",
                 category: "metabolic",
+                price: 42,
+                coa: true,
                 shortDesc: "Enhanced metabolic formulation extending beyond basic lipotropic factors.",
                 fullDesc: "Building upon the foundation of methionine, inositol, choline, and L-carnitine, the Lipo-C Plus formulation adds complementary factors that participate in energy production, mitochondrial function, and metabolic performance. This enhanced blend recognizes that optimal cellular metabolism requires not just lipid processing factors, but also amino acids and cofactors.",
                 applications: "Integrated metabolic pathway research, cellular bioenergetics, multi-cofactor synergy, performance metabolism models, energy production mechanisms, comprehensive metabolic support systems"
@@ -1419,6 +1491,8 @@
             {
                 name: "Lipo-C Ultra Blend",
                 category: "metabolic",
+                price: 42,
+                coa: true,
                 shortDesc: "Premium comprehensive metabolic blend covering complete metabolic pathway support.",
                 fullDesc: "Lipo-C Ultra represents the apex of multi-component metabolic formulation. This premium blend incorporates every category of metabolic support compound: classic lipotropic factors, amino acids for protein synthesis, mitochondrial cofactors for energy production, and performance-enhancing compounds for cellular optimization.",
                 applications: "Comprehensive metabolic system research, multi-pathway integration studies, maximal metabolic capacity models, system-level bioenergetics, performance optimization research, complex metabolic phenotyping"
@@ -1426,6 +1500,8 @@
             {
                 name: "NAD+ 1000mg",
                 category: "antioxidants",
+                price: 30,
+                coa: true,
                 shortDesc: "High-dose cellular cofactor for energy metabolism, DNA repair, and cellular signaling.",
                 fullDesc: "Nicotinamide adenine dinucleotide occupies a position of unparalleled importance in cellular biochemistry. This dinucleotide serves simultaneously as an electron carrier in redox reactions, a substrate for sirtuins, a substrate for PARPs (DNA repair enzymes), and a precursor for calcium signaling molecules. NAD+ levels decline with age across tissues.",
                 applications: "Redox biochemistry, sirtuin activation research, cellular energy metabolism, PARP enzyme function, mitochondrial studies, NAD+/NADH ratio measurement, cellular aging mechanisms, DNA repair pathways"
@@ -1433,6 +1509,8 @@
             {
                 name: "NAD+ 500mg",
                 category: "antioxidants",
+                price: 30,
+                coa: true,
                 shortDesc: "Central redox cofactor essential for over 500 enzymatic reactions governing cellular metabolism.",
                 fullDesc: "Nicotinamide adenine dinucleotide occupies a position of unparalleled importance in cellular biochemistry. This dinucleotide serves simultaneously as an electron carrier in redox reactions, a substrate for sirtuins (deacetylases that regulate metabolism and longevity pathways), a substrate for PARPs (DNA repair enzymes), and a precursor for calcium signaling molecules.",
                 applications: "Redox biochemistry, sirtuin activation research, cellular energy metabolism, PARP enzyme function, mitochondrial studies, NAD+/NADH ratio measurement, cellular aging mechanisms, DNA repair pathways"
@@ -1440,6 +1518,8 @@
             {
                 name: "Glutathione 1200mg Korean",
                 category: "antioxidants",
+                price: 85,
+                coa: true,
                 shortDesc: "Pharmaceutical-grade master antioxidant tripeptide maintaining cellular redox homeostasis.",
                 fullDesc: "Glutathione (γ-L-glutamyl-L-cysteinyl-glycine) represents the first line of antioxidant defense. This tripeptide, present in millimolar concentrations in cells, functions as the primary reducing agent that neutralizes reactive oxygen species before they damage proteins, lipids, or DNA. The peptide's cysteine thiol group provides the reducing power.",
                 applications: "Redox biology, oxidative stress models, glutathione peroxidase studies, cellular detoxification pathways, thiol biochemistry, xenobiotic metabolism, GSH/GSSG ratio studies, antioxidant defense mechanisms"
@@ -1447,6 +1527,8 @@
             {
                 name: "Glutathione 1500mg",
                 category: "antioxidants",
+                price: 38,
+                coa: true,
                 shortDesc: "Higher-dose master antioxidant tripeptide for cellular protection and detoxification research.",
                 fullDesc: "Glutathione represents the first line of antioxidant defense. This tripeptide functions as the primary reducing agent that neutralizes reactive oxygen species before they damage cellular components. Beyond direct antioxidant action, glutathione serves as a cofactor for glutathione peroxidases and glutathione S-transferases.",
                 applications: "Redox biology, oxidative stress models, glutathione peroxidase studies, cellular detoxification pathways, thiol biochemistry, xenobiotic metabolism, GSH/GSSG ratio studies, antioxidant defense mechanisms"
@@ -1454,6 +1536,8 @@
             {
                 name: "SS-31 (Elamipretide) 10mg",
                 category: "antioxidants",
+                price: 55,
+                coa: true,
                 shortDesc: "First peptide to selectively target inner mitochondrial membrane and protect cristae structure.",
                 fullDesc: "SS-31 represents a breakthrough in mitochondria-targeted therapeutics. This cell-permeable tetrapeptide contains alternating cationic and aromatic residues that enable it to penetrate cells and selectively accumulate at the inner mitochondrial membrane, where it binds with high affinity to cardiolipin. This interaction stabilizes cristae architecture and reduces ROS production at the source.",
                 applications: "Mitochondrial membrane research, cardiolipin interaction studies, cristae structure biology, mitochondrial ROS modulation, ischemia-reperfusion models, mitochondrial bioenergetics, targeted mitochondrial protection"
@@ -1461,6 +1545,8 @@
             {
                 name: "Thioctic Acid 25mg/5ml",
                 category: "antioxidants",
+                price: 75,
+                coa: true,
                 shortDesc: "Universal antioxidant functioning in both aqueous and lipid environments.",
                 fullDesc: "Alpha-lipoic acid occupies a unique position in antioxidant biology: its amphipathic structure allows it to scavenge reactive species in both water-soluble compartments and lipid-rich environments—a property no other antioxidant possesses. Beyond direct free radical neutralization, lipoic acid serves as an essential cofactor for mitochondrial α-ketoacid dehydrogenase complexes.",
                 applications: "Mitochondrial cofactor function, universal antioxidant mechanisms, antioxidant regeneration studies, glucose metabolism research, neuroprotection models, metal chelation research, redox signaling pathways"
@@ -1468,6 +1554,8 @@
             {
                 name: "Vitamin C 10mg/20ml",
                 category: "antioxidants",
+                price: 75,
+                coa: true,
                 shortDesc: "Pharmaceutical-grade water-soluble antioxidant required for collagen synthesis and immune function.",
                 fullDesc: "L-Ascorbic acid serves multiple critical biochemical roles beyond its antioxidant function. As a cofactor for prolyl and lysyl hydroxylases, ascorbate is absolutely required for collagen triple helix stability. The vitamin also serves as cofactor for dopamine β-hydroxylase and other copper-containing monooxygenases essential for neurotransmitter synthesis.",
                 applications: "Collagen hydroxylation research, ascorbate-dependent enzyme studies, antioxidant mechanism research, iron metabolism, neurotransmitter synthesis pathways, immune cell function studies, vitamin C-dependent biochemistry"
@@ -1475,6 +1563,8 @@
             {
                 name: "Cerebrolysin 60mg",
                 category: "neuropeptides",
+                price: 23,
+                coa: true,
                 shortDesc: "Pharmaceutical-grade neurotrophic peptide complex mimicking endogenous brain-derived growth factors.",
                 fullDesc: "Cerebrolysin stands apart in neuroprotection research: where most compounds target a single pathway, this pharmaceutical-grade preparation contains a complex mixture of low-molecular-weight neuropeptides and amino acids derived from porcine brain tissue. The result is a biological profile that simultaneously activates multiple neurotrophic signaling cascades.",
                 applications: "Multi-pathway neuroprotection, neurodegenerative disease models, post-stroke neuroplasticity, synaptic preservation studies, neurotrophic factor signaling, cognitive impairment research"
@@ -1482,6 +1572,8 @@
             {
                 name: "Selank 5mg",
                 category: "neuropeptides",
+                price: 36,
+                coa: true,
                 shortDesc: "Synthetic anxiolytic peptide with cytokine-modulating activity for neurochemical research.",
                 fullDesc: "Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics—a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This derivative demonstrates the rare capacity to simultaneously modulate IL-6 expression and influence monoaminergic neurotransmitter systems, bridging neuroimmune signaling in ways few compounds can.",
                 applications: "Anxiety model studies, cognitive function research, immune-neuro axis modulation, GABAergic pathway studies, stress response mechanisms, cytokine regulation research"
@@ -1489,6 +1581,8 @@
             {
                 name: "Selank 10mg",
                 category: "neuropeptides",
+                price: 36,
+                coa: true,
                 shortDesc: "Higher-dose synthetic anxiolytic peptide with documented cytokine-modulating activity.",
                 fullDesc: "Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics—a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This derivative demonstrates the rare capacity to simultaneously modulate IL-6 expression and influence monoaminergic neurotransmitter systems.",
                 applications: "Anxiety model studies, cognitive function research, immune-neuro axis modulation, GABAergic pathway studies, stress response mechanisms, cytokine regulation research"
@@ -1496,6 +1590,8 @@
             {
                 name: "Semax 5mg",
                 category: "neuropeptides",
+                price: 31,
+                coa: true,
                 shortDesc: "ACTH-derived nootropic peptide engineered to penetrate the blood-brain barrier and elevate BDNF.",
                 fullDesc: "Semax emerged from the same Moscow laboratory that produced Selank, but with an entirely different objective: augmenting cognitive capacity through neurotrophic upregulation. This heptapeptide analogue of the ACTH(4-10) fragment demonstrates a mechanism rare among small peptides—it crosses the blood-brain barrier intact and directly increases brain-derived neurotrophic factor expression.",
                 applications: "BDNF upregulation research, cognitive enhancement models, neuroprotection studies, cerebrovascular function research, attention and memory mechanisms, stroke recovery pathways"
@@ -1503,6 +1599,8 @@
             {
                 name: "DSIP 5mg",
                 category: "neuropeptides",
+                price: 31,
+                coa: true,
                 shortDesc: "The original sleep-inducing peptide—a naturally occurring nonapeptide for circadian research.",
                 fullDesc: "Delta Sleep-Inducing Peptide represents a landmark discovery in chronobiology. Isolated from the cerebral venous blood of sleeping rabbits in 1977 by Swiss researchers, DSIP opened scientific inquiry into endogenous sleep architecture modulation. Unlike sedatives that suppress neural activity, this nonapeptide appears to facilitate natural sleep-wake transitions through circadian rhythm entrainment.",
                 applications: "Sleep architecture studies, circadian rhythm regulation, stress-response neuroendocrine pathways, pain perception modulation, cortisol dynamics research, delta wave sleep mechanisms"
@@ -1510,6 +1608,8 @@
             {
                 name: "DSIP Night Blend",
                 category: "neuropeptides",
+                price: 42,
+                coa: true,
                 shortDesc: "Synergistic sleep research complex combining complementary neuropeptides for circadian biology.",
                 fullDesc: "Sleep architecture involves layered neurochemical systems—GABAergic inhibition, serotonergic tone, melatonergic timing, and neuropeptide signaling all converge to orchestrate restorative sleep. This proprietary blend recognizes that complexity, combining DSIP with complementary peptides that target distinct but overlapping pathways in sleep-wake regulation.",
                 applications: "Multi-peptide sleep architecture studies, circadian entrainment mechanisms, neurotransmitter interaction models in sleep, restorative sleep pathway research, sleep disorder neurochemistry"
@@ -1517,6 +1617,8 @@
             {
                 name: "FOXO4-DRI 10mg",
                 category: "longevity",
+                price: 67,
+                coa: true,
                 shortDesc: "First peptide-based senolytic disrupting FOXO4-p53 interaction in senescent cells.",
                 fullDesc: "FOXO4-DRI represents molecular precision in anti-aging research. Senescent cells accumulate with age and secrete inflammatory factors that damage surrounding tissues. Dutch researchers discovered that in senescent cells, FOXO4 protein binds and sequesters p53, preventing apoptosis. FOXO4-DRI competitively disrupts this interaction—freeing p53 to trigger apoptosis specifically in senescent cells.",
                 applications: "Senescent cell biology, FOXO4-p53 interaction studies, senolytic mechanism research, cellular aging models, apoptosis pathway research, SASP modulation, targeted cellular aging interventions"
@@ -1524,6 +1626,8 @@
             {
                 name: "Epithalon 50mg",
                 category: "longevity",
+                price: 66,
+                coa: true,
                 shortDesc: "Synthetic tetrapeptide demonstrating telomerase activation and circadian regulation in aging research.",
                 fullDesc: "Epithalon emerged from decades of Russian gerontology research. This tetrapeptide, designed to replicate bioactive sequences from the pineal peptide epithalamin, demonstrates two remarkable properties: activation of telomerase (the enzyme that maintains telomere length) and modulation of circadian rhythms through melatonin regulation.",
                 applications: "Telomerase activity research, telomere biology, circadian rhythm regulation, pineal peptide research, cellular aging mechanisms, melatonin regulation studies, longevity pathway research"
@@ -1531,6 +1635,8 @@
             {
                 name: "PE 22-28 10mg",
                 category: "longevity",
+                price: 30,
+                coa: true,
                 shortDesc: "Synthetic fragment of sortilin propeptide modulating TREK-1 channels for neuroplasticity research.",
                 fullDesc: "PE 22-28 represents targeted neuroplasticity research. This heptapeptide, corresponding to amino acids 22-28 of the propeptide region of sortilin, was identified through research into spadin—an endogenous peptide with neuroprotective properties. PE 22-28 interacts with TREK-1, a background potassium channel involved in neuronal excitability and synaptic plasticity.",
                 applications: "TREK-1 channel modulation, neuroplasticity mechanisms, neuroprotection studies, potassium channel biology, synaptic plasticity research, neurogenesis studies, neurotrophic signaling pathways"
@@ -1538,6 +1644,8 @@
             {
                 name: "PT-141 (Bremelanotide)",
                 category: "melanocortin",
+                price: 36,
+                coa: true,
                 shortDesc: "Cyclic heptapeptide melanocortin agonist with preferential activity at MC3R and MC4R.",
                 fullDesc: "PT-141 emerged from structure-activity relationship studies of Melanotan II. While Melanotan II activates multiple melanocortin receptor subtypes, its metabolite PT-141 demonstrates preferential activity at MC3R and MC4R with reduced MC1R activation—eliminating pigmentation effect while retaining central melanocortin activity.",
                 applications: "Melanocortin receptor subtype pharmacology, MC3R/MC4R signaling research, central melanocortin pathway studies, receptor selectivity research, hypothalamic signaling mechanisms, melanocortin system biology"
@@ -1545,6 +1653,8 @@
             {
                 name: "Dermorphin 5mg",
                 category: "melanocortin",
+                price: 22,
+                coa: true,
                 shortDesc: "Naturally occurring heptapeptide with extraordinary μ-opioid receptor selectivity.",
                 fullDesc: "Dermorphin stands as one of pharmacology's most intriguing discoveries. Isolated from South American frog skin secretions, this heptapeptide contains an unusual D-alanine in position 2. This structural quirk contributes to dermorphin's exceptional properties: nanomolar μ-opioid receptor affinity, selectivity ratios exceeding 1000:1, and resistance to peptidase degradation.",
                 applications: "μ-opioid receptor pharmacology, receptor subtype selectivity studies, opioid receptor binding kinetics, structure-activity relationships, receptor signaling mechanisms, D-amino acid peptide biology, opioid tolerance mechanisms"
@@ -1552,6 +1662,8 @@
             {
                 name: "Botulinum Toxin Type A 100u",
                 category: "cosmetic",
+                price: 135,
+                coa: true,
                 shortDesc: "Pharmaceutical-grade neurotoxin that cleaves SNAP-25 for synaptic vesicle fusion research.",
                 fullDesc: "Botulinum neurotoxin type A represents the gold standard for studying exocytosis. This large protein complex consists of a heavy chain (binding and internalization) and a light chain (zinc-dependent endopeptidase that cleaves SNAP-25). By specifically cleaving SNAP-25, BoNT/A prevents synaptic vesicles from fusing with the presynaptic membrane.",
                 applications: "SNARE protein biology, synaptic vesicle fusion mechanisms, neuromuscular junction research, acetylcholine release studies, exocytosis research, presynaptic signaling, metalloprotease mechanism studies"
@@ -1559,6 +1671,8 @@
             {
                 name: "Botulinum Toxin Type A 200u",
                 category: "cosmetic",
+                price: 170,
+                coa: true,
                 shortDesc: "Higher-dose pharmaceutical-grade neurotoxin for advanced synaptic research applications.",
                 fullDesc: "Botulinum neurotoxin type A represents the gold standard for studying exocytosis. By specifically cleaving SNAP-25—a protein essential for SNARE complex formation—BoNT/A prevents synaptic vesicles from fusing with the presynaptic membrane, completely blocking neurotransmitter release. This exquisite molecular specificity makes it invaluable for research.",
                 applications: "SNARE protein biology, synaptic vesicle fusion mechanisms, neuromuscular junction research, acetylcholine release studies, exocytosis research, presynaptic signaling, metalloprotease mechanism studies"
@@ -1566,6 +1680,8 @@
             {
                 name: "ARA-290 10mg",
                 category: "advanced",
+                price: 24,
+                coa: true,
                 shortDesc: "EPO-derived peptide selectively activating innate repair receptor without erythropoietic activity.",
                 fullDesc: "ARA-290 represents molecular refinement of erythropoietin's tissue-protective properties. While full-length EPO stimulates red blood cell production, it also activates a distinct receptor complex called the innate repair receptor. ARA-290, an 11-amino acid EPO-derived peptide, selectively activates the IRR without engaging the erythropoietic EPO receptor.",
                 applications: "Innate repair receptor signaling, tissue protection mechanisms, EPO receptor biology, neuroprotection studies, anti-inflammatory pathways, ischemia-reperfusion injury models, diabetic neuropathy research"
@@ -1636,8 +1752,7 @@
                 card.innerHTML = 
                     '<span class="product-category ' + categoryClass + '">' + categoryName + '</span>' +
                     '<div class="product-name">' + product.name + '</div>' +
-                    '<div class="product-description">' + product.shortDesc + '</div>' +
-                    '<a href="#" class="view-details">View Details →</a>';
+                    '<div class="product-price">$' + product.price + '</div>';
                 
                 card.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1700,10 +1815,12 @@
                 var categoryClass = 'category-' + product.category;
                 var categoryName = getCategoryName(product.category);
                 
+                var coaBadge = product.coa ? '<span class="coa-badge">COA ✓</span>' : '';
+                
                 card.innerHTML = 
-                    '<span class="product-category ' + categoryClass + '">' + categoryName + '</span>' +
+                    '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
                     '<div class="product-name">' + product.name + '</div>' +
-                    '<div class="product-description">' + product.shortDesc + '</div>' +
+                    '<div class="product-price">$' + product.price + '</div>' +
                     '<a href="#" class="view-details">View Details →</a>';
                 
                 card.addEventListener('click', function(e) {
@@ -1737,8 +1854,12 @@
             var categoryClass = 'category-' + product.category;
             var categoryName = getCategoryName(product.category);
             
+            var coaLine = product.coa ? '<div style="margin-top:0.5rem;font-size:0.8rem;color:#059669;font-weight:600">✓ Certificate of Analysis Available</div>' : '';
+            
             var header = '<span class="product-category ' + categoryClass + '">' + categoryName + '</span>' +
-                        '<h2 class="modal-title">' + product.name + '</h2>';
+                        '<h2 class="modal-title">' + product.name + '</h2>' +
+                        '<div style="font-size:1.5rem;font-weight:800;color:#0A1628;margin-top:0.25rem">$' + product.price + '</div>' +
+                        coaLine;
             
             var body = '<p>' + product.fullDesc + '</p>';
             
@@ -1748,7 +1869,7 @@
             }
             
             body += '<p><strong>For research purposes only.</strong> Not for human consumption.</p>' +
-                   '<a href="mailto:contact@peptideresourcecenter.com?subject=Inquiry: ' + encodeURIComponent(product.name) + '" class="contact-button">Contact to Order</a>';
+                   '<a href="mailto:support@prcpeptides.com?subject=Order Inquiry: ' + encodeURIComponent(product.name) + '" class="contact-button">Contact to Order</a>';
             
             document.getElementById('modalHeader').innerHTML = header;
             document.getElementById('modalBody').innerHTML = body;
