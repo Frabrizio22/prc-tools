@@ -378,7 +378,7 @@
 
         /* Featured Products Section */
         .featured-section {
-            padding: 1.25rem 0 1.25rem;
+            display: none;
         }
 
         .section-heading {
@@ -527,26 +527,34 @@
 
         /* Catalog Section */
         .catalog-section {
-            padding: 1rem 0 0;
-            border-top: 1px solid #F1F5F9;
+            padding: 0.75rem 0 0;
         }
 
         .catalog-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.25rem;
+            margin-bottom: 0.5rem;
         }
 
         .catalog-count {
-            font-size: 0.9rem;
-            color: #64748B;
+            font-size: 0.75rem;
+            color: #94A3B8;
             font-weight: 500;
         }
 
         /* Category Filter */
         .filter-section {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            position: sticky;
+            top: 49px;
+            background: #FFFFFF;
+            z-index: 90;
+            padding: 8px 0 4px;
+            margin-left: -1rem;
+            margin-right: -1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
 
         .filter-pills {
@@ -560,11 +568,11 @@
         .filter-pills::-webkit-scrollbar { height: 0; }
 
         .filter-pill {
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 20px;
             border: 1.5px solid #E2E8F0;
             background: #FFFFFF;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: #64748B;
             cursor: pointer;
@@ -596,7 +604,7 @@
             border: 1px solid #E2E8F0;
             border-left: 3px solid #2B7DE9;
             border-radius: 8px;
-            padding: 12px;
+            padding: 10px 10px;
             transition: all 0.2s;
             cursor: pointer;
         }
@@ -1100,24 +1108,24 @@
         <!-- Catalog Section -->
         <section class="catalog-section" id="categories">
             <div class="catalog-header">
-                <h2 class="section-heading">All Products</h2>
+                <h2 class="section-heading" style="font-size:0.85rem">Products</h2>
                 <span class="catalog-count" id="catalogCount">44 products</span>
             </div>
             
             <!-- Category Filter -->
             <div class="filter-section">
                 <div class="filter-pills">
-                    <button class="filter-pill active" data-category="all">All (44)</button>
-                    <button class="filter-pill" data-category="glp">GLP Receptor Agonists (5)</button>
-                    <button class="filter-pill" data-category="tissue">Tissue Repair (6)</button>
-                    <button class="filter-pill" data-category="gh">Growth Hormone (5)</button>
-                    <button class="filter-pill" data-category="metabolic">Metabolic (7)</button>
-                    <button class="filter-pill" data-category="antioxidants">Antioxidants (7)</button>
-                    <button class="filter-pill" data-category="neuropeptides">Neuropeptides (6)</button>
-                    <button class="filter-pill" data-category="longevity">Longevity (3)</button>
-                    <button class="filter-pill" data-category="melanocortin">Melanocortin (2)</button>
-                    <button class="filter-pill" data-category="cosmetic">Cosmetic (2)</button>
-                    <button class="filter-pill" data-category="advanced">Advanced (1)</button>
+                    <button class="filter-pill active" data-category="all">All</button>
+                    <button class="filter-pill" data-category="glp">GLP</button>
+                    <button class="filter-pill" data-category="tissue">Tissue Repair</button>
+                    <button class="filter-pill" data-category="gh">Growth Hormone</button>
+                    <button class="filter-pill" data-category="metabolic">Metabolic</button>
+                    <button class="filter-pill" data-category="antioxidants">Antioxidants</button>
+                    <button class="filter-pill" data-category="neuropeptides">Neuro</button>
+                    <button class="filter-pill" data-category="longevity">Longevity</button>
+                    <button class="filter-pill" data-category="melanocortin">Melanocortin</button>
+                    <button class="filter-pill" data-category="cosmetic">Cosmetic</button>
+                    <button class="filter-pill" data-category="advanced">Advanced</button>
                 </div>
             </div>
 
