@@ -875,12 +875,12 @@
         <section class="filter-section" id="categories">
             <div class="filter-pills">
                 <button class="filter-pill active" data-category="all">All (44)</button>
-                <button class="filter-pill" data-category="neuropeptides">Neuropeptides (6)</button>
                 <button class="filter-pill" data-category="glp">GLP Receptor Agonists (5)</button>
-                <button class="filter-pill" data-category="gh">Growth Hormone Secretagogues (5)</button>
                 <button class="filter-pill" data-category="tissue">Tissue Repair (6)</button>
+                <button class="filter-pill" data-category="gh">Growth Hormone (5)</button>
                 <button class="filter-pill" data-category="metabolic">Metabolic (7)</button>
                 <button class="filter-pill" data-category="antioxidants">Antioxidants (7)</button>
+                <button class="filter-pill" data-category="neuropeptides">Neuropeptides (6)</button>
                 <button class="filter-pill" data-category="longevity">Longevity (3)</button>
                 <button class="filter-pill" data-category="melanocortin">Melanocortin (2)</button>
                 <button class="filter-pill" data-category="cosmetic">Cosmetic (2)</button>
@@ -997,48 +997,6 @@
         // Product Data
         var products = [
             {
-                name: "Selank 5mg",
-                category: "neuropeptides",
-                shortDesc: "Synthetic anxiolytic peptide with cytokine-modulating activity for neurochemical research.",
-                fullDesc: "Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics—a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This derivative demonstrates the rare capacity to simultaneously modulate IL-6 expression and influence monoaminergic neurotransmitter systems, bridging neuroimmune signaling in ways few compounds can.",
-                applications: "Anxiety model studies, cognitive function research, immune-neuro axis modulation, GABAergic pathway studies, stress response mechanisms, cytokine regulation research"
-            },
-            {
-                name: "Selank 10mg",
-                category: "neuropeptides",
-                shortDesc: "Higher-dose synthetic anxiolytic peptide with documented cytokine-modulating activity.",
-                fullDesc: "Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics—a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This derivative demonstrates the rare capacity to simultaneously modulate IL-6 expression and influence monoaminergic neurotransmitter systems.",
-                applications: "Anxiety model studies, cognitive function research, immune-neuro axis modulation, GABAergic pathway studies, stress response mechanisms, cytokine regulation research"
-            },
-            {
-                name: "Semax 5mg",
-                category: "neuropeptides",
-                shortDesc: "ACTH-derived nootropic peptide engineered to penetrate the blood-brain barrier and elevate BDNF.",
-                fullDesc: "Semax emerged from the same Moscow laboratory that produced Selank, but with an entirely different objective: augmenting cognitive capacity through neurotrophic upregulation. This heptapeptide analogue of the ACTH(4-10) fragment demonstrates a mechanism rare among small peptides—it crosses the blood-brain barrier intact and directly increases brain-derived neurotrophic factor expression.",
-                applications: "BDNF upregulation research, cognitive enhancement models, neuroprotection studies, cerebrovascular function research, attention and memory mechanisms, stroke recovery pathways"
-            },
-            {
-                name: "DSIP 5mg",
-                category: "neuropeptides",
-                shortDesc: "The original sleep-inducing peptide—a naturally occurring nonapeptide for circadian research.",
-                fullDesc: "Delta Sleep-Inducing Peptide represents a landmark discovery in chronobiology. Isolated from the cerebral venous blood of sleeping rabbits in 1977 by Swiss researchers, DSIP opened scientific inquiry into endogenous sleep architecture modulation. Unlike sedatives that suppress neural activity, this nonapeptide appears to facilitate natural sleep-wake transitions through circadian rhythm entrainment.",
-                applications: "Sleep architecture studies, circadian rhythm regulation, stress-response neuroendocrine pathways, pain perception modulation, cortisol dynamics research, delta wave sleep mechanisms"
-            },
-            {
-                name: "DSIP Night Blend",
-                category: "neuropeptides",
-                shortDesc: "Synergistic sleep research complex combining complementary neuropeptides for circadian biology.",
-                fullDesc: "Sleep architecture involves layered neurochemical systems—GABAergic inhibition, serotonergic tone, melatonergic timing, and neuropeptide signaling all converge to orchestrate restorative sleep. This proprietary blend recognizes that complexity, combining DSIP with complementary peptides that target distinct but overlapping pathways in sleep-wake regulation.",
-                applications: "Multi-peptide sleep architecture studies, circadian entrainment mechanisms, neurotransmitter interaction models in sleep, restorative sleep pathway research, sleep disorder neurochemistry"
-            },
-            {
-                name: "Cerebrolysin 60mg",
-                category: "neuropeptides",
-                shortDesc: "Pharmaceutical-grade neurotrophic peptide complex mimicking endogenous brain-derived growth factors.",
-                fullDesc: "Cerebrolysin stands apart in neuroprotection research: where most compounds target a single pathway, this pharmaceutical-grade preparation contains a complex mixture of low-molecular-weight neuropeptides and amino acids derived from porcine brain tissue. The result is a biological profile that simultaneously activates multiple neurotrophic signaling cascades.",
-                applications: "Multi-pathway neuroprotection, neurodegenerative disease models, post-stroke neuroplasticity, synaptic preservation studies, neurotrophic factor signaling, cognitive impairment research"
-            },
-            {
                 name: "Semaglutide",
                 category: "glp",
                 shortDesc: "Benchmark long-acting GLP-1 receptor agonist with fatty acid modification for extended half-life.",
@@ -1046,17 +1004,17 @@
                 applications: "GLP-1 receptor binding and signaling studies, glucose homeostasis mechanisms, pancreatic beta-cell function research, appetite regulation pathways, incretin pharmacology, metabolic disease models"
             },
             {
-                name: "Tirzepatide 20mg",
-                category: "glp",
-                shortDesc: "First dual GLP-1/GIP receptor agonist with balanced potency for incretin synergy research.",
-                fullDesc: "Tirzepatide represents a paradigm shift in incretin biology. Where previous research focused on single-receptor agonism, Eli Lilly scientists engineered this novel peptide to activate both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) receptors with balanced potency. This dual incretin activation reveals synergistic metabolic effects.",
-                applications: "Dual incretin pathway research, GIP/GLP-1 receptor synergy, incretin receptor pharmacology, metabolic signaling cascade studies, pancreatic islet function, comparative incretin biology"
-            },
-            {
                 name: "Tirzepatide 30mg",
                 category: "glp",
                 shortDesc: "Higher-dose dual GLP-1/GIP receptor agonist for advanced incretin research.",
                 fullDesc: "Tirzepatide represents a paradigm shift in incretin biology. Where previous research focused on single-receptor agonism, Eli Lilly scientists engineered this novel peptide to activate both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) receptors with balanced potency.",
+                applications: "Dual incretin pathway research, GIP/GLP-1 receptor synergy, incretin receptor pharmacology, metabolic signaling cascade studies, pancreatic islet function, comparative incretin biology"
+            },
+            {
+                name: "Tirzepatide 20mg",
+                category: "glp",
+                shortDesc: "First dual GLP-1/GIP receptor agonist with balanced potency for incretin synergy research.",
+                fullDesc: "Tirzepatide represents a paradigm shift in incretin biology. Where previous research focused on single-receptor agonism, Eli Lilly scientists engineered this novel peptide to activate both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) receptors with balanced potency. This dual incretin activation reveals synergistic metabolic effects.",
                 applications: "Dual incretin pathway research, GIP/GLP-1 receptor synergy, incretin receptor pharmacology, metabolic signaling cascade studies, pancreatic islet function, comparative incretin biology"
             },
             {
@@ -1072,41 +1030,6 @@
                 shortDesc: "Long-acting amylin receptor agonist for sustained satiety and gastric emptying research.",
                 fullDesc: "Cagrilintide reimagines amylin pharmacology. While the first-generation amylin analogue pramlintide required frequent dosing and suffered from limited stability, Novo Nordisk's structural modifications created a compound with dramatically extended receptor residence time and proteolytic resistance. This long-acting analogue enables researchers to study sustained amylin receptor activation.",
                 applications: "Amylin receptor signaling research, gastric emptying mechanisms, satiety pathway studies, pancreatic beta-cell co-secretion, pramlintide comparison pharmacology, calcitonin receptor family research"
-            },
-            {
-                name: "Sermorelin 5mg",
-                category: "gh",
-                shortDesc: "GHRH(1-29) fragment retaining complete growth hormone releasing activity.",
-                fullDesc: "Sermorelin represents elegant peptide design: by identifying the minimal bioactive sequence within full-length GHRH(1-44), researchers created a compound with identical receptor activity but enhanced stability and reduced immunogenicity. This 29-amino acid fragment contains the entire receptor-binding domain, making it indispensable for studying GHRH receptor pharmacology.",
-                applications: "GHRH receptor binding studies, pituitary somatotroph function, growth hormone secretion dynamics, pulsatile GH release mechanisms, IGF-1 pathway research, growth hormone axis physiology"
-            },
-            {
-                name: "Ipamorelin 5mg",
-                category: "gh",
-                shortDesc: "Most selective growth hormone secretagogue with exceptional GH specificity.",
-                fullDesc: "Ipamorelin solved a critical problem in growth hormone secretagogue research: earlier ghrelin mimetics stimulated GH release but also elevated prolactin and cortisol through off-target receptor activation. Novo Nordisk's Ipamorelin demonstrates near-exclusive selectivity for the ghrelin receptor (GHS-R1a) on somatotrophs, triggering GH secretion without hormonal side effects.",
-                applications: "Ghrelin receptor (GHS-R1a) pharmacology, selective GH secretion mechanisms, growth hormone pulse dynamics, somatotroph receptor selectivity, GHRP comparative studies, non-GHRH secretagogue pathways"
-            },
-            {
-                name: "CJC-1295 no DAC 5mg",
-                category: "gh",
-                shortDesc: "Modified GHRH analogue with enhanced proteolytic resistance for pulsatile GH research.",
-                fullDesc: "CJC-1295 without Drug Affinity Complex (commonly called Modified GRF 1-29) represents refined GHRH analogue design. Through targeted amino acid substitutions at positions vulnerable to enzymatic cleavage, researchers created a peptide significantly more stable than natural GHRH yet without the week-long half-life of DAC-conjugated versions.",
-                applications: "GHRH analogue pharmacology, pulsatile GH release patterns, GHRH receptor binding kinetics, peptide stability mechanisms, growth hormone secretion dynamics, somatotroph physiology"
-            },
-            {
-                name: "CJC-1295/Ipamorelin 5mg/5mg",
-                category: "gh",
-                shortDesc: "Precision-balanced dual growth hormone secretagogue targeting GHRH and ghrelin pathways.",
-                fullDesc: "Growth hormone release is governed by two parallel pathways: GHRH signaling through pituitary GHRH receptors, and ghrelin acting via GHS-R1a receptors. This combination recognizes that dual-pathway activation produces supra-additive effects—the GH pulse amplitude from combined GHRH/ghrelin agonism exceeds the sum of individual stimulation.",
-                applications: "Dual-pathway GH secretagogue studies, GHRH/ghrelin synergy mechanisms, amplified GH pulse research, combined secretagogue pharmacodynamics, maximal endogenous GH release models"
-            },
-            {
-                name: "HGH 191 1500iu",
-                category: "gh",
-                shortDesc: "Bioidentical 191-amino acid recombinant human growth hormone for direct GH receptor research.",
-                fullDesc: "This represents human somatotropin in its native form: 191 amino acids in the precise sequence and tertiary structure found in pituitary-derived growth hormone. Produced through recombinant DNA technology in E. coli expression systems, this rHGH is structurally indistinguishable from endogenous GH, making it the unambiguous choice for studying growth hormone receptor biology.",
-                applications: "GH receptor binding and signaling, IGF-1 pathway research, somatotropin receptor pharmacology, anabolic signaling mechanisms, direct GH effects vs. secretagogue comparison, protein synthesis research"
             },
             {
                 name: "BPC-157/TB-500 10mg/10mg",
@@ -1149,6 +1072,41 @@
                 shortDesc: "Pharmaceutical-grade human placental extract containing over 50 identified growth factors.",
                 fullDesc: "Laennec represents the biological complexity that single-molecule research cannot capture. This pharmaceutical-grade extract, derived from healthy human placenta and manufactured under strict Japanese pharmaceutical standards, contains a remarkably diverse array of bioactive molecules: multiple growth factor families (FGF, EGF, VEGF, HGF), cytokines, amino acids, vitamins, and minerals.",
                 applications: "Multi-growth factor signaling, tissue regeneration models, cytokine interaction studies, complex biological system research, angiogenesis with multiple factors, cellular metabolism in growth factor-rich environments"
+            },
+            {
+                name: "Sermorelin 5mg",
+                category: "gh",
+                shortDesc: "GHRH(1-29) fragment retaining complete growth hormone releasing activity.",
+                fullDesc: "Sermorelin represents elegant peptide design: by identifying the minimal bioactive sequence within full-length GHRH(1-44), researchers created a compound with identical receptor activity but enhanced stability and reduced immunogenicity. This 29-amino acid fragment contains the entire receptor-binding domain, making it indispensable for studying GHRH receptor pharmacology.",
+                applications: "GHRH receptor binding studies, pituitary somatotroph function, growth hormone secretion dynamics, pulsatile GH release mechanisms, IGF-1 pathway research, growth hormone axis physiology"
+            },
+            {
+                name: "Ipamorelin 5mg",
+                category: "gh",
+                shortDesc: "Most selective growth hormone secretagogue with exceptional GH specificity.",
+                fullDesc: "Ipamorelin solved a critical problem in growth hormone secretagogue research: earlier ghrelin mimetics stimulated GH release but also elevated prolactin and cortisol through off-target receptor activation. Novo Nordisk's Ipamorelin demonstrates near-exclusive selectivity for the ghrelin receptor (GHS-R1a) on somatotrophs, triggering GH secretion without hormonal side effects.",
+                applications: "Ghrelin receptor (GHS-R1a) pharmacology, selective GH secretion mechanisms, growth hormone pulse dynamics, somatotroph receptor selectivity, GHRP comparative studies, non-GHRH secretagogue pathways"
+            },
+            {
+                name: "CJC-1295 no DAC 5mg",
+                category: "gh",
+                shortDesc: "Modified GHRH analogue with enhanced proteolytic resistance for pulsatile GH research.",
+                fullDesc: "CJC-1295 without Drug Affinity Complex (commonly called Modified GRF 1-29) represents refined GHRH analogue design. Through targeted amino acid substitutions at positions vulnerable to enzymatic cleavage, researchers created a peptide significantly more stable than natural GHRH yet without the week-long half-life of DAC-conjugated versions.",
+                applications: "GHRH analogue pharmacology, pulsatile GH release patterns, GHRH receptor binding kinetics, peptide stability mechanisms, growth hormone secretion dynamics, somatotroph physiology"
+            },
+            {
+                name: "CJC-1295/Ipamorelin 5mg/5mg",
+                category: "gh",
+                shortDesc: "Precision-balanced dual growth hormone secretagogue targeting GHRH and ghrelin pathways.",
+                fullDesc: "Growth hormone release is governed by two parallel pathways: GHRH signaling through pituitary GHRH receptors, and ghrelin acting via GHS-R1a receptors. This combination recognizes that dual-pathway activation produces supra-additive effects—the GH pulse amplitude from combined GHRH/ghrelin agonism exceeds the sum of individual stimulation.",
+                applications: "Dual-pathway GH secretagogue studies, GHRH/ghrelin synergy mechanisms, amplified GH pulse research, combined secretagogue pharmacodynamics, maximal endogenous GH release models"
+            },
+            {
+                name: "HGH 191 1500iu",
+                category: "gh",
+                shortDesc: "Bioidentical 191-amino acid recombinant human growth hormone for direct GH receptor research.",
+                fullDesc: "This represents human somatotropin in its native form: 191 amino acids in the precise sequence and tertiary structure found in pituitary-derived growth hormone. Produced through recombinant DNA technology in E. coli expression systems, this rHGH is structurally indistinguishable from endogenous GH, making it the unambiguous choice for studying growth hormone receptor biology.",
+                applications: "GH receptor binding and signaling, IGF-1 pathway research, somatotropin receptor pharmacology, anabolic signaling mechanisms, direct GH effects vs. secretagogue comparison, protein synthesis research"
             },
             {
                 name: "AOD-9604 2mg",
@@ -1199,17 +1157,17 @@
                 applications: "Comprehensive metabolic system research, multi-pathway integration studies, maximal metabolic capacity models, system-level bioenergetics, performance optimization research, complex metabolic phenotyping"
             },
             {
-                name: "NAD+ 500mg",
-                category: "antioxidants",
-                shortDesc: "Central redox cofactor essential for over 500 enzymatic reactions governing cellular metabolism.",
-                fullDesc: "Nicotinamide adenine dinucleotide occupies a position of unparalleled importance in cellular biochemistry. This dinucleotide serves simultaneously as an electron carrier in redox reactions, a substrate for sirtuins (deacetylases that regulate metabolism and longevity pathways), a substrate for PARPs (DNA repair enzymes), and a precursor for calcium signaling molecules.",
-                applications: "Redox biochemistry, sirtuin activation research, cellular energy metabolism, PARP enzyme function, mitochondrial studies, NAD+/NADH ratio measurement, cellular aging mechanisms, DNA repair pathways"
-            },
-            {
                 name: "NAD+ 1000mg",
                 category: "antioxidants",
                 shortDesc: "High-dose cellular cofactor for energy metabolism, DNA repair, and cellular signaling.",
                 fullDesc: "Nicotinamide adenine dinucleotide occupies a position of unparalleled importance in cellular biochemistry. This dinucleotide serves simultaneously as an electron carrier in redox reactions, a substrate for sirtuins, a substrate for PARPs (DNA repair enzymes), and a precursor for calcium signaling molecules. NAD+ levels decline with age across tissues.",
+                applications: "Redox biochemistry, sirtuin activation research, cellular energy metabolism, PARP enzyme function, mitochondrial studies, NAD+/NADH ratio measurement, cellular aging mechanisms, DNA repair pathways"
+            },
+            {
+                name: "NAD+ 500mg",
+                category: "antioxidants",
+                shortDesc: "Central redox cofactor essential for over 500 enzymatic reactions governing cellular metabolism.",
+                fullDesc: "Nicotinamide adenine dinucleotide occupies a position of unparalleled importance in cellular biochemistry. This dinucleotide serves simultaneously as an electron carrier in redox reactions, a substrate for sirtuins (deacetylases that regulate metabolism and longevity pathways), a substrate for PARPs (DNA repair enzymes), and a precursor for calcium signaling molecules.",
                 applications: "Redox biochemistry, sirtuin activation research, cellular energy metabolism, PARP enzyme function, mitochondrial studies, NAD+/NADH ratio measurement, cellular aging mechanisms, DNA repair pathways"
             },
             {
@@ -1227,6 +1185,13 @@
                 applications: "Redox biology, oxidative stress models, glutathione peroxidase studies, cellular detoxification pathways, thiol biochemistry, xenobiotic metabolism, GSH/GSSG ratio studies, antioxidant defense mechanisms"
             },
             {
+                name: "SS-31 (Elamipretide) 10mg",
+                category: "antioxidants",
+                shortDesc: "First peptide to selectively target inner mitochondrial membrane and protect cristae structure.",
+                fullDesc: "SS-31 represents a breakthrough in mitochondria-targeted therapeutics. This cell-permeable tetrapeptide contains alternating cationic and aromatic residues that enable it to penetrate cells and selectively accumulate at the inner mitochondrial membrane, where it binds with high affinity to cardiolipin. This interaction stabilizes cristae architecture and reduces ROS production at the source.",
+                applications: "Mitochondrial membrane research, cardiolipin interaction studies, cristae structure biology, mitochondrial ROS modulation, ischemia-reperfusion models, mitochondrial bioenergetics, targeted mitochondrial protection"
+            },
+            {
                 name: "Thioctic Acid 25mg/5ml",
                 category: "antioxidants",
                 shortDesc: "Universal antioxidant functioning in both aqueous and lipid environments.",
@@ -1241,11 +1206,46 @@
                 applications: "Collagen hydroxylation research, ascorbate-dependent enzyme studies, antioxidant mechanism research, iron metabolism, neurotransmitter synthesis pathways, immune cell function studies, vitamin C-dependent biochemistry"
             },
             {
-                name: "SS-31 (Elamipretide) 10mg",
-                category: "antioxidants",
-                shortDesc: "First peptide to selectively target inner mitochondrial membrane and protect cristae structure.",
-                fullDesc: "SS-31 represents a breakthrough in mitochondria-targeted therapeutics. This cell-permeable tetrapeptide contains alternating cationic and aromatic residues that enable it to penetrate cells and selectively accumulate at the inner mitochondrial membrane, where it binds with high affinity to cardiolipin. This interaction stabilizes cristae architecture and reduces ROS production at the source.",
-                applications: "Mitochondrial membrane research, cardiolipin interaction studies, cristae structure biology, mitochondrial ROS modulation, ischemia-reperfusion models, mitochondrial bioenergetics, targeted mitochondrial protection"
+                name: "Cerebrolysin 60mg",
+                category: "neuropeptides",
+                shortDesc: "Pharmaceutical-grade neurotrophic peptide complex mimicking endogenous brain-derived growth factors.",
+                fullDesc: "Cerebrolysin stands apart in neuroprotection research: where most compounds target a single pathway, this pharmaceutical-grade preparation contains a complex mixture of low-molecular-weight neuropeptides and amino acids derived from porcine brain tissue. The result is a biological profile that simultaneously activates multiple neurotrophic signaling cascades.",
+                applications: "Multi-pathway neuroprotection, neurodegenerative disease models, post-stroke neuroplasticity, synaptic preservation studies, neurotrophic factor signaling, cognitive impairment research"
+            },
+            {
+                name: "Selank 5mg",
+                category: "neuropeptides",
+                shortDesc: "Synthetic anxiolytic peptide with cytokine-modulating activity for neurochemical research.",
+                fullDesc: "Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics—a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This derivative demonstrates the rare capacity to simultaneously modulate IL-6 expression and influence monoaminergic neurotransmitter systems, bridging neuroimmune signaling in ways few compounds can.",
+                applications: "Anxiety model studies, cognitive function research, immune-neuro axis modulation, GABAergic pathway studies, stress response mechanisms, cytokine regulation research"
+            },
+            {
+                name: "Selank 10mg",
+                category: "neuropeptides",
+                shortDesc: "Higher-dose synthetic anxiolytic peptide with documented cytokine-modulating activity.",
+                fullDesc: "Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics—a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This derivative demonstrates the rare capacity to simultaneously modulate IL-6 expression and influence monoaminergic neurotransmitter systems.",
+                applications: "Anxiety model studies, cognitive function research, immune-neuro axis modulation, GABAergic pathway studies, stress response mechanisms, cytokine regulation research"
+            },
+            {
+                name: "Semax 5mg",
+                category: "neuropeptides",
+                shortDesc: "ACTH-derived nootropic peptide engineered to penetrate the blood-brain barrier and elevate BDNF.",
+                fullDesc: "Semax emerged from the same Moscow laboratory that produced Selank, but with an entirely different objective: augmenting cognitive capacity through neurotrophic upregulation. This heptapeptide analogue of the ACTH(4-10) fragment demonstrates a mechanism rare among small peptides—it crosses the blood-brain barrier intact and directly increases brain-derived neurotrophic factor expression.",
+                applications: "BDNF upregulation research, cognitive enhancement models, neuroprotection studies, cerebrovascular function research, attention and memory mechanisms, stroke recovery pathways"
+            },
+            {
+                name: "DSIP 5mg",
+                category: "neuropeptides",
+                shortDesc: "The original sleep-inducing peptide—a naturally occurring nonapeptide for circadian research.",
+                fullDesc: "Delta Sleep-Inducing Peptide represents a landmark discovery in chronobiology. Isolated from the cerebral venous blood of sleeping rabbits in 1977 by Swiss researchers, DSIP opened scientific inquiry into endogenous sleep architecture modulation. Unlike sedatives that suppress neural activity, this nonapeptide appears to facilitate natural sleep-wake transitions through circadian rhythm entrainment.",
+                applications: "Sleep architecture studies, circadian rhythm regulation, stress-response neuroendocrine pathways, pain perception modulation, cortisol dynamics research, delta wave sleep mechanisms"
+            },
+            {
+                name: "DSIP Night Blend",
+                category: "neuropeptides",
+                shortDesc: "Synergistic sleep research complex combining complementary neuropeptides for circadian biology.",
+                fullDesc: "Sleep architecture involves layered neurochemical systems—GABAergic inhibition, serotonergic tone, melatonergic timing, and neuropeptide signaling all converge to orchestrate restorative sleep. This proprietary blend recognizes that complexity, combining DSIP with complementary peptides that target distinct but overlapping pathways in sleep-wake regulation.",
+                applications: "Multi-peptide sleep architecture studies, circadian entrainment mechanisms, neurotransmitter interaction models in sleep, restorative sleep pathway research, sleep disorder neurochemistry"
             },
             {
                 name: "FOXO4-DRI 10mg",
