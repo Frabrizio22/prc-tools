@@ -83,7 +83,7 @@
             border-radius: 8px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.1);
             padding: 8px 0;
-            min-width: 200px;
+            min-width: 220px;
             z-index: 200;
             margin-top: 8px;
         }
@@ -103,6 +103,205 @@
         .nav-dropdown-menu a:hover {
             background: #F8FAFC;
             color: #2B7DE9;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 8px;
+        }
+
+        .nav-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #475569;
+            transition: color 0.2s;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .nav-icon:hover { color: #2B7DE9; }
+
+        .cart-badge {
+            position: absolute;
+            top: -4px;
+            right: -6px;
+            background: #2B7DE9;
+            color: #fff;
+            font-size: 0.55rem;
+            font-weight: 700;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10,22,40,0.5);
+            z-index: 300;
+            padding: 80px 20px 20px;
+        }
+
+        .search-overlay.active { display: block; }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            width: 100%;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 1rem;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .search-box input:focus { border-color: #2B7DE9; }
+
+        .search-results {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 8px;
+        }
+
+        .search-result-item {
+            padding: 10px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .search-result-item:hover { background: #F8FAFC; }
+
+        .search-result-item .sr-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #0A1628;
+        }
+
+        .search-result-item .sr-cat {
+            font-size: 0.7rem;
+            color: #64748B;
+        }
+
+        /* FAQ Page */
+        .page-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10,22,40,0.5);
+            z-index: 250;
+            overflow-y: auto;
+            padding: 40px 16px;
+        }
+
+        .page-overlay.active { display: block; }
+
+        .page-panel {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px 24px;
+            position: relative;
+        }
+
+        .page-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 1.5rem;
+            color: #94A3B8;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .page-close:hover { background: #F1F5F9; }
+
+        .page-panel h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-bottom: 24px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #E2E8F0;
+            padding: 16px 0;
+        }
+
+        .faq-item:last-child { border-bottom: none; }
+
+        .faq-q {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #0A1628;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-q::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: #94A3B8;
+            transition: transform 0.2s;
+        }
+
+        .faq-item.open .faq-q::after {
+            content: '−';
+            color: #2B7DE9;
+        }
+
+        .faq-a {
+            display: none;
+            padding-top: 10px;
+            font-size: 0.85rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .faq-item.open .faq-a { display: block; }
+
+        .about-section { margin-bottom: 24px; }
+        .about-section h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-bottom: 8px;
+        }
+        .about-section p {
+            font-size: 0.88rem;
+            color: #475569;
+            line-height: 1.7;
         }
 
         /* Hero Banner */
@@ -539,8 +738,14 @@
                         <a href="#" onclick="filterCat('Advanced');return false">Advanced</a>
                     </div>
                 </span>
-                <a href="https://peptideresourcecenter.com" target="_blank" class="desktop-only">Resources</a>
-                <a href="mailto:contact@peptideresourcecenter.com" class="desktop-only">Contact</a>
+                <a href="#" class="desktop-only" onclick="openPage('faq');return false">FAQ</a>
+                <a href="#" class="desktop-only" onclick="openPage('about');return false">About</a>
+                <a href="https://peptideresourcecenter.com" target="_blank" class="desktop-only">Resources ↗</a>
+                <div class="nav-icons">
+                    <button class="nav-icon" onclick="toggleSearch()" title="Search">🔍</button>
+                    <button class="nav-icon" onclick="openPage('about');return false" title="Account">👤</button>
+                    <button class="nav-icon" title="Cart">🛒<span class="cart-badge">0</span></button>
+                </div>
             </nav>
         </div>
     </header>
@@ -603,13 +808,89 @@
         </div>
     </div>
 
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay" onclick="if(event.target===this)toggleSearch()">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search peptides..." oninput="doSearch(this.value)">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- FAQ Page -->
+    <div class="page-overlay" id="faqPage" onclick="if(event.target===this)closePage('faq')">
+        <div class="page-panel">
+            <span class="page-close" onclick="closePage('faq')">&times;</span>
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">What are your products used for?</div>
+                <div class="faq-a">All PRC Peptides products are sold exclusively for in vitro laboratory research purposes. They are not intended for human consumption, diagnostic use, or therapeutic applications.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">What purity are your peptides?</div>
+                <div class="faq-a">All of our peptides are manufactured to ≥98% purity by GMP-compliant facilities. Each product undergoes rigorous quality control testing before being made available.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">How do I place an order?</div>
+                <div class="faq-a">Browse our catalog, add items to your cart, and proceed to checkout. We accept multiple payment methods including cryptocurrency. For questions about ordering, email us at support@prcpeptides.com.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">What payment methods do you accept?</div>
+                <div class="faq-a">We accept cryptocurrency (Bitcoin, Ethereum, USDC), Venmo, PayPal, and Zelle. Additional payment options are being added soon.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">How fast is shipping?</div>
+                <div class="faq-a">Orders are processed within 24 hours on business days. Standard shipping within the US typically arrives in 3-5 business days. Expedited options are available at checkout.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">Do you ship internationally?</div>
+                <div class="faq-a">Currently we ship within the United States only. International shipping options are being evaluated.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">What is your return policy?</div>
+                <div class="faq-a">Due to the nature of research compounds, we cannot accept returns on opened products. Unopened items in original packaging may be returned within 14 days for a full refund. Contact support@prcpeptides.com for return authorization.</div>
+            </div>
+            <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">How should I store peptides?</div>
+                <div class="faq-a">Unreconstituted peptides should be stored at -20°C for long-term storage or 2-8°C (refrigerated) for short-term. Once reconstituted, peptides should be refrigerated and used within the timeframe specified on the product documentation. Avoid repeated freeze-thaw cycles.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div class="page-overlay" id="aboutPage" onclick="if(event.target===this)closePage('about')">
+        <div class="page-panel">
+            <span class="page-close" onclick="closePage('about')">&times;</span>
+            <h2>About PRC Peptides</h2>
+            <div class="about-section">
+                <h3>Our Mission</h3>
+                <p>PRC Peptides provides researchers with access to high-purity research compounds backed by rigorous quality standards. We believe advancing scientific research requires reliable, consistent, and accessible peptide supply.</p>
+            </div>
+            <div class="about-section">
+                <h3>Quality Commitment</h3>
+                <p>Every compound in our catalog is sourced from GMP-compliant manufacturers and tested to ≥98% purity. We work directly with our manufacturing partners to ensure consistency across every batch.</p>
+            </div>
+            <div class="about-section">
+                <h3>Why Researchers Choose Us</h3>
+                <p>With 44+ research compounds across 10 categories, competitive pricing, and fast shipping, PRC Peptides has become a trusted source for research institutions and independent researchers alike. Our commitment to transparency and quality sets us apart.</p>
+            </div>
+            <div class="about-section">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:support@prcpeptides.com" style="color:#2B7DE9">support@prcpeptides.com</a></p>
+                <p>Resources: <a href="https://peptideresourcecenter.com" target="_blank" style="color:#2B7DE9">Peptide Resource Center ↗</a></p>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">PRC PEPTIDES</div>
             <div class="footer-links">
-                <a href="https://peptideresourcecenter.com" target="_blank">Resource Center</a>
-                <a href="mailto:contact@peptideresourcecenter.com">contact@peptideresourcecenter.com</a>
+                <a href="#shop">Shop</a>
+                <a href="#" onclick="openPage('faq');return false">FAQ</a>
+                <a href="#" onclick="openPage('about');return false">About</a>
+                <a href="https://peptideresourcecenter.com" target="_blank">Peptide Resource Center ↗</a>
+                <a href="mailto:support@prcpeptides.com">support@prcpeptides.com</a>
             </div>
             <div class="footer-disclaimer">
                 <span class="research-only">FOR RESEARCH PURPOSES ONLY.</span> All products are intended exclusively for laboratory research and are not intended for human consumption, diagnostic purposes, or therapeutic applications. By accessing this site, you acknowledge that all products are for in vitro research use only.
@@ -1028,6 +1309,43 @@
                 renderProducts(currentCategory);
             });
         });
+
+        // Search
+        function toggleSearch() {
+            var overlay = document.getElementById('searchOverlay');
+            overlay.classList.toggle('active');
+            if (overlay.classList.contains('active')) {
+                document.getElementById('searchInput').focus();
+            } else {
+                document.getElementById('searchInput').value = '';
+                document.getElementById('searchResults').innerHTML = '';
+            }
+        }
+
+        function doSearch(query) {
+            var results = document.getElementById('searchResults');
+            if (!query || query.length < 2) { results.innerHTML = ''; return; }
+            query = query.toLowerCase();
+            var matches = products.filter(function(p) {
+                return p.name.toLowerCase().indexOf(query) !== -1 || p.shortDesc.toLowerCase().indexOf(query) !== -1 || p.category.toLowerCase().indexOf(query) !== -1;
+            });
+            if (matches.length === 0) {
+                results.innerHTML = '<div style="padding:12px;color:#94A3B8;font-size:0.85rem">No products found</div>';
+                return;
+            }
+            results.innerHTML = matches.map(function(p) {
+                return '<div class="search-result-item" onclick="toggleSearch();showModal(products[' + products.indexOf(p) + '])"><div class="sr-name">' + p.name + '</div><div class="sr-cat">' + getCategoryName(p.category) + '</div></div>';
+            }).join('');
+        }
+
+        // Page overlays
+        function openPage(page) {
+            document.getElementById(page + 'Page').classList.add('active');
+        }
+
+        function closePage(page) {
+            document.getElementById(page + 'Page').classList.remove('active');
+        }
 
         // Dropdown nav filter
         function filterCat(name) {
