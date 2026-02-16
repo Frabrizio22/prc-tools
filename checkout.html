@@ -680,6 +680,16 @@
             </div>
         </div>
 
+        <!-- Promo Code -->
+        <div id="promoSection" class="section hidden">
+            <div class="section-title">Promo Code</div>
+            <div style="display:flex;gap:8px">
+                <input type="text" class="form-input" id="promoInput" placeholder="Enter code" style="flex:1;text-transform:uppercase">
+                <button class="btn btn-primary" onclick="applyPromo()" style="width:auto;padding:12px 20px;font-size:14px">Apply</button>
+            </div>
+            <div id="promoMsg" style="font-size:13px;margin-top:6px"></div>
+        </div>
+
         <!-- Step 5: Order Summary -->
         <div id="summarySection" class="section hidden">
             <div class="section-title">
@@ -862,8 +872,29 @@
             return total;
         }
 
+        var promoApplied = false;
+
+        function applyPromo() {
+            var code = document.getElementById('promoInput');
+            var msg = document.getElementById('promoMsg');
+            if (!code || !msg) return;
+            if (code.value.trim().toUpperCase() === 'RESEARCH') {
+                promoApplied = true;
+                msg.textContent = '✓ Code RESEARCH applied — 5% off!';
+                msg.style.color = '#059669';
+                code.disabled = true;
+                updateSummary();
+            } else {
+                msg.textContent = 'Invalid code';
+                msg.style.color = '#ef4444';
+            }
+        }
+
         function getDiscount() {
             if (selectedPayment === 'zelle' || selectedPayment === 'cashapp') {
+                return getSubtotal() * 0.05;
+            }
+            if (promoApplied) {
                 return getSubtotal() * 0.05;
             }
             return 0;
@@ -886,7 +917,8 @@
             html += '<div class="summary-row"><span>Subtotal</span><span>$' + getSubtotal().toFixed(2) + '</span></div>';
             
             if (getDiscount() > 0) {
-                html += '<div class="summary-row discount"><span>Discount (5%)</span><span>-$' + getDiscount().toFixed(2) + '</span></div>';
+                var discLabel = promoApplied ? 'Promo RESEARCH (5%)' : 'Discount (5%)';
+                html += '<div class="summary-row discount"><span>' + discLabel + '</span><span>-$' + getDiscount().toFixed(2) + '</span></div>';
             }
             
             html += '<div class="summary-row"><span>' + selectedShipping.name + '</span><span>';
@@ -964,6 +996,7 @@
             } else if (currentStep === 3) {
                 // Shipping to Payment
                 document.getElementById('paymentSection').classList.remove('hidden');
+                document.getElementById('promoSection').classList.remove('hidden');
                 document.getElementById('summarySection').classList.remove('hidden');
                 updateSummary();
                 document.getElementById('actionBtn').textContent = 'Place Order';
@@ -1012,6 +1045,7 @@
             document.getElementById('customerSection').classList.add('hidden');
             document.getElementById('shippingSection').classList.add('hidden');
             document.getElementById('paymentSection').classList.add('hidden');
+            document.getElementById('promoSection').classList.add('hidden');
             document.getElementById('summarySection').classList.add('hidden');
             document.getElementById('footer').classList.add('hidden');
             

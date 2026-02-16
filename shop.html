@@ -2391,7 +2391,10 @@
             var total = 0;
             for (var i = 0; i < shopCart.length; i++) total += shopCart[i].quantity;
             var badge = document.querySelector('.cart-badge');
-            if (badge) badge.textContent = total;
+            if (badge) {
+                badge.textContent = total;
+                badge.style.display = total > 0 ? 'flex' : 'none';
+            }
         }
 
         function getCartSubtotal() {
