@@ -1244,13 +1244,8 @@
                 html += '<div class="instruction-step"><strong>1.</strong> Open Zelle in your banking app</div>';
                 html += '<div class="instruction-step"><strong>2.</strong> Send <span class="highlight">$' + total + '</span> to <span class="highlight">(619) 587-1812</span></div>';
                 html += '<div class="instruction-step"><strong>3.</strong> In the memo, write only: <span class="highlight">' + orderNumber + '</span></div>';
+                html += '<div class="instruction-step" style="margin-top:8px;color:#059669;font-weight:600">Your order ships within 1 business day of payment confirmation.</div>';
                 html += '<div class="warning-note">Do not mention peptides, product names, or research purposes in the payment memo. Only include the order number.</div>';
-            } else if (selectedPayment === 'cashapp') {
-                html += '<h3>Cash App Payment</h3>';
-                html += '<div class="instruction-step"><strong>1.</strong> Open Cash App</div>';
-                html += '<div class="instruction-step"><strong>2.</strong> Send <span class="highlight">$' + total + '</span> to <span class="highlight">$PRCPeptides</span></div>';
-                html += '<div class="instruction-step"><strong>3.</strong> In the note, write only: <span class="highlight">' + orderNumber + '</span></div>';
-                html += '<div class="warning-note">Do not mention peptides, product names, or research purposes in the payment note. Only include the order number.</div>';
             }
 
             html += '</div>';
@@ -1283,7 +1278,7 @@
             body += 'I have placed order ' + orderNumber + ' and ';
             if (o.payment === 'crypto') body += 'am ready to pay with cryptocurrency. Please send me the Coinbase Commerce payment link.\n\n';
             else if (o.payment === 'zelle') body += 'have sent payment via Zelle.\n\n';
-            else if (o.payment === 'cashapp') body += 'have sent payment via Cash App.\n\n';
+            // cashapp removed
             body += 'Order Details:\n';
             for (var i = 0; i < o.items.length; i++) {
                 body += '- ' + o.items[i].name + ' x' + o.items[i].quantity + ' ($' + (o.items[i].price * o.items[i].quantity).toFixed(2) + ')\n';
