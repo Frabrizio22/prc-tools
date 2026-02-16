@@ -1846,9 +1846,14 @@
                     '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
                     '<div class="product-name">' + product.name + '</div>' +
                     '<div class="product-price">$' + product.price + '</div>' +
-                    '<a href="#" class="order-btn">Order Now</a>';
+                    '<a href="checkout.html?product=' + encodeURIComponent(product.name) + '&price=' + product.price + '" class="order-btn">Order Now</a>';
                 
                 card.addEventListener('click', function(e) {
+                    // Don't open modal if clicking Order Now button
+                    var t = e.target;
+                    if (t.tagName === 'A' && t.classList.contains('order-btn')) {
+                        return; // Let the link navigate to checkout
+                    }
                     e.preventDefault();
                     showModal(product);
                 });
@@ -1894,7 +1899,7 @@
             }
             
             body += '<p><strong>For research purposes only.</strong> Not for human consumption.</p>' +
-                   '<a href="mailto:support@prcpeptides.com?subject=Order Inquiry: ' + encodeURIComponent(product.name) + '" class="contact-button">Contact to Order</a>';
+                   '<a href="checkout.html?product=' + encodeURIComponent(product.name) + '&price=' + product.price + '" class="contact-button">Add to Cart</a>';
             
             document.getElementById('modalHeader').innerHTML = header;
             document.getElementById('modalBody').innerHTML = body;
