@@ -948,7 +948,8 @@
                 html += '<div class="cart-item">';
                 html += '<div class="cart-item-info">';
                 html += '<div class="cart-item-name">' + item.name + '</div>';
-                html += '<div class="cart-item-price">$' + item.price.toFixed(2) + ' × ' + item.quantity + '</div>';
+                var lineTotal = (item.price * item.quantity).toFixed(2);
+                html += '<div class="cart-item-price">$' + item.price.toFixed(2) + (item.quantity > 1 ? ' × ' + item.quantity + ' = $' + lineTotal : '') + '</div>';
                 html += '</div>';
                 html += '<div class="cart-item-actions">';
                 html += '<div class="qty-control">';
@@ -992,7 +993,7 @@
         }
 
         function getDiscount() {
-            if (selectedPayment === 'zelle' || selectedPayment === 'cashapp') return getSubtotal() * 0.05;
+            if (selectedPayment === 'zelle') return getSubtotal() * 0.05;
             if (promoApplied) return getSubtotal() * 0.05;
             return 0;
         }
@@ -1058,11 +1059,20 @@
             var options = el.parentNode.querySelectorAll('.option-card');
             for (var i = 0; i < options.length; i++) options[i].classList.remove('selected');
             el.classList.add('selected');
-            // Show free shipping note if applicable
-            var note = document.getElementById('freeShipNote');
-            if (getSubtotal() >= 150) { note.classList.remove('hidden'); } else { note.classList.add('hidden'); }
+            updateShippingDisplay();
             updateSummary();
             updateFooter();
+        }
+
+        function updateShippingDisplay() {
+            var note = document.getElementById('freeShipNote');
+            var isFree = getSubtotal() >= 150;
+            if (isFree) {
+                note.classList.remove('hidden');
+                note.textContent = '✓ Your order qualifies for free shipping!';
+            } else {
+                note.classList.add('hidden');
+            }
         }
 
         function selectPayment(el, method) {
