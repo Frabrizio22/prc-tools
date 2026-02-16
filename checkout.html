@@ -1157,6 +1157,54 @@
                 savedOrder.items.push({ name: cart[i].name, price: cart[i].price, quantity: cart[i].quantity });
             }
 
+            // If crypto, auto-create Coinbase charge and redirect
+            if (selectedPayment === 'crypto') {
+                var btn = document.getElementById('actionBtn');
+                btn.textContent = 'Creating payment...';
+                btn.disabled = true;
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        var resp = JSON.parse(xhr.responseText);
+                        // Save order before redirecting
+                        sessionStorage.setItem('prcLastOrder', JSON.stringify({
+                            orderNumber: orderNumber,
+                            savedOrder: savedOrder,
+                            checkoutUrl: resp.checkout_url
+                        }));
+                        cart = [];
+                        saveCart();
+                        // Redirect to Coinbase hosted checkout
+                        window.location.href = resp.checkout_url;
+                    } else {
+                        // Fallback to manual flow
+                        btn.textContent = 'Place Order';
+                        btn.disabled = false;
+                        showConfirmation();
+                    }
+                };
+                xhr.onerror = function() {
+                    // Fallback to manual flow
+                    btn.textContent = 'Place Order';
+                    btn.disabled = false;
+                    showConfirmation();
+                };
+                xhr.send(JSON.stringify({
+                    order_number: orderNumber,
+                    total: savedOrder.total.toFixed(2),
+                    email: savedOrder.customer.email,
+                    name: savedOrder.customer.name
+                }));
+                return;
+            }
+
+            showConfirmation();
+        }
+
+        function showConfirmation() {
             // Hide all checkout sections
             var ids = ['cartSection','customerSection','shippingSection','paymentSection','promoSection','summarySection','footer'];
             for (var j = 0; j < ids.length; j++) document.getElementById(ids[j]).classList.add('hidden');
@@ -1181,8 +1229,8 @@
 
             if (selectedPayment === 'crypto') {
                 html += '<h3>Cryptocurrency Payment</h3>';
-                html += '<div class="instruction-step">We\'ll email a secure Coinbase Commerce payment link to <strong>' + savedOrder.customer.email + '</strong> within 15 minutes.</div>';
-                html += '<div class="instruction-step">Pay with Bitcoin, Ethereum, USDC, or other supported cryptocurrencies.</div>';
+                html += '<div class="instruction-step">You should have been redirected to Coinbase Commerce to complete payment.</div>';
+                html += '<div class="instruction-step">If the redirect didn\'t work, email us at <strong>support@prcpeptides.com</strong> with your order number and we\'ll send a payment link.</div>';
                 html += '<div class="instruction-step">Your order ships once payment confirms.</div>';
             } else if (selectedPayment === 'zelle') {
                 html += '<h3>Zelle Payment</h3>';
