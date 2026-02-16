@@ -679,7 +679,7 @@
             background: #FFFFFF;
             border: 1px solid #E2E8F0;
             border-radius: 8px;
-            padding: 10px 12px;
+            padding: 12px 14px;
             transition: all 0.2s;
             cursor: pointer;
             position: relative;
@@ -807,12 +807,22 @@
 
         .info-icon {
             cursor: pointer;
-            opacity: 0.45;
+            opacity: 0.6;
             transition: opacity 0.2s;
             display: flex;
             align-items: center;
         }
         .info-icon:hover { opacity: 0.8; }
+
+        .card-desc {
+            font-size: 0.65rem;
+            color: #64748b;
+            line-height: 1.3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-top: 4px;
+        }
 
         /* View All Button */
         .view-all-container {
@@ -1220,7 +1230,7 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 1.4rem; }
+            .hero h1 { font-size: 1.3rem; }
             .hero p { font-size: 0.85rem; }
             .hero { padding: 1.5rem 1rem; }
             .section-heading { font-size: 1rem; }
@@ -1230,6 +1240,7 @@
             .header-left { gap: 0; }
             .trust-item { font-size: 0.62rem; padding: 0 10px; }
             .hamburger { display: flex !important; }
+            .info-icon svg { width: 20px; height: 20px; }
         }
 
         @media (min-width: 769px) {
@@ -1409,7 +1420,7 @@
 
         <!-- Promo Banner after Bestsellers -->
         <div class="promo-banner">
-            <div class="promo-banner-text">First order? Use code <span class="promo-banner-code">RESEARCH</span> for 5% off</div>
+            <div class="promo-banner-text">New customer? Use code <span class="promo-banner-code">RESEARCH</span> for 5% off — this week only</div>
         </div>
 
         <!-- Catalog Section -->
@@ -2053,9 +2064,17 @@
                 card.innerHTML = 
                     '<span class="product-category ' + categoryClass + '">' + categoryName + '</span>' +
                     '<div class="product-name">' + product.name + '</div>' +
-                    '<div class="product-price">$' + product.price + '</div>';
+                    '<div class="product-price">$' + product.price + '</div>' +
+                    '<button class="order-btn" style="font-size:0.6rem;padding:3px 10px;margin-top:4px" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">Add to Cart</button>';
                 
                 card.addEventListener('click', function(e) {
+                    var t = e.target;
+                    if (t.classList.contains('order-btn')) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        addToCart(t.getAttribute('data-name'), parseFloat(t.getAttribute('data-price')));
+                        return;
+                    }
                     e.preventDefault();
                     showModal(product);
                 });
@@ -2159,9 +2178,10 @@
                     '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + bestsellerBadge + '</div>' +
                     '<div class="product-name">' + product.name + '</div>' +
                     '<div class="product-price">$' + product.price + '</div>' +
+                    '<div class="card-desc">' + (product.shortDesc || '') + '</div>' +
                     badges +
                     '<div class="card-actions"><button class="order-btn" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">Add to Cart</button>' +
-                    '<span class="info-icon" title="View Details"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span></div>';
+                    '<span class="info-icon" title="View Details"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span></div>';
                 
                 card.addEventListener('click', function(e) {
                     var t = e.target;
