@@ -1386,21 +1386,38 @@
             <span class="page-close" onclick="closePage('about')">&times;</span>
             <h2>About PRC Peptides</h2>
             <div class="about-section">
-                <h3>Our Mission</h3>
-                <p>PRC Peptides provides researchers with access to high-purity research compounds backed by rigorous quality standards. We believe advancing scientific research requires reliable, consistent, and accessible peptide supply.</p>
+                <h3>Built by Researchers, for Researchers</h3>
+                <p>We started PRC Peptides because we were tired of the same thing every researcher deals with — overpriced compounds from vendors who all source from the same manufacturers but charge 3x more. So we cut out the middlemen and built something better.</p>
+                <p>We're a small, dedicated team. That's by design. It means every order gets personal attention, every question gets a real answer, and every product meets our standards — not just a manufacturer's claim on paper.</p>
             </div>
             <div class="about-section">
-                <h3>Quality Commitment</h3>
-                <p>Every compound in our catalog is sourced from GMP-compliant manufacturers and tested to ≥98% purity. We work directly with our manufacturing partners to ensure consistency across every batch.</p>
+                <h3>Quality You Can Verify</h3>
+                <p>Every compound we sell goes through a two-step verification process:</p>
+                <p><strong>1. Manufacturer testing</strong> — sourced exclusively from GMP-compliant international manufacturers with ≥98% purity standards.</p>
+                <p><strong>2. Independent third-party testing</strong> — we don't just trust the manufacturer's COA. Every batch is independently verified before it reaches our catalog. Most vendors skip this step. We don't.</p>
+                <p>Certificates of Analysis are available for every product. No exceptions.</p>
             </div>
             <div class="about-section">
-                <h3>Why Researchers Choose Us</h3>
-                <p>With 44+ research compounds across 10 categories, competitive pricing, and fast shipping, PRC Peptides has become a trusted source for research institutions and independent researchers alike. Our commitment to transparency and quality sets us apart.</p>
+                <h3>Fair Pricing, No Games</h3>
+                <p>We believe quality research compounds shouldn't require a grant budget. Our direct sourcing model means we offer some of the most competitive prices in the space — without cutting corners on purity or testing. Compare us to anyone.</p>
+            </div>
+            <div class="about-section">
+                <h3>What to Expect</h3>
+                <p>✓ 44+ research compounds across 10 categories</p>
+                <p>✓ Ships next business day</p>
+                <p>✓ Discreet, unmarked packaging</p>
+                <p>✓ Free shipping on orders over $150</p>
+                <p>✓ Free reconstitution kit with every order</p>
+                <p>✓ Real humans answering your emails</p>
+            </div>
+            <div class="about-section">
+                <h3>Part of the Community</h3>
+                <p>We're not just selling peptides — we're part of the research community. That's why we built <a href="https://peptideresourcecenter.com" target="_blank" style="color:#2B7DE9">Peptide Resource Center</a> as a free, independent resource for researchers to compare vendors, learn about compounds, and make informed decisions. No gatekeeping. No bias.</p>
             </div>
             <div class="about-section">
                 <h3>Contact</h3>
                 <p>Email: <a href="mailto:support@prcpeptides.com" style="color:#2B7DE9">support@prcpeptides.com</a></p>
-                <p>Resources: <a href="https://peptideresourcecenter.com" target="_blank" style="color:#2B7DE9">Resources ↗</a></p>
+                <p>Resources: <a href="https://peptideresourcecenter.com" target="_blank" style="color:#2B7DE9">Peptide Resource Center ↗</a></p>
             </div>
         </div>
     </div>
@@ -2026,6 +2043,14 @@
                 body += '<h3>Research Applications</h3>' +
                        '<p>' + product.applications + '</p>';
             }
+            
+            var storageText = 'Store lyophilized (freeze-dried) peptide at -20°C for long-term storage. Once reconstituted, store at 2-8°C (refrigerated) and use within 30 days. Avoid repeated freeze-thaw cycles. Keep away from direct light.';
+            if (product.name === '5-Amino-1MQ 5mg') {
+                storageText = 'Store in a cool, dry place at room temperature (15-25°C). Keep away from direct light and moisture. Keep container tightly sealed.';
+            } else if (product.category === 'antioxidants' || product.name.indexOf('Lipo-C') !== -1 || product.name.indexOf('L-Carnitine') !== -1 || product.name.indexOf('Vitamin C') !== -1 || product.name.indexOf('Thioctic') !== -1) {
+                storageText = 'Store at 2-8°C (refrigerated). Keep away from direct light. Do not freeze unless specified. Use within recommended timeframe once opened.';
+            }
+            body += '<h3>Storage</h3><p>' + storageText + '</p>';
             
             body += '<p><strong>For research purposes only.</strong> Not for human consumption.</p>' +
                    '<button class="contact-button" onclick="addToCart(\'' + product.name.replace(/'/g, "\\'") + '\',' + product.price + ');closeModal();">Add to Cart</button>';
