@@ -716,6 +716,17 @@
             color: #FFFFFF;
         }
 
+        .order-btn.oos {
+            background: #E2E8F0;
+            color: #94A3B8;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .product-card.oos {
+            opacity: 0.6;
+        }
+
         .card-actions {
             display: flex;
             align-items: center;
@@ -1996,25 +2007,28 @@
 
             filtered.forEach(function(product) {
                 var card = document.createElement('div');
-                card.className = 'product-card';
+                var isOOS = product.inStock === false;
+                card.className = 'product-card' + (isOOS ? ' oos' : '');
                 card.setAttribute('data-product', JSON.stringify(product));
                 
                 var categoryClass = 'category-' + product.category;
                 var categoryName = getCategoryName(product.category);
                 
                 var coaBadge = product.coa ? '<span class="coa-badge">COA ✓</span>' : '';
+                var btnClass = isOOS ? 'order-btn oos' : 'order-btn';
+                var btnText = isOOS ? 'Out of Stock' : 'Add to Cart';
                 
                 card.innerHTML = 
                     '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
                     '<div class="product-name">' + product.name + '</div>' +
                     '<div class="product-price">$' + product.price + '</div>' +
-                    '<div class="card-actions"><button class="order-btn" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">Add to Cart</button>' +
+                    '<div class="card-actions"><button class="' + btnClass + '" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">' + btnText + '</button>' +
                     '<span class="info-icon" title="View Details"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span></div>';
                 
                 card.addEventListener('click', function(e) {
                     var t = e.target;
-                    // Add to cart if clicking the button
-                    if (t.classList.contains('order-btn')) {
+                    // Add to cart if clicking the button (not if OOS)
+                    if (t.classList.contains('order-btn') && !t.classList.contains('oos')) {
                         e.preventDefault();
                         e.stopPropagation();
                         addToCart(t.getAttribute('data-name'), parseFloat(t.getAttribute('data-price')));
@@ -2073,8 +2087,12 @@
             }
             body += '<h3>Storage</h3><p>' + storageText + '</p>';
             
-            body += '<p><strong>For research purposes only.</strong> Not for human consumption.</p>' +
-                   '<button class="contact-button" onclick="addToCart(\'' + product.name.replace(/'/g, "\\'") + '\',' + product.price + ');closeModal();">Add to Cart</button>';
+            body += '<p><strong>For research purposes only.</strong> Not for human consumption.</p>';
+            if (product.inStock === false) {
+                body += '<button class="contact-button" style="background:#E2E8F0;color:#94A3B8;cursor:not-allowed" disabled>Out of Stock</button>';
+            } else {
+                body += '<button class="contact-button" onclick="addToCart(\'' + product.name.replace(/'/g, "\\'") + '\',' + product.price + ');closeModal();">Add to Cart</button>';
+            }
             
             document.getElementById('modalHeader').innerHTML = header;
             document.getElementById('modalBody').innerHTML = body;
