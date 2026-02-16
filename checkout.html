@@ -702,7 +702,10 @@
     <div class="header">
         <div class="header-content">
             <div class="logo"><span>PRC</span> Peptides</div>
-            <a href="shop.html" class="back-link">← Back to Shop</a>
+            <div style="display:flex;align-items:center;gap:12px">
+                <span style="display:flex;align-items:center;gap:4px;font-size:11px;color:#059669;font-weight:600"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Secure</span>
+                <a href="shop.html" class="back-link">← Shop</a>
+            </div>
         </div>
     </div>
 
@@ -721,7 +724,7 @@
 
     <!-- Main Content -->
     <div class="container">
-        <div class="disclaimer">All products are for laboratory research purposes only.</div>
+        <div class="disclaimer">All products are for laboratory research purposes only. Not for human consumption.</div>
 
         <!-- Step 1: Cart -->
         <div id="cartSection" class="section">
@@ -736,6 +739,7 @@
         <!-- Step 2: Customer Info -->
         <div id="customerSection" class="section hidden">
             <div class="section-title">Customer Information</div>
+            <div style="font-size:11px;color:#94A3B8;margin-bottom:12px">US shipping addresses only</div>
             <form id="customerForm" onsubmit="return false">
                 <div class="form-group">
                     <label class="form-label">Full Name *</label>
@@ -800,35 +804,32 @@
             <div class="option-card" onclick="selectPayment(this, 'crypto')">
                 <div class="option-radio"></div>
                 <div class="option-info">
-                    <div class="option-name">Cryptocurrency</div>
-                    <div class="option-desc">Bitcoin, Ethereum, USDC via Coinbase Commerce</div>
+                    <div class="option-name">Pay with Crypto</div>
+                    <div class="option-desc">Bitcoin, Ethereum, USDC &amp; more — instant redirect to secure Coinbase checkout</div>
                 </div>
             </div>
             <div class="option-card" onclick="selectPayment(this, 'zelle')">
                 <div class="option-radio"></div>
                 <div class="option-info">
-                    <div class="option-name">Zelle</div>
-                    <div class="option-desc">Instant bank transfer</div>
-                    <span class="discount-tag">5% OFF</span>
+                    <div class="option-name">Pay with Zelle</div>
+                    <div class="option-desc">Send directly from your bank app — no fees, no account needed</div>
+                    <span class="discount-tag">SAVE 5%</span>
                 </div>
             </div>
-<!-- CashApp removed - Frabrizio banned, re-add under LLC later -->
         </div>
 
-        <!-- Promo Code (inline, no step number) -->
-        <div id="promoSection" class="section hidden">
-            <div class="section-title">Promo Code</div>
-            <div class="promo-row">
-                <input type="text" class="form-input" id="promoInput" placeholder="Enter code">
-                <button class="promo-btn" onclick="applyPromo()">Apply</button>
-            </div>
-            <div id="promoMsg" class="promo-msg"></div>
-        </div>
-
-        <!-- Order Summary -->
+        <!-- Order Summary + Promo -->
         <div id="summarySection" class="section hidden">
             <div class="section-title">Order Summary</div>
             <div id="orderSummary"></div>
+            <div id="promoSection" style="margin-top:12px;padding-top:12px;border-top:1px solid #E2E8F0">
+                <div style="font-size:13px;font-weight:600;color:#475569;margin-bottom:6px">Promo Code</div>
+                <div class="promo-row">
+                    <input type="text" class="form-input" id="promoInput" placeholder="Enter code" style="font-size:14px;padding:9px 12px">
+                    <button class="promo-btn" onclick="applyPromo()">Apply</button>
+                </div>
+                <div id="promoMsg" class="promo-msg"></div>
+            </div>
         </div>
 
         <!-- Order Confirmation -->
@@ -844,9 +845,10 @@
                 <div id="orderDetails"></div>
             </div>
             <div class="confirm-actions">
-                <button class="confirm-btn primary" onclick="emailOrder()">Email Order to PRC</button>
+                <button class="confirm-btn primary" onclick="emailOrder()">Send Order Confirmation</button>
                 <a href="shop.html" class="confirm-btn secondary">Continue Shopping</a>
             </div>
+            <div style="text-align:center;padding:16px 0 8px;font-size:11px;color:#94A3B8">Questions? Email support@prcpeptides.com</div>
         </div>
     </div>
 
@@ -1016,10 +1018,13 @@
             }
 
             var btn = document.getElementById('actionBtn');
-            if (currentStep === 1) btn.textContent = 'Continue';
-            else if (currentStep === 2) btn.textContent = 'Continue to Shipping';
-            else if (currentStep === 3) btn.textContent = 'Continue to Payment';
-            else if (currentStep === 4) btn.textContent = 'Place Order';
+            if (currentStep === 1) { btn.textContent = 'Continue'; btn.disabled = false; }
+            else if (currentStep === 2) { btn.textContent = 'Continue to Shipping'; btn.disabled = false; }
+            else if (currentStep === 3) { btn.textContent = 'Continue to Payment'; btn.disabled = false; }
+            else if (currentStep === 4) {
+                btn.textContent = selectedPayment ? 'Place Order' : 'Select Payment Method';
+                btn.disabled = !selectedPayment;
+            }
         }
 
         function updateProgress(step) {
@@ -1113,14 +1118,13 @@
                 scrollToEl('shippingSection');
             } else if (currentStep === 3) {
                 document.getElementById('paymentSection').classList.remove('hidden');
-                document.getElementById('promoSection').classList.remove('hidden');
                 document.getElementById('summarySection').classList.remove('hidden');
                 updateSummary();
                 currentStep = 4;
                 updateProgress(4);
                 scrollToEl('paymentSection');
             } else if (currentStep === 4) {
-                if (!selectedPayment) { alert('Please select a payment method'); return; }
+                if (!selectedPayment) return;
                 placeOrder();
             }
             updateFooter();
@@ -1199,7 +1203,7 @@
 
         function showConfirmation() {
             // Hide all checkout sections
-            var ids = ['cartSection','customerSection','shippingSection','paymentSection','promoSection','summarySection','footer'];
+            var ids = ['cartSection','customerSection','shippingSection','paymentSection','summarySection','footer'];
             for (var j = 0; j < ids.length; j++) document.getElementById(ids[j]).classList.add('hidden');
             document.querySelector('.progress-bar').classList.add('hidden');
             document.querySelector('.disclaimer').style.display = 'none';
