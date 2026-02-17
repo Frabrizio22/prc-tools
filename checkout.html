@@ -1153,6 +1153,31 @@
             return 'PRC-' + (Math.floor(10000 + Math.random() * 90000));
         }
 
+        function notifyOrder(orderNum, order) {
+            try {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/order', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({
+                    order_number: orderNum,
+                    customer_name: order.customer.name,
+                    customer_email: order.customer.email,
+                    customer_phone: order.customer.phone || '',
+                    customer_address: order.customer.address,
+                    customer_city: order.customer.city,
+                    customer_state: order.customer.state,
+                    customer_zip: order.customer.zip,
+                    items: order.items,
+                    subtotal: order.subtotal,
+                    discount: order.discount,
+                    shipping: order.shipping,
+                    shipping_name: order.shippingName,
+                    total: order.total,
+                    payment: order.payment
+                }));
+            } catch(e) { /* silent fail — notification is best-effort */ }
+        }
+
         function placeOrder() {
             orderNumber = generateOrderNumber();
             savedOrder = {
@@ -1163,6 +1188,9 @@
             for (var i = 0; i < cart.length; i++) {
                 savedOrder.items.push({ name: cart[i].name, price: cart[i].price, quantity: cart[i].quantity });
             }
+
+            // Notify via Telegram for ALL orders
+            notifyOrder(orderNumber, savedOrder);
 
             // If crypto, auto-create Coinbase charge and redirect
             if (selectedPayment === 'crypto') {
