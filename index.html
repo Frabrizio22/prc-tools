@@ -2059,11 +2059,11 @@
                 
                 card.innerHTML = 
                     '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
-                    '<a href="products/' + slug + '.html" class="product-name-link"><div class="product-name">' + product.name + '</div></a>' +
+                    '<div class="product-name">' + product.name + '</div>' +
                     '<div class="product-price">$' + product.price + '</div>' +
-                    '<div class="card-actions"><button class="' + btnClass + '" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">' + btnText + '</button>' +
-                    '<span class="info-icon" title="Quick View"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span></div>';
+                    '<div class="card-actions"><button class="' + btnClass + '" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">' + btnText + '</button></div>';
                 
+                card.style.cursor = 'pointer';
                 card.addEventListener('click', function(e) {
                     var t = e.target;
                     // Add to cart if clicking the button (not if OOS)
@@ -2073,16 +2073,10 @@
                         addToCart(t.getAttribute('data-name'), parseFloat(t.getAttribute('data-price')));
                         return;
                     }
-                    // Product name link — let it navigate naturally
-                    if (t.closest && t.closest('.product-name-link')) {
-                        return;
+                    // Everything else → product page
+                    if (!t.classList.contains('order-btn')) {
+                        window.location.href = 'products/' + slug + '.html';
                     }
-                    if (t.classList.contains('product-name') || t.classList.contains('product-name-link')) {
-                        return;
-                    }
-                    // Info icon opens quick view modal
-                    e.preventDefault();
-                    showModal(product);
                 });
                 
                 grid.appendChild(card);
