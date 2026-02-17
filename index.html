@@ -665,6 +665,15 @@
             line-height: 1.3;
         }
 
+        .product-name-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-name-link:hover .product-name {
+            color: #2B7DE9;
+        }
+
         .product-description {
             display: none;
         }
@@ -1927,6 +1936,23 @@
         }
 
         // Render featured products
+        // Product name to URL slug mapping
+        var slugOverrides = {
+            'BPC-157/TB-500': 'bpc-157-tb-500',
+            'CJC-1295 (no DAC)': 'cjc-1295',
+            'CJC-1295/Ipamorelin': 'cjc-ipamorelin',
+            'HGH 191': 'hgh-fragment-191',
+            'SS-31 (Elamipretide)': 'ss-31',
+            'Thioctic Acid (ALA)': 'thioctic-acid',
+            'Glutathione 1200mg': 'glutathione-korean',
+            'Laennec Ampules': 'laennec',
+            'PT-141': 'pt-141'
+        };
+        function getProductSlug(name) {
+            if (slugOverrides[name]) return slugOverrides[name];
+            return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        }
+
         function renderFeaturedProducts() {
             var container = document.getElementById('featuredProducts');
             container.innerHTML = '';
@@ -1941,6 +1967,8 @@
                 var categoryClass = 'category-' + product.category;
                 var categoryName = getCategoryName(product.category);
                 
+                var slug = getProductSlug(product.name);
+                
                 card.innerHTML = 
                     '<span class="product-category ' + categoryClass + '">' + categoryName + '</span>' +
                     '<div class="product-name">' + product.name + '</div>' +
@@ -1948,7 +1976,7 @@
                 
                 card.addEventListener('click', function(e) {
                     e.preventDefault();
-                    showModal(product);
+                    window.location.href = 'products/' + slug + '.html';
                 });
                 
                 container.appendChild(card);
@@ -2012,12 +2040,14 @@
                 var btnClass = isOOS ? 'order-btn oos' : 'order-btn';
                 var btnText = isOOS ? 'Out of Stock' : 'Add to Cart';
                 
+                var slug = getProductSlug(product.name);
+                
                 card.innerHTML = 
                     '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
-                    '<div class="product-name">' + product.name + '</div>' +
+                    '<a href="products/' + slug + '.html" class="product-name-link"><div class="product-name">' + product.name + '</div></a>' +
                     '<div class="product-price">$' + product.price + '</div>' +
                     '<div class="card-actions"><button class="' + btnClass + '" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">' + btnText + '</button>' +
-                    '<span class="info-icon" title="View Details"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span></div>';
+                    '<span class="info-icon" title="Quick View"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span></div>';
                 
                 card.addEventListener('click', function(e) {
                     var t = e.target;
@@ -2028,7 +2058,14 @@
                         addToCart(t.getAttribute('data-name'), parseFloat(t.getAttribute('data-price')));
                         return;
                     }
-                    // Info icon or anywhere else on card opens modal
+                    // Product name link — let it navigate naturally
+                    if (t.closest && t.closest('.product-name-link')) {
+                        return;
+                    }
+                    if (t.classList.contains('product-name') || t.classList.contains('product-name-link')) {
+                        return;
+                    }
+                    // Info icon opens quick view modal
                     e.preventDefault();
                     showModal(product);
                 });
