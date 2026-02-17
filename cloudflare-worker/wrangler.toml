@@ -1,0 +1,6 @@
+name = "prc-checkout"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+COINBASE_API_KEY = "eebc936a-18a8-4286-aa5d-dca4ba6a9464"

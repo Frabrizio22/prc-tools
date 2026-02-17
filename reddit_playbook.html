@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Reddit Marketing Playbook - PRC Peptides</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0A1628;
+            --blue: #2B7DE9;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --border-gray: #E1E4E8;
+            --text-gray: #586069;
+            --success-green: #28A745;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+            background: var(--white);
+            padding: 0;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2a3f 100%);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .toc {
+            background: var(--light-gray);
+            border: 2px solid var(--border-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .toc h2 {
+            color: var(--navy);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .toc h2:before {
+            content: "📑";
+            margin-right: 0.5rem;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin: 0.5rem 0;
+        }
+
+        .toc a {
+            color: var(--blue);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .toc a:hover {
+            background: var(--white);
+        }
+
+        .section {
+            margin: 2rem 0;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            background: var(--blue);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .section-header:hover {
+            background: #236BC7;
+        }
+
+        .section-header:active {
+            background: #1a5aaa;
+        }
+
+        .section-header .icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .section-header.active .icon {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .section-content.active {
+            max-height: 10000px;
+        }
+
+        .section-inner {
+            padding: 1.5rem;
+        }
+
+        h3 {
+            color: var(--navy);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        h4 {
+            color: var(--blue);
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        p {
+            margin: 0.75rem 0;
+            line-height: 1.7;
+        }
+
+        ul, ol {
+            margin: 0.75rem 0 0.75rem 1.5rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        .golden-rule {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFF3CD 100%);
+            border-left: 4px solid #FFC107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .golden-rule h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+
+        .do-list {
+            color: var(--success-green);
+        }
+
+        .dont-list {
+            color: #DC3545;
+        }
+
+        .template-box {
+            background: var(--light-gray);
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .template-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .template-title {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .copy-btn {
+            background: var(--blue);
+            color: var(--white);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .copy-btn:hover {
+            background: #236BC7;
+            transform: translateY(-1px);
+        }
+
+        .copy-btn:active {
+            background: #1a5aaa;
+            transform: translateY(0);
+        }
+
+        .copy-btn.copied {
+            background: var(--success-green);
+        }
+
+        .template-text {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+            color: var(--navy);
+            border: 1px solid var(--border-gray);
+        }
+
+        .highlight-box {
+            background: #E7F3FF;
+            border-left: 4px solid var(--blue);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: #FFE5E5;
+            border-left: 4px solid #DC3545;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li:before {
+            content: "☐ ";
+            color: var(--blue);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .info-card {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-gray);
+        }
+
+        .info-card h4 {
+            margin-top: 0;
+            color: var(--blue);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0.25rem;
+        }
+
+        .badge-success {
+            background: #D4EDDA;
+            color: #155724;
+        }
+
+        .badge-danger {
+            background: #F8D7DA;
+            color: #721C24;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-gray);
+            margin-top: 3rem;
+        }
+
+        code {
+            background: var(--light-gray);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: "SF Mono", Monaco, monospace;
+            font-size: 0.9em;
+            color: var(--blue);
+        }
+
+        strong {
+            color: var(--navy);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.25rem;
+            }
+
+            .section-header {
+                font-size: 1rem;
+                padding: 0.875rem 1rem;
+            }
+
+            .section-inner {
+                padding: 1rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .template-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .copy-btn {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            /* Respect user preference but keep light theme for readability */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 Reddit Marketing Playbook</h1>
+        <p>PRC Peptides Community Strategy</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">Last Updated: February 2026</p>
+    </div>
+
+    <div class="container">
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#golden-rules">⚠️ Golden Rules (Read First!)</a></li>
+                <li><a href="#reddit-101">1. Reddit 101: The Basics</a></li>
+                <li><a href="#target-subreddits">2. Target Subreddits</a></li>
+                <li><a href="#finding-posts">3. How to Find Posts</a></li>
+                <li><a href="#templates">4. Answer Templates (30 Ready-to-Use)</a></li>
+                <li><a href="#daily-routine">5. Daily 10-Minute Routine</a></li>
+                <li><a href="#what-not-to-do">6. What NOT to Do</a></li>
+                <li><a href="#post-ideas">7. Educational Post Ideas</a></li>
+                <li><a href="#timeline">8. Account Building Timeline</a></li>
+                <li><a href="#quick-reference">9. Quick Reference Card</a></li>
+            </ul>
+        </div>
+
+        <!-- Section: Golden Rules -->
+        <div class="section" id="golden-rules">
+            <div class="section-header">
+                <span>⚠️ Golden Rules (Read This First!)</span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <div class="golden-rule">
+                        <h4>What You CAN Do:</h4>
+                        <ul class="do-list">
+                            <li>✅ Link to peptideresourcecenter.com</li>
+                            <li>✅ Link to https://frabrizio22.github.io/prc-tools/</li>
+                            <li>✅ Say "for research purposes only"</li>
+                            <li>✅ Be helpful, educational, and genuine</li>
+                            <li>✅ Mention PRC naturally when it fits</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>What You CANNOT Do:</h4>
+                        <ul class="dont-list">
+                            <li>❌ <strong>NEVER link to prcpeptides.com</strong> (instant ban)</li>
+                            <li>❌ Make health claims or medical advice</li>
+                            <li>❌ Sound like a salesperson</li>
+                            <li>❌ Spam or post the same thing repeatedly</li>
+                            <li>❌ Self-promote in first 2 weeks of a new account</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p><strong>Remember:</strong> 90% helpful content / 10% subtle mentions of PRC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Reddit 101 -->
+        <div class="section" id="reddit-101">
+            <div class="section-header">
+                <span>1. Reddit 101: The Basics</span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <h3>What is Reddit?</h3>
+                    <p>Reddit is a collection of forums (called "subreddits") where people discuss specific topics. Each subreddit has its own rules and culture. Think of it like a giant collection of specialized community bulletin boards.</p>
+
+                    <h3>Key Concepts:</h3>
+
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>Subreddits (r/)</h4>
+                            <p>Communities focused on specific topics. Example: r/Peptides is about research peptides. Each has unique rules (always read the sidebar!)</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Karma</h4>
+                            <p>Points you earn when people upvote your posts/comments. You need karma to post in many subreddits. Build it by being helpful and contributing quality content.</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Upvotes/Downvotes</h4>
+                            <p>Users vote content up (good) or down (bad/spam). More upvotes = more visibility. Don't take downvotes personally.</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Posts vs Comments</h4>
+                            <p><strong>Posts:</strong> Start a new discussion thread<br>
+                            <strong>Comments:</strong> Reply to posts or other comments<br>
+                            Comments are where you'll spend most of your time at first.</p>
+                        </div>
+                    </div>
+
+                    <h3>Reddit Etiquette (Reddiquette):</h3>
+                    <ul>
+                        <li>Read before participating</li>
+                        <li>Don't self-promote excessively</li>
+                        <li>Contribute before you promote (90/10 rule)</li>
+                        <li>Use proper grammar and formatting</li>
+                        <li>Admit when you're wrong</li>
+                        <li>Don't delete downvoted comments (looks shady)</li>
+                    </ul>
+
+                    <h3>Account Setup:</h3>
+                    <ol>
+                        <li><strong>Create account:</strong> Use a normal username (not "PRCPeptidesOfficial")</li>
+                        <li><strong>Fill out profile:</strong> Keep it minimal, maybe mention interest in research/biohacking</li>
+                        <li><strong>Subscribe to target subreddits:</strong> Lurk for 1-2 weeks before posting</li>
+                        <li><strong>Build karma first:</strong> Comment helpful things in large subreddits (r/AskReddit, r/fitness, etc.)</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Target Subreddits -->
+        <div class="section" id="target-subreddits">
+            <div class="section-header">
+                <span>2. Target Subreddits: Where to Engage</span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <h3>Primary Targets:</h3>
+
+                    <h4>r/Peptides (Most Important!)</h4>
+                    <p><strong>Size:</strong> ~40k members<br>
+                    <strong>Focus:</strong> Research peptides, sources, protocols<br>
+                    <strong>Strategy:</strong> Answer sourcing questions, share educational content<br>
+                    <strong>Tone:</strong> Scientific but approachable<br>
+                    <strong>Best opportunities:</strong> "Where to buy" threads, reconstitution help, vendor reviews<br>
+                    <strong>Mention PRC when:</strong> Someone asks about reliable vendors or comparison tools</p>
+
+                    <h4>r/SARMs</h4>
+                    <p><strong>Size:</strong> ~50k members<br>
+                    <strong>Focus:</strong> SARMs and peptides for research<br>
+                    <strong>Strategy:</strong> Focus on peptide-related questions (many crossover users)<br>
+                    <strong>Tone:</strong> Bro-science meets science<br>
+                    <strong>Best opportunities:</strong> Source talk, PCT discussions, quality concerns<br>
+                    <strong>Mention PRC when:</strong> Discussing peptide quality, testing, or alternatives to SARMs</p>
+
+                    <h4>r/Nootropics</h4>
+                    <p><strong>Size:</strong> ~350k members<br>
+                    <strong>Focus:</strong> Cognitive enhancement compounds<br>
+                    <strong>Strategy:</strong> Educational posts about peptides like Semax, Selank, BPC-157<br>
+                    <strong>Tone:</strong> Scientific, studies-based, careful<br>
+                    <strong>Best opportunities:</strong> Research on peptide nootropics, sourcing questions<br>
+                    <strong>Mention PRC when:</strong> Someone asks about peptide vendors or tools to compare options</p>
+
+                    <h4>r/Biohackers</h4>
+                    <p><strong>Size:</strong> ~200k members<br>
+                    <strong>Focus:</strong> Self-optimization, longevity, experimental protocols<br>
+                    <strong>Strategy:</strong> Share research findings, tools, calculators<br>
+                    <strong>Tone:</strong> Experimental, data-driven, open-minded<br>
+                    <strong>Best opportunities:</strong> Peptide protocols, longevity stacks, tool recommendations<br>
+                    <strong>Mention PRC when:</strong> Discussing research resources or comparison tools</p>
+
+                    <h4>r/Supplements</h4>
+                    <p><strong>Size:</strong> ~400k members<br>
+                    <strong>Focus:</strong> All supplements including peptides<br>
+                    <strong>Strategy:</strong> Answer peptide-specific questions (less competition here)<br>
+                    <strong>Tone:</strong> Helpful, evidence-based, not pushy<br>
+                    <strong>Best opportunities:</strong> "What is [peptide]?" threads, sourcing<br>
+                    <strong>Mention PRC when:</strong> Someone graduates from basic supplements to peptides</p>
+
+                    <h4>r/Longevity</h4>
+                    <p><strong>Size:</strong> ~150k members<br>
+                    <strong>Focus:</strong> Life extension, anti-aging research<br>
+                    <strong>Strategy:</strong> Share peptide research related to longevity<br>
+                    <strong>Tone:</strong> Scientific, study-focused, serious<br>
+                    <strong>Best opportunities:</strong> Discussions on BPC-157, Epitalon, GHK-Cu, thymosin<br>
+                    <strong>Mention PRC when:</strong> Relevant to discussing research access</p>
+
+                    <h4>r/StackAdvice</h4>
+                    <p><strong>Size:</strong> ~80k members<br>
+                    <strong>Focus:</strong> Stack recommendations and optimization<br>
+                    <strong>Strategy:</strong> Help people add peptides to their stacks<br>
+                    <strong>Tone:</strong> Helpful advisor, not salesy<br>
+                    <strong>Best opportunities:</strong> Stack reviews, peptide questions<br>
+                    <strong>Mention PRC when:</strong> Someone asks about sourcing or comparing vendors</p>
+
+                    <h3>Secondary Targets (Lower Priority):</h3>
+                    <ul>
+                        <li>r/PEDs (peptides for performance)</li>
+                        <li>r/moreplatesmoredates (bodybuilding/enhancement)</li>
+                        <li>r/researchchemicals (research compounds)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Finding Posts -->
+        <div class="section" id="finding-posts">
+            <div class="section-header">
+                <span>3. How to Find Posts to Engage With</span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <h3>Method 1: Manual Search (Daily)</h3>
+                    <p><strong>On Reddit Search Bar:</strong></p>
+                    <ul>
+                        <li>"where to buy peptides"</li>
+                        <li>"peptide vendor"</li>
+                        <li>"best peptide source"</li>
+                        <li>"peptide reconstitution"</li>
+                        <li>"is [vendor name] legit"</li>
+                        <li>"peptide comparison"</li>
+                        <li>"BPC-157 source" (replace with any peptide name)</li>
+                    </ul>
+
+                    <p><strong>Advanced Search:</strong></p>
+                    <ul>
+                        <li>Go to target subreddit</li>
+                        <li>Use search: <code>vendor OR source OR "where to buy"</code></li>
+                        <li>Sort by: <strong>New</strong> (respond to fresh posts first!)</li>
+                    </ul>
+
+                    <h3>Method 2: Sort by New</h3>
+                    <p>Visit these daily:</p>
+                    <ul>
+                        <li>reddit.com/r/Peptides/new</li>
+                        <li>reddit.com/r/SARMs/new</li>
+                        <li>reddit.com/r/Nootropics/new</li>
+                    </ul>
+
+                    <p><strong>Look for:</strong></p>
+                    <ul>
+                        <li>Questions about vendors</li>
+                        <li>"Is [vendor] legit?"</li>
+                        <li>Reconstitution help</li>
+                        <li>"First time buying" posts</li>
+                        <li>Price/quality discussions</li>
+                    </ul>
+
+                    <h3>Method 3: Keyword Alerts (Advanced)</h3>
+                    <p><strong>Free Option - F5Bot:</strong></p>
+                    <ol>
+                        <li>Go to https://f5bot.com</li>
+                        <li>Add keywords: "peptide vendor", "where to buy peptides", "peptide source"</li>
+                        <li>Add subreddits to monitor</li>
+                        <li>Get email alerts when keywords appear</li>
+                    </ol>
+
+                    <h3>Method 4: RSS Feeds</h3>
+                    <p>Use an RSS reader (Feedly, Inoreader) with these feeds:</p>
+                    <ul>
+                        <li><code>reddit.com/r/Peptides/new/.rss</code></li>
+                        <li><code>reddit.com/r/Peptides/search.rss?q=vendor&sort=new</code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Templates -->
+        <div class="section" id="templates">
+            <div class="section-header">
+                <span>4. Ready-to-Paste Answer Templates (30 Templates)</span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <div class="highlight-box">
+                        <p><strong>Instructions:</strong> Customize each template to fit the specific post. Never copy-paste exactly. Add personal touches. Use 2-3 variations to avoid pattern detection.</p>
+                    </div>
+
+                    <h3>Template Set 1: "Where to Buy Peptides?"</h3>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 1A - Educational Focus</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template1a')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template1a">When looking for research peptides, I always check these things:
+
+1. Third-party testing (COA certificates)
+2. Shipping speed and packaging quality
+3. Reconstitution supplies included
+4. Transparent pricing
+
+I've found the comparison tool at peptideresourcecenter.com really helpful for seeing vendors side-by-side. Makes it way easier than checking 10+ sites individually.
+
+For research purposes only, of course!</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 1B - Tool Focus</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template1b')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template1b">There's a decent comparison tool here: https://frabrizio22.github.io/prc-tools/
+
+Lets you filter by peptide type, see pricing, and compare quality indicators across vendors. Saved me a ton of research time.
+
+Whatever you choose, make sure they provide COAs and proper storage. Research quality matters.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 1C - Brief + Helpful</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template1c')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template1c">Check out the vendor directory at peptideresourcecenter.com - has verified sources with testing info, pricing, and reviews. Way more reliable than random recommendations.
+
+Make sure whoever you go with includes reconstitution supplies and ships with proper cold packs.</div>
+                    </div>
+
+                    <h3>Template Set 2: "Best Peptide Vendor?"</h3>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 2A - Criteria-Based</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template2a')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template2a">"Best" depends on what you prioritize:
+
+- **Speed?** Look for next-day shipping options
+- **Price?** Use a comparison tool (I like the one at peptideresourcecenter.com)
+- **Selection?** Some vendors have 40+ peptides, others specialize
+- **Testing?** Always verify they provide COAs
+
+I personally prioritize vendors that include free reconstitution kits because it's one less thing to order separately.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 2B - Personal Experience</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template2b')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template2b">I spent way too long comparing vendors last year. Eventually found peptideresourcecenter.com which has a directory with actual data on testing, pricing, and shipping.
+
+Key things I learned:
+- Don't go with the cheapest (quality matters for research)
+- Check if recon supplies are included
+- Verify they ship with cold packs
+- Read actual COA reports, not just claims
+
+For research use only, obviously.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 2C - Direct + Resourceful</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template2c')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template2c">Rather than give you one name (which might not fit your needs), check out this comparison tool: https://frabrizio22.github.io/prc-tools/
+
+Filters by peptide, shows pricing, and includes quality indicators. Makes it easy to decide based on your specific research requirements.</div>
+                    </div>
+
+                    <h3>Template Set 3: Reconstitution Help</h3>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 3A - Step-by-Step</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template3a')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template3a">Reconstitution process:
+
+1. Clean workspace, wash hands
+2. Remove cap from peptide vial (don't remove stopper)
+3. Wipe stopper with alcohol pad
+4. Draw bacteriostatic water into syringe
+5. Slowly inject down the *side* of the vial (not directly onto powder)
+6. Gently swirl (don't shake!)
+7. Let sit for a few minutes until fully dissolved
+8. Store in fridge (2-8°C)
+
+If your vendor didn't include a recon kit, you'll need to order bac water and syringes separately. Some vendors (PRC for example) include everything which is convenient.
+
+Calculator for dosing: peptideresourcecenter.com has one in their resource center.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 3B - Quick Guide + Tool</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template3b')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template3b">Basic steps: inject bac water slowly down the side of the vial, swirl gently, don't shake. Store in fridge.
+
+For exact calculations, use the peptide calculator at peptideresourcecenter.com - just enter your vial size and desired dose. Way easier than doing math yourself.
+
+Also pro tip: get a vendor that includes recon supplies free. Saves ordering separately.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 3C - Video + Resource</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template3c')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template3c">The visual helps more than text for this. YouTube has good videos if you search "peptide reconstitution."
+
+For dosing calculations after reconstitution, there's a calculator tool at peptideresourcecenter.com that does the math for you.
+
+Make sure you have:
+- Bacteriostatic water (not sterile water)
+- Insulin syringes
+- Alcohol wipes
+- Proper storage (fridge)
+
+Some vendors include all this - definitely check before ordering.</div>
+                    </div>
+
+                    <h3>Template Set 4: Vendor Review Request</h3>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 4A - Helpful + Subtle</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template4a')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template4a">I've used a few vendors over the past year for research. Here's what I've learned:
+
+**Good signs:**
+- Provides COAs with batch numbers
+- Ships next day with cold packs
+- Includes reconstitution supplies
+- Responsive customer service
+
+**Red flags:**
+- No testing documentation
+- Slow shipping without temp control
+- Making health claims
+- Too-good-to-be-true pricing
+
+I usually cross-reference vendors on peptideresourcecenter.com before ordering. Their directory has actual data rather than just reviews.
+
+PRC has been solid for me personally - ships fast, includes recon kit, decent pricing. But do your own research based on your needs.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 4B - Comparison-Focused</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template4b')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template4b">Rather than just name one vendor, I'd recommend using a comparison approach:
+
+1. Check the vendor directory at peptideresourcecenter.com
+2. Filter by the specific peptides you need
+3. Compare pricing, testing, and shipping
+
+I've had good experiences with PRC (fast shipping, free recon kit, responsive), but your priorities might differ. The comparison tool helps you decide based on data, not just random opinions.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 4C - Balanced Review</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template4c')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template4c">I can share my experience:
+
+**PRC Peptides** - Used them for the last 6 months for research
+- ✅ Next-day shipping
+- ✅ Free reconstitution kit (saves $10-15)
+- ✅ Good selection (44+ peptides)
+- ✅ Competitive pricing
+- ✅ Responsive support
+
+**Others I've researched:**
+Check peptideresourcecenter.com for full vendor directory with testing info and pricing. Lets you compare objectively.
+
+Key: Always verify COAs regardless of vendor!</div>
+                    </div>
+
+                    <h3>Template Set 5: Price Comparison Question</h3>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 5A - Tool-First</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template5a')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template5a">Use this comparison tool: https://frabrizio22.github.io/prc-tools/
+
+Shows pricing across multiple vendors for specific peptides. Updates regularly. Way faster than manually checking each site.
+
+Don't go purely by price though - factor in:
+- Testing/COAs provided
+- Shipping speed and costs
+- Reconstitution supplies included
+- Actual peptide purity
+
+Sometimes paying $5 more gets you way better service and quality assurance.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 5B - Value-Focused</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template5b')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template5b">Price isn't everything for research compounds. Calculate total cost:
+
+- Base peptide price
+- Shipping cost
+- Reconstitution supplies (if not included)
+- Replacement policy if damaged
+
+Example: Vendor A charges $35 + $8 shipping + $12 for recon kit = $55
+Vendor B charges $42 + free shipping + free recon kit = $42
+
+The "more expensive" vendor is actually cheaper.
+
+peptideresourcecenter.com has a comparison tool that factors this in.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 5C - Direct Comparison</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template5c')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template5c">For [specific peptide], I've seen prices range from $X to $Y per vial. 
+
+Quick comparison using peptideresourcecenter.com:
+- Vendor A: $XX
+- Vendor B: $XX
+- PRC: $XX (includes recon kit + next day ship)
+
+Make sure you're comparing the same:
+- Vial size (5mg vs 10mg)
+- Purity level
+- Shipping method
+- What's included
+
+Cheapest isn't always best for research quality.</div>
+                    </div>
+
+                    <h3>Template Set 6: "Is [Vendor] Legit?"</h3>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 6A - Verification Checklist</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template6a')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template6a">To verify any vendor, check:
+
+1. **COAs available?** Request batch-specific certificates
+2. **Contact info?** Real email/phone, not just a form
+3. **Shipping method?** Cold packs, discrete packaging
+4. **Reviews on Reddit?** Search the vendor name in r/Peptides
+5. **Listed in directories?** Check peptideresourcecenter.com
+
+Can't speak to that specific vendor, but I use PRC and they check all these boxes. Do your own verification though!</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 6B - Red Flag Focus</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template6b')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template6b">🚩 Red flags to watch for:
+- No COAs or "coming soon" forever
+- Website looks sketchy or unprofessional
+- Making health/medical claims
+- Prices way below market average
+- No cold-pack shipping option
+- Can't find any reviews
+
+✅ Green flags:
+- Listed in vendor directories (peptideresourcecenter.com)
+- Batch-specific testing
+- Professional communication
+- Transparent shipping/return policy
+
+I personally stick with established vendors like PRC, but DYOR always.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 6C - Resource-Based</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template6c')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template6c">Check if they're listed in the vendor directory at peptideresourcecenter.com - they vet vendors based on testing, legitimacy, and community feedback.
+
+If they're not listed there, that doesn't necessarily mean they're bad, but you'll need to do extra verification:
+- Request COAs
+- Search Reddit for experiences
+- Verify contact information
+- Test with a small order first
+
+For research purposes, quality assurance is crucial.</div>
+                    </div>
+
+                    <h3>Template Set 7: First-Time Buyer Questions</h3>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 7A - Comprehensive Guide</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template7a')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template7a">First time buying research peptides? Here's your checklist:
+
+**Before ordering:**
+- [ ] Identified the specific peptide for your research
+- [ ] Confirmed legal status in your country
+- [ ] Researched proper storage requirements
+- [ ] Have refrigerator space ready
+
+**Choosing a vendor:**
+- [ ] Provides COAs (certificates of analysis)
+- [ ] Ships with cold packs
+- [ ] Includes reconstitution supplies (or order separately)
+- [ ] Has good Reddit reviews
+
+**After ordering:**
+- [ ] Store in fridge immediately upon arrival
+- [ ] Follow proper reconstitution protocol
+- [ ] Use peptide calculator for dosing (peptideresourcecenter.com has one)
+
+Resources: peptideresourcecenter.com has guides for beginners.
+
+I used PRC for my first order - they include everything you need which made it less overwhelming.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 7B - Simple Start</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template7b')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template7b">Welcome to peptide research! Start here:
+
+1. **Pick your peptide** - What are you researching?
+2. **Find a vendor** - Use peptideresourcecenter.com to compare
+3. **Order essentials** - Peptide + bac water + syringes (some vendors include recon kits free)
+4. **Storage** - Fridge space ready
+5. **Reconstitution** - Use calculator at peptideresourcecenter.com
+
+Don't overthink it. PRC made my first order easy with free recon kit and fast shipping, but check what works for your research needs.
+
+For research purposes only!</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 7C - Mistake-Avoidance</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template7c')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template7c">Common first-timer mistakes to avoid:
+
+❌ Buying without checking COAs  
+❌ Forgetting reconstitution supplies  
+❌ Not planning for cold storage  
+❌ Shaking vial instead of swirling  
+❌ Using sterile water instead of bacteriostatic  
+❌ Ordering from sketchy sources  
+
+✅ Do this instead:
+- Compare vendors at peptideresourcecenter.com
+- Order from vendors that include recon kits (less to buy)
+- Have fridge space ready
+- Read reconstitution guides first
+- Start with established vendors (PRC, etc.)
+
+Research quality matters - don't cheap out on your first order.</div>
+                    </div>
+
+                    <h3>Template Set 8: Peptide-Specific Questions (Example: BPC-157)</h3>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 8A - Research-Focused</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template8a')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template8a">BPC-157 research notes:
+
+**Background:** Derivative of body protection compound, studied for tissue repair in animal models
+
+**Research considerations:**
+- Typical research doses: 200-500mcg (animal studies)
+- Storage: Fridge after reconstitution
+- Stability: ~2-3 weeks reconstituted with bac water
+
+**Where to source:** peptideresourcecenter.com has vendor comparisons for BPC-157 specifically. Filter by this peptide to see pricing and availability.
+
+PRC carries it in multiple sizes (5mg, 10mg) with free recon kit which is convenient.
+
+Always for research purposes only. Not for human consumption.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 8B - Practical Info</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template8b')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template8b">For BPC-157 research:
+
+**Sourcing:** Check peptideresourcecenter.com and filter for BPC-157 to compare vendors and pricing.
+
+**Reconstitution:** 
+- 5mg vial + 2ml bac water = 2500mcg/ml
+- Use calculator: peptideresourcecenter.com
+
+**Storage:**
+- Powder: Room temp or fridge
+- Reconstituted: Must refrigerate
+
+I've used PRC's BPC-157 for research - good quality, includes recon supplies, ships fast.
+
+Make sure you get COAs regardless of vendor!</div>
+                    </div>
+
+                    <h3>Template Set 9: Storage/Handling Questions</h3>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 9A - Detailed Guide</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template9a')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template9a">Peptide storage guidelines:
+
+**Before reconstitution (powder):**
+- Room temperature OK for short term (weeks)
+- Fridge better for longer storage (months)
+- Freezer for long-term (years)
+- Keep in original vial
+
+**After reconstitution (liquid):**
+- Must refrigerate (2-8°C)
+- Don't freeze
+- Typical stability: 2-4 weeks depending on peptide
+- Protect from light
+
+**General rules:**
+- Don't leave at room temp for extended periods
+- Don't refreeze after thawing
+- Track reconstitution date
+
+Some vendors include proper packaging instructions. PRC includes storage guidelines with orders which helps.</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 9B - Quick Reference</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template9b')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template9b">Storage cheat sheet:
+
+📦 Powder form: Fridge or freezer OK  
+💧 After mixing: Refrigerate, don't freeze  
+⏰ Shelf life: 2-4 weeks once mixed  
+🌡️ Target temp: 2-8°C (fridge temp)  
+
+peptideresourcecenter.com has storage guides in their resource section.
+
+Pro tip: Get a vendor that ships with cold packs (PRC and others do this). Protects during transit.</div>
+                    </div>
+
+                    <h3>Template Set 10: Testing/Quality Questions</h3>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 10A - Education-First</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template10a')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template10a">Quality verification for research peptides:
+
+**COA (Certificate of Analysis):**
+- Should show purity % (aim for 98%+)
+- Batch number matching your vial
+- Testing date (recent is better)
+- Third-party lab name
+
+**What to ask vendors:**
+- "Can you provide COA for current batch?"
+- "Who does your third-party testing?"
+- "What's the purity of [peptide]?"
+
+**Where to verify:**
+Check peptideresourcecenter.com - they list vendors with testing transparency. PRC provides COAs on request, as do other reputable vendors.
+
+Never trust claims without documentation!</div>
+                    </div>
+
+                    <div class="template-box">
+                        <div class="template-header">
+                            <span class="template-title">Template 10B - Practical Check</span>
+                            <button class="copy-btn" onclick="copyTemplate(this, 'template10b')">Copy</button>
+                        </div>
+                        <div class="template-text" id="template10b">To verify peptide quality:
+
+1. **Request COA** - Don't accept "we test everything" without proof
+2. **Check purity** - Should be ≥98% for research grade
+3. **Verify batch number** - Should match your vial
+4. **Look up lab** - Make sure testing lab is real
+
+Resources:
+- peptideresourcecenter.com lists vendors with testing info
+- Compare COA availability before ordering
+
+I only order from vendors that provide COAs upfront. PRC has been transparent about testing in my experience.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Daily Routine -->
+        <div class="section" id="daily-routine">
+            <div class="section-header">
+                <span>5. Daily 10-Minute Routine</span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <h3>⏰ Time Breakdown:</h3>
+
+                    <div class="info-card">
+                        <h4>Minutes 1-3: Check New Posts</h4>
+                        <ul>
+                            <li>Visit r/Peptides/new and r/SARMs/new</li>
+                            <li>Scan for: vendor questions, sourcing requests, reconstitution help</li>
+                            <li>Open 2-3 relevant posts in new tabs</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>Minutes 4-7: Write 1-2 Comments</h4>
+                        <ul>
+                            <li>Pick the best opportunity posts</li>
+                            <li>Use/adapt templates above</li>
+                            <li>Personalize each response</li>
+                            <li>Add genuine value first, mention PRC naturally if relevant</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>Minutes 8-9: Engage with Others</h4>
+                        <ul>
+                            <li>Upvote helpful posts in your target subreddits</li>
+                            <li>Reply to comments on your previous posts</li>
+                            <li>Build rapport with active community members</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>Minute 10: Track & Plan</h4>
+                        <ul>
+                            <li>Note what worked (upvotes, replies, questions)</li>
+                            <li>Flag any threads to follow up on</li>
+                            <li>Set reminder for tomorrow</li>
+                        </ul>
+                    </div>
+
+                    <h3>📅 Weekly Schedule:</h3>
+                    <ul>
+                        <li><strong>Monday:</strong> Focus on r/Peptides - engage heavily</li>
+                        <li><strong>Tuesday:</strong> r/Nootropics + r/StackAdvice</li>
+                        <li><strong>Wednesday:</strong> r/Biohackers + educational content</li>
+                        <li><strong>Thursday:</strong> r/SARMs + r/Supplements</li>
+                        <li><strong>Friday:</strong> Follow-up on threads from earlier in week</li>
+                        <li><strong>Saturday:</strong> Create 1 educational post (see section 7)</li>
+                        <li><strong>Sunday:</strong> Light engagement + account maintenance</li>
+                    </ul>
+
+                    <h3>📊 Monthly Goals:</h3>
+                    <ul>
+                        <li><strong>Week 1:</strong> Build karma, be helpful, no PRC mentions</li>
+                        <li><strong>Week 2:</strong> Continue helping, subtle mentions OK (1-2 times)</li>
+                        <li><strong>Week 3:</strong> More active, natural PRC mentions when relevant</li>
+                        <li><strong>Week 4:</strong> Post 1-2 educational threads, full engagement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: What NOT to Do -->
+        <div class="section" id="what-not-to-do">
+            <div class="section-header">
+                <span>6. What NOT to Do (Ban-Proof Your Account)</span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <h3>🚫 Instant Ban Triggers:</h3>
+
+                    <div class="warning-box">
+                        <h4>1. Linking to prcpeptides.com shop</h4>
+                        <p>❌ "Buy from prcpeptides.com"<br>
+                        ✅ "Check peptideresourcecenter.com for vendor comparisons"</p>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>2. Making health claims</h4>
+                        <p>❌ "This will heal your injury"<br>
+                        ✅ "Animal studies show interesting tissue repair properties"</p>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>3. Obvious self-promotion</h4>
+                        <p>❌ "I work for PRC and we're the best"<br>
+                        ✅ "I've used PRC for research - they include recon kits which is convenient"</p>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>4. Spamming same message</h4>
+                        <p>❌ Copy-paste identical replies<br>
+                        ✅ Customize templates for each post</p>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>5. New account immediately promoting</h4>
+                        <p>❌ Day 1: "Buy from PRC!"<br>
+                        ✅ Week 1-2: Just be helpful, build karma</p>
+                    </div>
+
+                    <h3>⚠️ Shadowban Triggers:</h3>
+                    <p><strong>These don't ban you but hide your content:</strong></p>
+                    <ul>
+                        <li>Posting same link repeatedly</li>
+                        <li>Only commenting to promote</li>
+                        <li>No engagement outside target subreddits</li>
+                        <li>Copy-paste responses</li>
+                        <li>Low karma account promoting</li>
+                    </ul>
+
+                    <p><strong>Avoid shadowban:</strong></p>
+                    <ul>
+                        <li>Participate in other subreddits (gaming, hobbies, etc.)</li>
+                        <li>Build karma before promoting</li>
+                        <li>Vary your responses</li>
+                        <li>Be genuinely helpful 90% of the time</li>
+                    </ul>
+
+                    <h3>🔴 Subreddit-Specific Rules:</h3>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>r/Peptides</h4>
+                            <ul>
+                                <li>No direct vendor promotion</li>
+                                <li>Research context required</li>
+                                <li>No medical advice</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>r/Nootropics</h4>
+                            <ul>
+                                <li>Very strict on sourcing</li>
+                                <li>Focus on research and science</li>
+                                <li>Less tolerant of vendor talk</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>r/SARMs</h4>
+                            <ul>
+                                <li>More lenient on sourcing</li>
+                                <li>Still no blatant ads</li>
+                                <li>Community-focused</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p><strong>Always read sidebar rules before posting!</strong></p>
+
+                    <h3>✅ Safe Practices:</h3>
+                    <ol>
+                        <li>Use resource center URL, not shop URL</li>
+                        <li>Say "for research purposes only" regularly</li>
+                        <li>Mention multiple vendors sometimes (not just PRC)</li>
+                        <li>Focus on education first, mentioning vendors second</li>
+                        <li>Be a real community member - upvote, engage, help others</li>
+                        <li>Diversify your activity - comment on non-peptide stuff too</li>
+                        <li>Don't delete downvoted comments (looks like you're hiding something)</li>
+                        <li>Disclose if asked directly - "Yes, I've used PRC" is fine if genuine</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Post Ideas -->
+        <div class="section" id="post-ideas">
+            <div class="section-header">
+                <span>7. 10 Educational Post Ideas for Traffic</span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>Post Idea #1: Comprehensive Peptide Comparison</h4>
+                            <p><strong>Title:</strong> "I compared 15 research peptide vendors - here's what I found [data]"</p>
+                            <p><strong>Best for:</strong> r/Peptides, r/Biohackers<br>
+                            <strong>Timing:</strong> Monday morning<br>
+                            <strong>Engagement:</strong> High - people love data</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Post Idea #2: Reconstitution Visual Guide</h4>
+                            <p><strong>Title:</strong> "Visual guide to peptide reconstitution for research [step-by-step photos]"</p>
+                            <p><strong>Best for:</strong> r/Peptides, r/SARMs<br>
+                            <strong>Timing:</strong> Wednesday or Thursday<br>
+                            <strong>Engagement:</strong> Medium-high, evergreen</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Post Idea #3: Red Flags Guide</h4>
+                            <p><strong>Title:</strong> "🚩 Red flags when buying research peptides - protect yourself from scams"</p>
+                            <p><strong>Best for:</strong> r/Peptides, r/Nootropics<br>
+                            <strong>Timing:</strong> Any day<br>
+                            <strong>Engagement:</strong> High - people fear scams</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Post Idea #4: Peptide Calculator Showcase</h4>
+                            <p><strong>Title:</strong> "Made a free peptide dosage calculator - feedback welcome"</p>
+                            <p><strong>Best for:</strong> r/Peptides, r/Biohackers<br>
+                            <strong>Timing:</strong> Weekend<br>
+                            <strong>Engagement:</strong> Medium, builds authority</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Post Idea #5: Storage & Stability Data</h4>
+                            <p><strong>Title:</strong> "Peptide storage guide: How long do they really last? [compiled data]"</p>
+                            <p><strong>Best for:</strong> r/Peptides, r/Nootropics<br>
+                            <strong>Timing:</strong> Mid-week<br>
+                            <strong>Engagement:</strong> Medium-high, saved reference</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Post Idea #6: Cost Analysis</h4>
+                            <p><strong>Title:</strong> "True cost of research peptides: pricing breakdown [analysis]"</p>
+                            <p><strong>Best for:</strong> r/Peptides, r/Supplements<br>
+                            <strong>Timing:</strong> Monday or Friday<br>
+                            <strong>Engagement:</strong> High - saves money</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Post Idea #7: Peptide Research Roundup</h4>
+                            <p><strong>Title:</strong> "Recent research on [specific peptide] - compiled studies [Month Year]"</p>
+                            <p><strong>Best for:</strong> r/Nootropics, r/Longevity, r/Biohackers<br>
+                            <strong>Timing:</strong> Start of month<br>
+                            <strong>Engagement:</strong> Medium, positions as expert</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Post Idea #8: Beginner's FAQ</h4>
+                            <p><strong>Title:</strong> "New to research peptides? Start here - comprehensive FAQ"</p>
+                            <p><strong>Best for:</strong> r/Peptides, r/Nootropics<br>
+                            <strong>Timing:</strong> Sunday evening<br>
+                            <strong>Engagement:</strong> High, evergreen, saved</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Post Idea #9: COA Deep Dive</h4>
+                            <p><strong>Title:</strong> "How to read peptide COAs (Certificates of Analysis) - what to look for"</p>
+                            <p><strong>Best for:</strong> r/Peptides, r/Biohackers<br>
+                            <strong>Timing:</strong> Mid-week<br>
+                            <strong>Engagement:</strong> Medium-high, educational</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Post Idea #10: Shipping & Quality Control</h4>
+                            <p><strong>Title:</strong> "Why peptide shipping method matters - temperature stability analysis"</p>
+                            <p><strong>Best for:</strong> r/Peptides<br>
+                            <strong>Timing:</strong> Seasonal<br>
+                            <strong>Engagement:</strong> Medium, weather-dependent</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Timeline -->
+        <div class="section" id="timeline">
+            <div class="section-header">
+                <span>8. Account Building Strategy: Timeline</span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <h3>📅 Weeks 1-2: Foundation Phase (Build Karma)</h3>
+                    <div class="highlight-box">
+                        <p><strong>Goals:</strong> Reach 100+ karma, establish account legitimacy, learn community culture</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Comment on AskReddit, fitness, science subreddits (easy karma)</li>
+                            <li>Lurk and read in target peptide subreddits</li>
+                            <li>Upvote good content</li>
+                            <li>Make 5-10 comments per day (not all peptide-related)</li>
+                            <li>Subscribe to target subreddits</li>
+                        </ul>
+                        <p><strong>Rules:</strong></p>
+                        <ul class="dont-list">
+                            <li>❌ Zero promotion of PRC</li>
+                            <li>❌ No vendor recommendations yet</li>
+                        </ul>
+                        <ul class="do-list">
+                            <li>✅ Just be helpful and genuine</li>
+                        </ul>
+                    </div>
+
+                    <h3>📅 Weeks 3-4: Engagement Phase (Start Participating)</h3>
+                    <div class="highlight-box">
+                        <p><strong>Goals:</strong> Build presence in peptide communities, establish helpful reputation, earn community trust</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Comment 2-3 times daily in r/Peptides, r/SARMs</li>
+                            <li>Answer technical questions (reconstitution, storage)</li>
+                            <li>Share educational content</li>
+                            <li>Use templates but customize each</li>
+                            <li>Very subtle PRC mentions OK (1-2 per week max)</li>
+                        </ul>
+                    </div>
+
+                    <h3>📅 Weeks 5-8: Authority Phase (Build Credibility)</h3>
+                    <div class="highlight-box">
+                        <p><strong>Goals:</strong> Become recognized community member, post quality content, natural vendor mentions</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Post 1 educational thread per week</li>
+                            <li>Daily engagement in target subreddits (10 min routine)</li>
+                            <li>More confident PRC mentions when relevant</li>
+                            <li>Build relationships with active members</li>
+                            <li>Share the comparison tool regularly</li>
+                        </ul>
+                    </div>
+
+                    <h3>📅 Month 3+: Established Phase (Trusted Member)</h3>
+                    <div class="highlight-box">
+                        <p><strong>Goals:</strong> Recognized helpful voice, natural influence on purchasing decisions, sustainable presence</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Continue daily 10-min routine</li>
+                            <li>Post educational content bi-weekly</li>
+                            <li>Answer DMs asking for vendor advice</li>
+                            <li>Share comparison tool proactively</li>
+                            <li>Participate in vendor discussion threads</li>
+                        </ul>
+                    </div>
+
+                    <h3>🎯 Success Metrics by Phase:</h3>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>Week 2 Check:</h4>
+                            <ul class="checklist">
+                                <li>100+ karma</li>
+                                <li>Active in 5+ subreddits</li>
+                                <li>No downvoted comments</li>
+                                <li>Zero promotion done</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Week 4 Check:</h4>
+                            <ul class="checklist">
+                                <li>300+ karma</li>
+                                <li>3+ helpful comments daily</li>
+                                <li>At least 2 saved/thanked comments</li>
+                                <li>1-2 subtle PRC mentions went well</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Week 8 Check:</h4>
+                            <ul class="checklist">
+                                <li>500+ karma</li>
+                                <li>Posted 2+ educational threads</li>
+                                <li>Regular commenter people recognize</li>
+                                <li>Natural PRC mentions in 10+ comments</li>
+                                <li>No bans or warnings</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Month 3+ Check:</h4>
+                            <ul class="checklist">
+                                <li>1000+ karma</li>
+                                <li>Known as helpful community member</li>
+                                <li>People ask you for advice</li>
+                                <li>PRC gets mentioned by others</li>
+                                <li>Sustainable routine established</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Quick Reference -->
+        <div class="section" id="quick-reference">
+            <div class="section-header">
+                <span>9. Quick Reference Card</span>
+                <span class="icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>✅ ALWAYS:</h4>
+                            <ul>
+                                <li>Link peptideresourcecenter.com or GitHub tool</li>
+                                <li>Say "for research purposes only"</li>
+                                <li>Be helpful first</li>
+                                <li>Customize templates</li>
+                                <li>Check subreddit rules</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>❌ NEVER:</h4>
+                            <ul>
+                                <li>Link prcpeptides.com shop</li>
+                                <li>Make health claims</li>
+                                <li>Spam or copy-paste</li>
+                                <li>Promote in first 2 weeks</li>
+                                <li>Delete downvoted comments</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>🔄 DAILY ROUTINE:</h4>
+                            <ol>
+                                <li>Check r/Peptides/new (2 min)</li>
+                                <li>Reply to 2 posts (5 min)</li>
+                                <li>Engage with replies (3 min)</li>
+                            </ol>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>🎯 BEST PHRASES:</h4>
+                            <ul>
+                                <li>"Check peptideresourcecenter.com for vendor comparisons"</li>
+                                <li>"I've found this comparison tool helpful: [GitHub link]"</li>
+                                <li>"PRC includes free recon kits which is convenient"</li>
+                                <li>"For research purposes only"</li>
+                                <li>"Make sure you verify COAs"</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>📞 Need Help?</h4>
+                        <p>If you're unsure about whether a post is appropriate to comment on or if your reply sounds too promotional:</p>
+                        <p><strong>Default safe action:</strong> Just be genuinely helpful. Share the comparison tool. Don't mention PRC by name unless it's truly relevant.</p>
+                        <p><strong>When in doubt:</strong> Focus on education, not promotion.</p>
+                    </div>
+
+                    <h3>✅ Checklist Before You Start:</h3>
+                    <ul class="checklist">
+                        <li>Read this entire playbook</li>
+                        <li>Created Reddit account with normal username</li>
+                        <li>Subscribed to target subreddits</li>
+                        <li>Lurked for at least a few days</li>
+                        <li>Bookmarked peptideresourcecenter.com and GitHub tool</li>
+                        <li>Built initial karma in general subreddits (100+)</li>
+                        <li>Saved answer templates for customization</li>
+                        <li>Set daily 10-minute reminder</li>
+                        <li>Ready to focus on being helpful first</li>
+                    </ul>
+
+                    <div class="highlight-box" style="background: linear-gradient(135deg, #E7F3FF 0%, #D4E6F7 100%); border-color: var(--blue); text-align: center; padding: 2rem; margin-top: 2rem;">
+                        <h3 style="color: var(--navy); margin-top: 0;">Remember:</h3>
+                        <p style="font-size: 1.1rem; line-height: 1.8;">You're building a <strong>long-term presence</strong>, not running a quick campaign. Patience and genuine helpfulness win on Reddit. Be the community member you'd want to interact with.</p>
+                        <p style="font-size: 1.3rem; margin-top: 1rem;">Good luck! 🚀</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p><strong>Reddit Marketing Playbook for PRC Peptides</strong></p>
+        <p>Last Updated: February 2026 | For Complete Reddit Beginners</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-gray);">
+            💡 Pro tip: Bookmark this page on your iPhone home screen for quick access
+        </p>
+    </div>
+
+    <script>
+        // ES5 JavaScript for iOS Safari compatibility
+        
+        // Collapsible sections
+        var sectionHeaders = document.querySelectorAll('.section-header');
+        
+        for (var i = 0; i < sectionHeaders.length; i++) {
+            sectionHeaders[i].addEventListener('click', function() {
+                var content = this.nextElementSibling;
+                var isActive = content.classList.contains('active');
+                
+                if (isActive) {
+                    content.classList.remove('active');
+                    this.classList.remove('active');
+                } else {
+                    content.classList.add('active');
+                    this.classList.add('active');
+                }
+            });
+        }
+        
+        // Copy to clipboard function
+        function copyTemplate(button, templateId) {
+            var templateText = document.getElementById(templateId).innerText;
+            
+            // iOS Safari compatible clipboard copy
+            if (navigator.userAgent.match(/ipad|iphone/i)) {
+                var textArea = document.createElement('textarea');
+                textArea.value = templateText;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                textArea.style.top = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    button.innerText = '✓ Copied!';
+                    button.classList.add('copied');
+                    
+                    setTimeout(function() {
+                        button.innerText = 'Copy';
+                        button.classList.remove('copied');
+                    }, 2000);
+                } catch (err) {
+                    button.innerText = 'Failed';
+                    setTimeout(function() {
+                        button.innerText = 'Copy';
+                    }, 2000);
+                }
+                
+                document.body.removeChild(textArea);
+            } else {
+                // Modern browsers
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(templateText).then(function() {
+                        button.innerText = '✓ Copied!';
+                        button.classList.add('copied');
+                        
+                        setTimeout(function() {
+                            button.innerText = 'Copy';
+                            button.classList.remove('copied');
+                        }, 2000);
+                    }).catch(function(err) {
+                        button.innerText = 'Failed';
+                        setTimeout(function() {
+                            button.innerText = 'Copy';
+                        }, 2000);
+                    });
+                } else {
+                    // Fallback for older browsers
+                    var textArea = document.createElement('textarea');
+                    textArea.value = templateText;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    
+                    try {
+                        document.execCommand('copy');
+                        button.innerText = '✓ Copied!';
+                        button.classList.add('copied');
+                        
+                        setTimeout(function() {
+                            button.innerText = 'Copy';
+                            button.classList.remove('copied');
+                        }, 2000);
+                    } catch (err) {
+                        button.innerText = 'Failed';
+                        setTimeout(function() {
+                            button.innerText = 'Copy';
+                        }, 2000);
+                    }
+                    
+                    document.body.removeChild(textArea);
+                }
+            }
+        }
+        
+        // Smooth scroll for TOC links
+        var tocLinks = document.querySelectorAll('.toc a');
+        
+        for (var i = 0; i < tocLinks.length; i++) {
+            tocLinks[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetId = this.getAttribute('href').substring(1);
+                var targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    // Open the section if it's collapsed
+                    var sectionContent = targetSection.querySelector('.section-content');
+                    var sectionHeader = targetSection.querySelector('.section-header');
+                    
+                    if (sectionContent && !sectionContent.classList.contains('active')) {
+                        sectionContent.classList.add('active');
+                        sectionHeader.classList.add('active');
+                    }
+                    
+                    // Scroll to section
+                    var headerHeight = document.querySelector('.header').offsetHeight;
+                    var targetPosition = targetSection.offsetTop - headerHeight - 10;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+        
+        // Auto-open first section on load
+        var firstSection = document.querySelector('.section-content');
+        var firstHeader = document.querySelector('.section-header');
+        if (firstSection && firstHeader) {
+            firstSection.classList.add('active');
+            firstHeader.classList.add('active');
+        }
+    </script>
+</body>
+</html>

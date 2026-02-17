@@ -12,6 +12,9 @@ h1,h2,h3,h4,h5,h6,.header-title,.hero-title,.res-section h3,.modal-name,.calc-ti
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeUpDelay1{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeUpDelay2{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes subtleGlow{0%,100%{opacity:0.7}50%{opacity:1}}
+@keyframes lineGrow{from{width:0}to{width:60px}}
+@keyframes statPop{from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
 .animate-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease-out,transform 0.6s ease-out}
 .animate-in.visible{opacity:1;transform:translateY(0)}
 .site-header{position:sticky;top:0;z-index:200;background:#fff;border-bottom:1px solid #e5e7eb;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
@@ -22,19 +25,27 @@ h1,h2,h3,h4,h5,h6,.header-title,.hero-title,.res-section h3,.modal-name,.calc-ti
 .header-nav label,.header-nav a{font-size:0.82rem;color:#64748b;text-decoration:none;cursor:pointer;font-weight:500;padding:4px 0;border-bottom:2px solid transparent;transition:color 0.15s}
 .header-nav label:hover,.header-nav a:hover{color:#0A1628}
 @media(max-width:640px){.header-nav{display:none}}
-.hero{background:linear-gradient(135deg,#2563EB 0%,#3B82F6 50%,#60A5FA 100%);padding:48px 20px 40px;text-align:center}
-.hero-title{font-size:2rem;font-weight:900;color:#fff;letter-spacing:-0.5px;line-height:1.1;animation:fadeUp 0.8s ease-out}
-.hero-auth{font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:3px;margin-top:8px;font-weight:500;animation:fadeUpDelay1 0.8s ease-out 0.2s backwards}
-.hero-sub{font-size:0.85rem;color:rgba(255,255,255,0.65);margin-top:16px;line-height:1.5;max-width:560px;margin-left:auto;margin-right:auto;animation:fadeUpDelay1 0.8s ease-out 0.3s backwards}
-.hero-stats{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:20px;font-size:0.72rem;color:rgba(255,255,255,0.5);font-weight:500;animation:fadeUpDelay2 0.8s ease-out 0.4s backwards}
-.hero-stats span{background:rgba(255,255,255,0.06);padding:5px 12px;border-radius:20px}
-.hero-stats strong{color:rgba(255,255,255,0.85)}
-.hero-btns{margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:fadeUpDelay2 0.8s ease-out 0.5s backwards}
-.btn-primary{background:#2B7DE9;color:#fff;border:none;padding:10px 24px;border-radius:8px;font-size:0.82rem;font-weight:700;cursor:pointer;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease,background 0.2s ease}
-.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.3);padding:10px 24px;border-radius:8px;font-size:0.82rem;font-weight:700;cursor:pointer;text-decoration:none;transition:transform 0.2s ease,border-color 0.2s ease}
-.btn-primary:hover{background:#1D6AD4;transform:scale(1.05);box-shadow:0 4px 12px rgba(43,125,233,0.3)}
-.btn-outline:hover{border-color:#fff;transform:scale(1.05)}
-@media(max-width:640px){.hero{padding:32px 16px 28px}.hero-title{font-size:1.5rem}}
+.hero{background:linear-gradient(170deg,#091636 0%,#0C1F4A 40%,#0E2250 70%,#12285A 100%);position:relative;overflow:hidden;padding:48px 20px 44px;text-align:center}
+.hero::before{content:'';position:absolute;top:0;right:0;width:100%;height:100%;background:radial-gradient(ellipse at 50% 0%,rgba(43,125,233,0.1) 0%,transparent 60%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,#2B7DE9,#06B6D4,#2B7DE9);pointer-events:none}
+.hero-logo{position:relative;z-index:1;margin:0 auto 24px}
+.hero-logo img{border-radius:0;box-shadow:none}
+.hero-title{position:relative;z-index:1;font-size:1.8rem;font-weight:900;letter-spacing:-0.5px;line-height:1.15;animation:fadeUp 0.8s ease-out;background:linear-gradient(135deg,#60A5FA,#A78BFA,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-auth{position:relative;z-index:1;font-size:0.72rem;color:#06B6D4;text-transform:uppercase;letter-spacing:4px;margin-top:12px;font-weight:600;animation:fadeUpDelay1 0.8s ease-out 0.2s backwards}
+.hero-line{display:none}
+/* hero props removed */
+.hero-sub{position:relative;z-index:1;font-size:0.88rem;color:rgba(255,255,255,0.55);margin-top:16px;line-height:1.6;max-width:480px;margin-left:auto;margin-right:auto;animation:fadeUpDelay1 0.8s ease-out 0.3s backwards;font-weight:400}
+.hero-btns{position:relative;z-index:1;margin-top:28px;display:flex;flex-direction:column;gap:12px;align-items:center;max-width:320px;margin-left:auto;margin-right:auto;animation:fadeUpDelay2 0.8s ease-out 0.5s backwards}
+.btn-primary{background:linear-gradient(135deg,#2B7DE9,#3B82F6);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-size:0.88rem;font-weight:800;cursor:pointer;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease;box-shadow:0 4px 16px rgba(43,125,233,0.3);width:100%;text-align:center}
+.btn-outline{background:transparent;color:rgba(255,255,255,0.7);border:1.5px solid rgba(255,255,255,0.2);padding:13px 24px;border-radius:10px;font-size:0.85rem;font-weight:600;cursor:pointer;text-decoration:none;transition:transform 0.2s ease,border-color 0.2s ease;width:100%;text-align:center}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(43,125,233,0.4)}
+.btn-outline:hover{border-color:rgba(255,255,255,0.5);transform:translateY(-2px)}
+.hero-stats{position:relative;z-index:1;display:flex;justify-content:center;gap:32px;margin-top:36px;animation:fadeUpDelay2 0.8s ease-out 0.6s backwards}
+.hero-stats span{text-align:center}
+.hero-stats strong{display:block;font-size:1.6rem;font-weight:900;color:#fff;line-height:1}
+.hero-stats small{font-size:0.6rem;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.35);font-weight:600}
+.hero-research{position:relative;z-index:1;font-size:0.65rem;color:rgba(255,255,255,0.25);font-style:italic;margin-top:28px;letter-spacing:0.5px}
+@media(max-width:640px){.hero{padding:36px 16px 32px}.hero-title{font-size:1.6rem}.hero-logo img{width:100px!important}.hero-stats{gap:24px}.hero-stats strong{font-size:1.4rem}}
 .trust-bar{background:#f8f9fa;padding:10px 20px;text-align:center;font-size:0.72rem;color:#64748b;font-weight:500;letter-spacing:0.3px;border-bottom:1px solid #e5e7eb}
 .tab-radio{display:none}
 .tab-bar{position:sticky;top:49px;z-index:150;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;justify-content:center;gap:0}
@@ -54,7 +65,7 @@ h1,h2,h3,h4,h5,h6,.header-title,.hero-title,.res-section h3,.modal-name,.calc-ti
 @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .res-banner h3{font-size:1.1rem;font-weight:800;margin-bottom:6px}
 .res-banner p{font-size:0.8rem;color:rgba(255,255,255,0.7);margin-bottom:16px;line-height:1.5}
-.res-banner .btn-primary{font-size:0.78rem;padding:8px 20px}
+.res-banner .btn-primary{font-size:0.78rem;padding:8px 20px;width:auto;background:#fff;color:#1E3A8A;box-shadow:none}
 .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:32px}
 @media(min-width:768px){.quick-grid{grid-template-columns:1fr 1fr 1fr 1fr}}
 .quick-tile{background:#f8f9fa;border:1px solid #e5e7eb;border-radius:10px;padding:16px;text-align:center;cursor:pointer;text-decoration:none;color:#1a1a2e;transition:all 0.3s ease}
@@ -88,7 +99,7 @@ h1,h2,h3,h4,h5,h6,.header-title,.hero-title,.res-section h3,.modal-name,.calc-ti
 .vendor-row[data-tier="orange"]{border-left-color:#F97316;background:#fff7ed}
 .vendor-row[data-tier="red"]{border-left-color:#EF4444;background:#fef2f2}
 .vendor-row:last-child{border-bottom:none}
-.vendor-row:hover{background:#f8f9fa}
+.vendor-row:hover{background:#f8f9fa;transform:translateX(2px);transition:transform 0.15s ease}
 .vendor-name{font-size:0.82rem;font-weight:700;color:#0A1628;line-height:1.2}
 .vendor-name a{color:#2B7DE9;text-decoration:none}
 .vendor-name a:hover{text-decoration:underline}
@@ -108,7 +119,7 @@ h1,h2,h3,h4,h5,h6,.header-title,.hero-title,.res-section h3,.modal-name,.calc-ti
 @media(min-width:640px){.p-grid{grid-template-columns:1fr 1fr 1fr}}
 @media(min-width:900px){.p-grid{grid-template-columns:1fr 1fr 1fr 1fr}}
 .p-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:16px;cursor:pointer;transition:all 0.15s;display:flex;flex-direction:column}
-.p-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);transform:translateY(-1px)}
+.p-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.12);transform:translateY(-4px)}
 .p-name{font-size:0.82rem;font-weight:700;color:#0A1628;line-height:1.3;margin-bottom:4px}
 .p-cat{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
 .p-desc{font-size:0.7rem;color:#94a3b8;line-height:1.4;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
@@ -277,19 +288,21 @@ if (document.readyState === 'loading') {
 </header>
 
 <section class="hero">
+<div class="hero-logo"><img src="prc-logo-white.png" alt="PRC Logo" style="width:120px;height:auto"></div>
 <div class="hero-title">PEPTIDE RESOURCE CENTER</div>
 <div class="hero-auth">The Peptide Authority</div>
-<p class="hero-sub">Your comprehensive destination for research peptide resources, education, and premium products</p>
-<div class="hero-stats">
-<span><strong>44+</strong> Products</span>
-<span><strong>393</strong> Vendors Reviewed</span>
-<span><strong>10</strong> Categories</span>
-<span><strong>Updated</strong> Feb 2026</span>
-</div>
+<div class="hero-line"></div>
+<p class="hero-sub">Your comprehensive destination for research peptide resources, education, and vendor intelligence</p>
 <div class="hero-btns">
-<label for="tab-resources" class="btn-primary">Explore Resources</label>
-<label for="tab-vendors" class="btn-outline">Vendor Directory</label>
+<label for="tab-resources" class="btn-primary" onclick="switchTab('tab-resources');return false">Explore Resources ↓</label>
+<label for="tab-vendors" class="btn-outline" onclick="switchTab('tab-vendors');return false">Vendor Directory ↓</label>
 </div>
+<div class="hero-stats">
+<span><strong>393</strong><small>Vendors</small></span>
+<span><strong>387</strong><small>Products</small></span>
+<span><strong>10</strong><small>Categories</small></span>
+</div>
+<div class="hero-research">For Research Use Only.</div>
 </section>
 
 
@@ -374,77 +387,77 @@ if (document.readyState === 'loading') {
 </div>
 
 <div class="res-section animate-in" id="review-resources">
-<h3 style="display:flex;align-items:center;gap:10px"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:linear-gradient(135deg,#3B82F6,#60A5FA);border-radius:10px;color:#fff;font-size:1.1rem;font-family:serif">&#9733;</span> Where to Find Vendor Reviews</h3>
+<h3 style="display:flex;align-items:center;gap:10px;border-bottom:2px solid #2B7DE9">&#128270; Where to Find Vendor Reviews</h3>
 <p style="margin-bottom:16px">Before purchasing from any vendor, check these community resources for real user feedback and independent testing results.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-<div style="padding:16px;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:12px;border:1px solid #bfdbfe;transition:transform 0.2s,box-shadow 0.2s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 20px rgba(59,130,246,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-<div style="font-weight:800;font-size:0.85rem;color:#1D4ED8;margin-bottom:6px">Reddit Communities</div>
+<div style="padding:16px;background:#f0f7ff;border-radius:10px;border:1px solid #dbeafe;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<div style="font-weight:800;font-size:0.85rem;color:#1E3A8A;margin-bottom:6px">Reddit Communities</div>
 <div style="font-size:0.75rem;color:#334155;line-height:1.5">r/Peptides — Largest peptide research community. Vendor reviews, experience reports, and sourcing discussions.</div>
 </div>
-<div style="padding:16px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:12px;border:1px solid #bbf7d0;transition:transform 0.2s,box-shadow 0.2s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 20px rgba(16,185,129,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-<div style="font-weight:800;font-size:0.85rem;color:#059669;margin-bottom:6px">Trustpilot</div>
+<div style="padding:16px;background:#f0f7ff;border-radius:10px;border:1px solid #dbeafe;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<div style="font-weight:800;font-size:0.85rem;color:#1E3A8A;margin-bottom:6px">Trustpilot</div>
 <div style="font-size:0.75rem;color:#334155;line-height:1.5">Look for vendors with 50+ reviews and 4+ star ratings. Be cautious of vendors with no reviews.</div>
 </div>
-<div style="padding:16px;background:linear-gradient(135deg,#faf5ff,#f3e8ff);border-radius:12px;border:1px solid #e9d5ff;transition:transform 0.2s,box-shadow 0.2s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 20px rgba(147,51,234,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-<div style="font-weight:800;font-size:0.85rem;color:#7C3AED;margin-bottom:6px">Forums &amp; Discord</div>
+<div style="padding:16px;background:#f0f7ff;border-radius:10px;border:1px solid #dbeafe;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<div style="font-weight:800;font-size:0.85rem;color:#1E3A8A;margin-bottom:6px">Forums &amp; Discord</div>
 <div style="font-size:0.75rem;color:#334155;line-height:1.5">Dedicated servers where researchers share testing results, vendor comparisons, and sourcing experiences.</div>
 </div>
-<div style="padding:16px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border-radius:12px;border:1px solid #fed7aa;transition:transform 0.2s,box-shadow 0.2s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 20px rgba(249,115,22,0.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-<div style="font-weight:800;font-size:0.85rem;color:#EA580C;margin-bottom:6px">What to Look For</div>
+<div style="padding:16px;background:#f0f7ff;border-radius:10px;border:1px solid #dbeafe;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<div style="font-weight:800;font-size:0.85rem;color:#1E3A8A;margin-bottom:6px">What to Look For</div>
 <div style="font-size:0.75rem;color:#334155;line-height:1.5">HPLC purity reports · Shipping quality · Customer service · Batch consistency · Refund policies</div>
 </div>
 </div>
 </div>
 
 <div class="res-section animate-in" id="testing-labs">
-<h3 style="display:flex;align-items:center;gap:10px"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:linear-gradient(135deg,#10B981,#34D399);border-radius:10px;color:#fff;font-size:1.1rem;font-family:serif">&#9878;</span> Third-Party Testing</h3>
+<h3 style="display:flex;align-items:center;gap:10px;border-bottom:2px solid #06B6D4">&#128300; Third-Party Testing</h3>
 <p style="margin-bottom:16px">Independent verification is the gold standard for ensuring product quality.</p>
-<div style="padding:20px;background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border-radius:12px;border:1px solid #a7f3d0;margin-bottom:12px">
-<div style="font-weight:800;font-size:0.95rem;color:#047857;margin-bottom:8px">Janoshik Analytical</div>
+<div style="padding:20px;background:#f0fdfa;border-radius:10px;border:1px solid #99f6e4;margin-bottom:12px">
+<div style="font-weight:800;font-size:0.95rem;color:#0F766E;margin-bottom:8px">Janoshik Analytical</div>
 <div style="font-size:0.78rem;color:#334155;line-height:1.6">Czech Republic-based. The most widely used independent lab in the peptide community. Offers HPLC purity testing, mass spectrometry, and amino acid analysis. Results typically within 5-10 business days.</div>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<div style="padding:14px;background:#fff;border-radius:10px;border:1px solid #e5e7eb">
-<div style="font-weight:700;font-size:0.78rem;color:#1D4ED8;margin-bottom:4px">HPLC Testing</div>
+<div style="padding:14px;background:#fff;border-radius:10px;border:1px solid #e5e7eb;border-left:3px solid #2B7DE9">
+<div style="font-weight:700;font-size:0.78rem;color:#1E3A8A;margin-bottom:4px">HPLC Testing</div>
 <div style="font-size:0.7rem;color:#64748b;line-height:1.4">Measures purity percentage. Look for ≥98% for research-grade.</div>
 </div>
-<div style="padding:14px;background:#fff;border-radius:10px;border:1px solid #e5e7eb">
-<div style="font-weight:700;font-size:0.78rem;color:#7C3AED;margin-bottom:4px">Mass Spectrometry</div>
+<div style="padding:14px;background:#fff;border-radius:10px;border:1px solid #e5e7eb;border-left:3px solid #06B6D4">
+<div style="font-weight:700;font-size:0.78rem;color:#1E3A8A;margin-bottom:4px">Mass Spectrometry</div>
 <div style="font-size:0.7rem;color:#64748b;line-height:1.4">Confirms molecular identity. Verifies correct peptide.</div>
 </div>
-<div style="padding:14px;background:#fff;border-radius:10px;border:1px solid #e5e7eb">
-<div style="font-weight:700;font-size:0.78rem;color:#EA580C;margin-bottom:4px">Endotoxin (LAL)</div>
+<div style="padding:14px;background:#fff;border-radius:10px;border:1px solid #e5e7eb;border-left:3px solid #2B7DE9">
+<div style="font-weight:700;font-size:0.78rem;color:#1E3A8A;margin-bottom:4px">Endotoxin (LAL)</div>
 <div style="font-size:0.7rem;color:#64748b;line-height:1.4">Checks bacterial contamination. Critical for injectables.</div>
 </div>
-<div style="padding:14px;background:#fff;border-radius:10px;border:1px solid #e5e7eb">
-<div style="font-weight:700;font-size:0.78rem;color:#059669;margin-bottom:4px">Sterility Testing</div>
+<div style="padding:14px;background:#fff;border-radius:10px;border:1px solid #e5e7eb;border-left:3px solid #06B6D4">
+<div style="font-weight:700;font-size:0.78rem;color:#1E3A8A;margin-bottom:4px">Sterility Testing</div>
 <div style="font-size:0.7rem;color:#64748b;line-height:1.4">Confirms absence of microbial contamination.</div>
 </div>
 </div>
-<div style="margin-top:12px;padding:16px;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:12px;border:1px solid #bfdbfe">
-<div style="font-weight:800;font-size:0.85rem;color:#1D4ED8;margin-bottom:6px">Reading a COA</div>
+<div style="margin-top:12px;padding:16px;background:#f0f7ff;border-radius:10px;border:1px solid #dbeafe">
+<div style="font-weight:800;font-size:0.85rem;color:#1E3A8A;margin-bottom:6px">Reading a COA</div>
 <div style="font-size:0.75rem;color:#334155;line-height:1.5">A legitimate COA should include: lab name, date of analysis, batch/lot number, peptide name and sequence, purity % (HPLC), molecular weight confirmation (MS), appearance description, and storage conditions.</div>
 </div>
 </div>
 
 <div class="res-section animate-in">
-<h3 style="display:flex;align-items:center;gap:10px"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:linear-gradient(135deg,#7C3AED,#A78BFA);border-radius:10px;color:#fff;font-size:1rem;font-family:serif">&#9998;</span> Books &amp; Further Reading</h3>
+<h3 style="display:flex;align-items:center;gap:10px;border-bottom:2px solid #1E3A8A">&#128218; Books &amp; Further Reading</h3>
 <p style="margin-bottom:16px">Essential references for understanding peptide science and research methodology.</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<div style="padding:16px;background:linear-gradient(135deg,#faf5ff,#f3e8ff);border-radius:12px;border:1px solid #e9d5ff;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-<div style="font-weight:800;font-size:0.82rem;color:#7C3AED;margin-bottom:4px">Peptide Chemistry &amp; Drug Design</div>
+<div style="padding:16px;background:#f8f9fa;border-radius:10px;border:1px solid #e5e7eb;border-left:3px solid #1E3A8A;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<div style="font-weight:800;font-size:0.82rem;color:#1E3A8A;margin-bottom:4px">Peptide Chemistry &amp; Drug Design</div>
 <div style="font-size:0.7rem;color:#64748b;line-height:1.4">by Ben M. Dunn — Synthesis, structure-activity relationships, therapeutic applications.</div>
 </div>
-<div style="padding:16px;background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:12px;border:1px solid #bfdbfe;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-<div style="font-weight:800;font-size:0.82rem;color:#1D4ED8;margin-bottom:4px">Introduction to Peptides &amp; Proteins</div>
+<div style="padding:16px;background:#f8f9fa;border-radius:10px;border:1px solid #e5e7eb;border-left:3px solid #2B7DE9;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<div style="font-weight:800;font-size:0.82rem;color:#1E3A8A;margin-bottom:4px">Introduction to Peptides &amp; Proteins</div>
 <div style="font-size:0.7rem;color:#64748b;line-height:1.4">by Ulo Langel et al. — Cell-penetrating peptides and research methodologies.</div>
 </div>
-<div style="padding:16px;background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-radius:12px;border:1px solid #bbf7d0;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-<div style="font-weight:800;font-size:0.82rem;color:#059669;margin-bottom:4px">Peptide Drug Discovery</div>
+<div style="padding:16px;background:#f8f9fa;border-radius:10px;border:1px solid #e5e7eb;border-left:3px solid #06B6D4;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<div style="font-weight:800;font-size:0.82rem;color:#1E3A8A;margin-bottom:4px">Peptide Drug Discovery</div>
 <div style="font-size:0.7rem;color:#64748b;line-height:1.4">by Miguel Castanho — Lab bench to clinical trials, delivery systems, regulatory.</div>
 </div>
-<div style="padding:16px;background:linear-gradient(135deg,#fff7ed,#ffedd5);border-radius:12px;border:1px solid #fed7aa;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
-<div style="font-weight:800;font-size:0.82rem;color:#EA580C;margin-bottom:4px">Handbook of Active Peptides</div>
+<div style="padding:16px;background:#f8f9fa;border-radius:10px;border:1px solid #e5e7eb;border-left:3px solid #1E3A8A;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+<div style="font-weight:800;font-size:0.82rem;color:#1E3A8A;margin-bottom:4px">Handbook of Active Peptides</div>
 <div style="font-size:0.7rem;color:#64748b;line-height:1.4">by Abba Kastin — 1,600+ pages, every major peptide family and mechanism.</div>
 </div>
 </div>

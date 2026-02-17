@@ -1,0 +1,10 @@
+[
+  {
+    "slug": "semaglutide",
+    "name": "Semaglutide",
+    "price": 30,
+    "category": "GLP Receptor Agonists",
+    "categorySlug": "glp",
+    "categoryColor": "#2563EB"
+  }
+]
