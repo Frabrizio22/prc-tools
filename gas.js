@@ -120,30 +120,61 @@ function sendOrderEmail(data) {
     
     var shippingLabel = Number(data.shipping) === 0 ? 'FREE' : '$' + Number(data.shipping).toFixed(2);
     
-    var html = '<!DOCTYPE html><html><body style="font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;max-width:600px;margin:0 auto;color:#1E293B">' +
-      '<div style="background:#0A1628;padding:20px;text-align:center">' +
-      '<h1 style="color:#fff;margin:0;font-size:20px"><span style="color:#2B7DE9">PRC</span> PEPTIDES</h1>' +
+    var html = '<!DOCTYPE html><html><body style="font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;max-width:600px;margin:0 auto;color:#1E293B;background:#F1F5F9">' +
+      '<div style="background:#F1F5F9;padding:24px 16px">' +
+      
+      // Header card
+      '<div style="background:linear-gradient(135deg,#0A1628 0%,#1E3A5F 100%);border-radius:12px 12px 0 0;padding:28px 24px;text-align:center">' +
+      '<h1 style="color:#fff;margin:0;font-size:22px;letter-spacing:1px"><span style="color:#2B7DE9">PRC</span> PEPTIDES</h1>' +
+      '<p style="color:rgba(255,255,255,0.6);margin:4px 0 0;font-size:12px;letter-spacing:0.5px">≥98% Purity · Third-Party Tested</p>' +
       '</div>' +
-      '<div style="padding:24px">' +
-      '<h2 style="margin:0 0 4px">Order Confirmed</h2>' +
-      '<p style="color:#64748B;margin:0 0 20px">Order ' + orderNum + '</p>' +
+      
+      // White content card
+      '<div style="background:#FFFFFF;border-radius:0 0 12px 12px;padding:28px 24px;box-shadow:0 2px 8px rgba(0,0,0,0.06)">' +
+      
+      // Order confirmed badge
+      '<div style="text-align:center;margin-bottom:20px">' +
+      '<div style="display:inline-block;background:#F0FDF4;color:#059669;font-weight:700;font-size:13px;padding:6px 16px;border-radius:20px;letter-spacing:0.3px">✓ Order Confirmed</div>' +
+      '<p style="color:#64748B;margin:8px 0 0;font-size:14px">' + orderNum + '</p>' +
+      '</div>' +
+      
+      // Payment instructions
       paymentHtml +
-      '<table style="width:100%;border-collapse:collapse;margin:16px 0">' +
-      '<tr style="background:#F8FAFC"><th style="padding:8px;text-align:left">Item</th><th style="padding:8px;text-align:center">Qty</th><th style="padding:8px;text-align:right">Price</th></tr>' +
+      
+      // Order details
+      '<div style="margin:20px 0 0">' +
+      '<h3 style="font-size:13px;text-transform:uppercase;letter-spacing:0.5px;color:#94A3B8;margin:0 0 12px;font-weight:600">Order Details</h3>' +
+      '<table style="width:100%;border-collapse:collapse">' +
+      '<tr style="border-bottom:2px solid #E2E8F0"><th style="padding:10px 8px;text-align:left;font-size:13px;color:#64748B;font-weight:600">Item</th><th style="padding:10px 8px;text-align:center;font-size:13px;color:#64748B;font-weight:600">Qty</th><th style="padding:10px 8px;text-align:right;font-size:13px;color:#64748B;font-weight:600">Price</th></tr>' +
       itemsHtml +
-      '<tr><td style="padding:8px"><strong>Subtotal</strong></td><td></td><td style="padding:8px;text-align:right">$' + Number(data.subtotal).toFixed(2) + '</td></tr>' +
-      discountRow +
-      '<tr><td style="padding:8px">Shipping (' + (data.shipping_name || 'Standard') + ')</td><td></td><td style="padding:8px;text-align:right">' + shippingLabel + '</td></tr>' +
-      '<tr style="background:#F8FAFC"><td style="padding:8px"><strong>Total</strong></td><td></td><td style="padding:8px;text-align:right;font-size:18px"><strong>$' + total + '</strong></td></tr>' +
       '</table>' +
+      '<div style="border-top:2px solid #E2E8F0;margin-top:4px;padding-top:12px">' +
+      '<div style="display:flex;justify-content:space-between;padding:4px 8px;font-size:14px"><span>Subtotal</span><span>$' + Number(data.subtotal).toFixed(2) + '</span></div>' +
+      (Number(data.discount) > 0 ? '<div style="display:flex;justify-content:space-between;padding:4px 8px;font-size:14px;color:#059669"><span>Discount (5%)</span><span>-$' + Number(data.discount).toFixed(2) + '</span></div>' : '') +
+      '<div style="display:flex;justify-content:space-between;padding:4px 8px;font-size:14px"><span>Shipping</span><span>' + shippingLabel + '</span></div>' +
+      '<div style="display:flex;justify-content:space-between;padding:10px 8px;font-size:18px;font-weight:700;border-top:2px solid #E2E8F0;margin-top:8px"><span>Total</span><span>$' + total + '</span></div>' +
+      '</div></div>' +
+      
+      // Shipping address
       shippingHtml +
-      '<p style="margin:20px 0 8px">Your order ships within <strong>1 business day</strong> of payment confirmation.</p>' +
-      '<p style="color:#64748B;font-size:13px">Questions? Reply to this email or contact us at support@prcpeptides.com</p>' +
+      
+      // Shipping note
+      '<div style="background:#F8FAFC;border-radius:8px;padding:14px 16px;margin:20px 0 0;text-align:center">' +
+      '<p style="margin:0;font-size:14px;color:#1E293B">Ships within <strong>1 business day</strong> of payment confirmation</p>' +
       '</div>' +
-      '<div style="background:#F8FAFC;padding:16px;text-align:center;font-size:12px;color:#94A3B8">' +
-      '<p style="margin:4px 0">© 2026 PRC Labs LLC. All products are sold for research purposes only.</p>' +
-      '<p style="margin:4px 0">Not for human consumption.</p>' +
+      
+      // Support
+      '<p style="color:#64748B;font-size:13px;text-align:center;margin:20px 0 0">Questions? Reply to this email or contact <a href="mailto:support@prcpeptides.com" style="color:#2B7DE9;text-decoration:none">support@prcpeptides.com</a></p>' +
+      
+      '</div>' + // end white card
+      
+      // Footer
+      '<div style="text-align:center;padding:20px 16px;font-size:11px;color:#94A3B8">' +
+      '<p style="margin:2px 0">© 2026 PRC Labs LLC</p>' +
+      '<p style="margin:2px 0">All products are sold for research purposes only. Not for human consumption.</p>' +
       '</div>' +
+      
+      '</div>' + // end outer wrapper
       '</body></html>';
     
     GmailApp.sendEmail(email, 'Order Confirmed — ' + orderNum + ' | PRC Peptides', '', {
