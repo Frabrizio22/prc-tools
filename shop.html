@@ -656,6 +656,7 @@
         .category-melanocortin { color: #DB2777; }
         .category-cosmetic { color: #A21CAF; }
         .category-advanced { color: #475569; }
+        .category-supplies { color: #475569; }
 
         .product-name {
             font-size: 0.85rem;
@@ -1296,7 +1297,8 @@
         <div class="trust-content">
             <div class="trust-item">Third-Party Tested</div>
             <div class="trust-item">Ships Next Day</div>
-            <div class="trust-item">Free Over $150</div>
+            <div class="trust-item">Free Recon Kit Included</div>
+            <div class="trust-item">Free Shipping $150+</div>
         </div>
     </section>
 
@@ -1886,6 +1888,15 @@
                 shortDesc: "EPO-derived peptide selectively activating innate repair receptor without erythropoietic activity.",
                 fullDesc: "ARA-290 represents molecular refinement of erythropoietin's tissue-protective properties. While full-length EPO stimulates red blood cell production, it also activates a distinct receptor complex called the innate repair receptor. ARA-290, an 11-amino acid EPO-derived peptide, selectively activates the IRR without engaging the erythropoietic EPO receptor.",
                 applications: "Innate repair receptor signaling, tissue protection mechanisms, EPO receptor biology, neuroprotection studies, anti-inflammatory pathways, ischemia-reperfusion injury models, diabetic neuropathy research"
+            },
+            {
+                name: "Bacteriostatic Water 30ml",
+                category: "supplies",
+                price: 6,
+                coa: false,
+                shortDesc: "USP-grade bacteriostatic water for reconstitution of lyophilized peptides.",
+                fullDesc: "Bacteriostatic water contains 0.9% benzyl alcohol as a preservative, allowing multiple draws from the same vial while maintaining sterility. Essential for reconstituting lyophilized peptide powders. Each 30ml vial is sealed under sterile conditions and suitable for laboratory use.",
+                applications: "Peptide reconstitution, laboratory preparation, sterile dilution"
             }
         ];
 
@@ -1910,7 +1921,8 @@
             { id: 'longevity', name: 'Longevity', count: 3 },
             { id: 'melanocortin', name: 'Melanocortin', count: 2 },
             { id: 'cosmetic', name: 'Cosmetic', count: 2 },
-            { id: 'advanced', name: 'Advanced', count: 1 }
+            { id: 'advanced', name: 'Advanced', count: 1 },
+            { id: 'supplies', name: 'Supplies', count: 1 }
         ];
 
         // Initialize
@@ -1946,7 +1958,8 @@
             'Thioctic Acid (ALA)': 'thioctic-acid',
             'Glutathione 1200mg': 'glutathione-korean',
             'Laennec Ampules': 'laennec',
-            'PT-141': 'pt-141'
+            'PT-141': 'pt-141',
+            'Bacteriostatic Water 30ml': 'bacteriostatic-water'
         };
         function getProductSlug(name) {
             if (slugOverrides[name]) return slugOverrides[name];
@@ -2086,7 +2099,8 @@
                 'longevity': 'Longevity',
                 'melanocortin': 'Melanocortin',
                 'cosmetic': 'Cosmetic',
-                'advanced': 'Advanced'
+                'advanced': 'Advanced',
+                'supplies': 'Supplies'
             };
             return names[cat] || cat;
         }
@@ -2198,7 +2212,7 @@
 
         // Dropdown nav filter
         function filterCat(name) {
-            var catMap = {'GLP Receptor Agonists':'glp','Tissue Repair':'tissue','Growth Hormone Secretagogues':'gh','Metabolic':'metabolic','Antioxidants':'antioxidants','Neuropeptides':'neuropeptides','Longevity':'longevity','Melanocortin':'melanocortin','Cosmetic':'cosmetic','Advanced':'advanced'};
+            var catMap = {'GLP Receptor Agonists':'glp','Tissue Repair':'tissue','Growth Hormone Secretagogues':'gh','Metabolic':'metabolic','Antioxidants':'antioxidants','Neuropeptides':'neuropeptides','Longevity':'longevity','Melanocortin':'melanocortin','Cosmetic':'cosmetic','Advanced':'advanced','Supplies':'supplies'};
             var cat = catMap[name] || 'all';
             filterButtons.forEach(function(b) { b.classList.remove('active'); if(b.getAttribute('data-category')===cat) b.classList.add('active'); });
             currentCategory = cat;
