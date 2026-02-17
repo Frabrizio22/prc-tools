@@ -1272,11 +1272,13 @@
         <a href="mailto:support@prcpeptides.com">Contact</a>
     </div>
 
-    <!-- Compact Hero -->
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
+            <img src="prc-logo-white.png" alt="PRC Peptides" style="height:48px;margin-bottom:0.5rem;opacity:0.95">
             <h1>Research-Grade Peptides</h1>
             <p>No hype. Just peptides.</p>
+            <div style="margin-top:0.75rem;font-size:0.7rem;color:rgba(255,255,255,0.7);letter-spacing:0.5px">44 compounds · Third-party tested · Ships next day</div>
         </div>
     </section>
 
@@ -1291,14 +1293,6 @@
 
     <!-- Main Content -->
     <main id="shop">
-        <!-- Featured Products Section -->
-        <section class="featured-section">
-            <h2 class="section-heading" style="font-size:0.8rem;color:#64748B;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:0.5rem">Bestsellers</h2>
-            <div class="featured-products" id="featuredProducts">
-                <!-- Featured products will be inserted here by JS -->
-            </div>
-        </section>
-
         <!-- Catalog Section -->
         <section class="catalog-section" id="categories">
             <div class="catalog-header" style="display:none">
@@ -1370,7 +1364,7 @@
             </div>
             <div class="faq-item" onclick="this.classList.toggle('open')">
                 <div class="faq-q">What payment methods do you accept?</div>
-                <div class="faq-a">We accept cryptocurrency (Bitcoin, Ethereum, USDC), Venmo, PayPal, and Zelle. Additional payment options are being added soon.</div>
+                <div class="faq-a">We accept cryptocurrency (Bitcoin, Ethereum, USDC, and more via Coinbase Commerce) and Zelle bank transfer. Zelle orders receive a 5% discount. Additional payment options coming soon.</div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('open')">
                 <div class="faq-q">How fast is shipping?</div>
@@ -2312,7 +2306,7 @@
 
         // Initial render
         checkAgeGate();
-        renderFeaturedProducts();
+        // bestsellers removed
         renderProducts('all');
         updateCartBadge();
     </script>
