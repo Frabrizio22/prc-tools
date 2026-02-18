@@ -7,6 +7,20 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- About -->
+  <url>
+    <loc>https://prcpeptides.com/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://prcpeptides.com/faq.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Shop -->
   <url>
     <loc>https://prcpeptides.com/shop.html</loc>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WRJYBCQRL9"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WRJYBCQRL9');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - PRC Peptides</title>
+    <meta name="description" content="PRC Peptides is a research peptide supplier focused on purity, transparency, and fair pricing. ≥98% purity, third-party tested, COAs available.">
+    <link rel="canonical" href="https://prcpeptides.com/about.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #FFFFFF; color: #1E293B; line-height: 1.6; }
+
+        /* Promo Bar */
+        .promo-bar { background: #0A1628; text-align: center; padding: 6px 16px; font-size: 0.68rem; color: rgba(255,255,255,0.9); letter-spacing: 0.3px; font-weight: 500; }
+
+        /* Header */
+        header { background: #FFFFFF; border-bottom: 1px solid #E2E8F0; padding: 10px 16px; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 3px rgba(0,0,0,0); transition: box-shadow 0.2s; }
+        header.scrolled { box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-bottom-color: transparent; }
+        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .header-left { display: flex; align-items: center; gap: 24px; }
+        .logo-block { white-space: nowrap; }
+        .logo { font-size: 1.1rem; font-weight: 800; color: #0A1628; letter-spacing: 2px; text-decoration: none; }
+        .logo span { color: #2B7DE9; }
+        .tagline { font-size: 0.55rem; color: #94A3B8; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+        nav { display: flex; gap: 20px; align-items: center; }
+        nav a { color: #475569; text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: color 0.2s; }
+        nav a:hover, nav a.active { color: #2B7DE9; }
+        .nav-icons { display: flex; align-items: center; gap: 6px; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; margin-left: 4px; }
+        .hamburger span { width: 20px; height: 2.5px; background: #0A1628; border-radius: 2px; }
+
+        /* Page Content */
+        .page-hero { background: linear-gradient(135deg, #1E40AF 0%, #2563EB 50%, #3B82F6 100%); padding: 3rem 1rem; text-align: center; }
+        .page-hero h1 { font-size: 2rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem; }
+        .page-hero p { font-size: 1rem; color: rgba(255,255,255,0.85); }
+        .content-wrapper { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem; }
+        .about-section { margin-bottom: 2.5rem; }
+        .about-section h2 { font-size: 1.25rem; font-weight: 700; color: #0A1628; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 10px; }
+        .about-section p { font-size: 0.92rem; color: #475569; line-height: 1.8; margin-bottom: 0.75rem; }
+        .about-section ul { list-style: none; padding: 0; }
+        .about-section ul li { font-size: 0.9rem; color: #475569; padding: 6px 0; padding-left: 1.5rem; position: relative; }
+        .about-section ul li::before { content: '✓'; position: absolute; left: 0; color: #2B7DE9; font-weight: 700; }
+        .highlight-box { background: #F0F7FF; border-left: 4px solid #2B7DE9; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin: 1.25rem 0; }
+        .highlight-box p { color: #1E40AF; font-weight: 500; margin: 0; }
+        .contact-box { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 2rem; text-align: center; margin-top: 2rem; }
+        .contact-box h2 { font-size: 1.2rem; color: #0A1628; margin-bottom: 0.5rem; }
+        .contact-box a { color: #2B7DE9; font-weight: 600; text-decoration: none; font-size: 1.1rem; }
+        .contact-box a:hover { text-decoration: underline; }
+
+        /* Footer */
+        footer { background: #0A1628; padding: 2.5rem 2rem 2rem; margin-top: 3rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .footer-logo { font-size: 1.1rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.25rem; letter-spacing: 2px; }
+        .footer-links { display: flex; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+        .footer-links a:hover { color: #FFFFFF; }
+        .footer-disclaimer { font-size: 0.68rem; color: rgba(255,255,255,0.35); line-height: 1.6; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); max-width: 800px; }
+        .research-only { font-weight: 700; color: #EF4444; }
+
+        /* Mobile */
+        .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 260px; height: 100%; background: #fff; box-shadow: -4px 0 24px rgba(0,0,0,0.1); z-index: 150; padding: 60px 24px 24px; }
+        .mobile-menu.active { display: block; }
+        .mobile-menu a { display: block; padding: 12px 0; color: #1E293B; text-decoration: none; font-size: 0.95rem; font-weight: 500; border-bottom: 1px solid #F1F5F9; }
+        .mobile-menu a:hover { color: #2B7DE9; }
+        .mobile-menu-close { position: absolute; top: 16px; right: 16px; font-size: 1.5rem; color: #94A3B8; cursor: pointer; background: none; border: none; }
+        .mobile-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 140; }
+        .mobile-overlay.active { display: block; }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .header-left { gap: 0; }
+            .hamburger { display: flex !important; }
+            .page-hero h1 { font-size: 1.5rem; }
+            .content-wrapper { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="promo-bar">FREE reconstitution kit with every order &nbsp;|&nbsp; FREE shipping over $150</div>
+
+    <header id="header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo-block">
+                    <a href="/" class="logo"><span>PRC</span> PEPTIDES</a>
+                    <div class="tagline">Research-Grade Compounds</div>
+                </div>
+                <nav>
+                    <a href="shop.html">Shop</a>
+                    <a href="blog/">Blog</a>
+                    <a href="about.html" class="active">About</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="mailto:support@prcpeptides.com">Contact</a>
+                </nav>
+            </div>
+            <div class="nav-icons">
+                <button class="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
+        <a href="shop.html">Shop</a>
+        <a href="blog/">Blog</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="mailto:support@prcpeptides.com">Contact</a>
+    </div>
+
+    <section class="page-hero">
+        <h1>Built by Researchers, for Researchers</h1>
+        <p>Purity, transparency, and fair pricing — that's it.</p>
+    </section>
+
+    <div class="content-wrapper">
+        <div class="about-section">
+            <h2>🔬 Who We Are</h2>
+            <p>PRC Peptides is a research peptide supplier built on a simple idea: researchers deserve better than overpriced, poorly documented compounds.</p>
+            <p>We're a small operation — not a Fortune 500 company with layers of bureaucracy and inflated margins. That's by design. It means we can focus on what actually matters: purity, documentation, and getting your order out the door fast.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>🧪 Our Standards</h2>
+            <p>Every product we sell meets or exceeds 98% purity, verified through independent third-party testing by Janoshik Analytical — one of the most respected analytical labs in the industry.</p>
+            <ul>
+                <li>≥98% purity on all peptides</li>
+                <li>Third-party tested by Janoshik Analytical</li>
+                <li>Certificates of Analysis (COAs) available for every product</li>
+                <li>Free reconstitution kit included with every order</li>
+            </ul>
+            <div class="highlight-box">
+                <p>Every order ships with a free reconstitution kit — bacteriostatic water, syringes, and alcohol swabs — so you can get to work immediately.</p>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2>💡 Why We're Different</h2>
+            <p>We believe in radical transparency. We're one of the only suppliers that openly shows competitor pricing alongside our own — because we're confident in the value we offer.</p>
+            <p>No hype. No miracle claims. No influencer partnerships or flashy marketing campaigns. Just high-purity research compounds at fair prices, backed by real documentation.</p>
+            <div class="highlight-box">
+                <p>"For research purposes only" isn't just a disclaimer we slap on the footer — it's our philosophy. Everything we do is built around supporting legitimate research.</p>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2>📦 Shipping</h2>
+            <p>We ship every order the next business day. No waiting around.</p>
+            <ul>
+                <li><strong>Standard Shipping:</strong> $9.99 (3–5 business days)</li>
+                <li><strong>Expedited Shipping:</strong> $19.99 (faster delivery)</li>
+                <li><strong>Free Shipping:</strong> On all orders over $150</li>
+            </ul>
+            <p>We currently ship within the United States only.</p>
+        </div>
+
+        <div class="contact-box">
+            <h2>Questions? Get in Touch</h2>
+            <p style="font-size:0.9rem;color:#64748B;margin-bottom:1rem">We read every email and respond as quickly as we can.</p>
+            <a href="mailto:support@prcpeptides.com">support@prcpeptides.com</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo"><span style="color:#2B7DE9">PRC</span> PEPTIDES</div>
+            <div style="font-size:0.75rem;color:#94A3B8;margin-bottom:1.5rem">Research-grade compounds for in vitro use</div>
+            <div class="footer-links">
+                <a href="shop.html">Shop</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html">About</a>
+                <a href="blog/">Blog</a>
+                <a href="mailto:support@prcpeptides.com">Contact</a>
+            </div>
+            <div style="font-size:0.72rem;color:#94A3B8;margin-bottom:1rem">support@prcpeptides.com</div>
+            <div class="footer-disclaimer">
+                <span class="research-only">FOR RESEARCH PURPOSES ONLY.</span> All products are intended exclusively for laboratory research and are not intended for human consumption, diagnostic purposes, or therapeutic applications. Must be 18+ to purchase. By accessing this site, you acknowledge all products are for in vitro research use only.
+            </div>
+            <div style="font-size:0.65rem;color:#94A3B8;margin-top:1rem">© 2026 PRC Labs LLC. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+        });
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
