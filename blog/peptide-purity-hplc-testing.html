@@ -324,186 +324,130 @@
         </div>
 
         <div class="article-content">
-            <p>You see a vial labeled "≥98% purity" and think, great, that's good stuff. But what does that number actually mean? How was it measured? And—here's the important part—how do you know it's real?</p>
+            <p>That "≥98% purity" label on your peptide vial? It might be real. It might be fiction. And unless you know how to verify it, you're building your research on a number you're taking on faith.</p>
 
-            <p>Understanding peptide purity isn't just about reading a label. It's about knowing whether your research is built on solid ground or quicksand. The difference between 95% and 98% purity isn't just 3%—it's the difference between reproducible experiments and data you can't trust.</p>
+            <p>Here's why that's a problem: the difference between 95% and 98% purity isn't "3% less good." It's the difference between clean, reproducible data and experiments that fail for reasons you'll never figure out. Impurities in peptides aren't inert filler—they're structurally similar molecules that can bind your target receptors, create off-target effects, and make your results look like noise.</p>
 
-            <p>This guide breaks down how peptide testing actually works, teaches you to read a Certificate of Analysis like a pro, and shows you the red flags that scream "low-quality supplier."</p>
+            <p>This guide teaches you to actually evaluate peptide quality—how HPLC works, how to read a COA like a skeptic, and the red flags that separate legitimate suppliers from the ones cutting corners.</p>
 
-            <h2>What "Purity" Actually Means (And Doesn't)</h2>
+            <h2>What "Purity" Means (And What It Doesn't)</h2>
 
-            <p>When we say a peptide is 98% pure, we mean 98% of the peptide content is the correct amino acid sequence. The other 2%? That's synthesis byproducts—deletion sequences where an amino acid got skipped, truncations, or other molecular near-misses.</p>
+            <p>98% purity means 98% of the peptide content is the correct amino acid sequence. The other 2% is synthesis trash—deletion sequences (skipped an amino acid), truncations (chain cut short), or other molecular near-misses from the manufacturing process.</p>
 
-            <p>But here's what purity doesn't include:</p>
-
-            <ul>
-                <li><strong>Counterions:</strong> Salts like trifluoroacetate (TFA) or acetate from the purification process. They're stuck to your peptide and they're not going anywhere.</li>
-                <li><strong>Residual Water:</strong> Even "dry" lyophilized powder contains 5-10% water by weight.</li>
-                <li><strong>Stabilizers:</strong> Things like mannitol or trehalose, if your peptide needs them.</li>
-            </ul>
-
-            <p>This is why a "5mg vial" doesn't contain exactly 5mg of active peptide. It contains 5mg of peptide <em>plus all that other stuff</em>. The actual peptide content by weight is usually 75-85%. Good suppliers list this separately on the COA so you know what you're really working with.</p>
-
-            <h2>HPLC: The Gold Standard (and What It's Actually Doing)</h2>
-
-            <h3>How HPLC Works</h3>
-
-            <p>High-Performance Liquid Chromatography is the industry standard for measuring peptide purity. Here's the concept: you dissolve your peptide and pump it through a column packed with a hydrophobic material. Then you run a gradient of increasing organic solvent (usually acetonitrile) to wash molecules out.</p>
-
-            <p>Different molecules stick to that hydrophobic column differently. Your target peptide might elute at 12 minutes, while an impurity comes out at 13 minutes. A UV detector watches everything exit and records peaks—each peak represents a different compound.</p>
-
-            <p>For peptides, reversed-phase HPLC (RP-HPLC) is the go-to method because peptide hydrophobicity tends to separate sequences nicely.</p>
-
-            <h3>Reading an HPLC Chromatogram</h3>
-
-            <p>A chromatogram is just a graph:</p>
+            <p>But here's the part people miss: purity doesn't account for everything in the vial.</p>
 
             <ul>
-                <li><strong>X-axis:</strong> Time (how long it took for something to come out of the column)</li>
-                <li><strong>Y-axis:</strong> UV absorbance (how much of it there is, basically)</li>
+                <li><strong>Counterions:</strong> TFA or acetate salts from purification. They're stuck to your peptide. They're not leaving.</li>
+                <li><strong>Residual water:</strong> Even "dry" lyophilized powder is 5-10% water by weight.</li>
+                <li><strong>Stabilizers:</strong> Mannitol, trehalose, whatever the formulation needs.</li>
             </ul>
 
-            <p>The main peak—usually the tallest one—is your target peptide. Smaller peaks are impurities. Purity gets calculated like this:</p>
+            <p>This is why a "5mg vial" contains maybe 3.75-4.25mg of actual peptide. The rest is all that other stuff. Good suppliers report peptide content separately so you know the real number. Bad suppliers hope you don't ask.</p>
 
-            <p><strong>Purity (%) = (Area of Main Peak ÷ Total Area of All Peaks) × 100</strong></p>
+            <h2>HPLC: How It Actually Works</h2>
 
-            <p>A high-quality peptide shows one dominant peak taking up >98% of the total area, with minimal noise from other peaks. Multiple significant peaks? That's a sign of poor synthesis or inadequate purification, and your experiments are going to suffer for it.</p>
+            <p>High-Performance Liquid Chromatography is the industry standard, and it's conceptually simple. Dissolve your peptide, pump it through a column packed with hydrophobic material, and gradually increase organic solvent concentration. Different molecules stick to the column differently—your target peptide exits at one time, impurities exit at slightly different times. A UV detector records everything as peaks on a graph.</p>
+
+            <p>Reversed-phase HPLC (RP-HPLC) is the go-to for peptides because differences in hydrophobicity separate sequences nicely.</p>
+
+            <h3>Reading a Chromatogram</h3>
+
+            <p>X-axis = time. Y-axis = UV absorbance (roughly, "how much stuff"). The big peak is your target peptide. Smaller peaks are impurities.</p>
+
+            <p><strong>Purity (%) = (Main Peak Area ÷ Total Peak Area) × 100</strong></p>
+
+            <p>A clean peptide shows one dominant peak eating up >98% of the total area. Multiple significant peaks? That's poor synthesis or inadequate purification. Your data will suffer.</p>
 
             <div class="info-box">
-                <h4>Peak Integration: Where the Cheating Happens</h4>
-                <p>The way you draw baselines and integrate peak areas can dramatically change the purity number. Some suppliers play games here—manipulating baselines to inflate purity percentages. This is why third-party testing matters. Independent labs follow standardized methods.</p>
+                <h4>Where the Cheating Happens</h4>
+                <p>Peak integration—how you draw baselines and calculate areas—can be manipulated to inflate purity numbers. Some suppliers play this game aggressively. This is exactly why third-party testing exists. Independent labs follow standardized methods and don't care what number you want to see.</p>
             </div>
 
-            <h2>Mass Spectrometry: Confirming You Got What You Paid For</h2>
+            <h2>Mass Spectrometry: Identity Confirmation</h2>
 
-            <p>HPLC tells you how pure your sample is. Mass spectrometry (MS) tells you <em>what's actually in the vial.</em></p>
+            <p>HPLC tells you how pure your sample is. Mass spec tells you <em>what's actually in the vial.</em> These answer fundamentally different questions.</p>
 
-            <p>Here's the thing: HPLC can't distinguish between your target peptide and a closely-related impurity that happens to elute at the same time. Mass spec measures the actual molecular weight—so you know if you're holding the peptide you ordered or something that just looks similar on a chromatogram.</p>
+            <p>Here's the problem HPLC alone can't solve: a closely-related impurity might elute at the exact same time as your target peptide, hiding inside the main peak. Mass spec measures actual molecular weight, so you know if you've got the right molecule or an imposter that just looks similar on a chromatogram.</p>
 
-            <h3>How Mass Spec Works</h3>
+            <p>Common methods: <strong>ESI-MS</strong> (standard, accurate) and <strong>MALDI-TOF</strong> (better for larger peptides, pricier). A proper report shows expected mass, observed mass, and the delta between them. For small peptides, that delta should be ±1-2 Da. Bigger mismatch? You don't have what you ordered. Period.</p>
 
-            <p>The two common methods for peptides are:</p>
+            <h2>What a Real COA Contains</h2>
 
-            <ul>
-                <li><strong>ESI-MS (Electrospray Ionization):</strong> Standard for most peptides. Gives you an accurate molecular weight.</li>
-                <li><strong>MALDI-TOF:</strong> Better for larger peptides and proteins, but more expensive.</li>
-            </ul>
-
-            <p>A proper mass spec report shows:</p>
+            <h3>Non-negotiable</h3>
 
             <ul>
-                <li><strong>Expected mass:</strong> The calculated molecular weight of your target peptide</li>
-                <li><strong>Observed mass:</strong> What the instrument actually measured</li>
-                <li><strong>Delta:</strong> The difference (should be within ±1-2 Da for small peptides)</li>
-            </ul>
-
-            <p>If the observed mass doesn't match the expected mass, you don't have the right peptide. Full stop.</p>
-
-            <h2>What a Real COA Looks Like</h2>
-
-            <p>A Certificate of Analysis is your peptide's report card. Here's what should be on it:</p>
-
-            <h3>The Non-Negotiables</h3>
-
-            <ul>
-                <li><strong>Peptide Information:</strong> Name, sequence, CAS number, molecular weight</li>
-                <li><strong>Batch/Lot Number:</strong> So you can trace which specific batch you got</li>
-                <li><strong>HPLC Purity:</strong> The percentage <em>and</em> the actual chromatogram image</li>
-                <li><strong>Mass Spectrometry Data:</strong> Expected vs. observed molecular weight</li>
-                <li><strong>Peptide Content:</strong> The actual peptide percentage by weight (usually 75-85%)</li>
-                <li><strong>Appearance:</strong> What it should look like (white to off-white powder, etc.)</li>
+                <li><strong>Peptide info:</strong> Name, sequence, CAS number, molecular weight</li>
+                <li><strong>Batch/lot number:</strong> Traceable to your specific vial</li>
+                <li><strong>HPLC purity:</strong> The percentage AND the chromatogram image</li>
+                <li><strong>Mass spec data:</strong> Expected vs. observed molecular weight</li>
+                <li><strong>Peptide content:</strong> Actual peptide percentage by weight (75-85% typically)</li>
                 <li><strong>Dates:</strong> Manufacturing and expiration</li>
-                <li><strong>Storage Conditions:</strong> Recommended temperature</li>
             </ul>
 
-            <h3>Nice to Have (But Increasingly Expected)</h3>
+            <h3>Increasingly expected</h3>
 
             <ul>
-                <li><strong>Endotoxin Testing:</strong> Critical for cell culture or animal work (should be <1.0 EU/mg)</li>
-                <li><strong>Water Content:</strong> From Karl Fischer titration</li>
-                <li><strong>Counter-Ion Identity:</strong> Which salt form you're actually getting (TFA, acetate, etc.)</li>
-                <li><strong>Amino Acid Analysis:</strong> Confirms sequence composition, though it's expensive and not always done</li>
+                <li><strong>Endotoxin testing:</strong> Critical for cell culture or in vivo work (&lt;1.0 EU/mg)</li>
+                <li><strong>Water content:</strong> Karl Fischer titration</li>
+                <li><strong>Counter-ion identity:</strong> TFA, acetate, etc.</li>
+                <li><strong>Amino acid analysis:</strong> Confirms composition (expensive, not always done)</li>
             </ul>
 
             <div class="info-box">
-                <h4>Why Third-Party Testing Matters</h4>
-                <p>Manufacturer COAs can be... optimistic. Not always intentionally, but there's an inherent conflict of interest. Third-party labs don't have skin in the game—they just report what they find. At PRC Peptides, every batch gets independent third-party verification before it goes in the catalog.</p>
+                <h4>Third-Party Testing Matters</h4>
+                <p>Manufacturer COAs have an inherent conflict of interest. They're grading their own homework. Third-party labs don't care—they just report what they find. At PRC Peptides, every batch gets independent verification before it hits the catalog.</p>
             </div>
 
-            <h2>Red Flags: Spotting Bad Peptides Before You Waste Time</h2>
+            <h2>Red Flags (Learn These Before You Order)</h2>
 
-            <h3>In the COA Itself</h3>
-
+            <p><strong>On the COA itself:</strong></p>
             <ul>
-                <li><strong>No Chromatogram:</strong> Just a purity number with no supporting data? Walk away.</li>
-                <li><strong>Multiple Big Impurity Peaks:</strong> If you're seeing secondary peaks at >1-2% each, that's not 98% purity no matter what they claim.</li>
-                <li><strong>Mass Spec Mismatch:</strong> Observed mass differs from expected by more than 2 Da? That's not your peptide.</li>
-                <li><strong>Generic Template COA:</strong> Looks copy-pasted, no specific batch number or date. Probably fake.</li>
-                <li><strong>Suspiciously Perfect Numbers:</strong> Exactly 99.5% or 99.9% every time? Real analytical data has variation—98.2%, 98.7%, etc.</li>
-                <li><strong>Missing Peptide Content:</strong> If they don't distinguish between purity and actual peptide weight percentage, they're hiding something.</li>
+                <li>No chromatogram—just a purity number. Walk away.</li>
+                <li>Multiple impurity peaks over 1-2% each. That's not 98% purity regardless of what the header says.</li>
+                <li>Mass spec mismatch >2 Da. Not your peptide.</li>
+                <li>Generic template with no batch number or date. Probably fabricated.</li>
+                <li>Suspiciously perfect numbers—99.5% or 99.9% every single batch. Real analytical data has variation. Always.</li>
+                <li>No separate peptide content listing. They're hiding the real number.</li>
             </ul>
 
-            <h3>From the Supplier</h3>
-
+            <p><strong>From the supplier:</strong></p>
             <ul>
-                <li><strong>COA Not Available:</strong> You have to beg for it, or they're "working on it." Nope.</li>
-                <li><strong>Different COA Every Time:</strong> Each order shows wildly varying purity. That's batch-to-batch inconsistency you don't want in your research.</li>
-                <li><strong>No Testing Details:</strong> Doesn't specify HPLC method, column type, or MS instrument. How do you know they actually tested it?</li>
-                <li><strong>Price Too Good to Be True:</strong> Significantly cheaper than everyone else? There's a reason. You get what you pay for.</li>
+                <li>Have to beg for the COA, or it's "being prepared." Nope.</li>
+                <li>Wildly varying purity between orders. Batch inconsistency you can't afford.</li>
+                <li>No testing method details—HPLC column type, MS instrument? How do you know they tested it?</li>
+                <li>Price dramatically lower than competitors. There's always a reason.</li>
             </ul>
 
             <div class="warning-box">
-                <h4>Fake COAs Are More Common Than You Think</h4>
-                <p>Some suppliers provide fabricated or altered COAs. Red flags include: the same generic chromatogram for multiple different peptides, batch numbers that don't match the vial, or data that looks too clean. Always request batch-specific COAs and cross-check that the testing lab is real.</p>
+                <h4>Fake COAs Are Everywhere</h4>
+                <p>Same generic chromatogram for multiple peptides. Batch numbers that don't match vials. Data that looks suspiciously clean. Always request batch-specific COAs and verify the testing lab actually exists.</p>
             </div>
 
-            <h2>Other Purity Methods (and Why HPLC Wins)</h2>
+            <h2>Other Testing Methods (Quick Comparison)</h2>
 
-            <h3>Thin-Layer Chromatography (TLC)</h3>
+            <p><strong>TLC (Thin-Layer Chromatography):</strong> Cheap, fast, can't detect impurities below ~5%. Basically useless for modern QC. If this is all a supplier offers, run.</p>
 
-            <p><strong>Pros:</strong> Cheap and fast</p>
+            <p><strong>Capillary Electrophoresis:</strong> High resolution, less sample needed. But less robust for routine testing and not widely adopted in the peptide industry.</p>
 
-            <p><strong>Cons:</strong> Can't detect impurities below ~5%. Basically useless for modern peptide QC. If a supplier only provides TLC data, run.</p>
+            <p><strong>UPLC:</strong> Faster and higher resolution than standard HPLC. Better at separating closely-related impurities, but pricier equipment. Standard HPLC is sufficient for most research peptides.</p>
 
-            <h3>Capillary Electrophoresis (CE)</h3>
+            <p>The gold standard remains <strong>HPLC + mass spec</strong>. Purity from one, identity from the other. Together they answer the two questions that matter: "how pure is it?" and "is it actually the right molecule?"</p>
 
-            <p><strong>Pros:</strong> High resolution, uses less sample</p>
+            <h2>Why Your Research Depends on This</h2>
 
-            <p><strong>Cons:</strong> Less robust than HPLC for routine testing. Not as widely used in the peptide industry.</p>
+            <p><strong>Reproducibility.</strong> A peptide that's 92% pure one batch and 96% the next introduces uncontrollable variables. Your experiments become irreproducible and you'll never figure out why.</p>
 
-            <h3>UPLC (Ultra-Performance Liquid Chromatography)</h3>
+            <p><strong>Impurities aren't innocent bystanders.</strong> They're structurally similar peptides. A deletion sequence missing one amino acid might still bind your target receptor, creating off-target effects that corrupt your data in ways you can't detect.</p>
 
-            <p><strong>Pros:</strong> Higher resolution and faster than regular HPLC. Better at separating closely-related impurities.</p>
+            <p><strong>Dosing accuracy.</strong> Think you're delivering 1mg? If peptide content is 80%, you're actually delivering 0.8mg. Over a full study, that compounds into completely skewed dose-response relationships.</p>
 
-            <p><strong>Cons:</strong> More expensive equipment. For research peptides, standard HPLC is usually plenty.</p>
-
-            <p>Bottom line: <strong>HPLC + mass spectrometry</strong> is the gold standard. Purity from HPLC, identity from mass spec. That combination gives you both the quality and confidence you need.</p>
-
-            <h2>Why This Matters for Your Research</h2>
-
-            <h3>Reproducibility</h3>
-
-            <p>Lower purity means more batch-to-batch variability. A peptide that's 92% one batch and 96% the next introduces variables you can't control. Your experiments become irreproducible, and you'll never figure out why.</p>
-
-            <h3>Impurities Aren't Inert</h3>
-
-            <p>Those impurities aren't just random junk—they're structurally similar peptides. A deletion sequence missing one amino acid might still bind your target receptor, creating off-target effects you can't account for.</p>
-
-            <h3>Dosing Accuracy</h3>
-
-            <p>Think you're dosing 1mg but the peptide is only 85% pure? You're actually delivering 0.85mg. Over a whole study, that discrepancy compounds and can completely throw off dose-response relationships.</p>
-
-            <h3>Publication Standards</h3>
-
-            <p>High-impact journals increasingly require documentation of peptide purity. Studies using poorly characterized compounds face rejection or demands for re-validation with better material. Save yourself the headache.</p>
+            <p><strong>Publication standards.</strong> High-impact journals increasingly require peptide purity documentation. Poorly characterized compounds get your paper rejected or flagged for re-validation. Save yourself six months of pain.</p>
 
             <h2>Bottom Line</h2>
 
-            <p>Peptide purity isn't just a marketing claim—it's the foundation your research is built on. Understanding HPLC, knowing what a COA should contain, and spotting red flags are essential skills for anyone working with synthetic peptides.</p>
+            <p>Peptide purity isn't a marketing number—it's the foundation your research stands on. Learn to read a COA. Look at the chromatogram, not just the number. Demand mass spec confirmation. Be deeply skeptical of claims without supporting data.</p>
 
-            <p>Always request the COA. Always look at the chromatogram and mass spec data, not just the purity number. Be skeptical of claims without supporting evidence. And remember: the most expensive part of research isn't the cost of the peptide—it's the time and money wasted on experiments with compromised materials.</p>
-
-            <p>Quality testing isn't optional. It's what separates publishable science from a month wasted in the lab chasing artifacts.</p>
+            <p>The most expensive part of peptide research isn't the cost of the compound. It's the time and money wasted on experiments built on compromised materials. Quality verification isn't optional—it's what separates publishable science from months wasted chasing artifacts.</p>
         </div>
 
         <div class="related-articles">
