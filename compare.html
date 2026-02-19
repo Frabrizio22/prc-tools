@@ -8,114 +8,114 @@
 <title>Peptide Price Comparison — The Definitive Research Peptide Market Index</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--navy-950:#0B1221;--navy-900:#0F1629;--navy-850:#111927;--navy-800:#1A2332;--navy-700:#1E293B;--blue-500:#2B7DE9;--blue-400:#3B8EF3;--cyan-500:#06B6D4;--cyan-400:#22D3EE;--green-500:#10B981;--green-400:#34D399;--amber-500:#F59E0B;--amber-400:#FBBF24;--slate-50:#F8FAFC;--slate-100:#F1F5F9;--slate-200:#E2E8F0;--slate-300:#CBD5E1;--slate-400:#94A3B8;--slate-500:#64748B;--slate-600:#475569;--red-500:#EF4444}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",Segoe UI,Roboto,sans-serif;background:var(--navy-950);color:var(--slate-200);line-height:1.6;-webkit-text-size-adjust:100%;font-feature-settings:"kern" 1,"liga" 1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-.header{position:relative;padding:3rem 1.5rem 2.25rem;text-align:center;background:linear-gradient(165deg,#0F1A2E 0%,#0B1221 50%,#0B1221 100%);border-bottom:1px solid rgba(43,125,233,.12);overflow:hidden}
-.header::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(43,125,233,.4),transparent)}
-.header::after{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 50% 0%,rgba(43,125,233,.03) 0%,transparent 50%);pointer-events:none;z-index:0}
+:root{--navy:#0A1628;--blue:#2B7DE9;--blue-light:#3B8EF3;--green:#10B981;--green-soft:#059669;--amber:#F59E0B;--red:#EF4444;--white:#FFFFFF;--gray-50:#F8FAFC;--gray-100:#F1F5F9;--gray-200:#E2E8F0;--gray-300:#CBD5E1;--gray-400:#94A3B8;--gray-500:#64748B;--gray-600:#475569;--gray-700:#334155;--gray-800:#1E293B}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--white);color:var(--gray-800);line-height:1.6;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.header{position:relative;padding:2.5rem 1.5rem 2rem;text-align:center;background:var(--white);border-bottom:1px solid var(--gray-200);overflow:hidden}
+.header::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),#06B6D4)}
+.header::after{content:none}
 .header-content{position:relative;z-index:1;max-width:800px;margin:0 auto}
-.header-eyebrow{font-size:.625rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--cyan-400);margin-bottom:.75rem;opacity:.9}
-.header-title{font-size:2rem;font-weight:800;color:var(--slate-50);letter-spacing:-.02em;margin-bottom:.5rem;line-height:1.2}
-.header-subtitle{font-size:.8rem;font-weight:600;color:var(--slate-400);letter-spacing:1.5px;text-transform:uppercase;margin-top:.65rem}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--navy-900);border-top:2px solid var(--cyan-500);border-bottom:1px solid rgba(43,125,233,.08)}
-.stat{position:relative;text-align:center;padding:1.5rem .75rem;border-right:1px solid rgba(255,255,255,.03)}
+.header-eyebrow{font-size:.625rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--blue);margin-bottom:.75rem;opacity:.9}
+.header-title{font-size:2rem;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-bottom:.5rem;line-height:1.2}
+.header-subtitle{font-size:.8rem;font-weight:600;color:var(--gray-500);letter-spacing:1.5px;text-transform:uppercase;margin-top:.65rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--gray-50);border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+.stat{position:relative;text-align:center;padding:1.5rem .75rem;border-right:1px solid var(--gray-200)}
 .stat:last-child{border-right:none}
-.stat::after{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(43,125,233,.15),transparent);opacity:0}
-.stat-icon{font-size:1.25rem;margin-bottom:.5rem;filter:grayscale(.2)}
-.stat-value{font-size:2.25rem;font-weight:800;color:var(--blue-400);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.stat-label{font-size:.55rem;color:var(--slate-500);text-transform:uppercase;letter-spacing:1.8px;font-weight:700;margin-top:.5rem}
-.spotlight{padding:2rem 1.25rem;background:linear-gradient(180deg,rgba(43,125,233,.02) 0%,transparent 100%);border-bottom:1px solid rgba(43,125,233,.08)}
+.stat::after{content:none}
+.stat-icon{font-size:1.25rem;margin-bottom:.5rem}
+.stat-value{font-size:2.25rem;font-weight:800;color:var(--blue);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stat-label{font-size:.55rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1.8px;font-weight:700;margin-top:.5rem}
+.spotlight{padding:2rem 1.25rem;background:var(--gray-50);border-bottom:1px solid var(--gray-200)}
 .spotlight-header{display:flex;align-items:center;gap:.5rem;margin-bottom:1.25rem}
 .spotlight-icon{font-size:1.1rem}
-.spotlight-title{font-size:.7rem;font-weight:800;color:var(--amber-400);text-transform:uppercase;letter-spacing:2.5px}
+.spotlight-title{font-size:.7rem;font-weight:800;color:var(--amber);text-transform:uppercase;letter-spacing:2.5px}
 .spotlight-cards{display:flex;gap:1rem;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:.75rem;scroll-snap-type:x mandatory}
-.spot-card{flex:0 0 auto;min-width:260px;background:linear-gradient(135deg,rgba(30,41,59,.5),rgba(15,23,42,.5));border:1px solid rgba(43,125,233,.15);border-radius:14px;padding:1.25rem 1.35rem;scroll-snap-align:start;position:relative;overflow:hidden;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.spot-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green-500),var(--cyan-500))}
-.spot-badge{display:inline-block;font-size:.5rem;font-weight:800;color:var(--slate-950);background:linear-gradient(135deg,var(--amber-400),var(--amber-500));padding:.25rem .6rem;border-radius:6px;letter-spacing:1px;margin-bottom:.75rem}
-.spot-name{font-size:1.05rem;font-weight:700;color:var(--slate-50);letter-spacing:-.01em;line-height:1.3}
-.spot-strength{font-size:.8rem;color:var(--slate-400);margin-top:.15rem;font-weight:600}
-.spot-compare{margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.06)}
+.spot-card{flex:0 0 auto;min-width:260px;background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:1.25rem 1.35rem;scroll-snap-align:start;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.spot-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green),#06B6D4)}
+.spot-badge{display:inline-block;font-size:.5rem;font-weight:800;color:var(--white);background:var(--amber);padding:.25rem .6rem;border-radius:4px;letter-spacing:1px;margin-bottom:.75rem}
+.spot-name{font-size:1.05rem;font-weight:700;color:var(--navy);letter-spacing:-.01em;line-height:1.3}
+.spot-strength{font-size:.8rem;color:var(--gray-500);margin-top:.15rem;font-weight:600}
+.spot-compare{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--gray-200)}
 .spot-prc-line,.spot-comp-line{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
-.spot-label{font-size:.65rem;color:var(--slate-500);font-weight:600;text-transform:uppercase;letter-spacing:1px}
-.spot-prc-price{font-size:1rem;font-weight:800;color:var(--green-400);font-variant-numeric:tabular-nums}
-.spot-comp-price{font-size:.9rem;font-weight:700;color:var(--slate-500);text-decoration:line-through;opacity:.7;font-variant-numeric:tabular-nums}
-.spot-save-pill{display:inline-flex;align-items:center;justify-content:center;margin-top:.85rem;font-size:.7rem;font-weight:800;color:var(--slate-50);background:linear-gradient(135deg,var(--green-500),var(--green-400));padding:.4rem 1rem;border-radius:20px;letter-spacing:.5px;box-shadow:0 4px 12px rgba(16,185,129,.15)}
-.filters{padding:1.25rem 1.25rem 1rem;background:var(--navy-850);border-bottom:1px solid rgba(43,125,233,.08)}
+.spot-label{font-size:.65rem;color:var(--gray-500);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.spot-prc-price{font-size:1rem;font-weight:800;color:var(--green);font-variant-numeric:tabular-nums}
+.spot-comp-price{font-size:.9rem;font-weight:700;color:var(--gray-400);text-decoration:line-through;opacity:.7;font-variant-numeric:tabular-nums}
+.spot-save-pill{display:inline-flex;align-items:center;justify-content:center;margin-top:.85rem;font-size:.7rem;font-weight:800;color:var(--white);background:var(--green);padding:.4rem 1rem;border-radius:20px;letter-spacing:.5px}
+.filters{padding:1.25rem 1.25rem 1rem;background:var(--white);border-bottom:1px solid var(--gray-200)}
 .filter-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:.65rem}
-.filter-input,.filter-select{font-family:inherit;font-size:.875rem;padding:.7rem .95rem;border-radius:10px;border:1.5px solid rgba(43,125,233,.2);background:var(--navy-800);color:var(--slate-200);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
+.filter-input,.filter-select{font-family:inherit;font-size:.875rem;padding:.7rem .95rem;border-radius:8px;border:1px solid var(--gray-200);background:var(--white);color:var(--gray-800);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
 .filter-input{flex:1;min-width:160px}
-.filter-input::placeholder{color:var(--slate-500)}
-.filter-input:focus,.filter-select:focus{border-color:var(--blue-400);box-shadow:0 0 0 3px rgba(43,125,233,.1)}
+.filter-input::placeholder{color:var(--gray-400)}
+.filter-input:focus,.filter-select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(43,125,233,.1)}
 .filter-select{min-width:150px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394A3B8'%3E%3Cpath d='M6 8.5L1 3.5h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85rem center;padding-right:2.5rem}
 .filter-toggle{display:flex;align-items:center;gap:.6rem;cursor:pointer}
-.filter-checkbox{width:20px;height:20px;border-radius:6px;border:2px solid rgba(43,125,233,.3);background:var(--navy-800);cursor:pointer;accent-color:var(--cyan-500);transition:all .2s}
-.filter-checkbox:checked{background:var(--cyan-500);border-color:var(--cyan-500)}
-.filter-label{font-size:.85rem;color:var(--slate-300);font-weight:600;cursor:pointer;user-select:none;-webkit-user-select:none}
-.filter-info{font-size:.75rem;color:var(--slate-500);margin-top:.35rem;font-weight:500}
+.filter-checkbox{width:20px;height:20px;border-radius:6px;border:2px solid var(--gray-300);background:var(--white);cursor:pointer;accent-color:var(--blue);transition:all .2s}
+.filter-checkbox:checked{background:var(--blue);border-color:var(--blue)}
+.filter-label{font-size:.85rem;color:var(--gray-700);font-weight:600;cursor:pointer;user-select:none;-webkit-user-select:none}
+.filter-info{font-size:.75rem;color:var(--gray-500);margin-top:.35rem;font-weight:500}
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .table{width:100%;border-collapse:collapse;font-size:.85rem;min-width:700px}
-.table thead{background:var(--navy-800);position:sticky;top:0;z-index:10;box-shadow:0 1px 0 rgba(43,125,233,.15)}
-.table th{color:var(--cyan-400);font-size:.625rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;padding:1rem .85rem;text-align:left;border-bottom:2px solid rgba(6,182,212,.25);white-space:nowrap;background:var(--navy-800)}
-.table tbody tr{border-bottom:1px solid rgba(255,255,255,.02);transition:background-color .15s ease}
-.table tbody tr:nth-child(even){background:rgba(255,255,255,.008)}
+.table thead{background:var(--gray-50);position:sticky;top:0;z-index:10;box-shadow:0 1px 0 var(--gray-200)}
+.table th{color:var(--gray-500);font-size:.625rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;padding:1rem .85rem;text-align:left;border-bottom:2px solid var(--gray-200);white-space:nowrap;background:var(--gray-50)}
+.table tbody tr{border-bottom:1px solid var(--gray-100);transition:background-color .15s ease}
+.table tbody tr:nth-child(even){background:var(--gray-50)}
 .table tbody tr:hover{background:rgba(43,125,233,.04)}
 .table td{padding:.85rem .85rem;vertical-align:middle}
 
-.prc-row{background:rgba(43,125,233,.10)!important;border-left:3px solid #2B7DE9}
-.td-name{font-weight:700;color:var(--slate-50);letter-spacing:-.01em;font-size:.9rem}
-.td-strength{color:var(--slate-400);font-weight:600;font-size:.825rem}
+.prc-row{background:rgba(43,125,233,.06)!important;border-left:3px solid var(--blue)}
+.td-name{font-weight:700;color:var(--navy);letter-spacing:-.01em;font-size:.9rem}
+.td-strength{color:var(--gray-500);font-weight:600;font-size:.825rem}
 .td-price{font-variant-numeric:tabular-nums}
-.price-val{font-weight:800;font-size:.95rem;color:var(--slate-200);letter-spacing:-.01em}
-.price-prc{color:#10B981;font-size:1rem;font-weight:800}
+.price-val{font-weight:800;font-size:.95rem;color:var(--gray-800);letter-spacing:-.01em}
+.price-prc{color:var(--green);font-size:1rem;font-weight:800}
 .price-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
-.best-badge{display:inline-block;font-size:.55rem;font-weight:800;color:#FFFFFF;background:linear-gradient(135deg,#059669,#10B981);padding:3px 10px;border-radius:10px;letter-spacing:.6px;white-space:nowrap;box-shadow:0 2px 8px rgba(16,185,129,.25);margin-top:4px}
-.td-ppm{color:var(--slate-500);font-size:.8rem;font-weight:600;font-variant-numeric:tabular-nums}
+.best-badge{display:inline-block;font-size:.55rem;font-weight:800;color:var(--white);background:var(--green);padding:3px 10px;border-radius:10px;letter-spacing:.6px;white-space:nowrap;margin-top:4px}
+.td-ppm{color:var(--gray-500);font-size:.8rem;font-weight:600;font-variant-numeric:tabular-nums}
 .td-vendor{font-size:.85rem}
-.vendor-link{color:var(--slate-300);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(203,213,225,.2);transition:all .2s}
-.vendor-link:hover{color:var(--blue-400);border-bottom-color:var(--blue-400)}
-.vendor-link-prc{color:#2B7DE9;font-weight:800;border-bottom-color:rgba(43,125,233,.4)}
-.vendor-prc{color:var(--blue-400);font-weight:700}
+.vendor-link{color:var(--gray-600);text-decoration:none;font-weight:600;border-bottom:1px solid var(--gray-200);transition:all .2s}
+.vendor-link:hover{color:var(--blue);border-bottom-color:var(--blue)}
+.vendor-link-prc{color:var(--blue);font-weight:800;border-bottom-color:rgba(43,125,233,.4)}
+.vendor-prc{color:var(--blue);font-weight:700}
 .td-code{font-size:.8rem}
-.disc-code{font-family:"SF Mono",Menlo,Monaco,Consolas,monospace;font-size:.7rem;color:var(--cyan-400);background:rgba(6,182,212,.08);padding:.3rem .65rem;border-radius:6px;border:1px solid rgba(6,182,212,.15);letter-spacing:.3px;font-weight:600}
-.code-empty{color:var(--slate-600)}
-.vendor-directory{padding:2.5rem 1.25rem 2rem;border-top:1px solid rgba(43,125,233,.08);background:rgba(15,23,42,.3)}
-.vdir-title{font-size:.7rem;color:var(--slate-500);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:1.5rem;font-weight:800}
+.disc-code{font-family:"SF Mono",Menlo,Monaco,Consolas,monospace;font-size:.7rem;color:var(--blue);background:rgba(43,125,233,.06);padding:.3rem .65rem;border-radius:6px;border:1px solid rgba(43,125,233,.12);letter-spacing:.3px;font-weight:600}
+.code-empty{color:var(--gray-400)}
+.vendor-directory{padding:2.5rem 1.25rem 2rem;border-top:1px solid var(--gray-200);background:var(--gray-50)}
+.vdir-title{font-size:.7rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:1.5rem;font-weight:800}
 .vendor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.85rem}
-.vcard{background:linear-gradient(135deg,rgba(30,41,59,.4),rgba(15,23,42,.3));border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:1rem 1.1rem;transition:all .2s;position:relative;overflow:hidden}
+.vcard{background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:1rem 1.1rem;transition:all .2s;position:relative;overflow:hidden}
 .vcard::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(43,125,233,.3),transparent);opacity:0;transition:opacity .2s}
-.vcard:hover{border-color:rgba(43,125,233,.25);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.vcard:hover{border-color:var(--gray-300);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.06)}
 .vcard:hover::before{opacity:1}
-.vcard-prc{border-color:rgba(43,125,233,.25);background:linear-gradient(135deg,rgba(43,125,233,.12),rgba(43,125,233,.05))}
-.vcard-prc::before{opacity:1;background:linear-gradient(90deg,var(--blue-500),var(--cyan-500))}
+.vcard-prc{border-color:rgba(43,125,233,.25);background:rgba(43,125,233,.03)}
+.vcard-prc::before{opacity:1;background:linear-gradient(90deg,var(--blue),#06B6D4)}
 .vcard-header{margin-bottom:.5rem}
-.vcard-name{color:var(--slate-50);font-weight:800;font-size:.875rem;text-decoration:none;display:block;letter-spacing:-.01em;transition:color .2s}
-.vcard-name:hover{color:var(--blue-400)}
-.vcard-name-plain{color:var(--slate-50);font-weight:800;font-size:.875rem;letter-spacing:-.01em}
-.vcard-count{font-size:.7rem;color:var(--green-400);font-weight:700;margin-top:.25rem}
+.vcard-name{color:var(--navy);font-weight:800;font-size:.875rem;text-decoration:none;display:block;letter-spacing:-.01em;transition:color .2s}
+.vcard-name:hover{color:var(--blue)}
+.vcard-name-plain{color:var(--navy);font-weight:800;font-size:.875rem;letter-spacing:-.01em}
+.vcard-count{font-size:.7rem;color:var(--green);font-weight:700;margin-top:.25rem}
 .vcard-badges{display:flex;gap:.35rem;margin-top:.6rem;flex-wrap:wrap}
 .vcard-badge{font-size:.5rem;font-weight:800;padding:.25rem .5rem;border-radius:5px;letter-spacing:.8px;text-transform:uppercase}
-.badge-coa{color:var(--green-400);background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.2)}
-.badge-us{color:var(--blue-400);background:rgba(43,125,233,.12);border:1px solid rgba(43,125,233,.2)}
-.badge-intl{color:var(--amber-400);background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.2)}
-.vcard-promo{font-size:.65rem;color:var(--amber-400);margin-top:.6rem;line-height:1.4;font-weight:500}
-.vcard-url{font-size:.625rem;color:var(--blue-400);margin-top:.5rem;opacity:.7;font-weight:600}
+.badge-coa{color:var(--green-soft);background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15)}
+.badge-us{color:var(--blue);background:rgba(43,125,233,.08);border:1px solid rgba(43,125,233,.15)}
+.badge-intl{color:var(--amber);background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.15)}
+.vcard-promo{font-size:.65rem;color:var(--gray-600);margin-top:.6rem;line-height:1.4;font-weight:500}
+.vcard-url{font-size:.625rem;color:var(--blue);margin-top:.5rem;opacity:.6;font-weight:600}
 .vcard-soon{opacity:.35}
-.vcard-status{font-size:.65rem;color:var(--amber-500);margin-top:.25rem;font-weight:700;letter-spacing:1px}
-.footer{text-align:center;padding:2rem 1.25rem 2.5rem;border-top:1px solid rgba(43,125,233,.08);background:var(--navy-950)}
-.footer-verified{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(16,185,129,.08));color:var(--green-400);padding:.6rem 1.25rem;border-radius:10px;font-weight:800;font-size:.75rem;margin-bottom:1.25rem;border:1px solid rgba(16,185,129,.2)}
+.vcard-status{font-size:.65rem;color:var(--amber);margin-top:.25rem;font-weight:700;letter-spacing:1px}
+.footer{text-align:center;padding:2rem 1.25rem 2.5rem;border-top:1px solid var(--gray-200);background:var(--navy)}
+.footer-verified{display:inline-flex;align-items:center;gap:.5rem;background:rgba(16,185,129,.12);color:#34D399;padding:.6rem 1.25rem;border-radius:10px;font-weight:800;font-size:.75rem;margin-bottom:1.25rem;border:1px solid rgba(16,185,129,.2)}
 .footer-verified::before{content:"✓";font-size:1rem}
-.footer-brand{font-size:.75rem;color:var(--slate-400);font-weight:600;margin-bottom:.35rem;letter-spacing:.3px}
-.footer-tagline{font-size:.7rem;color:var(--slate-500);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.5rem}
-.footer-disclaimer{max-width:600px;margin:0 auto;padding:1.25rem 1.5rem;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.15);border-radius:10px}
-.footer-disclaimer-title{font-size:.7rem;font-weight:800;color:var(--red-500);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.5rem}
-.footer-disclaimer-text{font-size:.7rem;color:var(--slate-400);line-height:1.6;font-weight:500}
+.footer-brand{font-size:.75rem;color:var(--gray-400);font-weight:600;margin-bottom:.35rem;letter-spacing:.3px}
+.footer-tagline{font-size:.7rem;color:var(--gray-500);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.5rem}
+.footer-disclaimer{max-width:600px;margin:0 auto;padding:1.25rem 1.5rem;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15);border-radius:10px}
+.footer-disclaimer-title{font-size:.7rem;font-weight:800;color:#EF4444;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.5rem}
+.footer-disclaimer-text{font-size:.7rem;color:var(--gray-400);line-height:1.6;font-weight:500}
 @media(max-width:640px){.header{padding:2rem 1.25rem 1.5rem}.header-title{font-size:1.5rem}.header-subtitle{font-size:.7rem}.stats{grid-template-columns:repeat(2,1fr)}.stat{padding:1.25rem .6rem}.stat-value{font-size:1.85rem}.spotlight{padding:1.5rem 1rem}.spot-card{min-width:240px}.filters{padding:1rem}.filter-row{flex-direction:column}.filter-input,.filter-select{width:100%}.table{font-size:.8rem}.table th,.table td{padding:.7rem .6rem}.vendor-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}}
 @media(max-width:480px){.header-title{font-size:1.35rem}.stat-value{font-size:1.65rem}.stat-label{font-size:.5rem}.table{font-size:.75rem;min-width:650px}}
 </style></head><body>
 <header class="header"><div class="header-content"><div class="header-eyebrow">BY PEPTIDE RESOURCE CENTER</div><h1 class="header-title">Peptide Price Comparison</h1><div class="header-subtitle">The Definitive Research Peptide Market Index</div></div></header>
-<section class="stats"><div class="stat"><div class="stat-icon">🧬</div><div class="stat-value">97</div><div class="stat-label">Peptides</div></div><div class="stat"><div class="stat-icon">🏢</div><div class="stat-value">24</div><div class="stat-label">Vendors</div></div><div class="stat"><div class="stat-icon">💊</div><div class="stat-value">43</div><div class="stat-label">PRC Products</div></div><div class="stat"><div class="stat-icon">💰</div><div class="stat-value">70%</div><div class="stat-label">Max Savings</div></div></section>
+<section class="stats"><div class="stat"><div class="stat-icon">🧬</div><div class="stat-value">97</div><div class="stat-label">Peptides</div></div><div class="stat"><div class="stat-icon">🏢</div><div class="stat-value">24</div><div class="stat-label">Vendors</div></div><div class="stat"><div class="stat-icon">🧪</div><div class="stat-value">44</div><div class="stat-label">PRC Products</div></div><div class="stat"><div class="stat-icon">💰</div><div class="stat-value">70%</div><div class="stat-label">Max Savings</div></div></section>
 <section class="spotlight"><div class="spotlight-header"><span class="spotlight-icon">🏆</span><h2 class="spotlight-title">PRC's Biggest Price Wins</h2></div><div class="spotlight-cards"><div class="spot-card"><div class="spot-badge">TOP SAVINGS</div><div class="spot-name">Tirzepatide</div><div class="spot-strength">30mg</div><div class="spot-compare"><div class="spot-prc-line"><span class="spot-label">PRC</span><span class="spot-prc-price">$46.00</span></div><div class="spot-comp-line"><span class="spot-label">TCore</span><span class="spot-comp-price">$169.99</span></div></div><div class="spot-save-pill">73% SAVINGS</div></div><div class="spot-card"><div class="spot-badge">TOP SAVINGS</div><div class="spot-name">NAD+</div><div class="spot-strength">1000mg</div><div class="spot-compare"><div class="spot-prc-line"><span class="spot-label">PRC</span><span class="spot-prc-price">$30.00</span></div><div class="spot-comp-line"><span class="spot-label">EQNO</span><span class="spot-comp-price">$99.00</span></div></div><div class="spot-save-pill">70% SAVINGS</div></div><div class="spot-card"><div class="spot-badge">TOP SAVINGS</div><div class="spot-name">Tirzepatide</div><div class="spot-strength">30mg</div><div class="spot-compare"><div class="spot-prc-line"><span class="spot-label">PRC</span><span class="spot-prc-price">$46.00</span></div><div class="spot-comp-line"><span class="spot-label">AIO</span><span class="spot-comp-price">$151.20</span></div></div><div class="spot-save-pill">70% SAVINGS</div></div></div></section>
-<section style="max-width:900px;margin:0 auto 1rem;padding:0.75rem 1rem;background:rgba(6,182,212,0.06);border:1px solid rgba(6,182,212,0.15);border-radius:8px;font-size:0.8rem;color:#CBD5E1;line-height:1.5"><strong style="color:#06B6D4">🏷️ Discount Codes</strong> — We are confident we have the best prices. But if you shop elsewhere, at least save with these codes.<br><span style="font-size:0.72rem;color:#94A3B8">Most vendors: <strong>Kikiriki</strong> · Orbitrex: <strong>Kikiriki10</strong> · Atomik Labz: <strong>KikiRiki15</strong> · Enter at checkout on the vendor's site.</span></section>
+<section style="max-width:900px;margin:0 auto 1rem;padding:0.75rem 1rem;background:rgba(43,125,233,0.05);border:1px solid rgba(43,125,233,0.12);border-radius:8px;font-size:0.8rem;color:#475569;line-height:1.5"><strong style="color:#2B7DE9">🏷️ Discount Codes</strong> — We are confident we have the best prices. But if you shop elsewhere, at least save with these codes.<br><span style="font-size:0.72rem;color:#64748B">Most vendors: <strong>Kikiriki</strong> · Orbitrex: <strong>Kikiriki10</strong> · Atomik Labz: <strong>KikiRiki15</strong> · Enter at checkout on the vendor's site.</span></section>
 <section class="filters"><div class="filter-row"><input type="text" id="search" class="filter-input" placeholder="Search peptides... (e.g. BPC-157)" oninput="filt()"><select id="vf" class="filter-select" onchange="filt()"><option value="">All Vendors</option><option value="AIO">AIO</option><option value="AMP">AMP</option><option value="Authentic Aminos">Authentic Aminos</option><option value="BC9">BC9</option><option value="Biolongevity Labs">Biolongevity Labs</option><option value="Biopeptide">Biopeptide</option><option value="EQNO">EQNO</option><option value="EZ">EZ</option><option value="Elev8">Elev8</option><option value="FelixChem">FelixChem</option><option value="Ignition">Ignition</option><option value="Instant">Instant</option><option value="Orbitrex">Orbitrex</option><option value="PRC">PRC</option><option value="Penguin">Penguin</option><option value="RetaOne">RetaOne</option><option value="Royal">Royal</option><option value="SportsTech">SportsTech</option><option value="Strate">Strate</option><option value="Synagenics">Synagenics</option><option value="TCore">TCore</option><option value="TruLab">TruLab</option><option value="Tydes">Tydes</option></select></div><div class="filter-row"><label class="filter-toggle"><input type="checkbox" id="po" class="filter-checkbox" onchange="filt()"><span class="filter-label">Shop PRC Products</span></label></div><div class="filter-info" id="rc">Showing 387 of 387 results</div></section>
 <div class="table-wrap"><table class="table"><thead><tr><th>Peptide</th><th>Strength</th><th>Price</th><th>$/mg</th><th>Vendor</th><th>Code</th></tr></thead><tbody id="tb">
 <tr class="" data-p="5-amino-1mq" data-v="AIO" data-prc="No"><td class="td-name">5-Amino-1MQ</td><td class="td-strength">10mg</td><td class="td-price"><div class="price-wrap"><span class="price-val">$54.40</span></div></td><td class="td-ppm">$5.44</td><td class="td-vendor"><a href="https://aiopeptides.com" target="_blank" class="vendor-link">AIO</a></td><td class="td-code"><span class="code-empty">—</span></td></tr>
