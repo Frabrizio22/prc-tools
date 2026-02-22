@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peptide Reconstitution Calculator | PRC</title>
+    <meta name="description" content="Calculate the correct volume to draw for your desired peptide dose. Free research tool from Peptide Resource Center.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calculator-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .calc-header {
+            background: linear-gradient(135deg, #2B7DE9 0%, #1E40AF 100%);
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .calc-header h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .calc-header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .calc-body {
+            padding: 24px;
+        }
+
+        .info-box {
+            background: #f0f7ff;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+            font-size: 0.78rem;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .info-box strong {
+            color: #0A1628;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .info-box div {
+            margin-bottom: 4px;
+        }
+
+        .calc-field {
+            margin-bottom: 16px;
+        }
+
+        .calc-label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #1E293B;
+            margin-bottom: 6px;
+        }
+
+        .calc-input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .calc-input:focus {
+            outline: none;
+            border-color: #2B7DE9;
+        }
+
+        .calc-input::placeholder {
+            color: #94A3B8;
+        }
+
+        .calc-results {
+            background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 24px;
+        }
+
+        .calc-result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #CBD5E1;
+        }
+
+        .calc-result-row:last-child {
+            border-bottom: none;
+        }
+
+        .calc-result-label {
+            font-size: 0.85rem;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        .calc-result-value {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0A1628;
+        }
+
+        .calc-result-value.highlight {
+            color: #2B7DE9;
+            font-size: 1.1rem;
+        }
+
+        .calc-summary {
+            background: #f0fdf4;
+            border-radius: 8px;
+            border-left: 4px solid #10B981;
+            padding: 14px 16px;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .calc-note {
+            margin-top: 16px;
+            font-size: 0.7rem;
+            color: #64748B;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .calc-footer {
+            background: #F8FAFC;
+            padding: 16px 24px;
+            text-align: center;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .calc-footer a {
+            color: #2B7DE9;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .calc-footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 10px;
+            }
+
+            .calc-header h1 {
+                font-size: 1.2rem;
+            }
+
+            .calc-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calc-header">
+            <h1>Peptide Reconstitution Calculator</h1>
+            <p>Calculate the correct volume to draw for your desired dose</p>
+        </div>
+
+        <div class="calc-body">
+            <div class="info-box">
+                <strong>How to use this calculator:</strong>
+                <div><strong>1.</strong> <strong>Peptide in Vial</strong> — The total mg listed on your peptide vial (e.g. 5mg, 10mg)</div>
+                <div><strong>2.</strong> <strong>Bacteriostatic Water</strong> — How much water you add to reconstitute. Common amounts: 1mL or 2mL</div>
+                <div><strong>3.</strong> <strong>Desired Dose</strong> — The mcg you want per injection (check your research protocol)</div>
+                <div><strong>4.</strong> <strong>Doses Per Day</strong> — How many times per day</div>
+            </div>
+
+            <div class="calc-field">
+                <label class="calc-label">Peptide in Vial (mg)</label>
+                <input type="text" inputmode="decimal" class="calc-input" id="calcPeptide" placeholder="e.g. 5" oninput="calcRecon()" onkeyup="calcRecon()" onchange="calcRecon()">
+            </div>
+
+            <div class="calc-field">
+                <label class="calc-label">Bacteriostatic Water Added (mL)</label>
+                <input type="text" inputmode="decimal" class="calc-input" id="calcWater" placeholder="e.g. 2" oninput="calcRecon()" onkeyup="calcRecon()" onchange="calcRecon()">
+            </div>
+
+            <div class="calc-field">
+                <label class="calc-label">Desired Dose (mcg)</label>
+                <input type="text" inputmode="decimal" class="calc-input" id="calcDose" placeholder="e.g. 250" oninput="calcRecon()" onkeyup="calcRecon()" onchange="calcRecon()">
+            </div>
+
+            <div class="calc-field">
+                <label class="calc-label">Doses Per Day</label>
+                <input type="text" inputmode="numeric" class="calc-input" id="calcFreq" placeholder="e.g. 1" value="1" oninput="calcRecon()" onkeyup="calcRecon()" onchange="calcRecon()">
+            </div>
+
+            <div class="calc-results" id="calcResults" style="display:none">
+                <div class="calc-result-row">
+                    <span class="calc-result-label">Concentration</span>
+                    <span class="calc-result-value" id="calcConc">—</span>
+                </div>
+                <div class="calc-result-row">
+                    <span class="calc-result-label">Volume to Draw</span>
+                    <span class="calc-result-value highlight" id="calcVol">—</span>
+                </div>
+                <div class="calc-result-row">
+                    <span class="calc-result-label">Doses Per Vial</span>
+                    <span class="calc-result-value" id="calcDoses">—</span>
+                </div>
+                <div class="calc-result-row">
+                    <span class="calc-result-label">Vial Lasts</span>
+                    <span class="calc-result-value" id="calcDays">—</span>
+                </div>
+
+                <div class="calc-summary" id="calcSummary" style="display:none"></div>
+            </div>
+
+            <div class="calc-note">
+                For research and educational purposes only. Not medical advice. Always verify calculations independently. 1 mg = 1000 mcg. Standard insulin syringe: 100 units = 1 mL.
+            </div>
+        </div>
+
+        <div class="calc-footer">
+            <a href="https://peptideresourcecenter.com" target="_blank">BY PEPTIDE RESOURCE CENTER</a>
+        </div>
+    </div>
+
+    <script>
+        function calcRecon() {
+            var pep = parseFloat(document.getElementById("calcPeptide").value);
+            var water = parseFloat(document.getElementById("calcWater").value);
+            var dose = parseFloat(document.getElementById("calcDose").value);
+            var freq = parseInt(document.getElementById("calcFreq").value) || 1;
+            var results = document.getElementById("calcResults");
+            
+            if (!pep || !water || pep <= 0 || water <= 0) {
+                results.style.display = "none";
+                return;
+            }
+            
+            results.style.display = "block";
+            
+            var concMcg = (pep * 1000) / water;
+            var concMg = pep / water;
+            document.getElementById("calcConc").textContent = concMg.toFixed(2) + " mg/mL (" + concMcg.toFixed(0) + " mcg/mL)";
+            
+            if (!dose || dose <= 0) {
+                document.getElementById("calcVol").textContent = "Enter desired dose";
+                document.getElementById("calcDoses").textContent = "—";
+                document.getElementById("calcDays").textContent = "—";
+                document.getElementById("calcSummary").style.display = "none";
+                return;
+            }
+            
+            var volMl = dose / concMcg;
+            var volUnits = volMl * 100;
+            var totalDoses = Math.floor((pep * 1000) / dose);
+            var days = Math.floor(totalDoses / freq);
+            
+            document.getElementById("calcVol").textContent = volMl.toFixed(3) + " mL (" + volUnits.toFixed(1) + " units)";
+            document.getElementById("calcDoses").textContent = totalDoses + " doses";
+            document.getElementById("calcDays").textContent = days + " day" + (days !== 1 ? "s" : "");
+            
+            var summary = document.getElementById("calcSummary");
+            summary.style.display = "block";
+            summary.innerHTML = "<strong>Summary:</strong> Add " + water + " mL of bacteriostatic water to your " + pep + " mg vial. For a " + dose + " mcg dose, draw <strong>" + volUnits.toFixed(1) + " units</strong> (" + volMl.toFixed(3) + " mL) on your insulin syringe. This vial gives you <strong>" + totalDoses + " doses</strong> and lasts <strong>" + days + " day" + (days !== 1 ? "s" : "") + "</strong>.";
+        }
+    </script>
+</body>
+</html>
