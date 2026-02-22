@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peptide Reconstitution Calculator | Peptide Resource Center</title>
+    <meta name="description" content="The best peptide reconstitution calculator - visual, mobile-friendly, with preset strengths and real-time syringe visualization.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            min-height: 100vh;
+            padding: 20px 10px;
+        }
+
+        .calculator-container {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .calc-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .calc-header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .calc-header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .calc-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .calc-card h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .calc-card p {
+            font-size: 0.85rem;
+            color: #64748B;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .vial-icon {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .preset-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .preset-btn {
+            background: #F1F5F9;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 14px 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .preset-btn:hover {
+            background: #E2E8F0;
+            transform: translateY(-2px);
+        }
+
+        .preset-btn.active {
+            background: #FFA500;
+            color: white;
+            border-color: #FF8C00;
+        }
+
+        .common-examples {
+            background: #FFF7ED;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.75rem;
+            color: #78350F;
+            line-height: 1.6;
+        }
+
+        .common-examples strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #92400E;
+        }
+
+        .results-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: none;
+        }
+
+        .results-card.show {
+            display: block;
+        }
+
+        .results-header {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-bottom: 20px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-size: 0.85rem;
+            color: #64748B;
+            font-weight: 500;
+        }
+
+        .result-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0A1628;
+        }
+
+        .result-value.highlight {
+            color: #FFA500;
+            font-size: 1.3rem;
+        }
+
+        .syringe-visual {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #F8FAFC;
+            border-radius: 12px;
+        }
+
+        .syringe-container {
+            position: relative;
+            display: inline-block;
+            max-width: 300px;
+        }
+
+        .syringe-svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .dose-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            transition: top 0.3s;
+        }
+
+        .concentration-badge {
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .calc-footer {
+            text-align: center;
+            margin-top: 24px;
+            padding: 16px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .calc-footer a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .calc-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .dose-input-group {
+            margin-top: 16px;
+        }
+
+        .dose-input-label {
+            display: block;
+            font-size: 0.85rem;
+            color: #475569;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .dose-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .dose-input:focus {
+            outline: none;
+            border-color: #FFA500;
+        }
+
+        @media (max-width: 480px) {
+            .calc-header h1 {
+                font-size: 1.4rem;
+            }
+
+            .preset-grid {
+                gap: 8px;
+            }
+
+            .preset-btn {
+                padding: 12px 6px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calc-header">
+            <h1>Peptide Reconstitution Calculator</h1>
+            <p>Tap presets or enter custom values</p>
+        </div>
+
+        <!-- Peptide Strength Card -->
+        <div class="calc-card">
+            <div class="vial-icon">🧪</div>
+            <h2>Peptide Strength</h2>
+            <p>corresponds with the size of your vial</p>
+            
+            <div class="preset-grid">
+                <button class="preset-btn" onclick="selectStrength(1)">1mg</button>
+                <button class="preset-btn" onclick="selectStrength(5)">5mg</button>
+                <button class="preset-btn" onclick="selectStrength(10)">10mg</button>
+                <button class="preset-btn" onclick="selectStrength(15)">15mg</button>
+                <button class="preset-btn" onclick="selectStrength(20)">20mg</button>
+                <button class="preset-btn" onclick="selectStrength(30)">30mg</button>
+                <button class="preset-btn" onclick="selectStrength(50)">50mg</button>
+                <button class="preset-btn" onclick="selectStrength(1000)">1000mg</button>
+                <button class="preset-btn" onclick="selectStrength('custom')">Other</button>
+            </div>
+
+            <div class="common-examples">
+                <strong>Common Strengths</strong>
+                BPC-157: 10mg<br>
+                NAD+: 1000mg<br>
+                GLP-1s: 10mg-30mg
+            </div>
+        </div>
+
+        <!-- Bacteriostatic Water Card -->
+        <div class="calc-card">
+            <div class="vial-icon">💧</div>
+            <h2>Bacteriostatic Water</h2>
+            <p>determines peptide concentration</p>
+            
+            <div class="preset-grid">
+                <button class="preset-btn" onclick="selectWater(0.5)">0.5mL</button>
+                <button class="preset-btn" onclick="selectWater(1.0)">1.0mL</button>
+                <button class="preset-btn" onclick="selectWater(1.5)">1.5mL</button>
+                <button class="preset-btn" onclick="selectWater(2.0)">2.0mL</button>
+                <button class="preset-btn" onclick="selectWater(2.5)">2.5mL</button>
+                <button class="preset-btn" onclick="selectWater(3.0)">3.0mL</button>
+                <button class="preset-btn" onclick="selectWater(5.0)">5.0mL</button>
+                <button class="preset-btn" onclick="selectWater('custom')">Other</button>
+            </div>
+
+            <div class="common-examples">
+                <strong>Common Amounts</strong>
+                GLP-1s: 2mL - 3mL<br>
+                Peptides: 2mL - 3mL<br>
+                NAD+: 5mL
+            </div>
+        </div>
+
+        <!-- Desired Dose Card -->
+        <div class="calc-card">
+            <div class="vial-icon">💉</div>
+            <h2>Desired Dose</h2>
+            <p>how much you want per injection</p>
+
+            <div class="dose-input-group">
+                <label class="dose-input-label">Enter dose in mcg (micrograms)</label>
+                <input type="text" inputmode="decimal" class="dose-input" id="doseInput" placeholder="e.g. 250" oninput="calculate()">
+            </div>
+        </div>
+
+        <!-- Results Card -->
+        <div class="results-card" id="resultsCard">
+            <div class="results-header">Result</div>
+
+            <div class="result-row">
+                <span class="result-label">PEPTIDE DOSE</span>
+                <span class="result-value" id="peptideDose">—</span>
+            </div>
+
+            <div class="result-row">
+                <span class="result-label">DRAW SYRINGE TO</span>
+                <span class="result-value highlight" id="syringeUnits">—</span>
+            </div>
+
+            <div class="syringe-visual">
+                <div class="syringe-container">
+                    <svg class="syringe-svg" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Syringe body -->
+                        <rect x="75" y="50" width="50" height="300" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2" rx="5"/>
+                        <!-- Measurement lines -->
+                        <line x1="70" y1="100" x2="130" y2="100" stroke="#64748B" stroke-width="1"/>
+                        <line x1="70" y1="150" x2="130" y2="150" stroke="#64748B" stroke-width="1"/>
+                        <line x1="70" y1="200" x2="130" y2="200" stroke="#64748B" stroke-width="1"/>
+                        <line x1="70" y1="250" x2="130" y2="250" stroke="#64748B" stroke-width="1"/>
+                        <line x1="70" y1="300" x2="130" y2="300" stroke="#64748B" stroke-width="1"/>
+                        <!-- Numbers -->
+                        <text x="135" y="105" font-size="12" fill="#475569">100</text>
+                        <text x="135" y="155" font-size="12" fill="#475569">75</text>
+                        <text x="135" y="205" font-size="12" fill="#475569">50</text>
+                        <text x="135" y="255" font-size="12" fill="#475569">25</text>
+                        <text x="135" y="305" font-size="12" fill="#475569">0</text>
+                        <!-- Plunger -->
+                        <rect x="85" y="30" width="30" height="15" fill="#475569" rx="3"/>
+                        <!-- Needle -->
+                        <rect x="95" y="350" width="10" height="30" fill="#94A3B8"/>
+                        <!-- Fill indicator -->
+                        <rect x="77" y="250" width="46" height="0" fill="#FFA500" id="fillIndicator" opacity="0.7"/>
+                        <!-- Marker -->
+                        <text x="50" y="255" font-size="24" id="markerIcon" fill="#FFA500">▶</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="result-row">
+                <span class="result-label">YOUR VIAL CONTAINS</span>
+                <span class="result-value" id="totalDoses">—</span>
+            </div>
+
+            <div class="concentration-badge" id="concentrationBadge">
+                CONCENTRATION: —
+            </div>
+        </div>
+
+        <div class="calc-footer">
+            <a href="https://peptideresourcecenter.com" target="_blank">BY PEPTIDE RESOURCE CENTER</a>
+        </div>
+    </div>
+
+    <script>
+        let selectedStrength = null;
+        let selectedWater = null;
+
+        function selectStrength(value) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.calc-card:nth-child(2) .preset-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            if (value === 'custom') {
+                let custom = prompt('Enter peptide strength in mg:');
+                if (custom && !isNaN(custom) && parseFloat(custom) > 0) {
+                    selectedStrength = parseFloat(custom);
+                    event.target.classList.add('active');
+                    event.target.textContent = custom + 'mg';
+                }
+            } else {
+                selectedStrength = value;
+                event.target.classList.add('active');
+            }
+
+            calculate();
+        }
+
+        function selectWater(value) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.calc-card:nth-child(3) .preset-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            if (value === 'custom') {
+                let custom = prompt('Enter water amount in mL:');
+                if (custom && !isNaN(custom) && parseFloat(custom) > 0) {
+                    selectedWater = parseFloat(custom);
+                    event.target.classList.add('active');
+                    event.target.textContent = custom + 'mL';
+                }
+            } else {
+                selectedWater = value;
+                event.target.classList.add('active');
+            }
+
+            calculate();
+        }
+
+        function calculate() {
+            let dose = parseFloat(document.getElementById('doseInput').value);
+
+            if (!selectedStrength || !selectedWater) {
+                document.getElementById('resultsCard').classList.remove('show');
+                return;
+            }
+
+            if (!dose || dose <= 0) {
+                document.getElementById('resultsCard').classList.remove('show');
+                return;
+            }
+
+            // Show results
+            document.getElementById('resultsCard').classList.add('show');
+
+            // Calculate concentration
+            let concMcgPerMl = (selectedStrength * 1000) / selectedWater;
+            let concMgPerMl = selectedStrength / selectedWater;
+
+            // Calculate volume to draw
+            let volMl = dose / concMcgPerMl;
+            let volUnits = volMl * 100;
+
+            // Calculate total doses
+            let totalDoses = Math.floor((selectedStrength * 1000) / dose);
+
+            // Update display
+            document.getElementById('peptideDose').textContent = (dose / 1000).toFixed(2) + ' mg';
+            document.getElementById('syringeUnits').textContent = volUnits.toFixed(1) + ' units';
+            document.getElementById('totalDoses').textContent = totalDoses + ' doses';
+            document.getElementById('concentrationBadge').textContent = 'CONCENTRATION: ' + concMgPerMl.toFixed(2) + ' mg/mL';
+
+            // Update syringe visual
+            updateSyringe(volUnits);
+
+            // Scroll to results
+            setTimeout(() => {
+                document.getElementById('resultsCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+
+        function updateSyringe(units) {
+            // Calculate position on syringe (0 units = bottom, 100 units = top)
+            // Syringe visual goes from y=300 (0 units) to y=100 (100 units)
+            let clampedUnits = Math.min(Math.max(units, 0), 100);
+            let yPos = 300 - (clampedUnits * 2); // 200px range for 100 units
+
+            // Update marker position
+            let marker = document.getElementById('markerIcon');
+            marker.setAttribute('y', yPos + 5);
+
+            // Update fill indicator
+            let fill = document.getElementById('fillIndicator');
+            let fillHeight = clampedUnits * 2;
+            fill.setAttribute('y', 300 - fillHeight);
+            fill.setAttribute('height', fillHeight);
+        }
+    </script>
+</body>
+</html>
