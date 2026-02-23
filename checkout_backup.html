@@ -581,13 +581,13 @@
             <div id="cartItems"></div>
         </div>
 
-        <!-- Step 2: Customer Info -->
-        <div id="customerSection" class="section hidden">
+        <!-- Step 2: Registered Institution Info -->
+        <div id="Registered InstitutionSection" class="section hidden">
             <div class="section-title">
                 <span class="step-number">2</span>
-                Customer Information
+                Registered Institution Information
             </div>
-            <form id="customerForm">
+            <form id="Registered InstitutionForm">
                 <div class="form-group">
                     <label class="form-label">Full Name *</label>
                     <input type="text" class="form-input" id="fullName" required>
@@ -713,7 +713,7 @@
     <!-- Footer with Action Button -->
     <div id="footer" class="footer">
         <div class="footer-content">
-            <button id="actionBtn" class="btn btn-primary" onclick="nextStep()">Continue to Customer Info</button>
+            <button id="actionBtn" class="btn btn-primary" onclick="nextStep()">Continue to Registered Institution Info</button>
         </div>
     </div>
 
@@ -725,7 +725,7 @@
         var selectedShipping = { name: 'Standard Shipping', price: 9.99 };
         var selectedPayment = null;
         var orderNumber = '';
-        var customerInfo = {};
+        var Registered InstitutionInfo = {};
 
         // Check age gate
         function checkAgeGate() {
@@ -935,20 +935,20 @@
 
         function nextStep() {
             if (currentStep === 1) {
-                // Cart to Customer Info
+                // Cart to Registered Institution Info
                 if (cart.length === 0) return;
-                document.getElementById('customerSection').classList.remove('hidden');
+                document.getElementById('Registered InstitutionSection').classList.remove('hidden');
                 document.getElementById('actionBtn').textContent = 'Continue to Shipping';
                 currentStep = 2;
             } else if (currentStep === 2) {
-                // Validate customer info
-                var form = document.getElementById('customerForm');
+                // Validate Registered Institution info
+                var form = document.getElementById('Registered InstitutionForm');
                 if (!form.checkValidity()) {
                     form.reportValidity();
                     return;
                 }
                 
-                customerInfo = {
+                Registered InstitutionInfo = {
                     name: document.getElementById('fullName').value,
                     email: document.getElementById('email').value,
                     address: document.getElementById('address').value,
@@ -997,7 +997,7 @@
                 shippingName: selectedShipping.name,
                 total: getTotal(),
                 payment: selectedPayment,
-                customer: customerInfo
+                Registered Institution: Registered InstitutionInfo
             };
             for (var i = 0; i < cart.length; i++) {
                 savedOrder.items.push({
@@ -1009,7 +1009,7 @@
             
             // Hide checkout sections
             document.getElementById('cartSection').classList.add('hidden');
-            document.getElementById('customerSection').classList.add('hidden');
+            document.getElementById('Registered InstitutionSection').classList.add('hidden');
             document.getElementById('shippingSection').classList.add('hidden');
             document.getElementById('paymentSection').classList.add('hidden');
             document.getElementById('summarySection').classList.add('hidden');
@@ -1038,7 +1038,7 @@
             if (selectedPayment === 'crypto') {
                 html += '<h3>💰 Payment Instructions - Cryptocurrency</h3>';
                 html += '<div class="instruction-step">We will email you a secure Coinbase Commerce payment link within <span class="highlight">15 minutes</span>.</div>';
-                html += '<div class="instruction-step">Check your inbox at <strong>' + savedOrder.customer.email + '</strong></div>';
+                html += '<div class="instruction-step">Check your inbox at <strong>' + savedOrder.Registered Institution.email + '</strong></div>';
                 html += '<div class="instruction-step">The link will allow you to pay with Bitcoin, Ethereum, USDC, and other cryptocurrencies.</div>';
                 html += '<div class="instruction-step">Your order will ship once payment is confirmed.</div>';
             } else if (selectedPayment === 'zelle') {
@@ -1095,13 +1095,13 @@
             html += '<div style="margin-top: 16px;">';
             html += '<div style="font-weight: 700; margin-bottom: 8px;">Shipping Address</div>';
             html += '<div style="font-size: 14px; color: #64748b; line-height: 1.6;">';
-            html += o.customer.name + '<br>';
-            html += o.customer.address + '<br>';
-            html += o.customer.city + ', ' + o.customer.state + ' ' + o.customer.zip + '<br>';
-            if (o.customer.phone) {
-                html += o.customer.phone + '<br>';
+            html += o.Registered Institution.name + '<br>';
+            html += o.Registered Institution.address + '<br>';
+            html += o.Registered Institution.city + ', ' + o.Registered Institution.state + ' ' + o.Registered Institution.zip + '<br>';
+            if (o.Registered Institution.phone) {
+                html += o.Registered Institution.phone + '<br>';
             }
-            html += o.customer.email;
+            html += o.Registered Institution.email;
             html += '</div></div>';
             
             document.getElementById('orderDetails').innerHTML = html;
@@ -1135,13 +1135,13 @@
             body += 'Total: $' + o.total.toFixed(2) + '\n\n';
             
             body += 'Shipping Address:\n';
-            body += o.customer.name + '\n';
-            body += o.customer.address + '\n';
-            body += o.customer.city + ', ' + o.customer.state + ' ' + o.customer.zip + '\n';
-            if (o.customer.phone) {
-                body += o.customer.phone + '\n';
+            body += o.Registered Institution.name + '\n';
+            body += o.Registered Institution.address + '\n';
+            body += o.Registered Institution.city + ', ' + o.Registered Institution.state + ' ' + o.Registered Institution.zip + '\n';
+            if (o.Registered Institution.phone) {
+                body += o.Registered Institution.phone + '\n';
             }
-            body += o.customer.email + '\n\n';
+            body += o.Registered Institution.email + '\n\n';
             
             body += 'Thank you!';
             

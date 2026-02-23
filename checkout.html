@@ -740,9 +740,9 @@
             </div>
         </div>
 
-        <!-- Step 2: Customer Info -->
+        <!-- Step 2: Registered Institution Info -->
         <div id="customerSection" class="section hidden">
-            <div class="section-title">Customer Information</div>
+            <div class="section-title">Shipping Information</div>
             <div style="font-size:11px;color:#94A3B8;margin-bottom:12px">US shipping addresses only</div>
             <form id="customerForm" onsubmit="return false">
                 <div class="form-group">
@@ -820,6 +820,16 @@
                     <span class="discount-tag">SAVE 5%</span>
                 </div>
             </div>
+            
+            <!-- Compliance Certification -->
+            <div style="margin-top:20px;padding:16px;background:#FFF9E6;border:1px solid #FDB022;border-radius:8px">
+                <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer">
+                    <input type="checkbox" id="complianceCheck" required style="margin-top:3px;width:18px;height:18px;cursor:pointer">
+                    <span style="font-size:13px;line-height:1.5;color:#0A1628"><strong style="color:#DC2626">Required:</strong> I certify that I am a qualified researcher and these products are for in vitro laboratory use only.</span>
+                </label>
+            </div>
+            
+            <div style="margin-top:12px;font-size:11px;color:#64748B;text-align:center">Charges will appear as "PRC LABS" on your statement.</div>
         </div>
 
         <!-- Order Summary + Promo -->
@@ -1139,6 +1149,11 @@
                 scrollToEl('paymentSection');
             } else if (currentStep === 4) {
                 if (!selectedPayment) return;
+                var compCheck = document.getElementById('complianceCheck');
+                if (!compCheck.checked) {
+                    alert('Please certify that you are a qualified researcher before placing your order.');
+                    return;
+                }
                 placeOrder();
             }
             updateFooter();
@@ -1164,13 +1179,13 @@
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.send(JSON.stringify({
                     order_number: orderNum,
-                    customer_name: order.customer.name,
-                    customer_email: order.customer.email,
-                    customer_phone: order.customer.phone || '',
-                    customer_address: order.customer.address,
-                    customer_city: order.customer.city,
-                    customer_state: order.customer.state,
-                    customer_zip: order.customer.zip,
+                    Registered Institution_name: order.Registered Institution.name,
+                    Registered Institution_email: order.Registered Institution.email,
+                    Registered Institution_phone: order.Registered Institution.phone || '',
+                    Registered Institution_address: order.Registered Institution.address,
+                    Registered Institution_city: order.Registered Institution.city,
+                    Registered Institution_state: order.Registered Institution.state,
+                    Registered Institution_zip: order.Registered Institution.zip,
                     items: order.items,
                     subtotal: order.subtotal,
                     discount: order.discount,
@@ -1187,7 +1202,7 @@
             savedOrder = {
                 items: [], subtotal: getSubtotal(), discount: getDiscount(),
                 shipping: getShipping(), shippingName: selectedShipping.name,
-                total: getTotal(), payment: selectedPayment, customer: customerInfo
+                total: getTotal(), payment: selectedPayment, Registered Institution: customerInfo
             };
             for (var i = 0; i < cart.length; i++) {
                 savedOrder.items.push({ name: cart[i].name, price: cart[i].price, quantity: cart[i].quantity });
@@ -1234,8 +1249,8 @@
                 xhr.send(JSON.stringify({
                     order_number: orderNumber,
                     total: savedOrder.total.toFixed(2),
-                    email: savedOrder.customer.email,
-                    name: savedOrder.customer.name
+                    email: savedOrder.Registered Institution.email,
+                    name: savedOrder.Registered Institution.name
                 }));
                 return;
             }
@@ -1297,9 +1312,9 @@
             html += '<div style="margin-top:16px;padding-top:12px;border-top:1px solid #E2E8F0">';
             html += '<div style="font-weight:700;font-size:13px;margin-bottom:6px;color:#0A1628">Ship to</div>';
             html += '<div style="font-size:13px;color:#64748B;line-height:1.6">';
-            html += o.customer.name + '<br>' + o.customer.address + '<br>' + o.customer.city + ', ' + o.customer.state + ' ' + o.customer.zip;
-            if (o.customer.phone) html += '<br>' + o.customer.phone;
-            html += '<br>' + o.customer.email + '</div></div>';
+            html += o.Registered Institution.name + '<br>' + o.Registered Institution.address + '<br>' + o.Registered Institution.city + ', ' + o.Registered Institution.state + ' ' + o.Registered Institution.zip;
+            if (o.Registered Institution.phone) html += '<br>' + o.Registered Institution.phone;
+            html += '<br>' + o.Registered Institution.email + '</div></div>';
             document.getElementById('orderDetails').innerHTML = html;
         }
 
@@ -1319,10 +1334,10 @@
             if (o.discount > 0) body += 'Discount: -$' + o.discount.toFixed(2) + '\n';
             body += 'Shipping: ' + (o.shipping === 0 ? 'FREE' : '$' + o.shipping.toFixed(2)) + '\n';
             body += 'Total: $' + o.total.toFixed(2) + '\n\n';
-            body += 'Shipping Address:\n' + o.customer.name + '\n' + o.customer.address + '\n';
-            body += o.customer.city + ', ' + o.customer.state + ' ' + o.customer.zip + '\n';
-            if (o.customer.phone) body += o.customer.phone + '\n';
-            body += o.customer.email + '\n\nThank you!';
+            body += 'Shipping Address:\n' + o.Registered Institution.name + '\n' + o.Registered Institution.address + '\n';
+            body += o.Registered Institution.city + ', ' + o.Registered Institution.state + ' ' + o.Registered Institution.zip + '\n';
+            if (o.Registered Institution.phone) body += o.Registered Institution.phone + '\n';
+            body += o.Registered Institution.email + '\n\nThank you!';
             window.location.href = 'mailto:support@prcpeptides.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
         }
 
