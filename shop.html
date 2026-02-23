@@ -1227,7 +1227,7 @@
 
     <!-- Header -->
     <!-- Promo Bar -->
-    <div class="promo-bar" id="promoBar"><strong>FREE SHIPPING</strong> over $150 &nbsp;·&nbsp; Free laboratory solvent kit</div>
+    <div class="promo-bar" id="promoBar"><strong>FREE SHIPPING</strong> over $150 &nbsp;·&nbsp; Laboratory preparation supplies included with all reagents</div>
 
     <header>
         <div class="header-content">
@@ -1248,7 +1248,6 @@
                         <a href="#" onclick="filterCat('Neuropeptides');return false">Neuropeptides</a>
                         <a href="#" onclick="filterCat('Cellular Research Reagents');return false">Cellular Research Reagents</a>
                         <a href="#" onclick="filterCat('Melanocortin');return false">Melanocortin</a>
-                        <!-- <a href="#" onclick="filterCat('Dermatological Reagents');return false">Dermatological Reagents</a> -->
                         <a href="#" onclick="filterCat('Advanced');return false">Advanced</a>
                     </div>
                 </span>
@@ -1318,7 +1317,6 @@
                     <button class="filter-pill" data-category="neuropeptides">Neuro</button>
                     <button class="filter-pill" data-category="longevity">Cellular</button>
                     <button class="filter-pill" data-category="melanocortin">Melanocortin</button>
-                    <!-- <button class="filter-pill" data-category="cosmetic">Dermatological</button> -->
                     <button class="filter-pill" data-category="advanced">Advanced</button>
                 </div>
             </div>
@@ -1580,15 +1578,6 @@
                 applications: "T-cell differentiation studies, thymic function research, bioregulator peptide mechanisms, immune system modulation, immunosenescence models, adaptive immunity research, peptide-DNA interaction studies"
             },
             {
-                name: "Laennec 2ml x 50 Ampules",
-                category: "tissue",
-                price: 425,
-                coa: true,
-                shortDesc: "Pharmaceutical-grade human placental extract containing over 50 identified growth factors.",
-                fullDesc: "Laennec represents the biological complexity that single-molecule research cannot capture. This pharmaceutical-grade extract, derived from healthy human placenta and manufactured under strict Japanese pharmaceutical standards, contains a remarkably diverse array of bioactive molecules: multiple growth factor families (FGF, EGF, VEGF, HGF), cytokines, amino acids, vitamins, and minerals.",
-                applications: "Multi-growth factor signaling, tissue regeneration models, cytokine interaction studies, complex biological system research, angiogenesis with multiple factors, cellular metabolism in growth factor-rich environments"
-            },
-            {
                 name: "Sermorelin 5mg",
                 category: "gh",
                 price: 38,
@@ -1848,26 +1837,6 @@
                 fullDesc: "Dermorphin stands as one of pharmacology's most intriguing discoveries. Isolated from South American frog skin secretions, this heptapeptide contains an unusual D-alanine in position 2. This structural quirk contributes to dermorphin's exceptional properties: nanomolar μ-opioid receptor affinity, selectivity ratios exceeding 1000:1, and resistance to peptidase degradation.",
                 applications: "μ-opioid receptor pharmacology, receptor subtype selectivity studies, opioid receptor binding kinetics, structure-activity relationships, receptor signaling mechanisms, D-amino acid peptide biology, opioid tolerance mechanisms"
             },
-            /*
-            {
-                name: "Botulinum Toxin 100u",
-                category: "cosmetic",
-                price: 135,
-                coa: true,
-                shortDesc: "Pharmaceutical-grade neurotoxin that cleaves SNAP-25 for synaptic vesicle fusion research.",
-                fullDesc: "Botulinum neurotoxin type A represents the gold standard for studying exocytosis. This large protein complex consists of a heavy chain (binding and internalization) and a light chain (zinc-dependent endopeptidase that cleaves SNAP-25). By specifically cleaving SNAP-25, BoNT/A prevents synaptic vesicles from fusing with the presynaptic membrane.",
-                applications: "SNARE protein biology, synaptic vesicle fusion mechanisms, neuromuscular junction research, acetylcholine release studies, exocytosis research, presynaptic signaling, metalloprotease mechanism studies"
-            },
-            {
-                name: "Botulinum Toxin 200u",
-                category: "cosmetic",
-                price: 170,
-                coa: true,
-                shortDesc: "Higher-dose pharmaceutical-grade neurotoxin for advanced synaptic research applications.",
-                fullDesc: "Botulinum neurotoxin type A represents the gold standard for studying exocytosis. By specifically cleaving SNAP-25—a protein essential for SNARE complex formation—BoNT/A prevents synaptic vesicles from fusing with the presynaptic membrane, completely blocking neurotransmitter release. This exquisite molecular specificity makes it invaluable for research.",
-                applications: "SNARE protein biology, synaptic vesicle fusion mechanisms, neuromuscular junction research, acetylcholine release studies, exocytosis research, presynaptic signaling, metalloprotease mechanism studies"
-            },
-            */
             {
                 name: "ARA-290 (Cibinetide) 10mg",
                 category: "advanced",
@@ -1908,7 +1877,6 @@
             { id: 'neuropeptides', name: 'Neuropeptides', count: 6 },
             { id: 'longevity', name: 'Cellular Research Reagents', count: 3 },
             { id: 'melanocortin', name: 'Melanocortin', count: 2 },
-            { id: 'cosmetic', name: 'Dermatological Reagents', count: 0 },
             { id: 'advanced', name: 'Advanced', count: 1 },
             { id: 'supplies', name: 'Supplies', count: 1 }
         ];
@@ -2082,7 +2050,6 @@
                 'antioxidants': 'Antioxidants',
                 'longevity': 'Cellular Research Reagents',
                 'melanocortin': 'Melanocortin',
-                'cosmetic': 'Dermatological Reagents',
                 'advanced': 'Advanced',
                 'supplies': 'Supplies'
             };
@@ -2196,7 +2163,6 @@
 
         // Dropdown nav filter
         function filterCat(name) {
-            var catMap = {'GLP Receptor Agonists':'glp','Structural Signaling Peptides':'tissue','Growth Hormone Secretagogues':'gh','Metabolic Pathway Reagents':'metabolic','Antioxidants':'antioxidants','Neuropeptides':'neuropeptides','Cellular Research Reagents':'longevity','Melanocortin':'melanocortin','Dermatological Reagents':'cosmetic','Advanced':'advanced','Supplies':'supplies'};
             var cat = catMap[name] || 'all';
             filterButtons.forEach(function(b) { b.classList.remove('active'); if(b.getAttribute('data-category')===cat) b.classList.add('active'); });
             currentCategory = cat;
