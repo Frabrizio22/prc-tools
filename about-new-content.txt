@@ -1,0 +1,48 @@
+    <div class="content-wrapper">
+        <div class="about-section">
+            <h2>The Laboratory Supply Problem</h2>
+            <p>Research-grade peptide procurement suffers from a systemic failure: predatory markups in the reagent supply chain. Independent researchers—the majority of peptide users—face 300-400% margins imposed by distributors who add zero value beyond logistics.</p>
+            <p>PRC Labs LLC exists to eliminate the middleman tax. We function as a high-efficiency procurement partner, sourcing ≥98% purity synthesized compounds directly from GMP-compliant manufacturers and passing institutional-grade pricing to independent research entities.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>Quality Verification Protocol</h2>
+            <p>Every compound undergoes independent third-party verification via High-Performance Liquid Chromatography (HPLC) and Mass Spectrometry. We maintain certificates of analysis (COAs) documenting batch purity, molecular weight confirmation, and peptide sequence integrity.</p>
+            <ul>
+                <li>Minimum ≥98% purity specification on all lyophilized peptides</li>
+                <li>Dual-method verification (HPLC + Mass Spec)</li>
+                <li>Batch-specific COAs available upon request</li>
+                <li>Complimentary laboratory reagent preparation kit with analytical-grade diluents</li>
+            </ul>
+            <div class="highlight-box">
+                <p>Each order includes a complimentary laboratory reagent preparation kit containing pharmaceutical-grade bacteriostatic water and standard analytical preparation tools for immediate experimental use.</p>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2>Independent Research Viability</h2>
+            <p>We support longitudinal study feasibility by removing cost barriers. Our transparent pricing model—including direct competitor comparison tools—reflects a commitment to honest market positioning rather than margin optimization.</p>
+            <p>No clinical claims. No lifestyle marketing. No influencer campaigns. We provide molecular compounds with documented purity specifications for researchers conducting in vitro assays and receptor affinity studies.</p>
+            <div class="highlight-box">
+                <p>Our "for research purposes only" designation is not legal cover—it reflects our operational mandate. We exist exclusively to serve qualified researchers conducting legitimate laboratory work.</p>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2>Discreet Laboratory Packaging</h2>
+            <p>Standard fulfillment protocol: next-business-day processing with unmarked laboratory packaging to protect research confidentiality.</p>
+            <ul>
+                <li><strong>Standard Delivery:</strong> $9.99 (3–5 business days)</li>
+                <li><strong>Expedited Delivery:</strong> $19.99 (priority processing)</li>
+                <li><strong>Cost-Free Delivery:</strong> Orders exceeding $150</li>
+                <li><strong>Cost-Savings Incentive:</strong> 5% reduction for direct settlement (Zelle)</li>
+            </ul>
+            <p>Domestic fulfillment only (Continental United States).</p>
+        </div>
+
+        <div class="contact-box">
+            <h2>Research Inquiry</h2>
+            <p style="font-size:0.9rem;color:#64748B;margin-bottom:1rem">For bulk procurement, institutional partnerships, or technical documentation requests:</p>
+            <a href="mailto:support@prcpeptides.com">support@prcpeptides.com</a>
+        </div>
+    </div>
