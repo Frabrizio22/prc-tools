@@ -1218,10 +1218,13 @@
         <div class="age-gate-card">
             <h2>Age Verification Required</h2>
             <p>You must be 18 or older to access this site. All products are intended for research purposes only and are not for human consumption.</p>
-            <p style="font-size:12px;color:#94A3B8;margin-top:8px;margin-bottom:16px">By entering, you agree to our <a href="#" onclick="document.getElementById('tosModal').style.display='flex';event.stopPropagation();return false" style="color:#2B7DE9;text-decoration:underline">Terms of Service</a>.</p>
+            <label style="display:flex;align-items:flex-start;gap:8px;margin:16px 0;text-align:left;cursor:pointer">
+                <input type="checkbox" id="tosCheck" style="margin-top:3px;width:18px;height:18px;flex-shrink:0">
+                <span style="font-size:12px;line-height:1.5;color:#94A3B8">I am 18+, these products are for research only, and I agree to the <a href="#" onclick="document.getElementById('tosModal').style.display='flex';event.stopPropagation();return false" style="color:#2B7DE9;text-decoration:underline">Terms of Service</a>.</span>
+            </label>
             <div class="age-gate-buttons">
-                <button class="age-gate-btn age-gate-btn-enter" onclick="acceptAgeGate()">I am 18 or older — Enter</button>
-                <button class="age-gate-btn age-gate-btn-leave" onclick="rejectAgeGate()">I am under 18 — Leave</button>
+                <button class="age-gate-btn age-gate-btn-enter" onclick="if(!document.getElementById('tosCheck').checked){alert('Please agree to the Terms of Service');return;}acceptAgeGate()">Enter Site</button>
+                <button class="age-gate-btn age-gate-btn-leave" onclick="rejectAgeGate()">Leave</button>
             </div>
         </div>
     </div>

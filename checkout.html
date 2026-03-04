@@ -461,7 +461,8 @@
 
         .footer-btn {
             flex: 1;
-            padding: 14px;
+            max-width: 220px;
+            padding: 13px 24px;
             border: none;
             border-radius: 8px;
             font-size: 15px;
@@ -843,8 +844,8 @@
         function loadCart() {
             var product = getUrlParam('product');
             var price = getUrlParam('price');
-            var saved = localStorage.getItem('prcCart');
-            if (saved) cart = JSON.parse(saved);
+            var saved = localStorage.getItem('prcCart') || sessionStorage.getItem('prcCart');
+            if (saved) { cart = JSON.parse(saved); localStorage.setItem('prcCart', saved); }
 
             if (product && price) {
                 var decoded = decodeURIComponent(product);
