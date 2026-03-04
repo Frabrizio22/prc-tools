@@ -1218,6 +1218,7 @@
         <div class="age-gate-card">
             <h2>Age Verification Required</h2>
             <p>You must be 18 or older to access this site. All products are intended for research purposes only and are not for human consumption.</p>
+            <p style="font-size:12px;color:#94A3B8;margin-top:8px;margin-bottom:16px">By entering, you agree to our <a href="#" onclick="document.getElementById('tosModal').style.display='flex';event.stopPropagation();return false" style="color:#2B7DE9;text-decoration:underline">Terms of Service</a>.</p>
             <div class="age-gate-buttons">
                 <button class="age-gate-btn age-gate-btn-enter" onclick="acceptAgeGate()">I am 18 or older — Enter</button>
                 <button class="age-gate-btn age-gate-btn-leave" onclick="rejectAgeGate()">I am under 18 — Leave</button>
@@ -2329,5 +2330,22 @@
         </div>
     </div>
     <div id="cartToast" class="cart-added-toast"></div>
+    <div id="tosModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9999;align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)this.style.display='none'">
+        <div style="background:#fff;border-radius:12px;max-width:500px;width:100%;max-height:80vh;overflow-y:auto;padding:28px">
+            <h2 style="font-size:18px;margin-bottom:12px">Terms of Service</h2>
+            <div style="font-size:13px;line-height:1.7;color:#475569">
+                <p><strong>PRC Labs LLC — Terms of Service</strong></p>
+                <p><strong>1. Research Use Only.</strong> All products are sold exclusively for in vitro laboratory research. They are not intended for human or animal consumption, diagnostic use, or therapeutic application.</p>
+                <p><strong>2. Age Requirement.</strong> You must be 18 years or older to place an order.</p>
+                <p><strong>3. Buyer Responsibility.</strong> You are solely responsible for compliance with all applicable local, state, and federal laws regarding the purchase, possession, and use of research peptides.</p>
+                <p><strong>4. No Medical Claims.</strong> PRC Labs LLC makes no claims regarding the safety, efficacy, or suitability of any product for any purpose. Nothing on this site constitutes medical advice.</p>
+                <p><strong>5. Refund Policy.</strong> Due to the nature of research chemicals, all sales are final once shipped. Damaged or incorrect orders will be replaced at no charge.</p>
+                <p><strong>6. Shipping.</strong> Orders ship within 1 business day. PRC Labs LLC is not responsible for delays caused by carriers or customs.</p>
+                <p><strong>7. Limitation of Liability.</strong> PRC Labs LLC shall not be liable for any damages arising from the use or misuse of products purchased from this site.</p>
+                <p><strong>8. Privacy.</strong> Customer information is used solely for order fulfillment and is never sold to third parties.</p>
+            </div>
+            <button onclick="document.getElementById('tosModal').style.display='none'" style="margin-top:16px;width:100%;padding:12px;background:#2B7DE9;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer">Close</button>
+        </div>
+    </div>
 </body>
 </html>
