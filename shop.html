@@ -1216,14 +1216,19 @@
     <!-- Age Gate -->
     <div class="age-gate" id="ageGate">
         <div class="age-gate-card">
-            <h2>Age Verification Required</h2>
-            <p>You must be 18 or older to access this site. All products are intended for research purposes only and are not for human consumption.</p>
-            <label style="display:flex;align-items:flex-start;gap:8px;margin:16px 0;text-align:left;cursor:pointer">
-                <input type="checkbox" id="tosCheck" style="margin-top:3px;width:18px;height:18px;flex-shrink:0">
-                <span style="font-size:12px;line-height:1.5;color:#94A3B8">I am 18+, these products are for research only, and I agree to the <a href="#" onclick="document.getElementById('tosModal').style.display='flex';event.stopPropagation();return false" style="color:#2B7DE9;text-decoration:underline">Terms of Service</a>.</span>
+            <h2>Age & Terms Verification</h2>
+            <p>You must be 21 years or older to access this site. All products are research chemicals intended for laboratory use only.</p>
+            <label style="display:flex;align-items:flex-start;gap:8px;margin:12px 0;text-align:left;cursor:pointer">
+                <input type="checkbox" id="ageCheck" style="margin-top:3px;width:18px;height:18px;flex-shrink:0">
+                <span style="font-size:13px;line-height:1.5;color:#1E293B;font-weight:500">I am 21 years of age or older</span>
             </label>
+            <label style="display:flex;align-items:flex-start;gap:8px;margin:12px 0;text-align:left;cursor:pointer">
+                <input type="checkbox" id="tosCheck" style="margin-top:3px;width:18px;height:18px;flex-shrink:0">
+                <span style="font-size:13px;line-height:1.5;color:#1E293B;font-weight:500">I understand these products are for in vitro research purposes only and not for human or animal consumption</span>
+            </label>
+            <p style="font-size:11px;color:#94A3B8;margin:12px 0">By entering, you agree to our <a href="#" onclick="document.getElementById('tosModal').style.display='flex';event.stopPropagation();return false" style="color:#2B7DE9;text-decoration:underline">Terms of Service</a>.</p>
             <div class="age-gate-buttons">
-                <button class="age-gate-btn age-gate-btn-enter" onclick="if(!document.getElementById('tosCheck').checked){alert('Please agree to the Terms of Service');return;}acceptAgeGate()">Enter Site</button>
+                <button class="age-gate-btn age-gate-btn-enter" onclick="if(!document.getElementById('ageCheck').checked||!document.getElementById('tosCheck').checked){alert('Please confirm both requirements to continue');return;}acceptAgeGate()">Enter Site</button>
                 <button class="age-gate-btn age-gate-btn-leave" onclick="rejectAgeGate()">Leave</button>
             </div>
         </div>
@@ -1424,13 +1429,13 @@
                 <p>✓ Real humans answering your emails</p>
             </div>
             <div class="about-section">
-                <h3>Part of the Community</h3>
-                <p>We're not just selling peptides — we're part of the research community. That's why we built <a href="https://peptideresourcecenter.com" target="_blank" style="color:#2B7DE9">Peptide Resource Center</a> as a free, independent resource for researchers to compare vendors, learn about compounds, and make informed decisions. No gatekeeping. No bias.</p>
+                <h3>Transparency & Education</h3>
+                <p>We're committed to transparency and education in the research peptide space. Our FAQ section provides detailed information about compound handling, storage protocols, and research applications. We believe informed researchers make better decisions.</p>
             </div>
             <div class="about-section">
-                <h3>Contact</h3>
+                <h3>Contact & Resources</h3>
                 <p>Email: <a href="mailto:support@prcpeptides.com" style="color:#2B7DE9">support@prcpeptides.com</a></p>
-                <p>Resources: <a href="https://peptideresourcecenter.com" target="_blank" style="color:#2B7DE9">Peptide Resource Center ↗</a></p>
+                <p>Resources: <a href="faq.html" style="color:#2B7DE9">FAQ</a> | <a href="compare.html" style="color:#2B7DE9">Price Compare</a> | <a href="blog/" style="color:#2B7DE9">Research Guides</a></p>
             </div>
         </div>
     </div>
