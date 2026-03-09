@@ -585,24 +585,25 @@
 
         .filter-pills {
             display: flex;
-            gap: 6px;
+            gap: 10px;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             padding-bottom: 8px;
+            scroll-behavior: smooth;
         }
 
         .filter-pills::-webkit-scrollbar { height: 0; }
 
         .filter-pill {
-            padding: 5px 12px;
-            border-radius: 20px;
-            border: 1.5px solid #E2E8F0;
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1px solid #F1F5F9;
             background: #FFFFFF;
             font-size: 0.7rem;
             font-weight: 600;
             color: #64748B;
             cursor: pointer;
-            transition: all 0.15s;
+            transition: all 0.2s;
             white-space: nowrap;
             flex-shrink: 0;
         }
@@ -610,6 +611,7 @@
         .filter-pill:hover {
             border-color: #2B7DE9;
             color: #2B7DE9;
+            background: #F8FAFC;
         }
 
         .filter-pill.active {
@@ -1874,7 +1876,7 @@
         // Category data
         var categoryData = [
             { id: 'glp', name: 'GLP Receptor Agonists', count: 5 },
-            { id: 'tissue', name: 'Structural Research', count: 6 },
+            { id: 'tissue', name: 'Structural Biology Reagents', count: 6 },
             { id: 'gh', name: 'Growth Hormone', count: 5 },
             { id: 'metabolic', name: 'Metabolic Pathway Reagents', count: 7 },
             { id: 'antioxidants', name: 'Antioxidants', count: 7 },
@@ -2068,7 +2070,7 @@
                 'neuropeptides': 'Neuropeptides',
                 'glp': 'GLP Agonists',
                 'gh': 'Growth Hormone',
-                'tissue': 'Structural Research',
+                'tissue': 'Structural Biology Reagents',
                 'metabolic': 'Metabolic Pathway Reagents',
                 'antioxidants': 'Antioxidants',
                 'longevity': 'Cellular Research Reagents',
