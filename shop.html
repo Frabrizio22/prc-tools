@@ -585,25 +585,24 @@
 
         .filter-pills {
             display: flex;
-            gap: 10px;
+            gap: 6px;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             padding-bottom: 8px;
-            scroll-behavior: smooth;
         }
 
         .filter-pills::-webkit-scrollbar { height: 0; }
 
         .filter-pill {
-            padding: 8px 16px;
-            border-radius: 10px;
-            border: 1px solid #F1F5F9;
+            padding: 5px 12px;
+            border-radius: 20px;
+            border: 1.5px solid #E2E8F0;
             background: #FFFFFF;
             font-size: 0.7rem;
             font-weight: 600;
             color: #64748B;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.15s;
             white-space: nowrap;
             flex-shrink: 0;
         }
@@ -611,7 +610,6 @@
         .filter-pill:hover {
             border-color: #2B7DE9;
             color: #2B7DE9;
-            background: #F8FAFC;
         }
 
         .filter-pill.active {
