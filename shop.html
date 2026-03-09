@@ -1319,14 +1319,15 @@
                 <div class="filter-pills">
                     <button class="filter-pill active" data-category="all">All</button>
                     <button class="filter-pill" data-category="glp">GLP</button>
-                    <button class="filter-pill" data-category="tissue">Structural</button>
+                    <button class="filter-pill" data-category="tissue">Regenerative</button>
                     <button class="filter-pill" data-category="gh">Growth Hormone</button>
                     <button class="filter-pill" data-category="metabolic">Metabolic</button>
                     <button class="filter-pill" data-category="antioxidants">Antioxidants</button>
                     <button class="filter-pill" data-category="neuropeptides">Neuro</button>
                     <button class="filter-pill" data-category="longevity">Cellular</button>
                     <button class="filter-pill" data-category="melanocortin">Melanocortin</button>
-                    <button class="filter-pill" data-category="advanced">Advanced</button>
+                    <button class="filter-pill" data-category="advanced">Experimental</button>
+                    <button class="filter-pill" data-category="supplies">BAC Water</button>
                 </div>
             </div>
 
@@ -1873,16 +1874,16 @@
 
         // Category data
         var categoryData = [
-            { id: 'glp', name: 'GLP Receptor Agonists', count: 5 },
-            { id: 'tissue', name: 'Structural Biology Reagents', count: 6 },
+            { id: 'glp', name: 'GLP', count: 5 },
+            { id: 'tissue', name: 'Regenerative', count: 6 },
             { id: 'gh', name: 'Growth Hormone', count: 5 },
-            { id: 'metabolic', name: 'Metabolic Pathway Reagents', count: 7 },
+            { id: 'metabolic', name: 'Metabolic', count: 7 },
             { id: 'antioxidants', name: 'Antioxidants', count: 7 },
-            { id: 'neuropeptides', name: 'Neuropeptides', count: 6 },
-            { id: 'longevity', name: 'Cellular Research Reagents', count: 3 },
+            { id: 'neuropeptides', name: 'Neuro', count: 6 },
+            { id: 'longevity', name: 'Cellular', count: 3 },
             { id: 'melanocortin', name: 'Melanocortin', count: 2 },
-            { id: 'advanced', name: 'Advanced', count: 1 },
-            { id: 'supplies', name: 'Supplies', count: 1 }
+            { id: 'advanced', name: 'Experimental', count: 1 },
+            { id: 'supplies', name: 'BAC Water', count: 1 }
         ];
 
         // Initialize
@@ -2065,16 +2066,16 @@
         // Get category display name
         function getCategoryName(cat) {
             var names = {
-                'neuropeptides': 'Neuropeptides',
-                'glp': 'GLP Agonists',
+                'neuropeptides': 'Neuro',
+                'glp': 'GLP',
                 'gh': 'Growth Hormone',
-                'tissue': 'Structural Biology Reagents',
-                'metabolic': 'Metabolic Pathway Reagents',
+                'tissue': 'Regenerative',
+                'metabolic': 'Metabolic',
                 'antioxidants': 'Antioxidants',
-                'longevity': 'Cellular Research Reagents',
+                'longevity': 'Cellular',
                 'melanocortin': 'Melanocortin',
-                'advanced': 'Advanced',
-                'supplies': 'Supplies'
+                'advanced': 'Experimental',
+                'supplies': 'BAC Water'
             };
             return names[cat] || cat;
         }
