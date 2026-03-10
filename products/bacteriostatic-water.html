@@ -22,7 +22,7 @@
   "sku": "PRC-bac-water-30ml",
   "offers": {
     "@type": "Offer",
-    "price": "8",
+    "price": "10",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://prcpeptides.com/products/bacteriostatic-water.html"
@@ -69,7 +69,7 @@
 <div class="category-label">BAC Water</div>
 <h1>Bacteriostatic Water 30ml</h1>
 <div class="product-meta">
-<div class="product-price">$8</div>
+<div class="product-price">$10</div>
 <div class="free-badge">FREE on orders $50+</div>
 </div>
 <div class="short-desc">Pharmaceutical-grade sterile water containing 0.9% benzyl alcohol for peptide reconstitution in laboratory research applications.</div>
@@ -94,7 +94,7 @@
 </div>
 </div>
 <div class="action-btns">
-<button class="btn-primary" onclick="addToCart()">Add to Cart - $<span id="totalPrice">8</span></button>
+<button class="btn-primary" onclick="addToCart()">Add to Cart - $<span id="totalPrice">10</span></button>
 <a href="../checkout.html" class="btn-secondary">Go to Checkout</a>
 </div>
 
@@ -152,12 +152,12 @@ All peptides are provided for laboratory and research use only. PRC Peptides doe
 <div class="toast" id="toast">Added to cart</div>
 <div class="mobile-sticky" id="mobileSticky">
 <div class="mobile-sticky-content">
-<div class="mobile-sticky-price">$<span id="mobileTotalPrice">8</span></div>
+<div class="mobile-sticky-price">$<span id="mobileTotalPrice">10</span></div>
 <button class="btn-primary" onclick="addToCart()">Add to Cart</button>
 </div>
 </div>
 <script>
-var qty=1,basePrice=8;function changeQty(e){qty=Math.max(1,qty+e),document.getElementById("qtyValue").innerText=qty,updatePrice()}function updatePrice(){var e=qty*basePrice;document.getElementById("totalPrice").innerText=e,document.getElementById("mobileTotalPrice").innerText=e}function addToCart(){var e={name:"Bacteriostatic Water 30ml",price:basePrice,qty:qty,category:"supplies"},t=JSON.parse(localStorage.getItem("prcCart")||"[]"),a=t.findIndex(t=>"Bacteriostatic Water 30ml"===t.name);-1!==a?t[a].qty+=qty:t.push(e),localStorage.setItem("prcCart",JSON.stringify(t)),updateCartBadge(),showToast(),qty=1,document.getElementById("qtyValue").innerText=qty,updatePrice()}function showToast(){var e=document.getElementById("toast");e.classList.add("show"),setTimeout(()=>e.classList.remove("show"),2500)}function updateCartBadge(){var e=JSON.parse(localStorage.getItem("prcCart")||"[]").reduce((e,t)=>e+t.qty,0),t=document.getElementById("cartBadge");e>0?(t.innerText=e,t.style.display="flex"):t.style.display="none"}function goToCart(){window.location.href="../checkout.html"}window.addEventListener("scroll",()=>{var e=document.getElementById("mobileSticky");window.scrollY>400?e.classList.remove("hidden"):e.classList.add("hidden")}),updateCartBadge();
+var qty=1,basePrice=10;function changeQty(e){qty=Math.max(1,qty+e),document.getElementById("qtyValue").innerText=qty,updatePrice()}function updatePrice(){var e=qty*basePrice;document.getElementById("totalPrice").innerText=e,document.getElementById("mobileTotalPrice").innerText=e}function addToCart(){var e={name:"Bacteriostatic Water 30ml",price:basePrice,qty:qty,category:"supplies"},t=JSON.parse(localStorage.getItem("prcCart")||"[]"),a=t.findIndex(t=>"Bacteriostatic Water 30ml"===t.name);-1!==a?t[a].qty+=qty:t.push(e),localStorage.setItem("prcCart",JSON.stringify(t)),updateCartBadge(),showToast(),qty=1,document.getElementById("qtyValue").innerText=qty,updatePrice()}function showToast(){var e=document.getElementById("toast");e.classList.add("show"),setTimeout(()=>e.classList.remove("show"),2500)}function updateCartBadge(){var e=JSON.parse(localStorage.getItem("prcCart")||"[]").reduce((e,t)=>e+t.qty,0),t=document.getElementById("cartBadge");e>0?(t.innerText=e,t.style.display="flex"):t.style.display="none"}function goToCart(){window.location.href="../checkout.html"}window.addEventListener("scroll",()=>{var e=document.getElementById("mobileSticky");window.scrollY>400?e.classList.remove("hidden"):e.classList.add("hidden")}),updateCartBadge();
 </script>
 </body>
 </html>
