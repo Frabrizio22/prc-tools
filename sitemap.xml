@@ -118,11 +118,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://prcpeptides.com/blog/peptide-storage-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://prcpeptides.com/blog/nad-plus-research-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -330,8 +325,4 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://prcpeptides.com/products/bacteriostatic-water.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 </urlset>
