@@ -1,0 +1,69 @@
+INTERNAL LINKING IMPLEMENTATION PLAN
+====================================
+
+COMPLETED:
+- [x] glp1-receptor-agonists-overview.html - Fixed related articles, removed broken links
+
+TODO (HIGH PRIORITY - GLP-1 Cluster):
+
+1. semaglutide-research-guide.html
+   ADD at top of article content:
+   "<p style='background:#EFF6FF;padding:1rem;border-left:3px solid #2563EB;margin-bottom:2rem'>
+   Part of our <a href='glp1-receptor-agonists-overview.html'>GLP-1 Receptor Agonists research series</a>. 
+   Compare with <a href='tirzepatide-research-guide.html'>tirzepatide</a> and <a href='retatrutide-research-guide.html'>retatrutide</a>.
+   </p>"
+   
+   ADD Related Articles section before </article>:
+   - Link to glp1-receptor-agonists-overview.html (hub)
+   - Link to semaglutide-vs-tirzepatide.html
+   - Link to semaglutide-buying-guide.html
+   - Link to peptide-purity-hplc-testing.html
+
+2. tirzepatide-research-guide.html
+   ADD intro linking back to hub + cross-link to semaglutide
+   ADD Related Articles section
+
+3. retatrutide-research-guide.html  
+   ADD intro linking back to hub + cross-link to semaglutide/tirzepatide
+   ADD Related Articles section
+
+4. semaglutide-vs-tirzepatide.html
+   ADD intro linking to both individual guides
+   ADD Related Articles section
+
+TODO (MEDIUM PRIORITY - Tissue Repair):
+
+5. bpc-157-research-guide.html
+   ADD cross-link to tb-500-research-guide.html
+   ADD Related Articles section
+
+6. tb-500-research-guide.html
+   ADD cross-link to bpc-157-research-guide.html
+   ADD Related Articles section
+
+TODO (VENDOR/QUALITY Cluster):
+
+7. peptide-vendor-comparison-2026.html
+   ADD links to peptide-purity-hplc-testing.html
+   ADD links to peptide-sciences-shutdown-2026.html
+
+8. peptide-purity-hplc-testing.html
+   ADD link FROM vendor comparison
+   ADD Related Articles
+
+9. peptide-sciences-shutdown-2026.html
+   ADD prominent link to peptide-vendor-comparison-2026.html
+   (Already has r/peptidesource mention)
+
+TODO (PRODUCT PAGES):
+
+10. /products/semaglutide.html → link to blog/semaglutide-research-guide.html
+11. /products/tirzepatide.html → link to blog/tirzepatide-research-guide.html
+12. /products/retatrutide.html → link to blog/retatrutide-research-guide.html
+13. /products/bpc-157.html → link to blog/bpc-157-research-guide.html
+14. /products/tb-500.html → link to blog/tb-500-research-guide.html
+15. /products/nad-1000mg.html → link to blog/nad-plus-research-guide.html
+
+ESTIMATED TIME: 2-3 hours for all high+medium priority
+ESTIMATED SEO IMPACT: 20-30% traffic boost within 4-8 weeks
+
