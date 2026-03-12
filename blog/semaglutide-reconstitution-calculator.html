@@ -245,7 +245,7 @@
                         </select>
                     </div>
                     <div class="calc-field">
-                        <label for="desiredDose">Desired Dose per Admin (mg)</label>
+                        <label for="desiredDose">Aliquot Volume per Draw (mg)</label>
                         <input type="number" id="desiredDose" placeholder="e.g. 0.25" step="0.01" min="0.01">
                     </div>
                 </div>
@@ -277,7 +277,7 @@
                             <th>Vial Size</th>
                             <th>Water Added</th>
                             <th>Concentration</th>
-                            <th>0.25mg Dose Volume</th>
+                            <th>0.25mg Aliquot Volume</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -291,7 +291,7 @@
                 </table>
             </div>
 
-            <p>Most researchers working with <a href="../products/semaglutide.html">semaglutide</a> prefer the 2.5 mg/mL concentration because it makes dosing math clean—0.1mL equals 0.25mg, which is a common starting research dose.</p>
+            <p>Most researchers working with <a href="../products/semaglutide.html">semaglutide</a> prefer the 2.5 mg/mL concentration because it makes solution preparation math clean—0.1mL equals 0.25mg, which is a common aliquot size for laboratory use.</p>
 
             <h2>What You'll Need Before Starting</h2>
 
@@ -302,7 +302,7 @@
             <ul>
                 <li><strong>Lyophilized semaglutide vial</strong> — Allow it to reach room temperature (15-20 minutes out of freezer)</li>
                 <li><strong>Bacteriostatic water (BAC water)</strong> — 0.9% benzyl alcohol preserved; do NOT substitute tap water, distilled water, or saline</li>
-                <li><strong>Sterile syringes</strong> — One for reconstitution (1mL or 3mL), separate ones for drawing doses</li>
+                <li><strong>Sterile syringes</strong> — One for reconstitution (1mL or 3mL), separate ones for drawing aliquots</li>
                 <li><strong>Alcohol swabs</strong> — 70% isopropyl alcohol prep pads</li>
                 <li><strong>Clean work surface</strong> — Wiped down with 70% alcohol</li>
                 <li><strong>Labels</strong> — For marking compound name, concentration, and date</li>
@@ -389,7 +389,7 @@
             <p>Vigorous shaking creates foam, introduces air bubbles, and can physically degrade the peptide at air-liquid interfaces. Swirl gently or let gravity work.</p>
 
             <h3>3. Using the Wrong Diluent</h3>
-            <p>Bacteriostatic water (with 0.9% benzyl alcohol) is the standard for research peptide reconstitution. Normal saline, sterile water without preservative, or—worst case—tap water will compromise your solution. Sterile water without preservative can be used for immediate single-use, but won't preserve the solution for multi-dose use.</p>
+            <p>Bacteriostatic water (with 0.9% benzyl alcohol) is the standard for research peptide reconstitution. Normal saline, sterile water without preservative, or—worst case—tap water will compromise your solution. Sterile water without preservative can be used for immediate single-use, but won't preserve the solution for repeated withdrawals.</p>
 
             <h3>4. Reusing Syringes</h3>
             <p>Every draw from the vial should use a fresh, sterile syringe and needle. Reusing introduces contamination that degrades the peptide over time and compromises research validity.</p>
@@ -418,7 +418,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Desired Dose</th>
+                            <th>Aliquot Size</th>
                             <th>Volume to Draw</th>
                             <th>Syringe Units (1mL syringe)</th>
                         </tr>
@@ -583,8 +583,8 @@
 
         var details = 'Final concentration: ' + conc + ' mg/mL';
         if (dose > 0) {
-            details += ' · Each ' + dose + 'mg dose = ' + doseVolumeML.toFixed(3) + ' mL (' + doseUnits.toFixed(1) + ' syringe units)';
-            details += ' · Total doses per vial: ' + Math.floor(totalDoses);
+            details += ' · Each ' + dose + 'mg aliquot = ' + doseVolumeML.toFixed(3) + ' mL (' + doseUnits.toFixed(1) + ' syringe units)';
+            details += ' · Total aliquots per vial: ' + Math.floor(totalDoses);
         }
         resultDetail.textContent = details;
         resultDiv.style.display = 'block';
