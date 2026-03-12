@@ -736,6 +736,13 @@
         <!-- Step 4: Payment -->
         <div id="paymentSection" class="section hidden">
             <div class="section-title">Payment Method</div>
+            <div class="option-card" onclick="selectPayment(this, 'bankful')">
+                <div class="option-radio"></div>
+                <div class="option-info">
+                    <div class="option-name">Pay with Bank Account or Card</div>
+                    <div class="option-desc">Instant ACH bank transfer or credit/debit card — secure checkout by Bankful</div>
+                </div>
+            </div>
             <div class="option-card" onclick="selectPayment(this, 'crypto')">
                 <div class="option-radio"></div>
                 <div class="option-info">
@@ -1190,6 +1197,56 @@
                 }
             });
 
+            // If Bankful, auto-create hosted payment page and redirect
+            if (selectedPayment === 'bankful') {
+                var btn = document.getElementById('actionBtn');
+                btn.textContent = 'Creating secure checkout...';
+                btn.disabled = true;
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        var resp = JSON.parse(xhr.responseText);
+                        // Save order before redirecting
+                        localStorage.setItem('prcLastOrder', JSON.stringify({
+                            orderNumber: orderNumber,
+                            savedOrder: savedOrder,
+                            checkoutUrl: resp.checkout_url
+                        }));
+                        cart = [];
+                        saveCart();
+                        // Redirect to Bankful hosted checkout
+                        window.location.href = resp.checkout_url;
+                    } else {
+                        // Fallback to manual flow
+                        btn.textContent = 'Place Order';
+                        btn.disabled = false;
+                        showConfirmation();
+                    }
+                };
+                xhr.onerror = function() {
+                    // Fallback to manual flow
+                    btn.textContent = 'Place Order';
+                    btn.disabled = false;
+                    showConfirmation();
+                };
+                xhr.send(JSON.stringify({
+                    payment_method: 'bankful',
+                    order_number: orderNumber,
+                    total: savedOrder.total.toFixed(2),
+                    email: savedOrder['Registered Institution'].email,
+                    name: savedOrder['Registered Institution'].name,
+                    phone: savedOrder['Registered Institution'].phone || '',
+                    address: savedOrder['Registered Institution'].address,
+                    city: savedOrder['Registered Institution'].city,
+                    state: savedOrder['Registered Institution'].state,
+                    zip: savedOrder['Registered Institution'].zip
+                }));
+                return;
+            }
+
             // If crypto, auto-create Coinbase charge and redirect
             if (selectedPayment === 'crypto') {
                 var btn = document.getElementById('actionBtn');
@@ -1260,7 +1317,12 @@
             var total = savedOrder.total.toFixed(2);
             var html = '<div class="payment-instructions">';
 
-            if (selectedPayment === 'crypto') {
+            if (selectedPayment === 'bankful') {
+                html += '<h3>Bank Transfer or Card Payment</h3>';
+                html += '<div class="instruction-step">You should have been redirected to secure checkout to complete payment.</div>';
+                html += '<div class="instruction-step">If the redirect didn\'t work, email us at <strong>support@prcpeptides.com</strong> with your order number and we\'ll send a payment link.</div>';
+                html += '<div class="instruction-step">Your order ships once payment confirms (usually within 1-2 business days for ACH, instant for cards).</div>';
+            } else if (selectedPayment === 'crypto') {
                 html += '<h3>Cryptocurrency Payment</h3>';
                 html += '<div class="instruction-step">You should have been redirected to Coinbase Commerce to complete payment.</div>';
                 html += '<div class="instruction-step">If the redirect didn\'t work, email us at <strong>support@prcpeptides.com</strong> with your order number and we\'ll send a payment link.</div>';
