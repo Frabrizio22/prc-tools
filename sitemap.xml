@@ -78,7 +78,11 @@
   </url>
   <url>
     <loc>https://prcpeptides.com/blog/semaglutide-research-guide.html</loc>
-    <lastmod>2026-03-06</lastmod>
+  </url>
+  <url>
+    <loc>https://prcpeptides.com/blog/semaglutide-degradation-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>    <lastmod>2026-03-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
