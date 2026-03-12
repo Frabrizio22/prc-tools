@@ -1,0 +1,12 @@
+Changes to make semaglutide-reconstitution-calculator.html merchant-safe:
+
+1. Line 248: "Desired Dose per Admin (mg)" → "Aliquot Volume per Draw (mg)"
+2. Line 280: "0.25mg Dose Volume" → "0.25mg Aliquot Volume"
+3. Line 294: "common starting research dose" → "common aliquot size for solution preparation"
+4. Line 305: "separate ones for drawing doses" → "separate ones for drawing aliquots"
+5. Line 392: "multi-dose use" → "repeated withdrawals"
+6. Line 421: "Desired Dose" → "Aliquot Size"
+7. Line 586-587: All "dose" references → "aliquot"
+
+Add disclaimer after calculator title:
+"This calculator is for laboratory solution preparation only. Not for human administration or therapeutic use."
