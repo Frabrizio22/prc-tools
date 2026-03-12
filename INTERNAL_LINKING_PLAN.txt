@@ -4,7 +4,7 @@ INTERNAL LINKING IMPLEMENTATION PLAN
 COMPLETED:
 - [x] glp1-receptor-agonists-overview.html - Fixed related articles, removed broken links
 
-TODO (HIGH PRIORITY - GLP-1 Cluster):
+COMPLETED (GLP-1 Cluster):
 
 1. semaglutide-research-guide.html
    ADD at top of article content:
@@ -31,7 +31,7 @@ TODO (HIGH PRIORITY - GLP-1 Cluster):
    ADD intro linking to both individual guides
    ADD Related Articles section
 
-TODO (MEDIUM PRIORITY - Tissue Repair):
+COMPLETED (Tissue Repair):
 
 5. bpc-157-research-guide.html
    ADD cross-link to tb-500-research-guide.html

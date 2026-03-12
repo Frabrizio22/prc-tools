@@ -1211,6 +1211,52 @@
 
         .mobile-overlay.active { display: block; }
     </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PRC Peptides",
+        "url": "https://prcpeptides.com",
+        "description": "Research peptide supplier offering third-party tested compounds with certificates of analysis.",
+        "foundingDate": "2025",
+        "sameAs": [],
+        "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "support@prcpeptides.com"
+        },
+        "memberOf": {
+                "@type": "Organization",
+                "name": "MDx BioAnalytical",
+                "description": "Independent analytical testing laboratory providing HPLC and mass spectrometry verification for research compounds",
+                "url": "https://mdxbioanalytical.com"
+        }
+}
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+                {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://prcpeptides.com/"
+                }
+        ]
+}
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PRC Peptides",
+        "url": "https://prcpeptides.com",
+        "description": "Research peptide supplier with third-party tested compounds and certificates of analysis."
+}
+    </script>
 </head>
 <body>
     <!-- Age Gate -->
@@ -1260,7 +1306,7 @@
                         <a href="#" onclick="filterCat('Advanced');return false">Advanced</a>
                     </div>
                 </span>
-                
+                <a href="compare.html" class="desktop-only">Price Compare</a>
                 <a href="faq.html" class="desktop-only">FAQ</a>
                 <a href="about.html" class="desktop-only">About</a>
                 <a href="blog/" class="desktop-only">Blog</a>
@@ -1279,6 +1325,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
         <a href="#shop" onclick="toggleMobileMenu()">Shop</a>
+        <a href="compare.html">Price Compare</a>
         <a href="blog/">Blog</a>
         <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
@@ -1367,6 +1414,8 @@
                 <div class="faq-a">All of our peptides are manufactured to ≥98% purity by GMP-compliant facilities. Each product undergoes rigorous quality control testing before being made available.</div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('open')">
+                <div class="faq-q">What's included with my order?</div>
+                <div class="faq-a">Orders $50 and above include complimentary bacteriostatic water for peptide reconstitution.</div>
             </div>
             <div class="faq-item" onclick="this.classList.toggle('open')">
                 <div class="faq-q">How do I place an order?</div>
@@ -1432,7 +1481,7 @@
             <div class="about-section">
                 <h3>Contact & Resources</h3>
                 <p>Email: <a href="mailto:support@prcpeptides.com" style="color:#2B7DE9">support@prcpeptides.com</a></p>
-                <p>Resources: <a href="faq.html" style="color:#2B7DE9">FAQ</a> | <a href="blog/" style="color:#2B7DE9">Research Guides</a></p>
+                <p>Resources: <a href="faq.html" style="color:#2B7DE9">FAQ</a> | <a href="compare.html" style="color:#2B7DE9">Price Compare</a> | <a href="blog/" style="color:#2B7DE9">Research Guides</a></p>
             </div>
         </div>
     </div>
