@@ -1197,10 +1197,10 @@
                 }
             });
 
-            // If Bankful, auto-create hosted payment page and redirect
+            // If Bankful, get HPP parameters and redirect
             if (selectedPayment === 'bankful') {
                 var btn = document.getElementById('actionBtn');
-                btn.textContent = 'Creating secure checkout...';
+                btn.textContent = 'Redirecting to secure payment...';
                 btn.disabled = true;
 
                 var xhr = new XMLHttpRequest();
@@ -1209,20 +1209,38 @@
                 xhr.onload = function() {
                     if (xhr.status === 200) {
                         var resp = JSON.parse(xhr.responseText);
+                        
                         // Save order before redirecting
                         localStorage.setItem('prcLastOrder', JSON.stringify({
                             orderNumber: orderNumber,
-                            savedOrder: savedOrder,
-                            checkoutUrl: resp.checkout_url
+                            savedOrder: savedOrder
                         }));
                         cart = [];
                         saveCart();
-                        // Redirect to Bankful hosted checkout
-                        window.location.href = resp.checkout_url;
+                        
+                        // Create hidden form to POST to Bankful HPP
+                        var form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = resp.hpp_url;
+                        form.style.display = 'none';
+                        
+                        // Add all HPP parameters as hidden inputs
+                        Object.keys(resp.hpp_params).forEach(function(key) {
+                            var input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = key;
+                            input.value = resp.hpp_params[key];
+                            form.appendChild(input);
+                        });
+                        
+                        document.body.appendChild(form);
+                        console.log('[BANKFUL] Submitting to HPP:', resp.hpp_url);
+                        form.submit();
                     } else {
                         // Fallback to manual flow
                         btn.textContent = 'Place Order';
                         btn.disabled = false;
+                        alert('Payment processing temporarily unavailable. Please try crypto or contact support.');
                         showConfirmation();
                     }
                 };
@@ -1230,6 +1248,7 @@
                     // Fallback to manual flow
                     btn.textContent = 'Place Order';
                     btn.disabled = false;
+                    alert('Payment processing temporarily unavailable. Please try crypto or contact support.');
                     showConfirmation();
                 };
                 xhr.send(JSON.stringify({

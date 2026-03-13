@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Pending - PRC Peptides</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+        .icon {
+            width: 80px;
+            height: 80px;
+            background: #DBEAFE;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 40px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0A1628;
+            margin-bottom: 12px;
+        }
+        p {
+            font-size: 15px;
+            color: #64748B;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .order-number {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+        .order-number strong {
+            font-size: 18px;
+            color: #0A1628;
+            font-weight: 700;
+        }
+        .btn {
+            display: inline-block;
+            background: #2B7DE9;
+            color: white;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        .btn:hover {
+            background: #1E5FBB;
+            transform: translateY(-1px);
+        }
+        .contact {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #E2E8F0;
+            font-size: 13px;
+            color: #64748B;
+        }
+        .contact a {
+            color: #2B7DE9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">⏳</div>
+        <h1>Payment Pending</h1>
+        <p>Your payment is being processed. This can take a few minutes for bank transfers.</p>
+        
+        <div class="order-number">
+            <div style="font-size:13px;color:#64748B;margin-bottom:4px">Order Number</div>
+            <strong id="orderNumber">Loading...</strong>
+        </div>
+        
+        <p style="font-size:13px;margin-bottom:24px">We'll send you a confirmation email once your payment clears. Please save your order number for reference.</p>
+        
+        <a href="/shop.html" class="btn">Continue Shopping</a>
+        
+        <div class="contact">
+            Questions? Contact us at <a href="mailto:support@prcpeptides.com">support@prcpeptides.com</a>
+        </div>
+    </div>
+    
+    <script>
+        // Retrieve order number from localStorage
+        const lastOrder = localStorage.getItem('prcLastOrder');
+        if (lastOrder) {
+            try {
+                const order = JSON.parse(lastOrder);
+                document.getElementById('orderNumber').textContent = order.orderNumber || 'Check your email';
+            } catch (e) {
+                document.getElementById('orderNumber').textContent = 'Check your email';
+            }
+        } else {
+            document.getElementById('orderNumber').textContent = 'Check your email';
+        }
+    </script>
+</body>
+</html>
