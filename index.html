@@ -1286,20 +1286,6 @@
                 </div>
                 <nav>
                 <a href="#shop" class="active">Shop</a>
-                <span class="nav-dropdown desktop-only">
-                    <a href="#categories" onclick="event.preventDefault()">Categories ▾</a>
-                    <div class="nav-dropdown-menu">
-                        <a href="#" onclick="filterCategory('glp');return false">GLP Receptor Agonists</a>
-                        <a href="#" onclick="filterCategory('tissue');return false">Structural Research</a>
-                        <a href="#" onclick="filterCategory('gh');return false">Growth Hormone</a>
-                        <a href="#" onclick="filterCategory('metabolic');return false">Metabolic</a>
-                        <a href="#" onclick="filterCategory('antioxidants');return false">Antioxidants</a>
-                        <a href="#" onclick="filterCategory('neuropeptides');return false">Neuropeptides</a>
-                        <a href="#" onclick="filterCategory('longevity');return false">Cellular</a>
-                        <a href="#" onclick="filterCategory('melanocortin');return false">Melanocortin</a>
-                        <a href="#" onclick="filterCategory('advanced');return false">Advanced</a>
-                    </div>
-                </span>
                 <a href="compare.html" class="desktop-only">Price Compare</a>
                 <a href="faq.html" class="desktop-only">FAQ</a>
                 <a href="about.html" class="desktop-only">About</a>
@@ -2175,17 +2161,6 @@
                 closeModal();
             }
         });
-
-        // Filter by category (for nav dropdown)
-        function filterCategory(cat) {
-            var filterButtons = document.querySelectorAll('.filter-pill');
-            filterButtons.forEach(function(b) { b.classList.remove('active'); });
-            var targetBtn = document.querySelector('.filter-pill[data-category="' + cat + '"]');
-            if (targetBtn) targetBtn.classList.add('active');
-            currentCategory = cat;
-            renderProducts(currentCategory);
-            document.getElementById('categories').scrollIntoView({ behavior: 'smooth' });
-        }
 
         // Filter functionality
         var filterButtons = document.querySelectorAll('.filter-pill');
