@@ -1894,14 +1894,22 @@
 
         // Age gate check
         function checkAgeGate() {
-            var verified = sessionStorage.getItem('ageVerified');
-            if (!verified) {
-                document.getElementById('ageGate').classList.add('active');
+            var verified = localStorage.getItem('ageVerified');
+            var timestamp = localStorage.getItem('ageVerifiedTime');
+            var thirtyDays = 30 * 24 * 60 * 60 * 1000; // 30 days in milliseconds
+            
+            // Check if verified and not expired
+            if (verified === 'true' && timestamp && (Date.now() - parseInt(timestamp)) < thirtyDays) {
+                return; // Already verified and not expired
             }
+            
+            // Show age gate if not verified or expired
+            document.getElementById('ageGate').classList.add('active');
         }
 
         function acceptAgeGate() {
-            sessionStorage.setItem('ageVerified', 'true');
+            localStorage.setItem('ageVerified', 'true');
+            localStorage.setItem('ageVerifiedTime', Date.now().toString());
             document.getElementById('ageGate').classList.remove('active');
         }
 
