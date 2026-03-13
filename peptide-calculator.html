@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peptide Reconstitution Calculator | PRC</title>
+    <title>Peptide Reconstitution Calculator | Free Research Tool | PRC Peptides</title>
+    <meta name="description" content="Free peptide reconstitution calculator for research peptides. Calculate bacteriostatic water volume, concentration, syringe units, and doses per vial. Works for BPC-157, NAD+, Semaglutide, and all research peptides.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -214,14 +215,15 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>DRAW & DOSE CALCULATOR</h1>
+            <h1>PEPTIDE RECONSTITUTION CALCULATOR</h1>
+            <div style="font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:8px">For Laboratory Research Use Only</div>
         </div>
         
-        <!-- Dose of Peptide -->
+        <!-- Target Amount -->
         <div class="card">
             <div class="card-icon">💉</div>
-            <div class="card-title">Dose of Peptide</div>
-            <div class="card-subtitle"></div>
+            <div class="card-title">Target Amount</div>
+            <div class="card-subtitle">Amount per research application</div>
             
             <div class="button-grid">
                 <button class="dose-btn" onclick="selectDose(0.1)">0.1mg</button>
@@ -300,7 +302,7 @@
             <div class="result-title">Result</div>
             
             <div class="result-item">
-                <div class="result-label">PEPTIDE DOSE</div>
+                <div class="result-label">TARGET AMOUNT</div>
                 <div class="result-value empty" id="peptideDose">—</div>
             </div>
             
@@ -352,6 +354,21 @@
             <div class="concentration" id="concentration">
                 CONCENTRATION: —
             </div>
+        </div>
+        
+        <div style="background:white;border-radius:16px;padding:20px;margin-bottom:16px">
+            <div style="font-size:1rem;font-weight:700;color:#0A1628;margin-bottom:12px;text-align:center">📚 Related Guides</div>
+            <div style="display:grid;gap:8px;font-size:0.85rem">
+                <a href="/blog/semaglutide-reconstitution-calculator.html" style="color:#2B7DE9;text-decoration:none;padding:8px;display:block;border-radius:6px;background:#F8FAFC">→ Semaglutide Reconstitution Guide</a>
+                <a href="/blog/bpc-157-research-guide.html" style="color:#2B7DE9;text-decoration:none;padding:8px;display:block;border-radius:6px;background:#F8FAFC">→ BPC-157 Research Guide</a>
+                <a href="/blog/nad-plus-research-guide.html" style="color:#2B7DE9;text-decoration:none;padding:8px;display:block;border-radius:6px;background:#F8FAFC">→ NAD+ Research Guide</a>
+                <a href="/blog/index.html" style="color:#2B7DE9;text-decoration:none;padding:8px;display:block;border-radius:6px;background:#F8FAFC">→ All Research Articles</a>
+            </div>
+        </div>
+        
+        <div style="background:white;border-radius:12px;padding:16px;margin-bottom:16px;font-size:0.75rem;color:#64748B;text-align:center;line-height:1.6;border:2px solid #E2E8F0">
+            <strong style="color:#0A1628">FOR LABORATORY RESEARCH USE ONLY</strong><br>
+            This calculator is designed for preparing peptide solutions for in vitro research applications. Not intended for human consumption or diagnostic purposes.
         </div>
         
         <div class="footer">
