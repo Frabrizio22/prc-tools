@@ -2144,14 +2144,26 @@
         // Notify when available
         function notifyWhenAvailable(productName) {
             var email = prompt('Enter your email to be notified when ' + productName + ' is back in stock:');
-            if (email && email.indexOf('@') !== -1) {
-                var subject = 'Stock Notification Request: ' + productName;
-                var body = 'Customer email: ' + email + '%0D%0AProduct: ' + productName + '%0D%0A%0D%0APlease notify this customer when the product is back in stock.';
-                window.location.href = 'mailto:support@prcpeptides.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
-                alert('Thanks! We\'ll notify you at ' + email + ' when ' + productName + ' is back in stock.');
-            } else if (email) {
+            if (!email) return;
+            
+            if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
                 alert('Please enter a valid email address.');
+                return;
             }
+
+            // Send to Google Apps Script via GET (simpler for no-cors)
+            var url = 'https://script.google.com/macros/s/AKfycbzw7r3qHQR3rPiYlCEWl-eFmzlIUKdYLNOPzbKM--pD6k6WZNVAEct95d8ks2NyXZLp_g/exec' +
+                      '?action=notify' +
+                      '&product=' + encodeURIComponent(productName) +
+                      '&email=' + encodeURIComponent(email);
+
+            fetch(url, { mode: 'no-cors' })
+                .then(function() {
+                    alert('Thanks! We\'ll notify you at ' + email + ' when ' + productName + ' is back in stock.');
+                })
+                .catch(function() {
+                    alert('Thanks! We\'ll notify you at ' + email + ' when ' + productName + ' is back in stock.');
+                });
         }
 
         modalClose.addEventListener('click', closeModal);
