@@ -2125,7 +2125,8 @@
             
             body += '<p><strong>For research purposes only.</strong> Not for human consumption.</p>';
             if (product.inStock === false) {
-                body += '<button class="contact-button" style="background:#E2E8F0;color:#94A3B8;cursor:not-allowed" disabled>Out of Stock</button>';
+                body += '<div style="text-align:center;margin-top:1rem"><p style="color:#EF4444;font-weight:600;margin-bottom:0.75rem">OUT OF STOCK</p>';
+                body += '<button class="contact-button" onclick="notifyWhenAvailable(\'' + product.name.replace(/'/g, "\\'") + '\')">Notify When Available</button></div>';
             } else {
                 body += '<button class="contact-button" onclick="addToCart(\'' + product.name.replace(/'/g, "\\'") + '\',' + product.price + ');closeModal();">Add to Cart</button>';
             }
@@ -2138,6 +2139,19 @@
         // Close modal
         function closeModal() {
             modal.classList.remove('active');
+        }
+
+        // Notify when available
+        function notifyWhenAvailable(productName) {
+            var email = prompt('Enter your email to be notified when ' + productName + ' is back in stock:');
+            if (email && email.indexOf('@') !== -1) {
+                var subject = 'Stock Notification Request: ' + productName;
+                var body = 'Customer email: ' + email + '%0D%0AProduct: ' + productName + '%0D%0A%0D%0APlease notify this customer when the product is back in stock.';
+                window.location.href = 'mailto:support@prcpeptides.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+                alert('Thanks! We\'ll notify you at ' + email + ' when ' + productName + ' is back in stock.');
+            } else if (email) {
+                alert('Please enter a valid email address.');
+            }
         }
 
         modalClose.addEventListener('click', closeModal);
