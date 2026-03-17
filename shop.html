@@ -698,14 +698,7 @@
             font-size: 1.3rem;
             font-weight: 800;
             color: #0A1628;
-            margin-bottom: 2px;
-        }
-
-        .price-per-mg {
-            font-size: 0.7rem;
-            color: #94A3B8;
-            font-weight: 500;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .featured-card .product-price {
@@ -773,21 +766,22 @@
 
         .card-actions {
             display: flex;
-            flex-direction: column;
-            gap: 6px;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
             margin-top: 6px;
         }
 
         .qty-controls {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 6px;
+            flex-shrink: 0;
         }
 
         .qty-btn {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             border: 1px solid #CBD5E1;
             background: #FFFFFF;
             color: #475569;
@@ -809,14 +803,19 @@
         }
 
         .qty-input {
-            width: 32px;
+            width: 28px;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: #1E293B;
             border: none;
             background: transparent;
             pointer-events: none;
+        }
+        
+        .card-actions .order-btn {
+            flex: 1;
+            width: auto;
         }
 
         .info-icon {
@@ -2127,13 +2126,10 @@
                     '<button class="qty-btn qty-plus" data-product="' + product.name.replace(/"/g, '&quot;') + '">+</button>' +
                     '</div>';
                 
-                var pricePerMgHtml = getPricePerMg(product.name, product.price);
-                
                 card.innerHTML = 
                     '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
                     '<div class="product-name">' + product.name + '</div>' +
                     '<div class="product-price">$' + product.price + '</div>' +
-                    pricePerMgHtml +
                     (isOOS ? '<div class="oos-badge">BACK SOON</div>' : '') +
                     '<div class="card-actions">' + qtyControls + '<button class="' + btnClass + '" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">' + btnText + '</button></div>';
                 
@@ -2205,24 +2201,6 @@
                 'supplies': 'BAC Water'
             };
             return names[cat] || cat;
-        }
-
-        // Extract mg from product name and calculate price per mg
-        function getPricePerMg(productName, price) {
-            // Skip for BAC water and other supplies
-            if (productName.indexOf('Bacteriostatic') !== -1 || productName.indexOf('Water') !== -1) {
-                return '';
-            }
-            
-            // Extract mg from product name (e.g., "Semaglutide 5mg" → 5)
-            var mgMatch = productName.match(/(\d+(?:\.\d+)?)\s*mg/i);
-            if (!mgMatch) return '';
-            
-            var mg = parseFloat(mgMatch[1]);
-            if (mg <= 0) return '';
-            
-            var pricePerMg = (price / mg).toFixed(2);
-            return '<div class="price-per-mg">$' + pricePerMg + '/mg</div>';
         }
 
         // Show modal
