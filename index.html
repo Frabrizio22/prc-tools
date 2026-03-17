@@ -2043,8 +2043,7 @@
 
         // Initialize
         var currentCategory = 'all';
-        var modal = document.getElementById('productModal');
-        var modalClose = document.getElementById('modalClose');
+        var modal, modalClose;
 
         // Age gate check
         function checkAgeGate() {
@@ -2398,8 +2397,25 @@
                 });
         }
 
-        // Close notify modal when clicking outside (defer until DOM ready)
+        // Initialize DOM elements and event listeners after page loads
         window.addEventListener('DOMContentLoaded', function() {
+            // Initialize modal elements
+            modal = document.getElementById('productModal');
+            modalClose = document.getElementById('modalClose');
+            
+            // Modal event listeners
+            if (modalClose) {
+                modalClose.addEventListener('click', closeModal);
+            }
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeModal();
+                    }
+                });
+            }
+            
+            // Notify modal
             var notifyModal = document.getElementById('notifyModal');
             var notifyEmail = document.getElementById('notifyModalEmail');
             
@@ -2417,13 +2433,6 @@
                         submitNotifyModal();
                     }
                 });
-            }
-        });
-
-        modalClose.addEventListener('click', closeModal);
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
             }
         });
 
@@ -2618,20 +2627,23 @@
             setTimeout(function() { toast.classList.remove('show'); }, 1800);
         }
 
-        // Wire cart icon
-        var cartBtn = document.querySelector('.nav-icon[title="Cart"]');
-        if (cartBtn) {
-            cartBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                openCartDrawer();
-            });
-        }
-
-        // Initial render
-        checkAgeGate();
-        // bestsellers removed
-        renderProducts('all');
-        updateCartBadge();
+        // Initial render (runs after full page load)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wire cart icon
+            var cartBtn = document.querySelector('.nav-icon[title="Cart"]');
+            if (cartBtn) {
+                cartBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openCartDrawer();
+                });
+            }
+            
+            // Initial render
+            checkAgeGate();
+            // bestsellers removed
+            renderProducts('all');
+            updateCartBadge();
+        });
     </script>
 
     <!-- Cart Drawer -->
