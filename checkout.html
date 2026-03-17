@@ -1192,6 +1192,17 @@
                 xhr.onload = function() {
                     if (xhr.status === 200) {
                         var resp = JSON.parse(xhr.responseText);
+                        console.log('[BANKFUL] Worker response:', resp);
+                        
+                        if (!resp.hpp_url || !resp.hpp_params) {
+                            console.error('[BANKFUL] Missing HPP data:', resp);
+                            btn.textContent = 'Place Order';
+                            btn.disabled = false;
+                            alert('Payment gateway error: Missing redirect URL. Please try another payment method or email support@prcpeptides.com');
+                            showConfirmation();
+                            return;
+                        }
+                        
                         // Save order before redirecting
                         localStorage.setItem('prcLastOrder', JSON.stringify({
                             orderNumber: orderNumber,
@@ -1214,18 +1225,19 @@
                             form.appendChild(input);
                         }
                         
+                        console.log('[BANKFUL] Submitting to:', resp.hpp_url);
                         document.body.appendChild(form);
                         form.submit();
                     } else {
-                        // Fallback to manual flow
+                        console.error('[BANKFUL] HTTP error:', xhr.status, xhr.responseText);
                         btn.textContent = 'Place Order';
                         btn.disabled = false;
-                        alert('Payment gateway temporarily unavailable. Please try another payment method or email support@prcpeptides.com');
+                        alert('Payment gateway temporarily unavailable (HTTP ' + xhr.status + '). Please try another payment method or email support@prcpeptides.com');
                         showConfirmation();
                     }
                 };
                 xhr.onerror = function() {
-                    // Fallback to manual flow
+                    console.error('[BANKFUL] Network error - could not reach Worker');
                     btn.textContent = 'Place Order';
                     btn.disabled = false;
                     alert('Connection error. Please try another payment method or email support@prcpeptides.com');
