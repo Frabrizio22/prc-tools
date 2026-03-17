@@ -1099,71 +1099,9 @@
         }
 
         function notifyOrder(orderNum, order, callback) {
-            var orderData = {
-                order_number: orderNum,
-                customer_name: order['Registered Institution'].name,
-                customer_email: order['Registered Institution'].email,
-                customer_phone: order['Registered Institution'].phone || '',
-                customer_address: order['Registered Institution'].address,
-                customer_city: order['Registered Institution'].city,
-                customer_state: order['Registered Institution'].state,
-                customer_zip: order['Registered Institution'].zip,
-                items: order.items,
-                subtotal: order.subtotal,
-                discount: order.discount,
-                shipping: order.shipping,
-                shipping_name: order.shippingName,
-                total: order.total,
-                payment: order.payment
-            };
-
-            console.log('[CHECKOUT] Sending order notification:', orderNum);
-            
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/order', true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            
-            xhr.onload = function() {
-                console.log('[CHECKOUT] Notification response:', xhr.status, xhr.responseText);
-                
-                if (xhr.status === 200) {
-                    try {
-                        var resp = JSON.parse(xhr.responseText);
-                        if (resp.success) {
-                            console.log('[CHECKOUT] ✓ Order notification successful');
-                            if (callback) callback(true, resp.log);
-                        } else {
-                            console.error('[CHECKOUT] ✗ Order notification failed:', resp.log);
-                            if (callback) callback(false, resp.log);
-                        }
-                    } catch (e) {
-                        console.error('[CHECKOUT] ✗ Failed to parse response');
-                        if (callback) callback(false, { errors: ['Invalid response from server'] });
-                    }
-                } else {
-                    console.error('[CHECKOUT] ✗ Notification failed with status:', xhr.status);
-                    if (callback) callback(false, { errors: ['Server returned error ' + xhr.status] });
-                }
-            };
-            
-            xhr.onerror = function() {
-                console.error('[CHECKOUT] ✗ Network error sending notification');
-                if (callback) callback(false, { errors: ['Network error'] });
-            };
-            
-            xhr.ontimeout = function() {
-                console.error('[CHECKOUT] ✗ Notification timeout');
-                if (callback) callback(false, { errors: ['Request timeout'] });
-            };
-            
-            xhr.timeout = 10000; // 10 second timeout
-            
-            try {
-                xhr.send(JSON.stringify(orderData));
-            } catch (e) {
-                console.error('[CHECKOUT] ✗ Exception sending notification:', e);
-                if (callback) callback(false, { errors: [e.message] });
-            }
+            // Notification via mailto: - no backend needed
+            console.log('[CHECKOUT] Order created:', orderNum);
+            if (callback) callback(true, {});
         }
 
         function placeOrder() {
@@ -1384,44 +1322,36 @@
         }
 
         function emailOrder() {
-            var btn = document.querySelector('.confirm-btn');
-            btn.disabled = true;
-            btn.textContent = 'Processing...';
-            
             var o = savedOrder;
             
-            // Submit to Cloudflare Worker
-            fetch('https://prc-checkout.prcpeptides.workers.dev/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    orderNumber: orderNumber,
-                    items: o.items,
-                    customer: o['Registered Institution'],
-                    payment: o.payment,
-                    subtotal: o.subtotal,
-                    discount: o.discount,
-                    shipping: o.shipping,
-                    total: o.total
-                })
-            })
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-                if (data.success) {
-                    // Success - show confirmation
-                    alert('Order submitted successfully! You will receive a confirmation email shortly.');
-                    localStorage.removeItem('prcCart');
-                    window.location.href = 'shop.html';
-                } else {
-                    throw new Error(data.error || 'Submission failed');
-                }
-            })
-            .catch(function(err) {
-                console.error('Order submission error:', err);
-                alert('There was an error submitting your order. Please email support@prcpeptides.com with order number ' + orderNumber);
-                btn.disabled = false;
-                btn.textContent = 'Send Order Confirmation';
-            });
+            // Build email body
+            var body = 'NEW ORDER: ' + orderNumber + '%0D%0A%0D%0A';
+            body += 'CUSTOMER:%0D%0A';
+            body += o['Registered Institution'].name + '%0D%0A';
+            body += o['Registered Institution'].email + '%0D%0A';
+            body += o['Registered Institution'].phone + '%0D%0A';
+            body += o['Registered Institution'].address + '%0D%0A';
+            body += o['Registered Institution'].city + ', ' + o['Registered Institution'].state + ' ' + o['Registered Institution'].zip + '%0D%0A%0D%0A';
+            body += 'ITEMS:%0D%0A';
+            for (var i = 0; i < o.items.length; i++) {
+                body += o.items[i].name + ' x' + o.items[i].quantity + ' ($' + o.items[i].price.toFixed(2) + ')%0D%0A';
+            }
+            body += '%0D%0ATOTALS:%0D%0A';
+            body += 'Subtotal: $' + o.subtotal.toFixed(2) + '%0D%0A';
+            if (o.discount > 0) body += 'Discount: -$' + o.discount.toFixed(2) + '%0D%0A';
+            body += 'Shipping: $' + o.shipping.toFixed(2) + ' (' + o.shippingName + ')%0D%0A';
+            body += 'TOTAL: $' + o.total.toFixed(2) + '%0D%0A%0D%0A';
+            body += 'Payment Method: ' + o.payment.toUpperCase();
+            
+            // Open mailto: link
+            window.location.href = 'mailto:support@prcpeptides.com?subject=ORDER ' + orderNumber + '&body=' + body;
+            
+            // Clear cart and redirect after brief delay
+            setTimeout(function() {
+                localStorage.removeItem('prcCart');
+                alert('Order details opened in your email app. Please send the email to complete your order.\n\nYou will receive payment instructions within 1 hour.');
+                window.location.href = 'shop.html';
+            }, 1000);
         }
 
         checkAgeGate();
