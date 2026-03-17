@@ -2436,17 +2436,6 @@
             }
         });
 
-        // Filter functionality
-        var filterButtons = document.querySelectorAll('.filter-pill');
-        filterButtons.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                filterButtons.forEach(function(b) { b.classList.remove('active'); });
-                this.classList.add('active');
-                currentCategory = this.getAttribute('data-category');
-                renderProducts(currentCategory);
-            });
-        });
-
         // Mobile menu
         function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('active');
@@ -2637,6 +2626,17 @@
                     openCartDrawer();
                 });
             }
+            
+            // Wire filter buttons
+            var filterButtons = document.querySelectorAll('.filter-pill');
+            filterButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(function(b) { b.classList.remove('active'); });
+                    this.classList.add('active');
+                    currentCategory = this.getAttribute('data-category');
+                    renderProducts(currentCategory);
+                });
+            });
             
             // Initial render
             checkAgeGate();
