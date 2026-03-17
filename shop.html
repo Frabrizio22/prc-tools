@@ -936,6 +936,86 @@
         }
         .cart-added-toast.show { opacity: 1; }
 
+        /* Notify Modal */
+        .notify-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 22, 40, 0.5);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .notify-modal.active { display: flex; }
+
+        .notify-modal-content {
+            background: #FFFFFF;
+            max-width: 400px;
+            width: 100%;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .notify-modal-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .notify-modal-input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #E2E8F0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+
+        .notify-modal-input:focus {
+            outline: none;
+            border-color: #2B7DE9;
+        }
+
+        .notify-modal-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .notify-modal-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .notify-modal-btn.cancel {
+            background: #F1F5F9;
+            color: #64748B;
+        }
+
+        .notify-modal-btn.cancel:hover {
+            background: #E2E8F0;
+        }
+
+        .notify-modal-btn.submit {
+            background: #2B7DE9;
+            color: #FFFFFF;
+        }
+
+        .notify-modal-btn.submit:hover {
+            background: #1E6FD9;
+        }
+
         .view-details {
             display: inline-block;
             color: #2B7DE9;
@@ -2271,9 +2351,30 @@
         }
 
         // Notify when available
+        var currentNotifyProduct = '';
+
         function notifyWhenAvailable(productName) {
-            var email = prompt('Enter your email to be notified when ' + productName + ' is back in stock:');
-            if (!email) return;
+            currentNotifyProduct = productName;
+            document.getElementById('notifyModalTitle').textContent = 'Get notified when ' + productName + ' is back:';
+            document.getElementById('notifyModalEmail').value = '';
+            document.getElementById('notifyModal').classList.add('active');
+            setTimeout(function() {
+                document.getElementById('notifyModalEmail').focus();
+            }, 100);
+        }
+
+        function closeNotifyModal() {
+            document.getElementById('notifyModal').classList.remove('active');
+            currentNotifyProduct = '';
+        }
+
+        function submitNotifyModal() {
+            var email = document.getElementById('notifyModalEmail').value.trim();
+            
+            if (!email) {
+                alert('Please enter your email address.');
+                return;
+            }
             
             if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
                 alert('Please enter a valid email address.');
@@ -2283,17 +2384,33 @@
             // Send to Google Apps Script via GET (simpler for no-cors)
             var url = 'https://script.google.com/macros/s/AKfycbzw7r3qHQR3rPiYlCEWl-eFmzlIUKdYLNOPzbKM--pD6k6WZNVAEct95d8ks2NyXZLp_g/exec' +
                       '?action=notify' +
-                      '&product=' + encodeURIComponent(productName) +
+                      '&product=' + encodeURIComponent(currentNotifyProduct) +
                       '&email=' + encodeURIComponent(email);
 
             fetch(url, { mode: 'no-cors' })
                 .then(function() {
-                    alert('Thanks! We\'ll notify you at ' + email + ' when ' + productName + ' is back in stock.');
+                    closeNotifyModal();
+                    showToast('Thanks! We\'ll email you when ' + currentNotifyProduct + ' is back.');
                 })
                 .catch(function() {
-                    alert('Thanks! We\'ll notify you at ' + email + ' when ' + productName + ' is back in stock.');
+                    closeNotifyModal();
+                    showToast('Thanks! We\'ll email you when ' + currentNotifyProduct + ' is back.');
                 });
         }
+
+        // Close notify modal when clicking outside
+        document.getElementById('notifyModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeNotifyModal();
+            }
+        });
+
+        // Submit on Enter key
+        document.getElementById('notifyModalEmail').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitNotifyModal();
+            }
+        });
 
         modalClose.addEventListener('click', closeModal);
         modal.addEventListener('click', function(e) {
@@ -2526,6 +2643,19 @@
         </div>
     </div>
     <div id="cartToast" class="cart-added-toast"></div>
+
+    <!-- Notify Modal -->
+    <div id="notifyModal" class="notify-modal">
+        <div class="notify-modal-content">
+            <div class="notify-modal-title" id="notifyModalTitle"></div>
+            <input type="email" id="notifyModalEmail" class="notify-modal-input" placeholder="your@email.com">
+            <div class="notify-modal-buttons">
+                <button class="notify-modal-btn cancel" onclick="closeNotifyModal()">Cancel</button>
+                <button class="notify-modal-btn submit" onclick="submitNotifyModal()">Notify Me</button>
+            </div>
+        </div>
+    </div>
+
     <div id="tosModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9999;align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)this.style.display='none'">
         <div style="background:#fff;border-radius:12px;max-width:540px;width:100%;max-height:80vh;overflow-y:auto;padding:28px">
             <h2 style="font-size:18px;margin-bottom:16px">Terms of Service</h2>
