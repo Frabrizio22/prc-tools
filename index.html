@@ -2398,17 +2398,25 @@
                 });
         }
 
-        // Close notify modal when clicking outside
-        document.getElementById('notifyModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeNotifyModal();
+        // Close notify modal when clicking outside (defer until DOM ready)
+        window.addEventListener('DOMContentLoaded', function() {
+            var notifyModal = document.getElementById('notifyModal');
+            var notifyEmail = document.getElementById('notifyModalEmail');
+            
+            if (notifyModal) {
+                notifyModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeNotifyModal();
+                    }
+                });
             }
-        });
-
-        // Submit on Enter key
-        document.getElementById('notifyModalEmail').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                submitNotifyModal();
+            
+            if (notifyEmail) {
+                notifyEmail.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        submitNotifyModal();
+                    }
+                });
             }
         });
 
