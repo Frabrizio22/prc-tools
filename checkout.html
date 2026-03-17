@@ -1324,43 +1324,34 @@
         function emailOrder() {
             var o = savedOrder;
             
-            // Send order to Worker
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/order', true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
+            // Build email body
+            var body = 'NEW ORDER: ' + orderNumber + '%0D%0A%0D%0A';
+            body += 'CUSTOMER:%0D%0A';
+            body += o['Registered Institution'].name + '%0D%0A';
+            body += o['Registered Institution'].email + '%0D%0A';
+            body += o['Registered Institution'].phone + '%0D%0A';
+            body += o['Registered Institution'].address + '%0D%0A';
+            body += o['Registered Institution'].city + ', ' + o['Registered Institution'].state + ' ' + o['Registered Institution'].zip + '%0D%0A%0D%0A';
+            body += 'ITEMS:%0D%0A';
+            for (var i = 0; i < o.items.length; i++) {
+                body += o.items[i].name + ' x' + o.items[i].quantity + ' ($' + o.items[i].price.toFixed(2) + ')%0D%0A';
+            }
+            body += '%0D%0ATOTALS:%0D%0A';
+            body += 'Subtotal: $' + o.subtotal.toFixed(2) + '%0D%0A';
+            if (o.discount > 0) body += 'Discount: -$' + o.discount.toFixed(2) + '%0D%0A';
+            body += 'Shipping: $' + o.shipping.toFixed(2) + ' (' + o.shippingName + ')%0D%0A';
+            body += 'TOTAL: $' + o.total.toFixed(2) + '%0D%0A%0D%0A';
+            body += 'Payment Method: ' + o.payment.toUpperCase();
             
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    // Success
-                    alert('Order confirmed! You will receive payment instructions via email shortly.');
-                    localStorage.removeItem('prcCart');
-                    window.location.href = 'shop.html';
-                } else {
-                    alert('Order received but notifications may be delayed. Please check your email for confirmation. Order #: ' + orderNumber);
-                    localStorage.removeItem('prcCart');
-                    window.location.href = 'shop.html';
-                }
-            };
+            // Open mailto: link
+            window.location.href = 'mailto:support@prcpeptides.com?subject=ORDER ' + orderNumber + '&body=' + body;
             
-            xhr.onerror = function() {
-                alert('Order created (' + orderNumber + ') but email confirmation may be delayed. Please contact support@prcpeptides.com if you don\'t receive confirmation within 1 hour.');
+            // Clear cart and redirect after brief delay
+            setTimeout(function() {
                 localStorage.removeItem('prcCart');
+                alert('Order details opened in your email app. Please send the email to complete your order.\n\nYou will receive payment instructions within 1 hour.');
                 window.location.href = 'shop.html';
-            };
-            
-            xhr.send(JSON.stringify({
-                order_number: orderNumber,
-                customer_name: o['Registered Institution'].name,
-                customer_email: o['Registered Institution'].email,
-                customer_phone: o['Registered Institution'].phone || '',
-                customer_address: o['Registered Institution'].address,
-                customer_city: o['Registered Institution'].city,
-                customer_state: o['Registered Institution'].state,
-                customer_zip: o['Registered Institution'].zip,
-                items: o.items,
-                total: o.total,
-                payment: o.payment
-            }));
+            }, 1000);
         }
 
         checkAgeGate();
