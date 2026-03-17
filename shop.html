@@ -636,7 +636,7 @@
         .product-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
+            gap: 16px;
         }
 
         .product-card {
@@ -695,7 +695,7 @@
         }
 
         .product-price {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: #0A1628;
             margin-bottom: 6px;
@@ -735,20 +735,32 @@
         }
 
         .order-btn.oos {
-            background: #FFFFFF;
+            background: #F1F5F9;
             color: #2B7DE9;
-            border: 1.5px solid #2B7DE9;
+            border: 1.5px solid #CBD5E1;
             cursor: pointer;
         }
 
         .order-btn.oos:hover {
-            background: #EFF6FF;
+            background: #E2E8F0;
             color: #1E6FD9;
-            border-color: #1E6FD9;
+            border-color: #94A3B8;
         }
 
         .product-card.oos {
             opacity: 0.85;
+        }
+
+        .oos-badge {
+            color: #DC2626;
+            background: #FEE2E2;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-align: center;
+            margin: 6px 0;
+            letter-spacing: 0.3px;
         }
 
         .card-actions {
@@ -2111,7 +2123,7 @@
                     '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
                     '<div class="product-name">' + product.name + '</div>' +
                     '<div class="product-price">$' + product.price + '</div>' +
-                    (isOOS ? '<div style="color:#EF4444;font-size:0.75rem;font-weight:600;margin:0.5rem 0">OUT OF STOCK</div>' : '') +
+                    (isOOS ? '<div class="oos-badge">OUT OF STOCK</div>' : '') +
                     '<div class="card-actions">' + qtyControls + '<button class="' + btnClass + '" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">' + btnText + '</button></div>';
                 
                 card.style.cursor = 'pointer';
