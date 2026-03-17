@@ -1099,9 +1099,39 @@
         }
 
         function notifyOrder(orderNum, order, callback) {
-            // Notification via mailto: - no backend needed
-            console.log('[CHECKOUT] Order created:', orderNum);
-            if (callback) callback(true, {});
+            // Send order to Worker for logging (Telegram + Sheet + Email)
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/order', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    console.log('[CHECKOUT] ✓ Order notification sent');
+                    if (callback) callback(true, {});
+                } else {
+                    console.error('[CHECKOUT] ✗ Notification failed:', xhr.status);
+                    if (callback) callback(false, { error: 'HTTP ' + xhr.status });
+                }
+            };
+            xhr.onerror = function() {
+                console.error('[CHECKOUT] ✗ Network error');
+                if (callback) callback(false, { error: 'Network error' });
+            };
+            
+            var orderData = {
+                order_number: orderNum,
+                customer_name: order['Registered Institution'].name,
+                customer_email: order['Registered Institution'].email,
+                customer_phone: order['Registered Institution'].phone || '',
+                address: order['Registered Institution'].address || '',
+                city: order['Registered Institution'].city || '',
+                state: order['Registered Institution'].state || '',
+                zip: order['Registered Institution'].zip || '',
+                total: order.total.toFixed(2),
+                payment: order.payment,
+                items: order.items
+            };
+            
+            xhr.send(JSON.stringify(orderData));
         }
 
         function placeOrder() {
