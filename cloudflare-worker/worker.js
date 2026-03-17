@@ -1,8 +1,14 @@
 // PRC Peptides - Cloudflare Worker
 // Handles: POST / (Coinbase Commerce charge creation)
 //          POST /order (order notification via Telegram)
+//          POST /bankful (Bankful HPP signature generation)
 
 const COINBASE_API_KEY = 'eebc936a-18a8-4286-aa5d-dca4ba6a9464';
+const BANKFUL_GATEWAY_PASSWORD = 'Euro@140'; // HMAC-SHA256 secret key
+const BANKFUL_GATEWAY_ID = '70777';
+const BANKFUL_USERNAME = 'support@prcpeptides.com';
+const BANKFUL_HPP_URL = 'https://api.paybybankful.com/front-calls/go-in/hosted-page-pay';
+
 const ALLOWED_ORIGINS = [
   'https://frabrizio22.github.io',
   'https://prcpeptides.com',
@@ -21,7 +27,7 @@ function getCorsHeaders(origin) {
   };
 }
 
-var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzw7r3qHQR3rPiYlCEWl-eFmzlIUKdYLNOPzbKM--pD6k6WZNVAEct95d8ks2NyXZLp_g/exec';
+var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzy0DH2iqIqcasXAZMMKqi-SNy6ityRTExG5b46AyVDQRR9uNtGzt-38ylwk-8ORase/exec';
 
 async function sendToGoogleSheet(data) {
   try {
@@ -67,13 +73,48 @@ function formatOrderMessage(body) {
   lines.push('<b>Shipping:</b> ' + (Number(body.shipping) === 0 ? 'FREE' : '$' + Number(body.shipping).toFixed(2)) + ' (' + (body.shipping_name || 'Standard') + ')');
   lines.push('<b>Total:</b> $' + Number(body.total).toFixed(2));
   lines.push('');
-  lines.push('<b>Payment:</b> ' + (body.payment === 'crypto' ? 'Crypto (Coinbase)' : body.payment === 'zelle' ? 'Zelle (5% off)' : body.payment));
+  lines.push('<b>Payment:</b> ' + (body.payment === 'crypto' ? 'Crypto (Coinbase)' : body.payment === 'zelle' ? 'Zelle (5% off)' : body.payment === 'bankful' ? 'Credit Card / Bank' : body.payment));
   lines.push('');
   lines.push('<b>Ship to:</b>');
   lines.push(body.customer_name);
   lines.push(body.customer_address);
   lines.push(body.customer_city + ', ' + body.customer_state + ' ' + body.customer_zip);
   return lines.join('\n');
+}
+
+// Generate HMAC-SHA256 signature for Bankful HPP
+async function generateBankfulSignature(params, secretKey) {
+  // Sort parameters alphabetically by key
+  var keys = Object.keys(params).sort();
+  
+  // Concatenate key-value pairs without separators
+  var message = '';
+  for (var i = 0; i < keys.length; i++) {
+    message += keys[i] + params[keys[i]];
+  }
+  
+  // Convert secret key to Uint8Array
+  var encoder = new TextEncoder();
+  var keyData = encoder.encode(secretKey);
+  var messageData = encoder.encode(message);
+  
+  // Import key for HMAC
+  var cryptoKey = await crypto.subtle.importKey(
+    'raw',
+    keyData,
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+  
+  // Sign the message
+  var signature = await crypto.subtle.sign('HMAC', cryptoKey, messageData);
+  
+  // Convert to hex string
+  var hashArray = Array.from(new Uint8Array(signature));
+  var hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  
+  return hashHex;
 }
 
 export default {
@@ -92,6 +133,56 @@ export default {
         status: 405,
         headers: { ...cors, 'Content-Type': 'application/json' }
       });
+    }
+
+    // Route: /bankful — generate HPP signature
+    if (url.pathname === '/bankful') {
+      try {
+        var body = await request.json();
+        
+        // Build Bankful HPP parameters
+        var hppParams = {
+          transaction_type: 'CAPTURE',
+          amount: body.total.toString(),
+          request_currency: 'USD',
+          cust_email: body.customer_email,
+          cust_fname: body.customer_name.split(' ')[0] || body.customer_name,
+          cust_lname: body.customer_name.split(' ').slice(1).join(' ') || 'Customer',
+          cust_phone: body.customer_phone || '',
+          bill_addr: body.customer_address,
+          bill_addr_city: body.customer_city,
+          bill_addr_state: body.customer_state,
+          bill_addr_zip: body.customer_zip,
+          bill_addr_country: 'US',
+          xtl_order_id: body.order_number,
+          cart_name: 'Hosted-Page',
+          url_cancel: 'https://prcpeptides.com/checkout.html',
+          url_complete: 'https://prcpeptides.com/order-confirmed.html?order=' + encodeURIComponent(body.order_number),
+          url_failed: 'https://prcpeptides.com/checkout.html?error=payment_failed',
+          url_callback: 'https://prc-checkout.prcpeptides.workers.dev/bankful-callback',
+          url_pending: 'https://prcpeptides.com/order-pending.html?order=' + encodeURIComponent(body.order_number),
+          return_redirect_url: 'Y',
+          req_username: BANKFUL_USERNAME
+        };
+        
+        // Generate signature (excludes 'signature' field itself)
+        var signature = await generateBankfulSignature(hppParams, BANKFUL_GATEWAY_PASSWORD);
+        hppParams.signature = signature;
+        
+        return new Response(JSON.stringify({
+          success: true,
+          hpp_url: BANKFUL_HPP_URL,
+          hpp_params: hppParams
+        }), {
+          status: 200,
+          headers: { ...cors, 'Content-Type': 'application/json' }
+        });
+        
+      } catch (err) {
+        return new Response(JSON.stringify({ error: 'Server error', message: err.message }), {
+          status: 500, headers: { ...cors, 'Content-Type': 'application/json' }
+        });
+      }
     }
 
     // Route: /order — send Telegram notification

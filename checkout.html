@@ -1237,6 +1237,71 @@
                 return;
             }
 
+            // If Bankful, generate HPP signature and redirect
+            if (selectedPayment === 'bankful') {
+                var btn = document.getElementById('actionBtn');
+                btn.textContent = 'Redirecting to secure checkout...';
+                btn.disabled = true;
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/bankful', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        var resp = JSON.parse(xhr.responseText);
+                        // Save order before redirecting
+                        localStorage.setItem('prcLastOrder', JSON.stringify({
+                            orderNumber: orderNumber,
+                            savedOrder: savedOrder
+                        }));
+                        cart = [];
+                        saveCart();
+                        
+                        // Create form and auto-submit to Bankful HPP
+                        var form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = resp.hpp_url;
+                        form.style.display = 'none';
+                        
+                        for (var key in resp.hpp_params) {
+                            var input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = key;
+                            input.value = resp.hpp_params[key];
+                            form.appendChild(input);
+                        }
+                        
+                        document.body.appendChild(form);
+                        form.submit();
+                    } else {
+                        // Fallback to manual flow
+                        btn.textContent = 'Place Order';
+                        btn.disabled = false;
+                        alert('Payment gateway temporarily unavailable. Please try another payment method or email support@prcpeptides.com');
+                        showConfirmation();
+                    }
+                };
+                xhr.onerror = function() {
+                    // Fallback to manual flow
+                    btn.textContent = 'Place Order';
+                    btn.disabled = false;
+                    alert('Connection error. Please try another payment method or email support@prcpeptides.com');
+                    showConfirmation();
+                };
+                xhr.send(JSON.stringify({
+                    order_number: orderNumber,
+                    total: savedOrder.total.toFixed(2),
+                    customer_email: savedOrder['Registered Institution'].email,
+                    customer_name: savedOrder['Registered Institution'].name,
+                    customer_phone: savedOrder['Registered Institution'].phone || '',
+                    customer_address: savedOrder['Registered Institution'].street,
+                    customer_city: savedOrder['Registered Institution'].city,
+                    customer_state: savedOrder['Registered Institution'].state,
+                    customer_zip: savedOrder['Registered Institution'].zip
+                }));
+                return;
+            }
+
             // If crypto, auto-create Coinbase charge and redirect
             if (selectedPayment === 'crypto') {
                 var btn = document.getElementById('actionBtn');
