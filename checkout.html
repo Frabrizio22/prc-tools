@@ -1121,13 +1121,17 @@
                 customer_name: order['Registered Institution'].name,
                 customer_email: order['Registered Institution'].email,
                 customer_phone: order['Registered Institution'].phone || '',
-                address: order['Registered Institution'].address || '',
-                city: order['Registered Institution'].city || '',
-                state: order['Registered Institution'].state || '',
-                zip: order['Registered Institution'].zip || '',
-                total: order.total.toFixed(2),
-                payment: order.payment,
-                items: order.items
+                customer_address: order['Registered Institution'].address || '',
+                customer_city: order['Registered Institution'].city || '',
+                customer_state: order['Registered Institution'].state || '',
+                customer_zip: order['Registered Institution'].zip || '',
+                items: order.items,
+                subtotal: order.subtotal,
+                discount: order.discount,
+                shipping: order.shipping,
+                shipping_name: order.shippingName,
+                total: order.total,
+                payment: order.payment
             };
             
             xhr.send(JSON.stringify(orderData));
