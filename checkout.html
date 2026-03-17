@@ -1021,6 +1021,18 @@
             el.classList.add('selected');
             updateSummary();
             updateFooter();
+            
+            // Update button text based on payment method
+            var btn = document.getElementById('actionBtn');
+            if (btn) {
+                if (method === 'bankful') {
+                    btn.textContent = 'Continue to Secure Checkout →';
+                } else if (method === 'crypto') {
+                    btn.textContent = 'Continue to Crypto Payment →';
+                } else {
+                    btn.textContent = 'Place Order';
+                }
+            }
         }
 
         function applyPromo() {
