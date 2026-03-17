@@ -130,7 +130,7 @@
             padding: 8px 0;
             min-width: 220px;
             z-index: 200;
-            margin-top: 2px;
+            margin-top: 8px;
         }
 
         .nav-dropdown:hover .nav-dropdown-menu,
@@ -735,14 +735,20 @@
         }
 
         .order-btn.oos {
-            background: #E2E8F0;
-            color: #94A3B8;
-            cursor: not-allowed;
-            pointer-events: none;
+            background: #FFFFFF;
+            color: #2B7DE9;
+            border: 1.5px solid #2B7DE9;
+            cursor: pointer;
+        }
+
+        .order-btn.oos:hover {
+            background: #EFF6FF;
+            color: #1E6FD9;
+            border-color: #1E6FD9;
         }
 
         .product-card.oos {
-            opacity: 0.6;
+            opacity: 0.85;
         }
 
         .card-actions {
@@ -1225,46 +1231,6 @@
 
         .mobile-overlay.active { display: block; }
     </style>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "PRC Peptides",
-        "url": "https://prcpeptides.com",
-        "description": "Research peptide supplier offering third-party tested compounds with certificates of analysis.",
-        "foundingDate": "2025",
-        "sameAs": [],
-        "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "customer service",
-                "email": "support@prcpeptides.com"
-        }
-}
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-                {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://prcpeptides.com/"
-                }
-        ]
-}
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "PRC Peptides",
-        "url": "https://prcpeptides.com",
-        "description": "Research peptide supplier with third-party tested compounds and certificates of analysis."
-}
-    </script>
 </head>
 <body>
     <!-- Age Gate -->
@@ -1326,7 +1292,6 @@
         <button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
         <a href="#shop" onclick="toggleMobileMenu()">Shop</a>
         <a href="peptide-calculator.html">Calculator</a>
-        <a href="compare.html">Price Compare</a>
         <a href="blog/">Blog</a>
         <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
@@ -1366,14 +1331,15 @@
                 <div class="filter-pills">
                     <button class="filter-pill active" data-category="all">All</button>
                     <button class="filter-pill" data-category="glp">GLP</button>
-                    <button class="filter-pill" data-category="tissue">Structural</button>
+                    <button class="filter-pill" data-category="tissue">Regenerative</button>
                     <button class="filter-pill" data-category="gh">Growth Hormone</button>
                     <button class="filter-pill" data-category="metabolic">Metabolic</button>
                     <button class="filter-pill" data-category="antioxidants">Antioxidants</button>
                     <button class="filter-pill" data-category="neuropeptides">Neuro</button>
                     <button class="filter-pill" data-category="longevity">Cellular</button>
                     <button class="filter-pill" data-category="melanocortin">Melanocortin</button>
-                    <button class="filter-pill" data-category="advanced">Advanced</button>
+                    <button class="filter-pill" data-category="advanced">Experimental</button>
+                    <button class="filter-pill" data-category="supplies">BAC Water</button>
                 </div>
             </div>
 
@@ -1482,7 +1448,7 @@
             <div class="about-section">
                 <h3>Contact & Resources</h3>
                 <p>Email: <a href="mailto:support@prcpeptides.com" style="color:#2B7DE9">support@prcpeptides.com</a></p>
-                <p>Resources: <a href="faq.html" style="color:#2B7DE9">FAQ</a> | <a href="compare.html" style="color:#2B7DE9">Price Compare</a> | <a href="blog/" style="color:#2B7DE9">Research Guides</a></p>
+                <p>Resources: <a href="faq.html" style="color:#2B7DE9">FAQ</a> | <a href="blog/" style="color:#2B7DE9">Research Guides</a></p>
             </div>
         </div>
     </div>
@@ -1558,6 +1524,7 @@
                 category: "glp",
                 price: 46,
                 coa: true,
+                inStock: false,
                 shortDesc: "Higher-dose dual GLP-1/GIP receptor agonist for advanced incretin research.",
                 fullDesc: "Tirzepatide represents a paradigm shift in incretin biology. Where previous research focused on single-receptor agonism, Eli Lilly scientists engineered this novel peptide to activate both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) receptors with balanced potency.",
                 applications: "Dual incretin pathway research, GIP/GLP-1 receptor synergy, incretin receptor pharmacology, metabolic signaling cascade studies, pancreatic islet function, comparative incretin biology"
@@ -1567,6 +1534,7 @@
                 category: "glp",
                 price: 44,
                 coa: true,
+                inStock: false,
                 shortDesc: "First dual GLP-1/GIP receptor agonist with balanced potency for incretin synergy research.",
                 fullDesc: "Tirzepatide represents a paradigm shift in incretin biology. Where previous research focused on single-receptor agonism, Eli Lilly scientists engineered this novel peptide to activate both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) receptors with balanced potency. This dual incretin activation reveals synergistic metabolic effects.",
                 applications: "Dual incretin pathway research, GIP/GLP-1 receptor synergy, incretin receptor pharmacology, metabolic signaling cascade studies, pancreatic islet function, comparative incretin biology"
@@ -1595,6 +1563,7 @@
                 category: "tissue",
                 price: 40,
                 coa: true,
+                inStock: false,
                 shortDesc: "Dual tissue repair complex pairing cytoprotective and actin-mediated cell migration mechanisms.",
                 fullDesc: "Tissue repair requires coordinated processes: inflammatory resolution, angiogenesis, cell migration, extracellular matrix remodeling, and cytoprotection. This combination targets multiple phases simultaneously. BPC-157 demonstrates remarkable cytoprotective properties while promoting angiogenesis through VEGF modulation. TB-500 facilitates actin polymerization and cytoskeletal reorganization, driving cell migration.",
                 applications: "Wound tissue signaling models, angiogenesis research, cytoprotection mechanisms, cell migration assays, collagen synthesis studies, anti-inflammatory pathway research, musculoskeletal repair models"
@@ -1620,7 +1589,7 @@
             {
                 name: "LL-37 5mg",
                 category: "tissue",
-                price: 29,
+                price: 34,
                 coa: true,
                 shortDesc: "The sole human cathelicidin with broad-spectrum antimicrobial and immunomodulatory activity.",
                 fullDesc: "LL-37 occupies a unique position in human immunology: it is the only antimicrobial peptide produced by the human cathelicidin family. Cleaved from the C-terminus of the hCAP18 precursor protein, this amphipathic alpha-helical peptide demonstrates broad-spectrum antimicrobial activity against bacteria, fungi, and enveloped viruses through membrane disruption.",
@@ -1638,7 +1607,7 @@
             {
                 name: "Sermorelin 5mg",
                 category: "gh",
-                price: 38,
+                price: 34,
                 coa: true,
                 shortDesc: "GHRH(1-29) fragment retaining complete growth hormone releasing activity.",
                 fullDesc: "Sermorelin represents elegant peptide design: by identifying the minimal bioactive sequence within full-length GHRH(1-44), researchers created a compound with identical receptor activity but enhanced stability and reduced immunogenicity. This 29-amino acid fragment contains the entire receptor-binding domain, making it indispensable for studying GHRH receptor pharmacology.",
@@ -1649,6 +1618,7 @@
                 category: "gh",
                 price: 21,
                 coa: true,
+                inStock: false,
                 shortDesc: "Most selective growth hormone secretagogue with exceptional GH specificity.",
                 fullDesc: "Ipamorelin solved a critical problem in growth hormone secretagogue research: earlier ghrelin mimetics stimulated GH release but also elevated prolactin and cortisol through off-target receptor activation. Novo Nordisk's Ipamorelin demonstrates near-exclusive selectivity for the ghrelin receptor (GHS-R1a) on somatotrophs, triggering GH secretion without hormonal side effects.",
                 applications: "Ghrelin receptor (GHS-R1a) pharmacology, selective GH secretion mechanisms, growth hormone pulse dynamics, somatotroph receptor selectivity, GHRP comparative studies, non-GHRH secretagogue pathways"
@@ -1692,7 +1662,7 @@
             {
                 name: "MOTS-c 10mg",
                 category: "metabolic",
-                price: 28,
+                price: 32,
                 coa: true,
                 shortDesc: "Mitochondrial genome-encoded peptide that translocates to nucleus to regulate metabolism.",
                 fullDesc: "MOTS-c represents a paradigm shift in cellular biology. Discovered in 2015, this peptide revealed that the mitochondrial genome contains open reading frames for signaling peptides that regulate nuclear gene expression. MOTS-c, encoded within the mitochondrial 12S rRNA gene, acts as a mitochondrial-to-nuclear messenger: during metabolic stress, it translocates to the nucleus and modulates gene expression.",
@@ -1736,7 +1706,7 @@
             {
                 name: "NAD+ 1000mg",
                 category: "antioxidants",
-                price: 30,
+                price: 47,
                 coa: true,
                 shortDesc: "High-dose cellular cofactor for energy metabolism, DNA repair, and cellular signaling.",
                 fullDesc: "Nicotinamide adenine dinucleotide occupies a position of unparalleled importance in cellular biochemistry. This dinucleotide serves simultaneously as an electron carrier in redox reactions, a substrate for sirtuins, a substrate for PARPs (DNA repair enzymes), and a precursor for calcium signaling molecules. NAD+ levels decline with age across tissues.",
@@ -1745,7 +1715,7 @@
             {
                 name: "NAD+ 500mg",
                 category: "antioxidants",
-                price: 30,
+                price: 38,
                 coa: true,
                 shortDesc: "Central redox cofactor essential for over 500 enzymatic reactions governing cellular metabolism.",
                 fullDesc: "Nicotinamide adenine dinucleotide occupies a position of unparalleled importance in cellular biochemistry. This dinucleotide serves simultaneously as an electron carrier in redox reactions, a substrate for sirtuins (deacetylases that regulate metabolism and longevity pathways), a substrate for PARPs (DNA repair enzymes), and a precursor for calcium signaling molecules.",
@@ -1799,7 +1769,7 @@
             {
                 name: "Cerebrolysin 60mg",
                 category: "neuropeptides",
-                price: 23,
+                price: 29,
                 coa: true,
                 shortDesc: "Pharmaceutical-grade neurotrophic peptide complex mimicking endogenous brain-derived growth factors.",
                 fullDesc: "Cerebrolysin stands apart in neuroprotection research: where most compounds target a single pathway, this pharmaceutical-grade preparation contains a complex mixture of low-molecular-weight neuropeptides and amino acids derived from porcine brain tissue. The result is a biological profile that simultaneously activates multiple neurotrophic signaling cascades.",
@@ -1808,7 +1778,7 @@
             {
                 name: "Selank 5mg",
                 category: "neuropeptides",
-                price: 36,
+                price: 27,
                 coa: true,
                 shortDesc: "Synthetic anxiolytic peptide with cytokine-modulating activity for neurochemical research.",
                 fullDesc: "Developed at Moscow's Institute of Molecular Genetics, Selank represents a rational design approach to neuropeptide therapeutics—a synthetic heptapeptide built upon the immune peptide tuftsin's structural scaffold. This derivative demonstrates the rare capacity to simultaneously modulate IL-6 expression and influence monoaminergic neurotransmitter systems, bridging neuroimmune signaling in ways few compounds can.",
@@ -1840,15 +1810,6 @@
                 shortDesc: "The original sleep-inducing peptide—a naturally occurring nonapeptide for circadian research.",
                 fullDesc: "Delta Sleep-Inducing Peptide represents a landmark discovery in chronobiology. Isolated from the cerebral venous blood of sleeping rabbits in 1977 by Swiss researchers, DSIP opened scientific inquiry into endogenous sleep architecture modulation. Unlike sedatives that suppress neural activity, this nonapeptide appears to facilitate natural sleep-wake transitions through circadian rhythm entrainment.",
                 applications: "Sleep architecture studies, circadian rhythm regulation, stress-response neuroendocrine pathways, pain perception modulation, cortisol dynamics research, delta wave sleep mechanisms"
-            },
-            {
-                name: "DSIP Night Blend",
-                category: "neuropeptides",
-                price: 42,
-                coa: true,
-                shortDesc: "Synergistic sleep research complex combining complementary neuropeptides for circadian biology.",
-                fullDesc: "Sleep architecture involves layered neurochemical systems—GABAergic inhibition, serotonergic tone, melatonergic timing, and neuropeptide signaling all converge to orchestrate restorative sleep. This proprietary blend recognizes that complexity, combining DSIP with complementary peptides that target distinct but overlapping pathways in sleep-wake regulation.",
-                applications: "Multi-peptide sleep architecture studies, circadian entrainment mechanisms, neurotransmitter interaction models in sleep, restorative sleep pathway research, sleep disorder neurochemistry"
             },
             {
                 name: "FOXO4-DRI (Proxofim) 10mg",
@@ -1907,7 +1868,7 @@
             {
                 name: "Bacteriostatic Water 30ml",
                 category: "supplies",
-                price: 6,
+                price: 10,
                 coa: false,
                 shortDesc: "Sterile water containing 0.9% benzyl alcohol for peptide reconstitution in laboratory settings.",
                 fullDesc: "Bacteriostatic water is sterile water containing 0.9% benzyl alcohol, which inhibits bacterial growth. Used in laboratory settings to reconstitute lyophilized peptides for in vitro research applications. Pharmaceutical-grade, sealed under sterile conditions.",
@@ -1927,16 +1888,16 @@
 
         // Category data
         var categoryData = [
-            { id: 'glp', name: 'GLP Receptor Agonists', count: 5 },
-            { id: 'tissue', name: 'Structural Research', count: 6 },
+            { id: 'glp', name: 'GLP', count: 5 },
+            { id: 'tissue', name: 'Regenerative', count: 6 },
             { id: 'gh', name: 'Growth Hormone', count: 5 },
-            { id: 'metabolic', name: 'Metabolic Pathway Reagents', count: 7 },
+            { id: 'metabolic', name: 'Metabolic', count: 7 },
             { id: 'antioxidants', name: 'Antioxidants', count: 7 },
-            { id: 'neuropeptides', name: 'Neuropeptides', count: 6 },
-            { id: 'longevity', name: 'Cellular Research Reagents', count: 3 },
+            { id: 'neuropeptides', name: 'Neuro', count: 6 },
+            { id: 'longevity', name: 'Cellular', count: 3 },
             { id: 'melanocortin', name: 'Melanocortin', count: 2 },
-            { id: 'advanced', name: 'Advanced', count: 1 },
-            { id: 'supplies', name: 'Supplies', count: 1 }
+            { id: 'advanced', name: 'Experimental', count: 1 },
+            { id: 'supplies', name: 'BAC Water', count: 1 }
         ];
 
         // Initialize
@@ -2094,7 +2055,7 @@
                 
                 var coaBadge = product.coa ? '<span class="coa-badge">COA ✓</span>' : '';
                 var btnClass = isOOS ? 'order-btn oos' : 'order-btn';
-                var btnText = isOOS ? 'Out of Stock' : 'Add to Cart';
+                var btnText = isOOS ? 'Notify Me' : 'Add to Cart';
                 
                 var slug = getProductSlug(product.name);
                 
@@ -2102,16 +2063,23 @@
                     '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
                     '<div class="product-name">' + product.name + '</div>' +
                     '<div class="product-price">$' + product.price + '</div>' +
+                    (isOOS ? '<div style="color:#EF4444;font-size:0.75rem;font-weight:600;margin:0.5rem 0">OUT OF STOCK</div>' : '') +
                     '<div class="card-actions"><button class="' + btnClass + '" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">' + btnText + '</button></div>';
                 
                 card.style.cursor = 'pointer';
                 card.addEventListener('click', function(e) {
                     var t = e.target;
-                    // Add to cart if clicking the button (not if OOS)
-                    if (t.classList.contains('order-btn') && !t.classList.contains('oos')) {
+                    // Handle button clicks
+                    if (t.classList.contains('order-btn')) {
                         e.preventDefault();
                         e.stopPropagation();
-                        addToCart(t.getAttribute('data-name'), parseFloat(t.getAttribute('data-price')));
+                        if (t.classList.contains('oos')) {
+                            // Out of stock - trigger notification
+                            notifyWhenAvailable(t.getAttribute('data-name'));
+                        } else {
+                            // In stock - add to cart
+                            addToCart(t.getAttribute('data-name'), parseFloat(t.getAttribute('data-price')));
+                        }
                         return;
                     }
                     // Everything else → product page
@@ -2127,16 +2095,16 @@
         // Get category display name
         function getCategoryName(cat) {
             var names = {
-                'neuropeptides': 'Neuropeptides',
-                'glp': 'GLP Agonists',
+                'neuropeptides': 'Neuro',
+                'glp': 'GLP',
                 'gh': 'Growth Hormone',
-                'tissue': 'Structural Research',
-                'metabolic': 'Metabolic Pathway Reagents',
+                'tissue': 'Regenerative',
+                'metabolic': 'Metabolic',
                 'antioxidants': 'Antioxidants',
-                'longevity': 'Cellular Research Reagents',
+                'longevity': 'Cellular',
                 'melanocortin': 'Melanocortin',
-                'advanced': 'Advanced',
-                'supplies': 'Supplies'
+                'advanced': 'Experimental',
+                'supplies': 'BAC Water'
             };
             return names[cat] || cat;
         }
@@ -2170,7 +2138,8 @@
             
             body += '<p><strong>For research purposes only.</strong> Not for human consumption.</p>';
             if (product.inStock === false) {
-                body += '<button class="contact-button" style="background:#E2E8F0;color:#94A3B8;cursor:not-allowed" disabled>Out of Stock</button>';
+                body += '<div style="text-align:center;margin-top:1rem"><p style="color:#EF4444;font-weight:600;margin-bottom:0.75rem">OUT OF STOCK</p>';
+                body += '<button class="contact-button" onclick="notifyWhenAvailable(\'' + product.name.replace(/'/g, "\\'") + '\')">Notify When Available</button></div>';
             } else {
                 body += '<button class="contact-button" onclick="addToCart(\'' + product.name.replace(/'/g, "\\'") + '\',' + product.price + ');closeModal();">Add to Cart</button>';
             }
@@ -2183,6 +2152,31 @@
         // Close modal
         function closeModal() {
             modal.classList.remove('active');
+        }
+
+        // Notify when available
+        function notifyWhenAvailable(productName) {
+            var email = prompt('Enter your email to be notified when ' + productName + ' is back in stock:');
+            if (!email) return;
+            
+            if (email.indexOf('@') === -1 || email.indexOf('.') === -1) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Send to Google Apps Script via GET (simpler for no-cors)
+            var url = 'https://script.google.com/macros/s/AKfycbzw7r3qHQR3rPiYlCEWl-eFmzlIUKdYLNOPzbKM--pD6k6WZNVAEct95d8ks2NyXZLp_g/exec' +
+                      '?action=notify' +
+                      '&product=' + encodeURIComponent(productName) +
+                      '&email=' + encodeURIComponent(email);
+
+            fetch(url, { mode: 'no-cors' })
+                .then(function() {
+                    alert('Thanks! We\'ll notify you at ' + email + ' when ' + productName + ' is back in stock.');
+                })
+                .catch(function() {
+                    alert('Thanks! We\'ll notify you at ' + email + ' when ' + productName + ' is back in stock.');
+                });
         }
 
         modalClose.addEventListener('click', closeModal);
