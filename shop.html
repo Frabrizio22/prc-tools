@@ -710,9 +710,9 @@
         }
 
         .price-per-mg {
-            font-size: 0.7rem;
-            color: #94A3B8;
-            font-weight: 500;
+            font-size: 0.75rem;
+            color: #64748B;
+            font-weight: 600;
             margin-bottom: 4px;
         }
 
@@ -1654,38 +1654,12 @@
                         <div class="featured-desc">Benchmark long-acting GLP-1 receptor agonist</div>
                     </div>
 
-                    <!-- Tirzepatide 20mg -->
-                    <div class="featured-card" onclick="openProductModal('Tirzepatide 20mg')">
-                        <div class="featured-badge oos">High Demand</div>
-                        <div class="featured-name">Tirzepatide 20mg</div>
-                        <div class="featured-price">$44.00</div>
-                        <div class="featured-desc">Dual GLP-1/GIP receptor agonist</div>
-                        <span class="oos-badge">BACK SOON</span>
-                    </div>
-
-                    <!-- Retatrutide 20mg -->
-                    <div class="featured-card" onclick="openProductModal('Retatrutide 20mg')">
-                        <div class="featured-badge oos">Triple Agonist</div>
-                        <div class="featured-name">Retatrutide 20mg</div>
-                        <div class="featured-price">$55.00</div>
-                        <div class="featured-desc">GLP-1/GIP/Glucagon triple agonist</div>
-                        <span class="oos-badge">BACK SOON</span>
-                    </div>
-
-                    <!-- BPC-157 10mg -->
-                    <div class="featured-card" onclick="openProductModal('BPC-157 10mg')">
-                        <div class="featured-badge">Regenerative Research</div>
-                        <div class="featured-name">BPC-157 10mg</div>
-                        <div class="featured-price">$29.00</div>
-                        <div class="featured-desc">Pentadecapeptide for tissue research</div>
-                    </div>
-
-                    <!-- TB-500 10mg -->
-                    <div class="featured-card" onclick="openProductModal('TB-500 10mg')">
-                        <div class="featured-badge">Regenerative Research</div>
-                        <div class="featured-name">TB-500 10mg</div>
-                        <div class="featured-price">$35.00</div>
-                        <div class="featured-desc">Thymosin Beta-4 fragment peptide</div>
+                    <!-- Cagrilintide 5mg -->
+                    <div class="featured-card" onclick="openProductModal('Cagrilintide 5mg')">
+                        <div class="featured-badge">GLP Research</div>
+                        <div class="featured-name">Cagrilintide 5mg</div>
+                        <div class="featured-price">$25.00</div>
+                        <div class="featured-desc">Long-acting amylin receptor agonist</div>
                     </div>
 
                     <!-- NAD+ 1000mg -->
@@ -1693,7 +1667,31 @@
                         <div class="featured-badge">Best Value</div>
                         <div class="featured-name">NAD+ 1000mg</div>
                         <div class="featured-price">$47.00</div>
-                        <div class="featured-desc">High-dose nicotinamide adenine dinucleotide</div>
+                        <div class="featured-desc">High-dose cellular redox cofactor</div>
+                    </div>
+
+                    <!-- KPV 10mg -->
+                    <div class="featured-card" onclick="openProductModal('KPV 10mg')">
+                        <div class="featured-badge">Regenerative Research</div>
+                        <div class="featured-name">KPV 10mg</div>
+                        <div class="featured-price">$36.00</div>
+                        <div class="featured-desc">Anti-inflammatory tripeptide from α-MSH</div>
+                    </div>
+
+                    <!-- LL-37 5mg -->
+                    <div class="featured-card" onclick="openProductModal('LL-37 5mg')">
+                        <div class="featured-badge">Regenerative Research</div>
+                        <div class="featured-name">LL-37 5mg</div>
+                        <div class="featured-price">$34.00</div>
+                        <div class="featured-desc">Human cathelicidin antimicrobial peptide</div>
+                    </div>
+
+                    <!-- Sermorelin 5mg -->
+                    <div class="featured-card" onclick="openProductModal('Sermorelin 5mg')">
+                        <div class="featured-badge">Growth Hormone Research</div>
+                        <div class="featured-name">Sermorelin 5mg</div>
+                        <div class="featured-price">$34.00</div>
+                        <div class="featured-desc">GHRH(1-29) growth hormone releasing fragment</div>
                     </div>
                 </div>
             </section>
@@ -2397,13 +2395,18 @@
                 return p.category === category;
             });
 
+            // Separate in-stock and out-of-stock products
+            var inStockProducts = filtered.filter(function(p) { return p.inStock !== false; });
+            var oosProducts = filtered.filter(function(p) { return p.inStock === false; });
+
             // Update catalog count
             var countEl = document.getElementById('catalogCount');
             if (countEl) {
                 countEl.textContent = filtered.length + (filtered.length === 1 ? ' product' : ' products');
             }
 
-            filtered.forEach(function(product) {
+            // Render in-stock products first
+            inStockProducts.forEach(function(product) {
                 var card = document.createElement('div');
                 var isOOS = product.inStock === false;
                 card.className = 'product-card' + (isOOS ? ' oos' : '');
@@ -2486,6 +2489,52 @@
                 
                 grid.appendChild(card);
             });
+
+            // Add "Restocking Soon" section if there are OOS products
+            if (oosProducts.length > 0) {
+                var divider = document.createElement('div');
+                divider.className = 'section-divider';
+                divider.style.gridColumn = '1 / -1';
+                divider.innerHTML = '<h3>Restocking Soon</h3>';
+                grid.appendChild(divider);
+
+                // Render out-of-stock products
+                oosProducts.forEach(function(product) {
+                    var card = document.createElement('div');
+                    card.className = 'product-card oos';
+                    card.setAttribute('data-product', JSON.stringify(product));
+                    
+                    var categoryClass = 'category-' + product.category;
+                    var categoryName = getCategoryName(product.category);
+                    
+                    var coaBadge = product.coa ? '<span class="coa-badge">COA ✓</span>' : '';
+                    var slug = getProductSlug(product.name);
+                    var pricePerMgHtml = getPricePerMg(product.name, product.price);
+                    
+                    card.innerHTML = 
+                        '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
+                        '<div class="product-name">' + product.name + '</div>' +
+                        '<div class="product-price">$' + product.price + '</div>' +
+                        pricePerMgHtml +
+                        '<div class="oos-badge">BACK SOON</div>' +
+                        '<div class="card-actions"><button class="order-btn oos" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">Notify Me</button></div>';
+                    
+                    card.style.cursor = 'pointer';
+                    card.addEventListener('click', function(e) {
+                        var t = e.target;
+                        
+                        if (t.classList.contains('order-btn')) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            notifyWhenAvailable(t.getAttribute('data-name'));
+                        } else if (!t.classList.contains('order-btn')) {
+                            window.location.href = 'products/' + slug + '.html';
+                        }
+                    });
+                    
+                    grid.appendChild(card);
+                });
+            }
         }
 
         // Get category display name
