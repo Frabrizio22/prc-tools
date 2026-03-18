@@ -1379,6 +1379,150 @@
         }
 
         .mobile-overlay.active { display: block; }
+
+        /* Featured Products Section */
+        .featured-section {
+            margin-bottom: 3rem;
+        }
+
+        .featured-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-header h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0A1628;
+            margin-bottom: 0.5rem;
+        }
+
+        .featured-trust {
+            font-size: 0.75rem;
+            color: #64748B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .featured-trust::before,
+        .featured-trust::after {
+            content: '•';
+            color: #CBD5E1;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .featured-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .featured-card {
+            background: #FFFFFF;
+            border: 2px solid #2B7DE9;
+            border-radius: 10px;
+            padding: 14px;
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .featured-card:hover {
+            border-color: #1E40AF;
+            box-shadow: 0 6px 16px rgba(43, 125, 233, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #2B7DE9;
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .featured-badge.oos {
+            background: #3B82F6;
+        }
+
+        .featured-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-bottom: 6px;
+            padding-right: 90px;
+        }
+
+        .featured-price {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #2B7DE9;
+            margin-bottom: 6px;
+        }
+
+        .featured-desc {
+            font-size: 0.7rem;
+            color: #64748B;
+            line-height: 1.4;
+        }
+
+        .oos-badge {
+            display: inline-block;
+            background: #EFF6FF;
+            color: #2563EB;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-top: 4px;
+        }
+
+        .section-divider {
+            margin: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .section-divider h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #475569;
+            display: inline-block;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .section-divider h3::before,
+        .section-divider h3::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 60px;
+            height: 1px;
+            background: #E2E8F0;
+        }
+
+        .section-divider h3::before {
+            right: 100%;
+        }
+
+        .section-divider h3::after {
+            left: 100%;
+        }
     </style>
 </head>
 <body>
@@ -1490,6 +1634,73 @@
                     <button class="filter-pill" data-category="advanced">Experimental</button>
                     <button class="filter-pill" data-category="supplies">BAC Water</button>
                 </div>
+            </div>
+
+            <!-- Featured Products Section -->
+            <section class="featured-section">
+                <div class="featured-header">
+                    <h2>Most Popular</h2>
+                    <div class="featured-trust">
+                        Trusted by researchers nationwide • All batches third-party tested • Ships next business day
+                    </div>
+                </div>
+
+                <div class="featured-grid">
+                    <!-- Semaglutide 10mg -->
+                    <div class="featured-card" onclick="openProductModal('Semaglutide 10mg')">
+                        <div class="featured-badge">Most Ordered</div>
+                        <div class="featured-name">Semaglutide 10mg</div>
+                        <div class="featured-price">$30.00</div>
+                        <div class="featured-desc">Benchmark long-acting GLP-1 receptor agonist</div>
+                    </div>
+
+                    <!-- Tirzepatide 20mg -->
+                    <div class="featured-card" onclick="openProductModal('Tirzepatide 20mg')">
+                        <div class="featured-badge oos">High Demand</div>
+                        <div class="featured-name">Tirzepatide 20mg</div>
+                        <div class="featured-price">$44.00</div>
+                        <div class="featured-desc">Dual GLP-1/GIP receptor agonist</div>
+                        <span class="oos-badge">BACK SOON</span>
+                    </div>
+
+                    <!-- Retatrutide 20mg -->
+                    <div class="featured-card" onclick="openProductModal('Retatrutide 20mg')">
+                        <div class="featured-badge oos">Triple Agonist</div>
+                        <div class="featured-name">Retatrutide 20mg</div>
+                        <div class="featured-price">$55.00</div>
+                        <div class="featured-desc">GLP-1/GIP/Glucagon triple agonist</div>
+                        <span class="oos-badge">BACK SOON</span>
+                    </div>
+
+                    <!-- BPC-157 10mg -->
+                    <div class="featured-card" onclick="openProductModal('BPC-157 10mg')">
+                        <div class="featured-badge">Regenerative Research</div>
+                        <div class="featured-name">BPC-157 10mg</div>
+                        <div class="featured-price">$29.00</div>
+                        <div class="featured-desc">Pentadecapeptide for tissue research</div>
+                    </div>
+
+                    <!-- TB-500 10mg -->
+                    <div class="featured-card" onclick="openProductModal('TB-500 10mg')">
+                        <div class="featured-badge">Regenerative Research</div>
+                        <div class="featured-name">TB-500 10mg</div>
+                        <div class="featured-price">$35.00</div>
+                        <div class="featured-desc">Thymosin Beta-4 fragment peptide</div>
+                    </div>
+
+                    <!-- NAD+ 1000mg -->
+                    <div class="featured-card" onclick="openProductModal('NAD+ 1000mg')">
+                        <div class="featured-badge">Best Value</div>
+                        <div class="featured-name">NAD+ 1000mg</div>
+                        <div class="featured-price">$47.00</div>
+                        <div class="featured-desc">High-dose nicotinamide adenine dinucleotide</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Divider -->
+            <div class="section-divider">
+                <h3>All Peptides</h3>
             </div>
 
             <!-- Product Grid -->
