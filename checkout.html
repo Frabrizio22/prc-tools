@@ -1160,25 +1160,22 @@
                 savedOrder.items.push({ name: cart[i].name, price: cart[i].price, quantity: cart[i].quantity });
             }
 
-            // Only notify immediately for manual payment methods (Zelle, etc.)
-            // Bankful and Crypto notify via callback after payment confirms
-            if (selectedPayment !== 'bankful' && selectedPayment !== 'crypto') {
-                notifyOrder(orderNumber, savedOrder, function(success, log) {
-                    if (!success) {
-                        console.error('[CHECKOUT] ORDER NOTIFICATION FAILED:', log);
-                        var failedOrders = JSON.parse(localStorage.getItem('prcFailedNotifications') || '[]');
-                        failedOrders.push({
-                            order: orderNumber,
-                            timestamp: new Date().toISOString(),
-                            log: log
-                        });
-                        localStorage.setItem('prcFailedNotifications', JSON.stringify(failedOrders));
-                        alert('⚠️ Order ' + orderNumber + ' created but email notification may have failed.\n\nPlease save this order number and contact support@prcpeptides.com if you don\'t receive confirmation within 10 minutes.\n\nOrder #: ' + orderNumber);
-                    } else {
-                        console.log('[CHECKOUT] ✓ Order notification sent successfully');
-                    }
-                });
-            }
+            // Notify for ALL payment methods (including Bankful)
+            notifyOrder(orderNumber, savedOrder, function(success, log) {
+                if (!success) {
+                    console.error('[CHECKOUT] ORDER NOTIFICATION FAILED:', log);
+                    var failedOrders = JSON.parse(localStorage.getItem('prcFailedNotifications') || '[]');
+                    failedOrders.push({
+                        order: orderNumber,
+                        timestamp: new Date().toISOString(),
+                        log: log
+                    });
+                    localStorage.setItem('prcFailedNotifications', JSON.stringify(failedOrders));
+                    alert('⚠️ Order ' + orderNumber + ' created but email notification may have failed.\n\nPlease save this order number and contact support@prcpeptides.com if you don\'t receive confirmation within 10 minutes.\n\nOrder #: ' + orderNumber);
+                } else {
+                    console.log('[CHECKOUT] ✓ Order notification sent successfully');
+                }
+            });
 
             // If Bankful, generate HPP signature and redirect
             if (selectedPayment === 'bankful') {
