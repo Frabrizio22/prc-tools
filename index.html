@@ -1426,11 +1426,12 @@
             background: #FFFFFF;
             border: 2px solid #2B7DE9;
             border-radius: 10px;
-            padding: 14px;
+            padding: 16px;
             transition: all 0.2s;
-            cursor: pointer;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .featured-card:hover {
@@ -1472,10 +1473,37 @@
             margin-bottom: 6px;
         }
 
+        .featured-price-per-mg {
+            font-size: 0.75rem;
+            color: #64748B;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
         .featured-desc {
             font-size: 0.8rem;
             color: #475569;
             line-height: 1.5;
+            margin-bottom: auto;
+            padding-bottom: 12px;
+        }
+
+        .featured-cta {
+            width: 100%;
+            background: #2B7DE9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 8px;
+        }
+
+        .featured-cta:hover {
+            background: #1E40AF;
         }
 
         .oos-badge {
@@ -1619,45 +1647,57 @@
 
                 <div class="featured-grid">
                     <!-- Semaglutide 10mg -->
-                    <div class="featured-card" onclick="openProductModal('Semaglutide 10mg')">
+                    <div class="featured-card">
                         <div class="featured-name">Semaglutide 10mg</div>
                         <div class="featured-price">$30.00</div>
+                        <div class="featured-price-per-mg">$3.00/mg</div>
                         <div class="featured-desc">Benchmark long-acting GLP-1 receptor agonist</div>
+                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('Semaglutide 10mg')">View Product</button>
                     </div>
 
                     <!-- Cagrilintide 5mg -->
-                    <div class="featured-card" onclick="openProductModal('Cagrilintide 5mg')">
+                    <div class="featured-card">
                         <div class="featured-name">Cagrilintide 5mg</div>
                         <div class="featured-price">$25.00</div>
+                        <div class="featured-price-per-mg">$5.00/mg</div>
                         <div class="featured-desc">Long-acting amylin receptor agonist</div>
+                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('Cagrilintide 5mg')">View Product</button>
                     </div>
 
                     <!-- NAD+ 1000mg -->
-                    <div class="featured-card" onclick="openProductModal('NAD+ 1000mg')">
+                    <div class="featured-card">
                         <div class="featured-name">NAD+ 1000mg</div>
                         <div class="featured-price">$47.00</div>
+                        <div class="featured-price-per-mg">$0.05/mg</div>
                         <div class="featured-desc">High-dose cellular redox cofactor</div>
+                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('NAD+ 1000mg')">View Product</button>
                     </div>
 
                     <!-- KPV 10mg -->
-                    <div class="featured-card" onclick="openProductModal('KPV 10mg')">
+                    <div class="featured-card">
                         <div class="featured-name">KPV 10mg</div>
                         <div class="featured-price">$36.00</div>
+                        <div class="featured-price-per-mg">$3.60/mg</div>
                         <div class="featured-desc">Anti-inflammatory tripeptide from α-MSH</div>
+                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('KPV 10mg')">View Product</button>
                     </div>
 
                     <!-- LL-37 5mg -->
-                    <div class="featured-card" onclick="openProductModal('LL-37 5mg')">
+                    <div class="featured-card">
                         <div class="featured-name">LL-37 5mg</div>
                         <div class="featured-price">$34.00</div>
+                        <div class="featured-price-per-mg">$6.80/mg</div>
                         <div class="featured-desc">Human cathelicidin antimicrobial peptide</div>
+                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('LL-37 5mg')">View Product</button>
                     </div>
 
                     <!-- Sermorelin 5mg -->
-                    <div class="featured-card" onclick="openProductModal('Sermorelin 5mg')">
+                    <div class="featured-card">
                         <div class="featured-name">Sermorelin 5mg</div>
                         <div class="featured-price">$34.00</div>
+                        <div class="featured-price-per-mg">$6.80/mg</div>
                         <div class="featured-desc">GHRH(1-29) growth hormone releasing fragment</div>
+                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('Sermorelin 5mg')">View Product</button>
                     </div>
                 </div>
             </section>
@@ -2398,7 +2438,7 @@
                 var categoryClass = 'category-' + product.category;
                 var categoryName = getCategoryName(product.category);
                 
-                var coaBadge = product.coa ? '<span class="coa-badge">COA ✓</span>' : '';
+                var coaBadge = product.coa ? '<span class="coa-badge">COA Verified</span>' : '';
                 var btnClass = isOOS ? 'order-btn oos' : 'order-btn';
                 var btnText = isOOS ? 'Notify Me' : 'Add to Cart';
                 
@@ -2490,7 +2530,7 @@
                     var categoryClass = 'category-' + product.category;
                     var categoryName = getCategoryName(product.category);
                     
-                    var coaBadge = product.coa ? '<span class="coa-badge">COA ✓</span>' : '';
+                    var coaBadge = product.coa ? '<span class="coa-badge">COA Verified</span>' : '';
                     var slug = getProductSlug(product.name);
                     var pricePerMgHtml = getPricePerMg(product.name, product.price);
                     
