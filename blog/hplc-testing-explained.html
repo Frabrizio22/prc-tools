@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPLC Testing Explained: How to Read Your Peptide COA | PRC Peptides</title>
+    <meta name="description" content="Learn to read peptide HPLC reports like a pro. Understand chromatography peaks, purity percentages, and red flags in Certificate of Analysis documents.">
+    <link rel="canonical" href="https://prcpeptides.com/blog/hplc-testing-explained.html">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.7;
+            color: #1e293b;
+            background: #ffffff;
+        }
+        header {
+            background: #0f172a;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #1e293b;
+        }
+        .logo {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        .logo span { color: #3b82f6; }
+        article {
+            max-width: 720px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+        .meta {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            color: #1e293b;
+        }
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 2rem 0 0.75rem;
+            color: #334155;
+        }
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            color: #334155;
+        }
+        strong { font-weight: 600; color: #1e293b; }
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        li {
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+            color: #334155;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #e2e8f0;
+        }
+        th {
+            background: #0f172a;
+            color: #fff;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        blockquote {
+            background: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+        .callout {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 1.25rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        .cta-box h2 {
+            color: white;
+            margin-top: 0;
+        }
+        .cta-box p {
+            color: rgba(255,255,255,0.95);
+        }
+        .cta-box a {
+            color: white;
+            text-decoration: underline;
+        }
+        .related {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+        .related h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+        .related ul {
+            margin-left: 0;
+            list-style: none;
+        }
+        .related li {
+            margin-bottom: 0.5rem;
+        }
+        .related a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .related a:hover {
+            text-decoration: underline;
+        }
+        .disclaimer {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 3rem 0;
+            font-size: 0.9rem;
+            border-radius: 0 8px 8px 0;
+        }
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.3rem; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="https://prcpeptides.com/" class="logo">PRC <span>PEPTIDES</span></a>
+    </header>
+
+    <article>
+        <h1>HPLC Testing Explained: How to Read Your Peptide COA</h1>
+        
+        <div class="meta">
+            Published March 18, 2026 | Reading time: 7 minutes
+        </div>
+
+        <p>You just received a peptide vial with a Certificate of Analysis (COA) attached. The lab report shows "99.2% purity" with colorful chromatography graphs. But what does any of it actually mean?</p>
+
+        <p>Most researchers glance at the purity percentage and move on. <strong>That's a mistake.</strong> Understanding HPLC testing is the difference between trusting your research data and wasting months on degraded compounds.</p>
+
+        <p>This guide breaks down exactly what HPLC measures, how to interpret chromatography reports, and which red flags invalidate a COA entirely.</p>
+
+        <h2>What HPLC Actually Measures</h2>
+
+        <p><strong>High-Performance Liquid Chromatography (HPLC)</strong> is the gold standard for peptide purity testing. It separates compounds in a sample and measures their relative concentrations.</p>
+
+        <h3>The Process:</h3>
+        <ol>
+            <li><strong>Sample injection</strong> - Dissolved peptide enters the system</li>
+            <li><strong>Column separation</strong> - Different molecules travel at different speeds through a packed column</li>
+            <li><strong>Detection</strong> - UV detector measures compounds as they exit (usually at 220nm wavelength for peptides)</li>
+            <li><strong>Data output</strong> - Computer generates a chromatogram (the graph you see on COAs)</li>
+        </ol>
+
+        <h3>What HPLC Tells You:</h3>
+        <ul>
+            <li><strong>Purity percentage</strong> - How much of your sample is the target peptide vs impurities</li>
+            <li><strong>Retention time</strong> - When the main peptide peak appears (can support identity claims but doesn't confirm it alone)</li>
+            <li><strong>Contaminant profile</strong> - What else is in the vial (deletion sequences, related peptides, synthesis byproducts)</li>
+        </ul>
+
+        <h3>What HPLC Does NOT Tell You:</h3>
+        <ul>
+            <li><strong>Chemical identity</strong> - A 98% pure sample could be the wrong peptide entirely</li>
+            <li><strong>Exact molecular structure</strong> - HPLC can't distinguish between similar peptides</li>
+            <li><strong>Net peptide content</strong> - HPLC purity does not account for water content, salts, or counter-ions</li>
+            <li><strong>Biological activity</strong> - Purity doesn't guarantee the peptide works as expected</li>
+        </ul>
+
+        <p><strong>This is why mass spectrometry (MS) verification matters</strong> - HPLC measures how much, MS confirms what.</p>
+
+        <h2>Reading a Chromatography Report</h2>
+
+        <p>Every HPLC report has three key sections: the chromatogram, integration table, and method parameters.</p>
+
+        <h3>1. The Chromatogram (The Graph)</h3>
+
+        <p>The x-axis shows <strong>time</strong> (usually 0-30 minutes). The y-axis shows <strong>signal intensity</strong> (how much UV light the detector measured).</p>
+
+        <p><strong>What you're looking for:</strong></p>
+
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Good Sign</th>
+                <th>Red Flag</th>
+            </tr>
+            <tr>
+                <td><strong>Main peak</strong></td>
+                <td>Single dominant peak at expected retention time</td>
+                <td>Multiple peaks of similar height</td>
+            </tr>
+            <tr>
+                <td><strong>Peak shape</strong></td>
+                <td>Narrow, symmetrical Gaussian curve</td>
+                <td>Broad, tailing, or split peaks</td>
+            </tr>
+            <tr>
+                <td><strong>Baseline</strong></td>
+                <td>Flat and stable</td>
+                <td>Drifting or noisy baseline</td>
+            </tr>
+            <tr>
+                <td><strong>Integration</strong></td>
+                <td>Clean start/end points on main peak</td>
+                <td>Poorly defined peak boundaries</td>
+            </tr>
+        </table>
+
+        <p><strong>Example interpretation:</strong></p>
+
+        <blockquote>"A sharp peak at 18.2 minutes representing 98.4% of total area, with two small impurity peaks at 17.1 min (0.8%) and 19.5 min (0.7%)."</blockquote>
+
+        <p>This is a high-quality result. The main peptide dominates, impurities are minimal and separated.</p>
+
+        <h3>2. Integration Table (The Numbers)</h3>
+
+        <p>This table lists every detected peak with its area percentage.</p>
+
+        <p><strong>Critical data points:</strong></p>
+
+        <ul>
+            <li><strong>Retention time (RT)</strong> - Should be consistent across batches (typically within ±0.2 min as a guideline)</li>
+            <li><strong>Area %</strong> - Research-grade peptides commonly show >95% main peak area</li>
+            <li><strong>Peak width</strong> - Narrow peaks (often <0.5 min) typically indicate good column performance</li>
+        </ul>
+
+        <p><strong>Red flags in integration:</strong></p>
+
+        <ul>
+            <li>Main peak <94% without explanation</li>
+            <li>Retention time shifts >0.5 min from batch to batch</li>
+            <li>Unknown peaks >3% (could be synthesis errors or degradation)</li>
+        </ul>
+
+        <h3>3. Method Parameters</h3>
+
+        <p>The bottom of COAs lists test conditions. These matter because <strong>different methods give different results.</strong></p>
+
+        <p><strong>Key parameters:</strong></p>
+
+        <ul>
+            <li><strong>Column type</strong> - C18 reverse-phase is standard for peptides</li>
+            <li><strong>Mobile phase</strong> - Usually acetonitrile/water with TFA modifier</li>
+            <li><strong>Flow rate</strong> - Typically 1.0 mL/min</li>
+            <li><strong>Detection wavelength</strong> - 220nm standard for peptide bonds</li>
+        </ul>
+
+        <p><strong>Why this matters:</strong> HPLC purity is method-dependent—changing the column, gradient, or detection wavelength can shift results. A vendor could optimize methods to inflate purity numbers. Reputable labs use standardized, reproducible protocols that minimize method manipulation.</p>
+
+        <h2>Common HPLC Red Flags</h2>
+
+        <p>Not all 98%+ purity reports are legitimate. Here's what to watch for:</p>
+
+        <p><em>(For broader vendor evaluation criteria, see our guide on <a href="https://prcpeptides.com/blog/5-red-flags-fake-peptide-vendors.html">5 Red Flags When Buying Research Peptides</a>.)</em></p>
+
+        <h3>🚩 Red Flag #1: No Chromatogram Included</h3>
+
+        <p>Some COAs show only a purity number without the actual graph. <strong>This is worthless.</strong></p>
+
+        <p>Without seeing the chromatogram, you can't verify:</p>
+        <ul>
+            <li>Peak shape quality</li>
+            <li>Impurity profile</li>
+            <li>Whether integration was done correctly</li>
+        </ul>
+
+        <p><strong>What to do:</strong> Request full chromatogram. If vendor refuses, assume the report is fake or cherry-picked.</p>
+
+        <h3>🚩 Red Flag #2: Suspiciously Perfect Numbers</h3>
+
+        <p>Real HPLC data has variation. Batch-to-batch purity typically varies by 0.5-2%.</p>
+
+        <p><strong>Suspicious pattern:</strong></p>
+        <ul>
+            <li>Batch A: 98.7%</li>
+            <li>Batch B: 98.7%</li>
+            <li>Batch C: 98.7%</li>
+        </ul>
+
+        <p>Either the vendor is:</p>
+        <ol>
+            <li>Using the same COA for multiple batches (fraud)</li>
+            <li>Rounding/manipulating data</li>
+            <li>Cherry-picking best results</li>
+        </ol>
+
+        <p><strong>What legitimate variation looks like:</strong></p>
+        <ul>
+            <li>Batch A: 97.8%</li>
+            <li>Batch B: 98.4%</li>
+            <li>Batch C: 98.1%</li>
+        </ul>
+
+        <h3>🚩 Red Flag #3: Old Test Dates</h3>
+
+        <p>Peptides degrade over time, especially in solution or if stored improperly.</p>
+
+        <p><strong>Timeline that makes sense:</strong></p>
+        <ul>
+            <li>Synthesis date: January 2026</li>
+            <li>HPLC test date: January 2026 (within days of synthesis)</li>
+            <li>Sale date: February 2026 (within 1-2 months)</li>
+        </ul>
+
+        <p><strong>Red flag timeline:</strong></p>
+        <ul>
+            <li>Synthesis date: [Not listed]</li>
+            <li>HPLC test date: June 2025</li>
+            <li>Sale date: March 2026 (9 months later)</li>
+        </ul>
+
+        <p><strong>Why this matters:</strong> Old COAs may no longer reflect current batch quality, especially if storage conditions, formulation state, and handling history are unknown. Legitimate vendors test batches close to sale date.</p>
+
+        <h3>🚩 Red Flag #4: Generic "In-House" Testing</h3>
+
+        <p>Some vendors claim "tested by our internal lab" without naming the facility or providing accreditation.</p>
+
+        <p><strong>Questions to ask:</strong></p>
+        <ul>
+            <li>What is the lab's name and location?</li>
+            <li>Is the lab ISO 17025 accredited?</li>
+            <li>Can results be independently verified?</li>
+        </ul>
+
+        <p><strong>Gold standard:</strong> Third-party labs like Janoshik Analytical that offer public verification systems, allowing you to independently confirm test results.</p>
+
+        <h3>🚩 Red Flag #5: Mismatched Retention Times</h3>
+
+        <p>If you order the same peptide multiple times, the retention time should be nearly identical (typically within 0.2 minutes as a rule of thumb).</p>
+
+        <p><strong>Example - Legitimate:</strong></p>
+        <ul>
+            <li>Order #1: Semaglutide, RT = 18.2 min</li>
+            <li>Order #2: Semaglutide, RT = 18.1 min</li>
+        </ul>
+
+        <p><strong>Example - Suspicious:</strong></p>
+        <ul>
+            <li>Order #1: Semaglutide, RT = 18.2 min</li>
+            <li>Order #2: Semaglutide, RT = 21.7 min</li>
+        </ul>
+
+        <p>Either the method changed dramatically (unusual) or you received a different compound.</p>
+
+        <h2>Beyond HPLC: Why You Need MS Verification</h2>
+
+        <p>HPLC measures <strong>purity</strong> (how much). Mass spectrometry measures <strong>identity</strong> (what).</p>
+
+        <p>A real example from the research community:</p>
+
+        <blockquote>Vendor sold "BPC-157" with 98% HPLC purity. Mass spec revealed it was actually a cheap pentapeptide with similar retention time. Researchers wasted 6 months on invalid protocols.</blockquote>
+
+        <p><strong>The solution: Dual-method verification</strong></p>
+
+        <ol>
+            <li><strong>HPLC-DAD</strong> confirms purity and impurity profile</li>
+            <li><strong>LC-MS or MS/MS</strong> confirms molecular weight and peptide sequence</li>
+        </ol>
+
+        <p>Reputable vendors provide both. Budget vendors rely on HPLC alone because MS testing costs 2-3x more.</p>
+
+        <p><a href="https://vantixbio.com/blog/identity-vs-purity">Learn more: Identity vs Purity: Why Both Matter →</a></p>
+
+        <h2>How to Verify a COA Independently</h2>
+
+        <p>Many labs now offer public verification systems. Here's how to use them:</p>
+
+        <h3>Janoshik Analytical (Most Common)</h3>
+
+        <ol>
+            <li>Find the <strong>Task ID</strong> on your COA (usually 6-digit number)</li>
+            <li>Visit janoshik.com/verify</li>
+            <li>Enter Task ID</li>
+            <li>Compare displayed report to your COA PDF</li>
+        </ol>
+
+        <p><strong>What you're checking:</strong></p>
+        <ul>
+            <li>Report exists in Janoshik's database</li>
+            <li>All data matches (purity, RT, test date)</li>
+            <li>Sample description matches vendor's product</li>
+        </ul>
+
+        <p><strong>Red flag:</strong> Task ID doesn't exist, or report shows different compound/purity than vendor claims.</p>
+
+        <h3>Other Third-Party Labs</h3>
+
+        <p>Some labs don't have public databases, but you can:</p>
+        <ol>
+            <li>Contact the lab directly with batch number</li>
+            <li>Request confirmation that report is legitimate</li>
+            <li>Verify test was performed on date claimed</li>
+        </ol>
+
+        <p><strong>Pro tip:</strong> Legitimate vendors have no problem with you verifying their COAs. Pushback or "proprietary testing" claims are red flags.</p>
+
+        <h2>What "Good Enough" Purity Actually Means</h2>
+
+        <p>Not every research application needs 99%+ purity. Here's the practical hierarchy:</p>
+
+        <table>
+            <tr>
+                <th>Purity Range</th>
+                <th>Use Case</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td><strong>95-97%</strong></td>
+                <td>Preliminary screening, non-critical research</td>
+                <td>Acceptable if price reflects it</td>
+            </tr>
+            <tr>
+                <td><strong>97-98.5%</strong></td>
+                <td>Standard research applications</td>
+                <td>Sweet spot for most protocols</td>
+            </tr>
+            <tr>
+                <td><strong>98.5-99.5%</strong></td>
+                <td>High-precision work, publication-grade studies</td>
+                <td>Premium pricing justified</td>
+            </tr>
+            <tr>
+                <td><strong>>99.5%</strong></td>
+                <td>Rarely necessary outside pharmaceutical development</td>
+                <td>Diminishing returns on cost</td>
+            </tr>
+        </table>
+
+        <p><strong>The bigger issue:</strong> 97% purity from a verified lab beats "99% purity" from an unverified vendor. <strong>Trust the testing source more than the number.</strong></p>
+
+        <div class="cta-box">
+            <h2>PRC's Verification Standard</h2>
+
+            <p>Every PRC peptide includes:</p>
+
+            <p>✓ <strong>Janoshik HPLC-DAD testing</strong> (publicly verifiable)<br>
+            ✓ <strong>Full chromatogram</strong> included with every order<br>
+            ✓ <strong>Batch-specific COAs</strong> (not recycled reports)<br>
+            ✓ <strong>MS verification</strong> on select high-demand peptides</p>
+
+            <p><a href="https://prcpeptides.com/shop.html" style="color:white;"><strong>Browse verified products →</strong></a></p>
+
+            <p>Want to compare testing standards across vendors? Our <a href="https://prcpeptides.com/compare.html" style="color:white;">comparison tool</a> shows which suppliers offer legitimate third-party verification.</p>
+
+            <p><strong>See testing in action:</strong> Check COAs for our <a href="https://prcpeptides.com/products/semaglutide.html" style="color:white;">Semaglutide</a>, <a href="https://prcpeptides.com/products/bpc-157.html" style="color:white;">BPC-157</a>, or <a href="https://prcpeptides.com/products/nad.html" style="color:white;">NAD+</a> products.</p>
+        </div>
+
+        <h2>The Bottom Line</h2>
+
+        <p><strong>HPLC purity is critical - but only if you can verify it.</strong></p>
+
+        <p>Before trusting a COA:</p>
+        <ol>
+            <li>Demand full chromatogram (not just summary numbers)</li>
+            <li>Verify report with the testing lab</li>
+            <li>Check test date is recent (<3 months)</li>
+            <li>Confirm retention time consistency across batches</li>
+            <li>Require MS verification for high-stakes research</li>
+        </ol>
+
+        <p>A $5 cheaper peptide with fake testing will cost you months of invalid data. Spend the extra time verifying COAs upfront - your research depends on it.</p>
+
+        <div class="related">
+            <h3>Related Reading</h3>
+            <ul>
+                <li><a href="https://prcpeptides.com/blog/5-red-flags-fake-peptide-vendors.html">5 Red Flags When Buying Research Peptides</a></li>
+                <li><a href="https://vantixbio.com/blog/identity-vs-purity">Identity vs Purity: Why Both Matter</a> (Vantix Bio)</li>
+                <li><a href="https://prcpeptides.com/blog/price-per-mg.html">Price Per Mg: The Real Cost of Cheap Peptides</a> <em>(coming Thursday)</em></li>
+            </ul>
+        </div>
+
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> This content is for research and educational purposes only. PRC Peptides products are sold as research chemicals and are not intended for human consumption or therapeutic use.
+        </div>
+
+    </article>
+
+</body>
+</html>
