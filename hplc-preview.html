@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HPLC Testing Explained - PREVIEW</title>
+    <title>HPLC Testing Explained - PREVIEW (EDITED)</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -17,7 +17,7 @@
         h1 { font-size: 32px; font-weight: 800; margin-bottom: 10px; }
         h2 { font-size: 24px; font-weight: 800; margin-top: 40px; color: #2563EB; }
         h3 { font-size: 18px; font-weight: 700; margin-top: 20px; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; overflow-x: auto; display: block; }
         th, td { padding: 12px; text-align: left; border: 1px solid #ddd; }
         th { background: #2563EB; color: white; font-weight: 700; }
         blockquote { 
@@ -28,6 +28,13 @@
             font-style: italic;
         }
         .meta { color: #64748B; font-size: 14px; margin-bottom: 30px; }
+        .edit-note {
+            background: #d1f4e0;
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
         .cta { 
             background: #2563EB; 
             color: white; 
@@ -49,6 +56,15 @@
     </style>
 </head>
 <body>
+    <div class="edit-note">
+        <strong>✅ EDITED VERSION</strong> - Addressed all OpenAI feedback:<br>
+        • Softened HPLC identity claims (RT now "supports" not "confirms")<br>
+        • Removed USP methods claim<br>
+        • Made degradation language less specific<br>
+        • Verified lab names (kept only Janoshik with public verification)<br>
+        • Changed hard thresholds to "guidelines" and "rules of thumb"
+    </div>
+
     <h1>HPLC Testing Explained: How to Read Your Peptide COA</h1>
     <div class="meta">Published: March 18, 2026 | Reading time: 7 min</div>
 
@@ -75,7 +91,7 @@
     <h3>What HPLC Tells You:</h3>
     <ul>
         <li><strong>Purity percentage</strong> - How much of your sample is the target peptide vs impurities</li>
-        <li><strong>Retention time</strong> - When the main peptide peak appears (helps confirm identity)</li>
+        <li><strong>Retention time</strong> - When the main peptide peak appears (can support identity claims but doesn't confirm it alone) <span style="background: #d1f4e0; padding: 2px 6px;">✓ EDITED</span></li>
         <li><strong>Contaminant profile</strong> - What else is in the vial (deletion sequences, related peptides, synthesis byproducts)</li>
     </ul>
 
@@ -139,9 +155,9 @@
     <p><strong>Critical data points:</strong></p>
 
     <ul>
-        <li><strong>Retention time (RT)</strong> - Should match reference standard (±0.2 min tolerance)</li>
-        <li><strong>Area %</strong> - Main peak should be &gt;95% for research-grade peptides</li>
-        <li><strong>Peak width</strong> - Narrow peaks (&lt;0.5 min) indicate good column performance</li>
+        <li><strong>Retention time (RT)</strong> - Should be consistent across batches (typically within ±0.2 min as a guideline) <span style="background: #d1f4e0; padding: 2px 6px;">✓ EDITED</span></li>
+        <li><strong>Area %</strong> - Research-grade peptides commonly show &gt;95% main peak area <span style="background: #d1f4e0; padding: 2px 6px;">✓ EDITED</span></li>
+        <li><strong>Peak width</strong> - Narrow peaks (often &lt;0.5 min) typically indicate good column performance <span style="background: #d1f4e0; padding: 2px 6px;">✓ EDITED</span></li>
     </ul>
 
     <p><strong>Red flags in integration:</strong></p>
@@ -165,7 +181,7 @@
         <li><strong>Detection wavelength</strong> - 220nm standard for peptide bonds</li>
     </ul>
 
-    <p><strong>Why this matters:</strong> A vendor could optimize methods to inflate purity numbers. Reputable labs use standardized protocols (like USP methods) that can't be gamed.</p>
+    <p><strong>Why this matters:</strong> A vendor could optimize methods to inflate purity numbers. Reputable labs use standardized, reproducible protocols that minimize method manipulation. <span style="background: #d1f4e0; padding: 2px 6px;">✓ EDITED</span></p>
 
     <h2>Common HPLC Red Flags</h2>
 
@@ -227,7 +243,7 @@
         <li>Sale date: March 2026 (9 months later)</li>
     </ul>
 
-    <p><strong>Why this matters:</strong> That 98% purity from June might be 92% by March due to degradation. Legitimate vendors test batches close to sale date.</p>
+    <p><strong>Why this matters:</strong> Old COAs may no longer reflect current batch quality, especially if storage conditions, formulation state, and handling history are unknown. Legitimate vendors test batches close to sale date. <span style="background: #d1f4e0; padding: 2px 6px;">✓ EDITED</span></p>
 
     <h3>🚩 Red Flag #4: Generic "In-House" Testing</h3>
 
@@ -240,11 +256,11 @@
         <li>Can results be independently verified?</li>
     </ul>
 
-    <p><strong>Gold standard:</strong> Third-party labs like Janoshik Analytical (public verification), Finntick (ISO accredited), or Kronos Science (ISO accredited) that allow you to verify reports directly.</p>
+    <p><strong>Gold standard:</strong> Third-party labs like Janoshik Analytical that offer public verification systems, allowing you to independently confirm test results. <span style="background: #d1f4e0; padding: 2px 6px;">✓ EDITED</span></p>
 
     <h3>🚩 Red Flag #5: Mismatched Retention Times</h3>
 
-    <p>If you order the same peptide multiple times, the retention time should be nearly identical (within 0.2 minutes).</p>
+    <p>If you order the same peptide multiple times, the retention time should be nearly identical (typically within 0.2 minutes as a rule of thumb). <span style="background: #d1f4e0; padding: 2px 6px;">✓ EDITED</span></p>
 
     <p><strong>Example - Legitimate:</strong></p>
     <ul>
@@ -299,9 +315,9 @@
 
     <p><strong>Red flag:</strong> Task ID doesn't exist, or report shows different compound/purity than vendor claims.</p>
 
-    <h3>ISO-Accredited Labs (Finntick, Kronos)</h3>
+    <h3>Other Third-Party Labs <span style="background: #d1f4e0; padding: 2px 6px;">✓ EDITED</span></h3>
 
-    <p>These don't always have public databases, but you can:</p>
+    <p>Some labs don't have public databases, but you can:</p>
     <ol>
         <li>Contact the lab directly with batch number</li>
         <li>Request confirmation that report is legitimate</li>
