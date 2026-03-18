@@ -1425,82 +1425,17 @@
         .featured-card {
             background: #FFFFFF;
             border: 2px solid #2B7DE9;
-            border-radius: 10px;
+            border-radius: 8px;
             padding: 16px;
             transition: all 0.2s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .featured-card:hover {
             border-color: #1E40AF;
-            box-shadow: 0 6px 16px rgba(43, 125, 233, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .featured-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #2B7DE9;
-            color: white;
-            font-size: 0.6rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-
-        .featured-badge.oos {
-            background: #3B82F6;
-        }
-
-        .featured-name {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #0A1628;
-            margin-bottom: 6px;
-            line-height: 1.2;
-        }
-
-        .featured-price {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: #2B7DE9;
-            margin-bottom: 6px;
-        }
-
-        .featured-price-per-mg {
-            font-size: 0.75rem;
-            color: #64748B;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .featured-desc {
-            font-size: 0.8rem;
-            color: #475569;
-            line-height: 1.5;
-            margin-bottom: 10px;
-        }
-
-        .featured-cta {
-            width: 100%;
-            background: #2B7DE9;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 8px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .featured-cta:hover {
-            background: #1E40AF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .oos-badge {
@@ -1645,56 +1580,116 @@
                 <div class="featured-grid">
                     <!-- Semaglutide 10mg -->
                     <div class="featured-card">
-                        <div class="featured-name">Semaglutide 10mg</div>
-                        <div class="featured-price">$30.00</div>
-                        <div class="featured-price-per-mg">$3.00/mg</div>
-                        <div class="featured-desc">Benchmark long-acting GLP-1 receptor agonist</div>
-                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('Semaglutide 10mg')">Add to Cart</button>
+                        <div class="card-top-row">
+                            <span class="product-category category-glp">GLP</span>
+                            <span class="coa-badge">COA Verified</span>
+                        </div>
+                        <div class="product-name">Semaglutide 10mg</div>
+                        <div class="product-price">$30</div>
+                        <div class="price-per-mg">$3.00/mg</div>
+                        <div class="card-actions">
+                            <div class="qty-controls">
+                                <button class="qty-btn qty-minus">−</button>
+                                <input type="text" class="qty-input" value="1" readonly>
+                                <button class="qty-btn qty-plus">+</button>
+                            </div>
+                            <button class="order-btn" onclick="event.stopPropagation(); openProductModal('Semaglutide 10mg')">Add to Cart</button>
+                        </div>
                     </div>
 
                     <!-- Cagrilintide 5mg -->
                     <div class="featured-card">
-                        <div class="featured-name">Cagrilintide 5mg</div>
-                        <div class="featured-price">$25.00</div>
-                        <div class="featured-price-per-mg">$5.00/mg</div>
-                        <div class="featured-desc">Long-acting amylin receptor agonist</div>
-                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('Cagrilintide 5mg')">Add to Cart</button>
+                        <div class="card-top-row">
+                            <span class="product-category category-glp">GLP</span>
+                            <span class="coa-badge">COA Verified</span>
+                        </div>
+                        <div class="product-name">Cagrilintide 5mg</div>
+                        <div class="product-price">$25</div>
+                        <div class="price-per-mg">$5.00/mg</div>
+                        <div class="card-actions">
+                            <div class="qty-controls">
+                                <button class="qty-btn qty-minus">−</button>
+                                <input type="text" class="qty-input" value="1" readonly>
+                                <button class="qty-btn qty-plus">+</button>
+                            </div>
+                            <button class="order-btn" onclick="event.stopPropagation(); openProductModal('Cagrilintide 5mg')">Add to Cart</button>
+                        </div>
                     </div>
 
                     <!-- NAD+ 1000mg -->
                     <div class="featured-card">
-                        <div class="featured-name">NAD+ 1000mg</div>
-                        <div class="featured-price">$47.00</div>
-                        <div class="featured-price-per-mg">$0.05/mg</div>
-                        <div class="featured-desc">High-dose cellular redox cofactor</div>
-                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('NAD+ 1000mg')">Add to Cart</button>
+                        <div class="card-top-row">
+                            <span class="product-category category-antioxidants">ANTIOXIDANTS</span>
+                            <span class="coa-badge">COA Verified</span>
+                        </div>
+                        <div class="product-name">NAD+ 1000mg</div>
+                        <div class="product-price">$47</div>
+                        <div class="price-per-mg">$0.05/mg</div>
+                        <div class="card-actions">
+                            <div class="qty-controls">
+                                <button class="qty-btn qty-minus">−</button>
+                                <input type="text" class="qty-input" value="1" readonly>
+                                <button class="qty-btn qty-plus">+</button>
+                            </div>
+                            <button class="order-btn" onclick="event.stopPropagation(); openProductModal('NAD+ 1000mg')">Add to Cart</button>
+                        </div>
                     </div>
 
                     <!-- KPV 10mg -->
                     <div class="featured-card">
-                        <div class="featured-name">KPV 10mg</div>
-                        <div class="featured-price">$36.00</div>
-                        <div class="featured-price-per-mg">$3.60/mg</div>
-                        <div class="featured-desc">Anti-inflammatory tripeptide from α-MSH</div>
-                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('KPV 10mg')">Add to Cart</button>
+                        <div class="card-top-row">
+                            <span class="product-category category-tissue">REGENERATIVE</span>
+                            <span class="coa-badge">COA Verified</span>
+                        </div>
+                        <div class="product-name">KPV 10mg</div>
+                        <div class="product-price">$36</div>
+                        <div class="price-per-mg">$3.60/mg</div>
+                        <div class="card-actions">
+                            <div class="qty-controls">
+                                <button class="qty-btn qty-minus">−</button>
+                                <input type="text" class="qty-input" value="1" readonly>
+                                <button class="qty-btn qty-plus">+</button>
+                            </div>
+                            <button class="order-btn" onclick="event.stopPropagation(); openProductModal('KPV 10mg')">Add to Cart</button>
+                        </div>
                     </div>
 
                     <!-- LL-37 5mg -->
                     <div class="featured-card">
-                        <div class="featured-name">LL-37 5mg</div>
-                        <div class="featured-price">$34.00</div>
-                        <div class="featured-price-per-mg">$6.80/mg</div>
-                        <div class="featured-desc">Human cathelicidin antimicrobial peptide</div>
-                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('LL-37 5mg')">Add to Cart</button>
+                        <div class="card-top-row">
+                            <span class="product-category category-tissue">REGENERATIVE</span>
+                            <span class="coa-badge">COA Verified</span>
+                        </div>
+                        <div class="product-name">LL-37 5mg</div>
+                        <div class="product-price">$34</div>
+                        <div class="price-per-mg">$6.80/mg</div>
+                        <div class="card-actions">
+                            <div class="qty-controls">
+                                <button class="qty-btn qty-minus">−</button>
+                                <input type="text" class="qty-input" value="1" readonly>
+                                <button class="qty-btn qty-plus">+</button>
+                            </div>
+                            <button class="order-btn" onclick="event.stopPropagation(); openProductModal('LL-37 5mg')">Add to Cart</button>
+                        </div>
                     </div>
 
                     <!-- Sermorelin 5mg -->
                     <div class="featured-card">
-                        <div class="featured-name">Sermorelin 5mg</div>
-                        <div class="featured-price">$34.00</div>
-                        <div class="featured-price-per-mg">$6.80/mg</div>
-                        <div class="featured-desc">GHRH(1-29) growth hormone releasing fragment</div>
-                        <button class="featured-cta" onclick="event.stopPropagation(); openProductModal('Sermorelin 5mg')">Add to Cart</button>
+                        <div class="card-top-row">
+                            <span class="product-category category-gh">GROWTH HORMONE</span>
+                            <span class="coa-badge">COA Verified</span>
+                        </div>
+                        <div class="product-name">Sermorelin 5mg</div>
+                        <div class="product-price">$34</div>
+                        <div class="price-per-mg">$6.80/mg</div>
+                        <div class="card-actions">
+                            <div class="qty-controls">
+                                <button class="qty-btn qty-minus">−</button>
+                                <input type="text" class="qty-input" value="1" readonly>
+                                <button class="qty-btn qty-plus">+</button>
+                            </div>
+                            <button class="order-btn" onclick="event.stopPropagation(); openProductModal('Sermorelin 5mg')">Add to Cart</button>
+                        </div>
                     </div>
                 </div>
             </section>
