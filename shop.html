@@ -121,7 +121,7 @@
         .nav-dropdown-menu {
             display: none;
             position: absolute;
-            top: 100%;
+            top: calc(100% + 4px);
             left: -8px;
             background: #fff;
             border: 1px solid #E2E8F0;
@@ -130,7 +130,15 @@
             padding: 8px 0;
             min-width: 220px;
             z-index: 200;
-            margin-top: 8px;
+        }
+        
+        .nav-dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 0;
+            right: 0;
+            height: 4px;
         }
 
         .nav-dropdown:hover .nav-dropdown-menu,
