@@ -2379,7 +2379,7 @@
                 card.setAttribute('data-product', JSON.stringify(product));
                 
                 var categoryClass = 'category-' + product.category;
-                var categoryName = getCategoryName(product.category);
+                var categoryName = getCategoryName(product.category, true);
                 
                 var coaBadge = product.coa ? '<span class="coa-badge">COA Verified</span>' : '';
                 var btnClass = isOOS ? 'order-btn oos' : 'order-btn';
@@ -2471,7 +2471,7 @@
                     card.setAttribute('data-product', JSON.stringify(product));
                     
                     var categoryClass = 'category-' + product.category;
-                    var categoryName = getCategoryName(product.category);
+                    var categoryName = getCategoryName(product.category, true);
                     
                     var coaBadge = product.coa ? '<span class="coa-badge">COA Verified</span>' : '';
                     var slug = getProductSlug(product.name);
