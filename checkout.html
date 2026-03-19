@@ -825,6 +825,8 @@
         var orderNumber = '';
         var customerInfo = {};
         var promoApplied = false;
+        var discountCode = null;
+        var discountAmount = 0;
 
         function checkAgeGate() {
             initCheckout();
@@ -933,6 +935,7 @@
 
         function getDiscount() {
             if (selectedPayment === 'zelle') return getSubtotal() * 0.05;
+            if (discountCode === 'TEST15') return Math.min(15, getSubtotal()); // $15 off, max = subtotal
             if (promoApplied) return getSubtotal() * 0.05;
             return 0;
         }
@@ -984,7 +987,10 @@
             var html = '';
             html += '<div class="summary-row"><span>Subtotal</span><span>$' + getSubtotal().toFixed(2) + '</span></div>';
             if (getDiscount() > 0) {
-                var lbl = promoApplied ? 'Promo (5%)' : 'Discount (5%)';
+                var lbl = 'Discount (5%)';
+                if (discountCode === 'TEST15') lbl = 'Discount (TEST15)';
+                else if (promoApplied) lbl = 'Promo (5%)';
+                else if (selectedPayment === 'zelle') lbl = 'Zelle Discount (5%)';
                 html += '<div class="summary-row discount"><span>' + lbl + '</span><span>-$' + getDiscount().toFixed(2) + '</span></div>';
             }
             var shipLabel = getShipping() === 0 ? 'FREE' : '$' + getShipping().toFixed(2);
@@ -1039,8 +1045,19 @@
             var code = document.getElementById('promoInput');
             var msg = document.getElementById('promoMsg');
             if (!code || !msg) return;
-            if (code.value.trim().toUpperCase() === 'RESEARCH') {
+            var enteredCode = code.value.trim().toUpperCase();
+            
+            if (enteredCode === 'TEST15') {
+                discountCode = 'TEST15';
+                promoApplied = false; // Clear old promo
+                msg.textContent = '✓ Code applied — $15 off!';
+                msg.style.color = '#059669';
+                code.disabled = true;
+                updateSummary();
+                updateFooter();
+            } else if (enteredCode === 'RESEARCH') {
                 promoApplied = true;
+                discountCode = null; // Clear TEST15
                 msg.textContent = '✓ Code applied — 5% off!';
                 msg.style.color = '#059669';
                 code.disabled = true;
