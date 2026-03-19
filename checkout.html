@@ -1184,23 +1184,27 @@
                 });
             }
 
-            // If Bankful, log order FIRST then redirect to payment
+            // If Bankful, save order silently THEN redirect to payment
             if (selectedPayment === 'bankful') {
                 var btn = document.getElementById('actionBtn');
                 btn.textContent = 'Processing order...';
                 btn.disabled = true;
 
-                // Log order with "Awaiting Payment" status
-                notifyOrder(orderNumber, savedOrder, function(success, log) {
-                    if (!success) {
-                        console.error('[CHECKOUT] ORDER NOTIFICATION FAILED:', log);
+                // Save order to sheet with "Awaiting Payment" status (silent - no Telegram/email)
+                savedOrder.sendNotifications = false; // Tell Apps Script to skip notifications
+                
+                var xhrOrder = new XMLHttpRequest();
+                xhrOrder.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/order', true);
+                xhrOrder.setRequestHeader('Content-Type', 'application/json');
+                
+                xhrOrder.onload = function() {
+                    if (xhrOrder.status !== 200) {
                         btn.textContent = 'Place Order';
                         btn.disabled = false;
-                        alert('⚠️ Unable to create order. Please try again or contact support@prcpeptides.com');
+                        alert('Unable to create order. Please try again.');
                         return;
                     }
                     
-                    console.log('[CHECKOUT] ✓ Order logged, generating Bankful link...');
                     btn.textContent = 'Redirecting to secure checkout...';
                     
                     // Now generate Bankful HPP link
@@ -1261,11 +1265,13 @@
                     alert('Connection error. Please try another payment method or email support@prcpeptides.com');
                     showConfirmation();
                 };
-                    xhr.send(JSON.stringify({
-                        orderId: orderNumber,
-                        total: savedOrder.total
-                    }));
-                }); // Close notifyOrder callback
+                xhr.send(JSON.stringify({
+                    orderId: orderNumber,
+                    total: savedOrder.total
+                }));
+                }; // Close xhrOrder.onload
+                
+                xhrOrder.send(JSON.stringify(savedOrder));
                 return;
             }
 
