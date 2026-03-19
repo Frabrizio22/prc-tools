@@ -92,6 +92,38 @@
             color: white;
         }
         
+        .custom-input-wrap {
+            display: none;
+            margin-top: 12px;
+            padding: 16px;
+            background: #F8FAFC;
+            border-radius: 12px;
+        }
+        
+        .custom-input-wrap.show {
+            display: block;
+        }
+        
+        .custom-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #CBD5E1;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .custom-input:focus {
+            border-color: #FFA500;
+        }
+        
+        .custom-input::placeholder {
+            color: #94A3B8;
+        }
+        
         .helper-text {
             text-align: center;
             font-size: 0.85rem;
@@ -168,16 +200,17 @@
         .syringe-wrapper {
             position: relative;
             display: inline-block;
-            max-width: 280px;
+            max-width: 320px;
         }
         
         .marker {
             position: absolute;
-            left: -30px;
-            font-size: 2rem;
-            color: #FFA500;
+            left: -40px;
+            font-size: 2.2rem;
+            color: #EF4444;
             transition: top 0.3s ease;
             display: none;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
         
         .concentration {
@@ -226,21 +259,25 @@
             <div class="card-subtitle">Amount per research application</div>
             
             <div class="button-grid">
-                <button class="dose-btn" onclick="selectDose(0.1)">0.1mg</button>
-                <button class="dose-btn" onclick="selectDose(0.25)">0.25mg</button>
-                <button class="dose-btn" onclick="selectDose(0.5)">0.5mg</button>
-                <button class="dose-btn" onclick="selectDose(1)">1mg</button>
-                <button class="dose-btn" onclick="selectDose(2.5)">2.5mg</button>
-                <button class="dose-btn" onclick="selectDose(5)">5mg</button>
-                <button class="dose-btn" onclick="selectDose(7.5)">7.5mg</button>
-                <button class="dose-btn" onclick="selectDose(10)">10mg</button>
-                <button class="dose-btn" onclick="selectDose(12.5)">12.5mg</button>
-                <button class="dose-btn" onclick="selectDose(15)">15mg</button>
-                <button class="dose-btn" onclick="selectDose(50)">50mg</button>
-                <button class="dose-btn" onclick="selectDose('custom')">Other</button>
+                <button class="dose-btn" onclick="selectDose(0.1, 'dose')">0.1mg</button>
+                <button class="dose-btn" onclick="selectDose(0.25, 'dose')">0.25mg</button>
+                <button class="dose-btn" onclick="selectDose(0.5, 'dose')">0.5mg</button>
+                <button class="dose-btn" onclick="selectDose(1, 'dose')">1mg</button>
+                <button class="dose-btn" onclick="selectDose(2.5, 'dose')">2.5mg</button>
+                <button class="dose-btn" onclick="selectDose(5, 'dose')">5mg</button>
+                <button class="dose-btn" onclick="selectDose(7.5, 'dose')">7.5mg</button>
+                <button class="dose-btn" onclick="selectDose(10, 'dose')">10mg</button>
+                <button class="dose-btn" onclick="selectDose(15, 'dose')">15mg</button>
+                <button class="dose-btn" onclick="selectDose(20, 'dose')">20mg</button>
+                <button class="dose-btn" onclick="selectDose(50, 'dose')">50mg</button>
+                <button class="dose-btn" onclick="toggleCustom('dose')">Other</button>
             </div>
             
-            <div class="helper-text">0.1 mg = 100 mcg(µg)</div>
+            <div class="custom-input-wrap" id="customDose">
+                <input type="text" class="custom-input" id="customDoseInput" placeholder="Enter amount (e.g. 12.5)" inputmode="decimal">
+            </div>
+            
+            <div class="helper-text">0.1 mg = 100 mcg (µg)</div>
         </div>
         
         <!-- Peptide Strength -->
@@ -250,22 +287,29 @@
             <div class="card-subtitle">corresponds with the size of your vial</div>
             
             <div class="button-grid">
-                <button class="dose-btn" onclick="selectStrength(1)">1mg</button>
-                <button class="dose-btn" onclick="selectStrength(5)">5mg</button>
-                <button class="dose-btn" onclick="selectStrength(10)">10mg</button>
-                <button class="dose-btn" onclick="selectStrength(15)">15mg</button>
-                <button class="dose-btn" onclick="selectStrength(20)">20mg</button>
-                <button class="dose-btn" onclick="selectStrength(30)">30mg</button>
-                <button class="dose-btn" onclick="selectStrength(50)">50mg</button>
-                <button class="dose-btn" onclick="selectStrength(1000)">1000mg</button>
-                <button class="dose-btn" onclick="selectStrength('custom')">Other</button>
+                <button class="dose-btn" onclick="selectDose(1, 'strength')">1mg</button>
+                <button class="dose-btn" onclick="selectDose(5, 'strength')">5mg</button>
+                <button class="dose-btn" onclick="selectDose(10, 'strength')">10mg</button>
+                <button class="dose-btn" onclick="selectDose(15, 'strength')">15mg</button>
+                <button class="dose-btn" onclick="selectDose(20, 'strength')">20mg</button>
+                <button class="dose-btn" onclick="selectDose(24, 'strength')">24mg</button>
+                <button class="dose-btn" onclick="selectDose(30, 'strength')">30mg</button>
+                <button class="dose-btn" onclick="selectDose(48, 'strength')">48mg</button>
+                <button class="dose-btn" onclick="selectDose(50, 'strength')">50mg</button>
+                <button class="dose-btn" onclick="selectDose(500, 'strength')">500mg</button>
+                <button class="dose-btn" onclick="selectDose(1000, 'strength')">1000mg</button>
+                <button class="dose-btn" onclick="toggleCustom('strength')">Other</button>
+            </div>
+            
+            <div class="custom-input-wrap" id="customStrength">
+                <input type="text" class="custom-input" id="customStrengthInput" placeholder="Enter vial size (e.g. 24)" inputmode="decimal">
             </div>
             
             <div class="examples">
                 <div class="examples-title">Common Strengths</div>
                 <div class="examples-text">
-                    BPC-157: 10mg<br>
-                    NAD+: 1000mg
+                    BPC-157: 10mg | Semaglutide: 5mg<br>
+                    Tirzepatide: 24mg or 48mg | NAD+: 500mg or 1000mg
                 </div>
             </div>
         </div>
@@ -277,22 +321,26 @@
             <div class="card-subtitle">determines peptide concentration</div>
             
             <div class="button-grid">
-                <button class="dose-btn" onclick="selectWater(0.5)">0.5mL</button>
-                <button class="dose-btn" onclick="selectWater(1.0)">1.0mL</button>
-                <button class="dose-btn" onclick="selectWater(1.5)">1.5mL</button>
-                <button class="dose-btn" onclick="selectWater(2.0)">2.0mL</button>
-                <button class="dose-btn" onclick="selectWater(2.5)">2.5mL</button>
-                <button class="dose-btn" onclick="selectWater(3.0)">3.0mL</button>
-                <button class="dose-btn" onclick="selectWater(5.0)">5.0mL</button>
-                <button class="dose-btn" onclick="selectWater('custom')">Other</button>
+                <button class="dose-btn" onclick="selectDose(0.5, 'water')">0.5mL</button>
+                <button class="dose-btn" onclick="selectDose(1.0, 'water')">1.0mL</button>
+                <button class="dose-btn" onclick="selectDose(1.5, 'water')">1.5mL</button>
+                <button class="dose-btn" onclick="selectDose(2.0, 'water')">2.0mL</button>
+                <button class="dose-btn" onclick="selectDose(2.5, 'water')">2.5mL</button>
+                <button class="dose-btn" onclick="selectDose(3.0, 'water')">3.0mL</button>
+                <button class="dose-btn" onclick="selectDose(4.0, 'water')">4.0mL</button>
+                <button class="dose-btn" onclick="selectDose(5.0, 'water')">5.0mL</button>
+                <button class="dose-btn" onclick="toggleCustom('water')">Other</button>
+            </div>
+            
+            <div class="custom-input-wrap" id="customWater">
+                <input type="text" class="custom-input" id="customWaterInput" placeholder="Enter water amount (e.g. 2.3)" inputmode="decimal">
             </div>
             
             <div class="examples">
                 <div class="examples-title">Common Amounts</div>
                 <div class="examples-text">
-                    GLP-1s: 2mL - 3mL<br>
-                    Peptides: 3mL<br>
-                    NAD+: 5mL
+                    GLP-1s: 2mL - 3mL | Small Peptides: 2mL - 3mL<br>
+                    NAD+ 500mg: 5mL | NAD+ 1000mg: 5mL or more
                 </div>
             </div>
         </div>
@@ -313,35 +361,53 @@
             
             <div class="syringe-container">
                 <div class="syringe-wrapper">
-                    <div class="marker" id="marker">▼</div>
-                    <svg width="280" height="200" viewBox="0 0 280 200">
+                    <div class="marker" id="marker">▶</div>
+                    <svg width="320" height="260" viewBox="0 0 320 260">
                         <!-- Syringe barrel -->
-                        <rect x="80" y="30" width="120" height="140" fill="#E5E7EB" stroke="#6B7280" stroke-width="3" rx="6"/>
+                        <rect x="100" y="40" width="120" height="180" fill="#E5E7EB" stroke="#374151" stroke-width="3" rx="6"/>
                         
                         <!-- Fill indicator -->
-                        <rect x="83" y="140" width="114" height="0" fill="#EF4444" id="fillRect" opacity="0.8"/>
+                        <rect x="103" y="200" width="114" height="0" fill="#3B82F6" id="fillRect" opacity="0.6"/>
                         
-                        <!-- Scale marks -->
-                        <line x1="75" y1="50" x2="205" y2="50" stroke="#374151" stroke-width="2.5"/>
-                        <text x="215" y="55" font-size="16" fill="#374151" font-weight="bold">100</text>
+                        <!-- Scale marks - every 10 units -->
+                        <line x1="95" y1="60" x2="225" y2="60" stroke="#1F2937" stroke-width="2.5"/>
+                        <text x="235" y="65" font-size="16" fill="#1F2937" font-weight="bold">100</text>
                         
-                        <line x1="80" y1="80" x2="200" y2="80" stroke="#6B7280" stroke-width="1.5"/>
-                        <text x="215" y="85" font-size="14" fill="#6B7280">75</text>
+                        <line x1="100" y1="78" x2="220" y2="78" stroke="#6B7280" stroke-width="1.5"/>
+                        <text x="235" y="83" font-size="14" fill="#6B7280">90</text>
                         
-                        <line x1="75" y1="110" x2="205" y2="110" stroke="#374151" stroke-width="2.5"/>
-                        <text x="215" y="115" font-size="16" fill="#374151" font-weight="bold">50</text>
+                        <line x1="100" y1="96" x2="220" y2="96" stroke="#6B7280" stroke-width="1.5"/>
+                        <text x="235" y="101" font-size="14" fill="#6B7280">80</text>
                         
-                        <line x1="80" y1="140" x2="200" y2="140" stroke="#6B7280" stroke-width="1.5"/>
-                        <text x="215" y="145" font-size="14" fill="#6B7280">25</text>
+                        <line x1="100" y1="114" x2="220" y2="114" stroke="#6B7280" stroke-width="1.5"/>
+                        <text x="235" y="119" font-size="14" fill="#6B7280">70</text>
                         
-                        <line x1="75" y1="170" x2="205" y2="170" stroke="#374151" stroke-width="2.5"/>
-                        <text x="215" y="175" font-size="16" fill="#374151" font-weight="bold">0</text>
+                        <line x1="100" y1="132" x2="220" y2="132" stroke="#6B7280" stroke-width="1.5"/>
+                        <text x="235" y="137" font-size="14" fill="#6B7280">60</text>
+                        
+                        <line x1="95" y1="150" x2="225" y2="150" stroke="#1F2937" stroke-width="2.5"/>
+                        <text x="235" y="155" font-size="16" fill="#1F2937" font-weight="bold">50</text>
+                        
+                        <line x1="100" y1="168" x2="220" y2="168" stroke="#6B7280" stroke-width="1.5"/>
+                        <text x="235" y="173" font-size="14" fill="#6B7280">40</text>
+                        
+                        <line x1="100" y1="186" x2="220" y2="186" stroke="#6B7280" stroke-width="1.5"/>
+                        <text x="235" y="191" font-size="14" fill="#6B7280">30</text>
+                        
+                        <line x1="100" y1="204" x2="220" y2="204" stroke="#6B7280" stroke-width="1.5"/>
+                        <text x="235" y="209" font-size="14" fill="#6B7280">20</text>
+                        
+                        <line x1="100" y1="222" x2="220" y2="222" stroke="#6B7280" stroke-width="1.5"/>
+                        <text x="235" y="227" font-size="14" fill="#6B7280">10</text>
+                        
+                        <line x1="95" y1="240" x2="225" y2="240" stroke="#1F2937" stroke-width="2.5"/>
+                        <text x="235" y="245" font-size="16" fill="#1F2937" font-weight="bold">0</text>
                         
                         <!-- Plunger -->
-                        <rect x="95" y="10" width="90" height="18" fill="#4B5563" rx="4"/>
+                        <rect x="110" y="18" width="100" height="20" fill="#4B5563" rx="4"/>
                         
                         <!-- Needle -->
-                        <rect x="135" y="170" width="10" height="20" fill="#9CA3AF"/>
+                        <rect x="155" y="220" width="10" height="30" fill="#9CA3AF"/>
                     </svg>
                 </div>
             </div>
@@ -372,7 +438,7 @@
         </div>
         
         <div class="footer">
-            <a href="https://peptideresourcecenter.com">BY PEPTIDE RESOURCE CENTER</a>
+            <a href="/">← BACK TO SHOP</a>
         </div>
     </div>
     
@@ -381,53 +447,81 @@
         let strength = null;
         let water = null;
         
-        function selectDose(val) {
-            document.querySelectorAll('.card:nth-child(2) .dose-btn').forEach(b => b.classList.remove('active'));
-            if (val === 'custom') {
-                let custom = prompt('Enter dose in mg:');
-                if (custom && !isNaN(custom) && parseFloat(custom) > 0) {
-                    dose = parseFloat(custom);
-                    event.target.classList.add('active');
-                    event.target.textContent = custom + 'mg';
-                }
-            } else {
+        function selectDose(val, type) {
+            if (type === 'dose') {
                 dose = val;
+                document.querySelectorAll('.card:nth-child(2) .dose-btn').forEach(b => b.classList.remove('active'));
                 event.target.classList.add('active');
-            }
-            calculate();
-        }
-        
-        function selectStrength(val) {
-            document.querySelectorAll('.card:nth-child(3) .dose-btn').forEach(b => b.classList.remove('active'));
-            if (val === 'custom') {
-                let custom = prompt('Enter peptide strength in mg:');
-                if (custom && !isNaN(custom) && parseFloat(custom) > 0) {
-                    strength = parseFloat(custom);
-                    event.target.classList.add('active');
-                    event.target.textContent = custom + 'mg';
-                }
-            } else {
+                document.getElementById('customDose').classList.remove('show');
+            } else if (type === 'strength') {
                 strength = val;
+                document.querySelectorAll('.card:nth-child(3) .dose-btn').forEach(b => b.classList.remove('active'));
                 event.target.classList.add('active');
+                document.getElementById('customStrength').classList.remove('show');
+            } else if (type === 'water') {
+                water = val;
+                document.querySelectorAll('.card:nth-child(4) .dose-btn').forEach(b => b.classList.remove('active'));
+                event.target.classList.add('active');
+                document.getElementById('customWater').classList.remove('show');
             }
             calculate();
         }
         
-        function selectWater(val) {
-            document.querySelectorAll('.card:nth-child(4) .dose-btn').forEach(b => b.classList.remove('active'));
-            if (val === 'custom') {
-                let custom = prompt('Enter water amount in mL:');
-                if (custom && !isNaN(custom) && parseFloat(custom) > 0) {
-                    water = parseFloat(custom);
+        function toggleCustom(type) {
+            if (type === 'dose') {
+                let wrap = document.getElementById('customDose');
+                let input = document.getElementById('customDoseInput');
+                wrap.classList.toggle('show');
+                if (wrap.classList.contains('show')) {
+                    document.querySelectorAll('.card:nth-child(2) .dose-btn').forEach(b => b.classList.remove('active'));
                     event.target.classList.add('active');
-                    event.target.textContent = custom + 'mL';
+                    input.focus();
                 }
-            } else {
-                water = val;
-                event.target.classList.add('active');
+            } else if (type === 'strength') {
+                let wrap = document.getElementById('customStrength');
+                let input = document.getElementById('customStrengthInput');
+                wrap.classList.toggle('show');
+                if (wrap.classList.contains('show')) {
+                    document.querySelectorAll('.card:nth-child(3) .dose-btn').forEach(b => b.classList.remove('active'));
+                    event.target.classList.add('active');
+                    input.focus();
+                }
+            } else if (type === 'water') {
+                let wrap = document.getElementById('customWater');
+                let input = document.getElementById('customWaterInput');
+                wrap.classList.toggle('show');
+                if (wrap.classList.contains('show')) {
+                    document.querySelectorAll('.card:nth-child(4) .dose-btn').forEach(b => b.classList.remove('active'));
+                    event.target.classList.add('active');
+                    input.focus();
+                }
             }
-            calculate();
         }
+        
+        // Custom input handlers
+        document.getElementById('customDoseInput').addEventListener('input', function(e) {
+            let val = parseFloat(e.target.value);
+            if (!isNaN(val) && val > 0) {
+                dose = val;
+                calculate();
+            }
+        });
+        
+        document.getElementById('customStrengthInput').addEventListener('input', function(e) {
+            let val = parseFloat(e.target.value);
+            if (!isNaN(val) && val > 0) {
+                strength = val;
+                calculate();
+            }
+        });
+        
+        document.getElementById('customWaterInput').addEventListener('input', function(e) {
+            let val = parseFloat(e.target.value);
+            if (!isNaN(val) && val > 0) {
+                water = val;
+                calculate();
+            }
+        });
         
         function calculate() {
             if (!dose || !strength || !water) {
@@ -464,15 +558,15 @@
         
         function updateSyringe(units) {
             let clamped = Math.min(Math.max(units, 0), 100);
-            let yPos = 170 - (clamped * 1.2);
+            let yPos = 240 - (clamped * 1.8);
             
             let marker = document.getElementById('marker');
             marker.style.top = yPos + 'px';
             marker.style.display = 'block';
             
             let fill = document.getElementById('fillRect');
-            let fillHeight = clamped * 1.2;
-            fill.setAttribute('y', 170 - fillHeight);
+            let fillHeight = clamped * 1.8;
+            fill.setAttribute('y', 240 - fillHeight);
             fill.setAttribute('height', fillHeight);
         }
     </script>
