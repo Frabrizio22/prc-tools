@@ -432,6 +432,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem 2rem;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         /* Featured Products Section */
@@ -1319,6 +1321,20 @@
             .header-left { gap: 0; }
             .trust-item { font-size: 0.62rem; padding: 0 10px; }
             .hamburger { display: flex !important; }
+            
+            main {
+                padding: 0 0.75rem 2rem;
+            }
+            
+            .product-grid {
+                gap: 10px;
+                width: 100%;
+            }
+            
+            .product-card {
+                padding: 14px;
+                min-width: 0;
+            }
         }
 
         @media (min-width: 769px) {
