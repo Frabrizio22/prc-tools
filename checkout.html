@@ -1143,7 +1143,8 @@
                 shipping: order.shipping,
                 shipping_name: order.shippingName,
                 total: order.total,
-                payment: order.payment
+                payment: order.payment,
+                sendNotifications: order.sendNotifications !== false
             };
             
             xhr.send(JSON.stringify(orderData));
