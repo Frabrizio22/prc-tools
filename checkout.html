@@ -1246,13 +1246,13 @@
                 xhr.send(JSON.stringify({
                     order_number: orderNumber,
                     total: savedOrder.total.toFixed(2),
-                    customer_email: savedOrder.customer_email,
-                    customer_name: savedOrder.customer_name,
-                    customer_phone: savedOrder.customer_phone || '',
-                    customer_address: savedOrder.customer_address,
-                    customer_city: savedOrder.customer_city,
-                    customer_state: savedOrder.customer_state,
-                    customer_zip: savedOrder.customer_zip
+                    customer_email: savedOrder['Registered Institution'].email,
+                    customer_name: savedOrder['Registered Institution'].name,
+                    customer_phone: savedOrder['Registered Institution'].phone || '',
+                    customer_address: savedOrder['Registered Institution'].address,
+                    customer_city: savedOrder['Registered Institution'].city,
+                    customer_state: savedOrder['Registered Institution'].state,
+                    customer_zip: savedOrder['Registered Institution'].zip
                 }));
                 return;
             }
