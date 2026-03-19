@@ -1267,14 +1267,14 @@
                 };
                 xhr.send(JSON.stringify({
                     order_number: orderNumber,
-                    total: savedOrder.total,
-                    name: savedOrder.customer_name,
-                    email: savedOrder.customer_email,
-                    phone: savedOrder.customer_phone,
-                    address: savedOrder.customer_address,
-                    city: savedOrder.customer_city,
-                    state: savedOrder.customer_state,
-                    zip: savedOrder.customer_zip
+                    total: savedOrder.total.toFixed(2),
+                    customer_email: savedOrder.customer_email,
+                    customer_name: savedOrder.customer_name,
+                    customer_phone: savedOrder.customer_phone || '',
+                    customer_address: savedOrder.customer_address,
+                    customer_city: savedOrder.customer_city,
+                    customer_state: savedOrder.customer_state,
+                    customer_zip: savedOrder.customer_zip
                 }));
                 }; // Close xhrOrder.onload
                 
