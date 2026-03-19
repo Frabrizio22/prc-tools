@@ -935,9 +935,14 @@
 
         function getDiscount() {
             if (selectedPayment === 'zelle') return getSubtotal() * 0.05;
-            if (discountCode === 'TEST15') return Math.min(15, getSubtotal()); // $15 off, max = subtotal
             if (promoApplied) return getSubtotal() * 0.05;
             return 0;
+        }
+
+        function getTotalDiscount() {
+            var discount = getDiscount();
+            if (discountCode === 'TEST15') discount += 15;
+            return discount;
         }
 
         function getShipping() {
@@ -946,7 +951,12 @@
         }
 
         function getTotal() {
-            return getSubtotal() - getDiscount() + getShipping();
+            var baseTotal = getSubtotal() - getDiscount() + getShipping();
+            // Apply TEST15 discount to final total
+            if (discountCode === 'TEST15') {
+                return Math.max(0, baseTotal - 15);
+            }
+            return baseTotal;
         }
 
         function updateFooter() {
@@ -988,13 +998,18 @@
             html += '<div class="summary-row"><span>Subtotal</span><span>$' + getSubtotal().toFixed(2) + '</span></div>';
             if (getDiscount() > 0) {
                 var lbl = 'Discount (5%)';
-                if (discountCode === 'TEST15') lbl = 'Discount (TEST15)';
-                else if (promoApplied) lbl = 'Promo (5%)';
+                if (promoApplied) lbl = 'Promo (5%)';
                 else if (selectedPayment === 'zelle') lbl = 'Zelle Discount (5%)';
                 html += '<div class="summary-row discount"><span>' + lbl + '</span><span>-$' + getDiscount().toFixed(2) + '</span></div>';
             }
             var shipLabel = getShipping() === 0 ? 'FREE' : '$' + getShipping().toFixed(2);
             html += '<div class="summary-row"><span>' + selectedShipping.name + '</span><span>' + shipLabel + '</span></div>';
+            
+            // Show TEST15 discount after shipping
+            if (discountCode === 'TEST15') {
+                html += '<div class="summary-row discount"><span>Discount (TEST15)</span><span>-$15.00</span></div>';
+            }
+            
             html += '<div class="summary-row total"><span>Total</span><span>$' + getTotal().toFixed(2) + '</span></div>';
             el.innerHTML = html;
         }
@@ -1170,7 +1185,7 @@
         function placeOrder() {
             orderNumber = generateOrderNumber();
             savedOrder = {
-                items: [], subtotal: getSubtotal(), discount: getDiscount(),
+                items: [], subtotal: getSubtotal(), discount: getTotalDiscount(),
                 shipping: getShipping(), shippingName: selectedShipping.name,
                 total: getTotal(), payment: selectedPayment, 'Registered Institution': customerInfo
             };
