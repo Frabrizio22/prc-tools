@@ -1266,8 +1266,15 @@
                     showConfirmation();
                 };
                 xhr.send(JSON.stringify({
-                    orderId: orderNumber,
-                    total: savedOrder.total
+                    order_number: orderNumber,
+                    total: savedOrder.total,
+                    name: savedOrder.customer_name,
+                    email: savedOrder.customer_email,
+                    phone: savedOrder.customer_phone,
+                    address: savedOrder.customer_address,
+                    city: savedOrder.customer_city,
+                    state: savedOrder.customer_state,
+                    zip: savedOrder.customer_zip
                 }));
                 }; // Close xhrOrder.onload
                 
