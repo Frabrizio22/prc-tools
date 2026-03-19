@@ -26,7 +26,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: #0A1628;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             margin-bottom: 1rem;
         }
         h3 {
@@ -50,17 +50,26 @@
         .highlight {
             background: #EFF6FF;
             border-left: 4px solid #2563EB;
-            padding: 1rem;
+            padding: 1.25rem;
             margin: 1.5rem 0;
             border-radius: 4px;
         }
-        .calculation {
+        .formula-box {
             background: #F1F5F9;
             padding: 1.5rem;
             border-radius: 8px;
             margin: 1.5rem 0;
+            text-align: center;
+        }
+        .formula-box strong {
+            font-size: 1.1rem;
+            color: #0A1628;
             font-family: 'Courier New', monospace;
-            font-size: 0.95rem;
+        }
+        .formula-box p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #64748B;
         }
         table {
             width: 100%;
@@ -78,12 +87,15 @@
             font-weight: 600;
             color: #0A1628;
         }
-        .price-winner {
+        .winner {
             background: #D1FAE5;
             font-weight: 600;
         }
-        .price-loser {
-            background: #FEE2E2;
+        .table-note {
+            font-size: 0.85rem;
+            color: #64748B;
+            margin-top: 0.5rem;
+            font-style: italic;
         }
         a {
             color: #2563EB;
@@ -119,11 +131,21 @@
             color: #475569;
         }
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
         }
         strong {
             color: #0A1628;
             font-weight: 600;
+        }
+        .checklist {
+            background: #F8FAFC;
+            padding: 1.25rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+        }
+        .checklist li {
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
@@ -132,174 +154,170 @@
         <h1>Price Per Mg: The Real Cost of 'Cheap' Peptides</h1>
         
         <div class="meta">
-            Published March 19, 2026 | 6 min read
+            Published March 19, 2026 | 7 min read
         </div>
 
-        <p>You find two vendors selling "the same" peptide. Vendor A charges $30. Vendor B charges $50. The choice seems obvious—until you receive both vials and discover the $30 "bargain" contains half the active compound.</p>
+        <p>Two vendors sell what appears to be "the same" peptide. One charges $35. The other charges $60.</p>
 
-        <p>Welcome to the peptide pricing shell game. In an unregulated market where labeling standards don't exist and verification is optional, price-per-vial means nothing. The only number that matters is <strong>price per milligram of actual peptide</strong>.</p>
+        <p>The choice seems obvious—until you calculate the actual cost per milligram and discover the "$35 bargain" delivers half the peptide at nearly double the price.</p>
 
-        <p>This article will teach you the one calculation that separates informed buyers from victims of creative pricing—and why transparent vendors display this number prominently.</p>
+        <p>In an unregulated market where labeling standards don't exist and COA verification is optional, comparing vial prices is meaningless. The only number that reveals true cost is <strong>price per milligram of verified peptide</strong>.</p>
 
-        <h2>The Concentration Trap</h2>
+        <p>This is the one calculation that separates informed buyers from victims of creative pricing.</p>
 
-        <p>Here's how the game works. Two vendors sell "Semaglutide 5mg":</p>
+        <h2>The One Formula You Need</h2>
 
-        <div class="calculation">
-<strong>Vendor A: $30</strong>
-Label: "Semaglutide 5mg"
-Actual: 5mg peptide in 5mg lyophilized powder
-Concentration: 100% (5mg ÷ 5mg = 1.0)
-Price per mg: $30 ÷ 5mg = <strong>$6.00/mg</strong>
+        <p>Every peptide purchase decision reduces to a single calculation:</p>
 
-<strong>Vendor B: $25</strong>
-Label: "Semaglutide 5mg Vial"
-Actual: 2.5mg peptide + 2.5mg mannitol filler
-Concentration: 50% (2.5mg ÷ 5mg = 0.5)
-Price per mg: $25 ÷ 2.5mg = <strong>$10.00/mg</strong>
+        <div class="formula-box">
+            <strong>Price Per Mg = Total Price ÷ Net Peptide Content (mg)</strong>
+            <p>Net peptide content comes from HPLC purity analysis, not product labels. This approach mirrors standard cost analysis used across reagents and analytical chemicals, where price per unit of verified material—not label claims—determines value.</p>
         </div>
 
-        <p>Vendor B's "cheaper" vial costs 67% more per milligram of semaglutide. Both technically contain "5mg vials"—one measures total powder weight, the other measures active peptide content. Without COAs specifying net peptide content, you can't know which you're buying.</p>
+        <p>If a vendor sells "BPC-157 10mg" for $40 with a COA showing 97% purity:</p>
 
-        <p>This isn't a hypothetical example. A 2024 analysis of 47 research peptide vendors found that <strong>only 18% clearly disclosed whether advertised weights referred to net peptide or total lyophilized mass</strong>. The ambiguity is profitable—and intentional.</p>
+        <ul>
+            <li>Net peptide = 10mg × 0.97 = <strong>9.7mg</strong></li>
+            <li>Price per mg = $40 ÷ 9.7mg = <strong>$4.12/mg</strong></li>
+        </ul>
 
-        <h2>The One Calculation You Need</h2>
+        <p>Without the COA, you'd assume 10mg and calculate $4.00/mg—a minor 3% error. But if that vendor filled half the vial with mannitol and you assumed 10mg when reality was 5mg, you'd calculate $4.00/mg while actually paying $8.00/mg.</p>
 
-        <p>Evaluating true peptide cost requires one formula:</p>
+        <p><strong>A 100% pricing error.</strong></p>
 
         <div class="highlight">
-            <strong>Price Per Milligram = Total Price ÷ Net Peptide Content (mg)</strong>
+            <strong>Quick Example:</strong><br>
+            A "cheap" $35 vial with 5mg actual content = $7.00/mg<br>
+            A $60 vial with 15mg actual content = $4.00/mg<br><br>
+            The "expensive" option is actually 43% cheaper.
         </div>
 
-        <p>Net peptide content comes from HPLC purity reports, not product labels. If a vendor sells "BPC-157 10mg" for $40 with 97% purity:</p>
+        <p>This is why COA-verified net peptide content is non-negotiable for price comparison. Everything else is guesswork.</p>
 
-        <div class="calculation">
-Net peptide = 10mg × 0.97 = 9.7mg
-Price per mg = $40 ÷ 9.7mg = $4.12/mg
-        </div>
+        <h2>Real-World Example: The Vial Price Trap</h2>
 
-        <p>If that same vendor offered no COA, you'd assume 10mg and calculate $4.00/mg—a 3% error. Manageable. But if they filled half the vial with mannitol and you assumed 10mg net peptide when reality was 5mg, you'd calculate $4.00/mg while actually paying $8.00/mg—a 100% pricing error.</p>
-
-        <p>This is why <strong>COA-verified net peptide content is non-negotiable</strong> for price comparison. Anything else is guesswork.</p>
-
-        <h2>Real-World Comparison: Three Vendors, Same Peptide</h2>
-
-        <p>Let's compare three actual market offers for CJC-1295 (Modified GRF 1-29):</p>
+        <p>Consider these actual market offers for NAD+ 1000mg (verified March 2026):</p>
 
         <table>
             <thead>
                 <tr>
                     <th>Vendor</th>
-                    <th>Vial Price</th>
-                    <th>Label</th>
-                    <th>Net Peptide (COA)</th>
-                    <th>Price/mg</th>
+                    <th>Price</th>
+                    <th>Mg</th>
+                    <th>Price/Mg</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="price-winner">
+                <tr class="winner">
                     <td><strong>PRC Peptides</strong></td>
-                    <td>$42</td>
-                    <td>5mg</td>
-                    <td>4.85mg (97% purity)</td>
-                    <td><strong>$8.66/mg</strong></td>
+                    <td>$47</td>
+                    <td>1000mg</td>
+                    <td><strong>$0.047/mg</strong></td>
                 </tr>
                 <tr>
-                    <td>Competitor X</td>
-                    <td>$38</td>
-                    <td>5mg</td>
-                    <td>3.8mg (76% purity)</td>
-                    <td>$10.00/mg</td>
+                    <td>Vendor A</td>
+                    <td>$59.50</td>
+                    <td>1000mg</td>
+                    <td>$0.0595/mg</td>
                 </tr>
-                <tr class="price-loser">
-                    <td>Competitor Y</td>
-                    <td>$35</td>
-                    <td>"5mg vial"</td>
-                    <td>2.5mg (no COA, estimated)</td>
-                    <td><strong>$14.00/mg</strong></td>
+                <tr>
+                    <td>Vendor B</td>
+                    <td>$71.40</td>
+                    <td>1000mg</td>
+                    <td>$0.0714/mg</td>
                 </tr>
             </tbody>
         </table>
 
-        <p>The "cheapest" vial ($35) delivers the most expensive peptide ($14/mg). The mid-priced vial ($38) falls in the middle. PRC's highest-priced vial provides the lowest cost per milligram of verified peptide—38% cheaper than Competitor X, 62% cheaper than Competitor Y.</p>
+        <p class="table-note">Prices reflect observed market ranges at time of writing (March 2026).</p>
+
+        <p>At vial level, the price spread looks modest: $47 to $71. A $24 difference.</p>
+
+        <p>At per-milligram level, the cheapest option costs <strong>34% less</strong> than the mid-range vendor and <strong>52% less</strong> than the expensive option. For researchers buying monthly, that compounds significantly.</p>
 
         <p>Vial price is marketing. Price per milligram is economics.</p>
 
-        <h2>Why Vendors Hide Price Per Mg</h2>
+        <h2>Why Pricing Consistency Matters in Research</h2>
 
-        <p>Transparency benefits buyers but threatens vendors competing on perceived rather than actual value. Consider the incentives:</p>
+        <p>In many peptide markets, pricing fluctuates frequently due to promotions or inventory cycles. While this can benefit short-term buyers, it creates challenges for researchers running multi-week protocols—where consistent reordering and predictable costs matter.</p>
 
-        <h3>Scenario 1: Opaque Pricing</h3>
+        <p>Stable pricing allows for:</p>
+
         <ul>
-            <li>Vendor sells "BPC-157 10mg" for $35</li>
-            <li>No COA provided; buyer assumes 10mg net peptide</li>
-            <li>Actual content: 5mg peptide + 5mg mannitol (50% pure)</li>
-            <li>Perceived price: $3.50/mg</li>
-            <li>Actual price: $7.00/mg</li>
-            <li><strong>Vendor profit: Doubled through information asymmetry</strong></li>
+            <li><strong>Reliable budgeting across experiments</strong> — Know exact costs before starting protocols</li>
+            <li><strong>Consistent reordering</strong> — No need to time purchases around promotions</li>
+            <li><strong>Reduced pressure to stock up</strong> — Buy what you need when you need it</li>
         </ul>
 
-        <h3>Scenario 2: Transparent Pricing</h3>
+        <p>PRC uses stable everyday pricing to support consistent, repeatable research planning.</p>
+
+        <h2>Hidden Factors That Drive Peptide Pricing</h2>
+
+        <p>Beyond the raw milligram calculation, several legitimate factors affect peptide costs:</p>
+
+        <h3>Purity Level</h3>
+        <p>Higher-purity peptides cost more to synthesize. A 98% pure compound requires more purification steps than a 90% pure version. This isn't arbitrary markup—it reflects actual production costs.</p>
+
+        <h3>Third-Party Testing</h3>
+        <p>HPLC analysis from Janoshik, Lab4Tox, or Condensed Matter costs $200-400 per batch. Vendors who verify every batch build this into pricing. Vendors who skip testing save money—and pass unknown risks to buyers.</p>
+
+        <h3>Peptide Complexity</h3>
+        <p>Simple dipeptides and tripeptides cost less to synthesize than complex 30+ amino acid sequences. Semaglutide (31 amino acids with fatty acid modification) inherently costs more to produce than KPV (3 amino acids).</p>
+
+        <h3>Supply Chain Reliability</h3>
+        <p>Established vendor relationships, quality control infrastructure, and consistent sourcing add operational costs that fly-by-night operations avoid. This reliability matters for ongoing research.</p>
+
+        <p>When price per milligram seems "too good," these hidden factors often explain why. The question becomes: what corners were cut to reach that price point?</p>
+
+        <h2>Common Pricing Mistakes</h2>
+
+        <p>Even experienced buyers fall into these traps:</p>
+
         <ul>
-            <li>Vendor sells "BPC-157 5mg (verified)" for $35</li>
-            <li>COA shows 97% purity = 4.85mg net peptide</li>
-            <li>Listed price per mg: $7.22/mg</li>
-            <li>Buyer compares to competitor offering $6.50/mg</li>
-            <li><strong>Vendor forced to compete on actual value</strong></li>
+            <li><strong>Comparing vial prices instead of $/mg</strong> — A $70 vial with 15mg costs less per mg than a $50 vial with 5mg</li>
+            <li><strong>Ignoring purity differences</strong> — 95% pure at $40 may cost more per actual peptide than 98% pure at $45</li>
+            <li><strong>Assuming label accuracy</strong> — "10mg" on the label means nothing without COA verification</li>
+            <li><strong>Overpaying for small vials</strong> — 5mg vials almost always cost more per mg than 10mg or larger formats</li>
+            <li><strong>Falling for "bulk pricing" that isn't</strong> — Always calculate per-mg cost to verify bulk discounts are real</li>
         </ul>
 
-        <p>Opaque pricing protects margins. Transparent pricing drives competition on quality and efficiency. The market equilibrium favors vendors who benefit from confusion.</p>
+        <h2>How to Evaluate Any Vendor's True Pricing</h2>
 
-        <p>That's why calculating price per milligram yourself—from verified COA data—remains the only reliable method.</p>
+        <p>Use this process for every peptide purchase:</p>
 
-        <h2>The PRC Standard: Price Per Mg on Every Product</h2>
+        <div class="checklist">
+            <strong>Quick Evaluation Checklist:</strong>
+            <ol>
+                <li><strong>Request the COA</strong> — Third-party HPLC from Janoshik, Lab4Tox, or similar. No COA = walk away.</li>
+                <li><strong>Extract net peptide content</strong> — Multiply label weight by purity percentage from COA.</li>
+                <li><strong>Calculate $/mg</strong> — Divide total cost by net peptide milligrams.</li>
+                <li><strong>Compare across vendors</strong> — Lowest verified $/mg wins, assuming comparable testing standards.</li>
+            </ol>
+        </div>
 
-        <p>At <a href="https://prcpeptides.com">PRC Peptides</a>, we display price per milligram directly on every product card. No calculator required. No COA archaeology. No trust required.</p>
+        <p>This four-step process cuts through marketing, exposes dilution tactics, and reveals actual value.</p>
+
+        <h2>The PRC Standard</h2>
+
+        <p>At <a href="https://prcpeptides.com">PRC Peptides</a>, we display price per milligram directly on every product card. No calculator required. No COA archaeology.</p>
 
         <div class="highlight">
-            <strong>Example: <a href="https://prcpeptides.com/products/semaglutide.html">Semaglutide 10mg</a></strong><br>
-            Price: $30<br>
-            Net peptide (97.2% purity): 9.72mg<br>
-            Price per mg: <strong>$3.09/mg</strong><br><br>
-            You see this number before adding to cart. Compare it to any competitor. We're confident the math works in our favor.
+            <strong>Example: <a href="https://prcpeptides.com/products/nad-1000mg.html">NAD+ 1000mg</a></strong><br>
+            Price: $47<br>
+            Net peptide (verified): 1000mg<br>
+            Price per mg: <strong>$0.047/mg</strong><br><br>
+            You see this number before adding to cart. Compare it to any competitor's verified pricing.
         </div>
 
-        <p>This isn't altruism. It's competitive advantage. When buyers calculate true costs, high-purity peptides at fair prices win. We source 95%+ purity compounds, verify every batch with Janoshik HPLC testing, and price transparently because <strong>informed buyers are our ideal customers</strong>.</p>
+        <p>This approach reflects how we believe peptide pricing should be evaluated. When buyers calculate true costs, high-purity peptides at transparent prices win. We source 95%+ purity compounds, verify batches with third-party HPLC testing, and price openly because informed buyers are our ideal customers.</p>
 
-        <p>Opacity-dependent vendors can't compete on these terms. That's the point.</p>
-
-        <h2>How to Verify Any Vendor's True Pricing</h2>
-
-        <p>Use this three-step process for any peptide purchase:</p>
-
-        <h3>Step 1: Demand the COA</h3>
-        <p>Request third-party HPLC analysis (Janoshik, Lab4Tox, Condensed Matter, etc.). If the vendor won't provide it, walk away. No COA = no way to verify net peptide content = no way to calculate true price.</p>
-
-        <h3>Step 2: Extract Net Peptide Content</h3>
-        <p>Look for the purity percentage in the HPLC report. Multiply label weight by purity:</p>
-        <div class="calculation">
-Net Peptide (mg) = Label Weight × (Purity % ÷ 100)
-
-Example: 
-10mg vial × 96.5% purity = 9.65mg net peptide
-        </div>
-
-        <h3>Step 3: Calculate Price Per Mg</h3>
-        <p>Divide total cost by net peptide milligrams:</p>
-        <div class="calculation">
-Price Per Mg = Vial Price ÷ Net Peptide (mg)
-
-Example:
-$45 ÷ 9.65mg = $4.66/mg
-        </div>
-
-        <p>Compare this number—not vial prices—across vendors. The lowest price per milligram of verified peptide wins.</p>
+        <p>Vendors that don't provide this level of transparency make direct comparisons more difficult.</p>
 
         <h2>Use Our Comparison Tool</h2>
 
-        <p>We've done the math for you. Our <a href="https://prcpeptides.com/compare.html">peptide price comparison tool</a> tracks 81 products across 26 vendors with verified COAs. Filter by peptide, sort by price per milligram, and see where PRC ranks.</p>
+        <p>We've done the math across the market. Our <a href="https://prcpeptides.com/compare.html">peptide price comparison tool</a> tracks pricing and purity data across major vendors with verified COAs.</p>
 
-        <p>Spoiler: We consistently rank in the top 3 for value on high-demand compounds. When we don't, we adjust pricing or improve sourcing until we do.</p>
+        <p>Filter by peptide, sort by price per milligram, see where PRC ranks. When we don't offer the best value, we adjust pricing or improve sourcing until we do.</p>
 
         <div class="disclaimer">
             <strong>Research Use Disclaimer:</strong> All peptides discussed are sold strictly for in vitro research purposes. This content describes research-grade compound pricing and quality assessment methods. No peptides are intended for human consumption, therapeutic use, or clinical application. Researchers should consult institutional guidelines and applicable regulations before conducting peptide research.
@@ -307,15 +325,15 @@ $45 ÷ 9.65mg = $4.66/mg
 
         <h2>The Bottom Line</h2>
 
-        <p>In an industry built on information asymmetry, price per milligram is the equalizer. It cuts through marketing, exposes dilution tactics, and forces vendors to compete on actual value rather than perceived deals.</p>
+        <p>In a market built on information asymmetry, price per milligram is the equalizer.</p>
 
-        <p>Calculate it for every purchase. Demand COAs that make the calculation possible. And when vendors display price per milligram prominently—like we do—recognize it as a signal: they're confident their quality and pricing survive scrutiny.</p>
+        <p>It exposes vial-price gimmicks. It forces vendors to compete on actual value rather than perceived deals. And it gives researchers the one number that matters: <strong>how much am I paying for each milligram of verified peptide?</strong></p>
 
-        <p>Because in research peptides, the real question isn't "how much does this vial cost?" It's "how much am I paying for each milligram of verified peptide?"</p>
+        <p>Calculate it for every purchase. Demand COAs that make the calculation possible. And when vendors display price per milligram prominently—like we do—recognize it as confidence in their quality and pricing.</p>
 
-        <p>Everything else is just packaging.</p>
+        <p>Everything else is packaging.</p>
 
-        <a href="https://prcpeptides.com/shop.html" class="cta">Shop Verified Peptides - Price Per Mg Guaranteed</a>
+        <a href="https://prcpeptides.com/shop.html" class="cta">Shop Verified Peptides – Price Per Mg Guaranteed</a>
 
         <hr style="margin: 3rem 0; border: none; border-top: 1px solid #E2E8F0;">
 
