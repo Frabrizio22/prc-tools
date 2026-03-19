@@ -1128,6 +1128,9 @@
                 if (callback) callback(false, { error: 'Network error' });
             };
             
+            // Determine status based on payment method
+            var paymentStatus = (order.payment === 'bankful') ? 'Awaiting Payment' : 'Pending';
+            
             var orderData = {
                 order_number: orderNum,
                 customer_name: order['Registered Institution'].name,
@@ -1143,7 +1146,8 @@
                 shipping: order.shipping,
                 shipping_name: order.shippingName,
                 total: order.total,
-                payment: order.payment
+                payment: order.payment,
+                status: paymentStatus
             };
             
             xhr.send(JSON.stringify(orderData));
@@ -1180,16 +1184,30 @@
                 });
             }
 
-            // If Bankful, generate HPP signature and redirect
+            // If Bankful, log order FIRST then redirect to payment
             if (selectedPayment === 'bankful') {
                 var btn = document.getElementById('actionBtn');
-                btn.textContent = 'Redirecting to secure checkout...';
+                btn.textContent = 'Processing order...';
                 btn.disabled = true;
 
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/bankful', true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.onload = function() {
+                // Log order with "Awaiting Payment" status
+                notifyOrder(orderNumber, savedOrder, function(success, log) {
+                    if (!success) {
+                        console.error('[CHECKOUT] ORDER NOTIFICATION FAILED:', log);
+                        btn.textContent = 'Place Order';
+                        btn.disabled = false;
+                        alert('⚠️ Unable to create order. Please try again or contact support@prcpeptides.com');
+                        return;
+                    }
+                    
+                    console.log('[CHECKOUT] ✓ Order logged, generating Bankful link...');
+                    btn.textContent = 'Redirecting to secure checkout...';
+                    
+                    // Now generate Bankful HPP link
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/bankful', true);
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.onload = function() {
                     if (xhr.status === 200) {
                         var resp = JSON.parse(xhr.responseText);
                         console.log('[BANKFUL] Worker response:', resp);
@@ -1243,17 +1261,11 @@
                     alert('Connection error. Please try another payment method or email support@prcpeptides.com');
                     showConfirmation();
                 };
-                xhr.send(JSON.stringify({
-                    order_number: orderNumber,
-                    total: savedOrder.total.toFixed(2),
-                    customer_email: savedOrder['Registered Institution'].email,
-                    customer_name: savedOrder['Registered Institution'].name,
-                    customer_phone: savedOrder['Registered Institution'].phone || '',
-                    customer_address: savedOrder['Registered Institution'].address,
-                    customer_city: savedOrder['Registered Institution'].city,
-                    customer_state: savedOrder['Registered Institution'].state,
-                    customer_zip: savedOrder['Registered Institution'].zip
-                }));
+                    xhr.send(JSON.stringify({
+                        orderId: orderNumber,
+                        total: savedOrder.total
+                    }));
+                }); // Close notifyOrder callback
                 return;
             }
 

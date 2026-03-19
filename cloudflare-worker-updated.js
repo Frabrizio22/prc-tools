@@ -97,14 +97,13 @@ async function handleRequest(request) {
       
       // Only process successful payments
       if (status === 'APPROVED' || status === 'SUCCESS' || status === 'COMPLETE') {
-        // Forward to Google Apps Script
+        // Update order status in Google Sheet (from "Awaiting Payment" to "Paid")
         const sheetPayload = {
+          action: 'update_status',
           orderId: orderId,
-          paymentMethod: 'Credit/Debit Card',
           status: 'Paid',
-          amount: amount,
-          timestamp: new Date().toISOString(),
-          bankfulData: data
+          transactionId: data.transaction_id || '',
+          timestamp: new Date().toISOString()
         }
         
         await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
@@ -113,23 +112,9 @@ async function handleRequest(request) {
           body: JSON.stringify(sheetPayload)
         })
         
-        // Send Telegram notification
-        const telegramMessage = `💳 *Payment Received*\n\n` +
-          `Order: ${orderId}\n` +
-          `Amount: $${amount}\n` +
-          `Method: Credit/Debit Card\n` +
-          `Status: ${status}\n\n` +
-          `Check order details in Google Sheet`
-        
-        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: telegramMessage,
-            parse_mode: 'Markdown'
-          })
-        })
+        // Send Telegram notification (Apps Script will handle this with full order details)
+        // The notification is sent from Apps Script after updating the status,
+        // so it includes the full item list
       }
       
       // Return 200 OK to Bankful
