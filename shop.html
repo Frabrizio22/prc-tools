@@ -711,9 +711,11 @@
         .card-top-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 4px;
             min-height: 18px;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
         .product-price {
@@ -1364,6 +1366,23 @@
                 max-width: calc(100vw - 24px);
                 grid-template-columns: repeat(2, calc(50% - 5px));
                 gap: 10px;
+            }
+            
+            .product-category {
+                font-size: 0.55rem;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .coa-badge {
+                font-size: 0.5rem;
+                margin-left: 4px;
+                flex-shrink: 0;
+            }
+            
+            .card-top-row {
+                gap: 4px;
             }
         }
 
@@ -2485,7 +2504,7 @@
         }
 
         // Get category display name
-        function getCategoryName(cat) {
+        function getCategoryName(cat, short) {
             var names = {
                 'neuropeptides': 'Neuro',
                 'glp': 'GLP',
@@ -2498,6 +2517,18 @@
                 'advanced': 'Experimental',
                 'supplies': 'BAC Water'
             };
+            
+            var shortNames = {
+                'gh': 'GH',
+                'tissue': 'REGENERATIVE',
+                'antioxidants': 'ANTIOXIDANTS',
+                'melanocortin': 'MELANOCORTIN'
+            };
+            
+            if (short && window.innerWidth < 768 && shortNames[cat]) {
+                return shortNames[cat];
+            }
+            
             return names[cat] || cat;
         }
 
@@ -2868,7 +2899,7 @@
                     card.setAttribute('data-product', JSON.stringify(product));
                     
                     var categoryClass = 'category-' + product.category;
-                    var categoryName = getCategoryName(product.category);
+                    var categoryName = getCategoryName(product.category, true);
                     var coaBadge = product.coa ? '<span class="coa-badge">COA Verified</span>' : '';
                     var pricePerMgHtml = getPricePerMg(product.name, product.price);
                     var slug = getProductSlug(product.name);
