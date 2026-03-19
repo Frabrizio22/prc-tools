@@ -1180,16 +1180,30 @@
                 });
             }
 
-            // If Bankful, generate HPP signature and redirect
+            // If Bankful, save order FIRST then redirect
             if (selectedPayment === 'bankful') {
                 var btn = document.getElementById('actionBtn');
-                btn.textContent = 'Redirecting to secure checkout...';
+                btn.textContent = 'Processing order...';
                 btn.disabled = true;
 
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/bankful', true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.onload = function() {
+                // First: Save order to sheet (silent, no notifications yet)
+                savedOrder.sendNotifications = false;
+                notifyOrder(orderNumber, savedOrder, function(success, log) {
+                    if (!success) {
+                        console.error('[CHECKOUT] Failed to save order:', log);
+                        btn.textContent = 'Place Order';
+                        btn.disabled = false;
+                        alert('Unable to process order. Please try again.');
+                        return;
+                    }
+                    
+                    // Order saved, now generate Bankful redirect
+                    btn.textContent = 'Redirecting to secure checkout...';
+                    
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/bankful', true);
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.onload = function() {
                     if (xhr.status === 200) {
                         var resp = JSON.parse(xhr.responseText);
                         console.log('[BANKFUL] Worker response:', resp);
@@ -1243,17 +1257,18 @@
                     alert('Connection error. Please try another payment method or email support@prcpeptides.com');
                     showConfirmation();
                 };
-                xhr.send(JSON.stringify({
-                    order_number: orderNumber,
-                    total: savedOrder.total.toFixed(2),
-                    customer_email: savedOrder['Registered Institution'].email,
-                    customer_name: savedOrder['Registered Institution'].name,
-                    customer_phone: savedOrder['Registered Institution'].phone || '',
-                    customer_address: savedOrder['Registered Institution'].address,
-                    customer_city: savedOrder['Registered Institution'].city,
-                    customer_state: savedOrder['Registered Institution'].state,
-                    customer_zip: savedOrder['Registered Institution'].zip
-                }));
+                    xhr.send(JSON.stringify({
+                        order_number: orderNumber,
+                        total: savedOrder.total.toFixed(2),
+                        customer_email: savedOrder['Registered Institution'].email,
+                        customer_name: savedOrder['Registered Institution'].name,
+                        customer_phone: savedOrder['Registered Institution'].phone || '',
+                        customer_address: savedOrder['Registered Institution'].address,
+                        customer_city: savedOrder['Registered Institution'].city,
+                        customer_state: savedOrder['Registered Institution'].state,
+                        customer_zip: savedOrder['Registered Institution'].zip
+                    }));
+                }); // Close notifyOrder callback
                 return;
             }
 
