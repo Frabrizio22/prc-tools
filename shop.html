@@ -599,7 +599,7 @@
 
         /* Category Filter */
         .filter-section {
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             position: sticky;
             top: 47px;
             background: #FFFFFF;
@@ -1471,10 +1471,32 @@
         }
 
         .featured-header h2 {
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 1.4rem;
+            font-weight: 900;
             color: #0A1628;
             margin-bottom: 0;
+            display: inline-block;
+            position: relative;
+            padding: 0 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .featured-header h2::before,
+        .featured-header h2::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 70px;
+            height: 1px;
+            background: #CBD5E1;
+        }
+
+        .featured-header h2::before {
+            right: 100%;
+        }
+
+        .featured-header h2::after {
+            left: 100%;
         }
 
         .featured-grid {
@@ -1501,7 +1523,7 @@
         }
 
         .section-divider {
-            margin: 2rem 0 1rem;
+            margin: 3.5rem 0 1rem;
             text-align: center;
         }
 
