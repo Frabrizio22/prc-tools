@@ -483,6 +483,23 @@
             cursor: not-allowed;
         }
 
+        /* Loading Spinner */
+        .btn-spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         /* Empty Cart */
         .empty-cart {
             text-align: center;
@@ -1216,7 +1233,7 @@
             // If Bankful, save order FIRST then redirect
             if (selectedPayment === 'bankful') {
                 var btn = document.getElementById('actionBtn');
-                btn.textContent = 'Processing order...';
+                btn.innerHTML = '<span class="btn-spinner"></span>Processing Order...';
                 btn.disabled = true;
 
                 // First: Save order to sheet (silent, no notifications yet)
@@ -1231,7 +1248,7 @@
                     }
                     
                     // Order saved, now generate Bankful redirect
-                    btn.textContent = 'Redirecting to secure checkout...';
+                    btn.innerHTML = '<span class="btn-spinner"></span>Redirecting to Secure Checkout...';
                     
                     var xhr = new XMLHttpRequest();
                     xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/bankful', true);
