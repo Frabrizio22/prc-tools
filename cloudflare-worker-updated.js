@@ -1,167 +1,268 @@
-// PRC Peptides Cloudflare Worker with Bankful Callback Support
-// Deploy this to: prc-checkout.prcpeptides.workers.dev
+// Cloudflare Worker for PRC Peptides Checkout with Bankful HPP Integration
+// Handles: Bankful signature generation, Coinbase Commerce, order logging, notifications
 
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
-})
+export default {
+  async fetch(request, env) {
+    // CORS headers
+    const corsHeaders = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    };
 
-async function handleRequest(request) {
-  const url = new URL(request.url)
-  
-  // CORS headers
-  const corsHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  }
-  
-  if (request.method === 'OPTIONS') {
-    return new Response(null, { headers: corsHeaders })
-  }
-  
-  // Route: /bankful - Generate Bankful HPP parameters
-  if (url.pathname === '/bankful' && request.method === 'POST') {
-    try {
-      const data = await request.json()
-      
-      const params = {
-        amount: Math.round(data.total * 100), // Convert to cents
-        cart_name: 'Hosted-Page',
-        gateway_id: '70777',
-        request_currency: 'USD',
-        req_username: BANKFUL_USERNAME,
-        transaction_type: 'CAPTURE',
-        url_callback: 'https://prc-checkout.prcpeptides.workers.dev/callback',
-        url_cancel: 'https://prcpeptides.com/checkout.html',
-        url_complete: 'https://prcpeptides.com/order-confirmed.html',
-        url_failed: 'https://prcpeptides.com/checkout.html',
-        url_pending: 'https://prcpeptides.com/checkout.html',
-        xtl_order_id: data.orderId
-      }
-      
-      // Sort parameters alphabetically for signature
-      const sortedKeys = Object.keys(params).sort()
-      const signatureString = sortedKeys.map(k => `${k}=${params[k]}`).join('&')
-      
-      // Generate HMAC-SHA256 signature
-      const encoder = new TextEncoder()
-      const keyData = encoder.encode(BANKFUL_PASSWORD)
-      const messageData = encoder.encode(signatureString)
-      
-      const cryptoKey = await crypto.subtle.importKey(
-        'raw',
-        keyData,
-        { name: 'HMAC', hash: 'SHA-256' },
-        false,
-        ['sign']
-      )
-      
-      const signature = await crypto.subtle.sign('HMAC', cryptoKey, messageData)
-      const signatureHex = Array.from(new Uint8Array(signature))
-        .map(b => b.toString(16).padStart(2, '0'))
-        .join('')
-      
-      params.xtl_signature = signatureHex
-      
-      return new Response(JSON.stringify({
-        success: true,
-        hppUrl: 'https://api.paybybankful.com/front-calls/go-in/hosted-page-pay',
-        params: params
-      }), {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      })
-      
-    } catch (error) {
-      return new Response(JSON.stringify({ 
-        success: false, 
-        error: error.message 
-      }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      })
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { headers: corsHeaders });
     }
-  }
-  
-  // Route: /callback - Receive Bankful payment notifications
-  if (url.pathname === '/callback' && request.method === 'POST') {
-    try {
-      const data = await request.json()
-      
-      // Log the callback for debugging
-      console.log('Bankful callback received:', JSON.stringify(data))
-      
-      // Extract order details
-      const orderId = data.xtl_order_id || data.order_id
-      const status = data.status || data.transaction_status
-      const amount = data.amount ? (data.amount / 100).toFixed(2) : 'unknown'
-      
-      // Only process successful payments
-      if (status === 'APPROVED' || status === 'SUCCESS' || status === 'COMPLETE') {
-        // Update order status in Google Sheet (from "Awaiting Payment" to "Paid")
-        const sheetPayload = {
-          action: 'update_status',
-          orderId: orderId,
-          status: 'Paid',
-          transactionId: data.transaction_id || '',
-          timestamp: new Date().toISOString()
+
+    const url = new URL(request.url);
+
+    // === CALLBACK WEBHOOK from Bankful ===
+    if (url.pathname === '/bankful/callback' && request.method === 'POST') {
+      try {
+        const formData = await request.formData();
+        const params = {};
+        for (const [key, value] of formData) {
+          params[key] = value;
         }
+
+        console.log('[BANKFUL CALLBACK] Received:', params);
+
+        // Verify signature
+        const receivedSignature = params.SIGNATURE;
+        delete params.SIGNATURE;
         
-        await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(sheetPayload)
-        })
+        const expectedSignature = await generateHmacSignature(params, env.BANKFUL_PASSWORD);
         
-        // Send Telegram notification (Apps Script will handle this with full order details)
-        // The notification is sent from Apps Script after updating the status,
-        // so it includes the full item list
+        if (receivedSignature !== expectedSignature) {
+          console.error('[BANKFUL CALLBACK] Signature mismatch!');
+          return new Response('Invalid signature', { status: 400 });
+        }
+
+        const orderNumber = params.XTL_ORDER_ID;
+        const status = params.TRANS_STATUS_NAME; // APPROVED or DECLINED
+        const amount = params.TRANS_VALUE;
+        const transactionId = params.TRANS_REQUEST_ID;
+
+        // Log to Google Sheet
+        const sheetUrl = env.GOOGLE_SHEET_WEBHOOK_URL;
+        if (sheetUrl) {
+          await fetch(sheetUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              orderNumber,
+              paymentMethod: 'Bankful',
+              paymentStatus: status,
+              amount,
+              transactionId,
+              timestamp: new Date().toISOString(),
+              callbackData: params
+            })
+          });
+        }
+
+        // Send Telegram notification
+        if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
+          const emoji = status === 'APPROVED' ? '✅' : '❌';
+          const message = `${emoji} Bankful Payment ${status}\n\n` +
+            `Order: ${orderNumber}\n` +
+            `Amount: $${amount}\n` +
+            `Transaction ID: ${transactionId}\n` +
+            `Status: ${status}`;
+          
+          await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: env.TELEGRAM_CHAT_ID,
+              text: message
+            })
+          });
+        }
+
+        return new Response('OK', { status: 200 });
+      } catch (error) {
+        console.error('[BANKFUL CALLBACK] Error:', error);
+        return new Response('Internal error', { status: 500 });
       }
-      
-      // Return 200 OK to Bankful
-      return new Response(JSON.stringify({ received: true }), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      })
-      
-    } catch (error) {
-      console.error('Callback error:', error)
-      return new Response(JSON.stringify({ error: error.message }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' }
-      })
     }
-  }
-  
-  // Route: /order - Process full order (Zelle/Crypto/CashApp)
-  if (url.pathname === '/order' && request.method === 'POST') {
-    try {
-      const orderData = await request.json()
-      
-      // Forward to Google Apps Script
-      const response = await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(orderData)
-      })
-      
-      const result = await response.json()
-      
-      return new Response(JSON.stringify(result), {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      })
-      
-    } catch (error) {
-      return new Response(JSON.stringify({ 
-        success: false, 
-        error: error.message 
-      }), {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      })
+
+    // === BANKFUL HPP REQUEST ===
+    if (url.pathname === '/bankful' && request.method === 'POST') {
+      try {
+        const data = await request.json();
+        console.log('[BANKFUL HPP] Received:', data);
+        
+        const orderNumber = data.order_number;
+        const amount = parseFloat(data.total);
+        
+        // Build HPP parameters
+        const hppParams = {
+          req_username: env.BANKFUL_USERNAME || 'support@prcpeptides.com',
+          gateway_id: '70777',
+          transaction_type: 'CAPTURE',
+          amount: amount.toFixed(2),
+          request_currency: 'USD',
+          xtl_order_id: orderNumber,
+          cart_name: 'Hosted-Page',
+          
+          // Customer info (optional but recommended)
+          cust_fname: data.customer_name ? data.customer_name.split(' ')[0] : 'Customer',
+          cust_lname: data.customer_name ? data.customer_name.split(' ').slice(1).join(' ') : '',
+          cust_email: data.customer_email || '',
+          cust_phone: data.customer_phone || '',
+          
+          // Billing address (optional)
+          bill_addr: data.customer_address || '',
+          bill_addr_city: data.customer_city || '',
+          bill_addr_state: data.customer_state || '',
+          bill_addr_zip: data.customer_zip || '',
+          bill_addr_country: 'US',
+          
+          // Return URLs (REQUIRED)
+          url_complete: 'https://prcpeptides.com/order-confirmed.html',
+          url_failed: 'https://prcpeptides.com/payment-failed.html',
+          url_cancel: 'https://prcpeptides.com/payment-cancel.html',
+          url_pending: 'https://prcpeptides.com/payment-pending.html',
+          url_callback: 'https://prc-checkout.prcpeptides.workers.dev/bankful/callback'
+        };
+
+        // Remove empty optional fields
+        Object.keys(hppParams).forEach(key => {
+          if (!hppParams[key]) delete hppParams[key];
+        });
+
+        // Generate signature
+        const signature = await generateHmacSignature(hppParams, env.BANKFUL_PASSWORD);
+        hppParams.signature = signature;
+
+        console.log('[BANKFUL] HPP params generated:', Object.keys(hppParams));
+
+        return new Response(JSON.stringify({
+          success: true,
+          hpp_url: 'https://api.paybybankful.com/front-calls/go-in/hosted-page',
+          hpp_params: hppParams
+        }), {
+          status: 200,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        });
+        
+      } catch (error) {
+        console.error('[BANKFUL HPP] Error:', error);
+        return new Response(JSON.stringify({
+          success: false,
+          error: error.message
+        }), {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        });
+      }
     }
+
+    // === OTHER PAYMENT METHODS (Zelle, crypto, etc.) ===
+    if (url.pathname === '/order' && request.method === 'POST') {
+      try {
+        const data = await request.json();
+        console.log('[ORDER] Received:', data);
+
+        // Forward to Google Apps Script for logging
+        const sheetUrl = env.GOOGLE_SHEET_WEBHOOK_URL;
+        if (sheetUrl) {
+          await fetch(sheetUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+        }
+
+        // Send Telegram notification for ALL orders (including Bankful)
+        if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
+          const items = data.items.map(item => `${item.name} x${item.quantity} - $${item.price}`).join('\n');
+          const message = `🆕 NEW ORDER\n\n` +
+            `Order: ${data.order_number}\n` +
+            `Customer: ${data.customer_name}\n` +
+            `Email: ${data.customer_email}\n` +
+            `Phone: ${data.customer_phone}\n` +
+            `Total: $${data.total}\n` +
+            `Payment: ${data.payment}\n` +
+            `Items:\n${items}`;
+          
+          await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: env.TELEGRAM_CHAT_ID,
+              text: message
+            })
+          });
+        }
+
+        // === COINBASE COMMERCE ===
+        if (data.payment_method === 'crypto' || data.payment === 'crypto') {
+          const checkoutUrl = `https://commerce.coinbase.com/checkout/${env.COINBASE_CHECKOUT_ID || 'YOUR_CHECKOUT_ID'}`;
+          
+          return new Response(JSON.stringify({
+            success: true,
+            checkout_url: checkoutUrl
+          }), {
+            status: 200,
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+          });
+        }
+
+        return new Response(JSON.stringify({
+          success: true,
+          message: 'Order received'
+        }), {
+          status: 200,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        });
+        
+      } catch (error) {
+        console.error('[ORDER] Error:', error);
+        return new Response(JSON.stringify({
+          success: false,
+          error: error.message
+        }), {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        });
+      }
+    }
+
+    return new Response('PRC Checkout Worker', {
+      status: 200,
+      headers: corsHeaders
+    });
   }
+};
+
+// === HELPER: Generate HMAC-SHA256 signature ===
+async function generateHmacSignature(params, password) {
+  // 1. Sort parameters alphabetically
+  const sortedKeys = Object.keys(params).sort();
   
-  return new Response('PRC Checkout Worker', { 
-    headers: { ...corsHeaders, 'Content-Type': 'text/plain' }
-  })
+  // 2. Concatenate as: key1value1key2value2...
+  const message = sortedKeys.map(key => key + params[key]).join('');
+  
+  // 3. HMAC-SHA256 with password as key
+  const encoder = new TextEncoder();
+  const keyData = encoder.encode(password);
+  const messageData = encoder.encode(message);
+  
+  const cryptoKey = await crypto.subtle.importKey(
+    'raw',
+    keyData,
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign']
+  );
+  
+  const signature = await crypto.subtle.sign('HMAC', cryptoKey, messageData);
+  
+  // 4. Hex encode
+  const hashArray = Array.from(new Uint8Array(signature));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  
+  return hashHex;
 }
