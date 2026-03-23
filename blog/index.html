@@ -213,14 +213,20 @@
             color: #FFF;
             z-index: 1;
         }
-        .blog-card-image.research {
-            background: linear-gradient(135deg, #2B7DE9 0%, #1E40AF 100%);
+        .blog-card-image.peptides {
+            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
         }
-        .blog-card-image.guides {
+        .blog-card-image.quality {
             background: linear-gradient(135deg, #059669 0%, #047857 100%);
         }
-        .blog-card-image.education {
-            background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+        .blog-card-image.howto {
+            background: linear-gradient(135deg, #2B7DE9 0%, #1E40AF 100%);
+        }
+        .blog-card-image.compare {
+            background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+        }
+        .blog-card-image.news {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
         }
 
         .blog-card-content {
@@ -236,9 +242,11 @@
             margin-bottom: 0.5rem;
         }
 
-        .category-research { color: #2563EB; }
-        .category-guides { color: #059669; }
-        .category-education { color: #7C3AED; }
+        .category-peptides { color: #7C3AED; }
+        .category-quality { color: #059669; }
+        .category-howto { color: #2B7DE9; }
+        .category-compare { color: #06B6D4; }
+        .category-news { color: #DC2626; }
 
         .blog-card h2 {
             font-size: 1.15rem;
@@ -410,19 +418,21 @@
         <div class="filter-section">
             <div class="filter-pills">
                 <button class="filter-pill active" onclick="filterPosts('all')">All</button>
-                <button class="filter-pill" onclick="filterPosts('research')">Research</button>
-                <button class="filter-pill" onclick="filterPosts('guides')">Guides</button>
-                <button class="filter-pill" onclick="filterPosts('education')">Education</button>
+                <button class="filter-pill" onclick="filterPosts('peptides')">Peptides</button>
+                <button class="filter-pill" onclick="filterPosts('quality')">Quality</button>
+                <button class="filter-pill" onclick="filterPosts('howto')">How-To</button>
+                <button class="filter-pill" onclick="filterPosts('compare')">Compare</button>
+                <button class="filter-pill" onclick="filterPosts('news')">News</button>
             </div>
         </div>
 
         <!-- Blog Grid -->
         <div class="blog-grid" id="blogGrid">
             <!-- Post: PT-141 Research Guide -->
-            <a href="pt-141-research-guide.html" class="blog-card" data-category="education">
-                <div class="blog-card-image education"><span class="card-label">Research Guide</span></div>
+            <a href="pt-141-research-guide.html" class="blog-card" data-category="peptides">
+                <div class="blog-card-image peptides"><span class="card-label">PEPTIDE GUIDE</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-education">Research Guide</span>
+                    <span class="blog-card-category category-peptides">Peptide Guide</span>
                     <h2>PT-141 (Bremelanotide): Complete Research Guide</h2>
                     <div class="blog-card-meta">March 22, 2026 · 8 min read</div>
                     <p class="blog-card-excerpt">Complete PT-141 research guide covering MC4R mechanism, clinical trial data, PT-141 vs Viagra comparison, quality verification, and common research mistakes.</p>
@@ -431,10 +441,10 @@
             </a>
 
             <!-- Post: Price Per Mg -->
-            <a href="price-per-mg.html" class="blog-card" data-category="guides">
-                <div class="blog-card-image guides"><span class="card-label">Buying Guide</span></div>
+            <a href="price-per-mg.html" class="blog-card" data-category="quality">
+                <div class="blog-card-image quality"><span class="card-label">QUALITY</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-guides">Buying Guide</span>
+                    <span class="blog-card-category category-quality">Quality</span>
                     <h2>Price Per Mg: The Real Cost of 'Cheap' Peptides</h2>
                     <div class="blog-card-meta">March 19, 2026 · 7 min read</div>
                     <p class="blog-card-excerpt">Why a $30 peptide can cost more than a $50 one. Learn to calculate price per milligram and avoid the concentration trap plaguing peptide research.</p>
@@ -443,10 +453,10 @@
             </a>
 
             <!-- Post: HPLC Testing Explained -->
-            <a href="hplc-testing-explained.html" class="blog-card" data-category="education">
-                <div class="blog-card-image education"><span class="card-label">Education</span></div>
+            <a href="hplc-testing-explained.html" class="blog-card" data-category="quality">
+                <div class="blog-card-image quality"><span class="card-label">QUALITY</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-education">Education</span>
+                    <span class="blog-card-category category-quality">Quality</span>
                     <h2>HPLC Testing Explained: How to Read Your Peptide COA</h2>
                     <div class="blog-card-meta">March 18, 2026 · 7 min read</div>
                     <p class="blog-card-excerpt">Learn to read peptide HPLC reports like a pro. Understand chromatography peaks, purity percentages, and red flags in Certificate of Analysis documents.</p>
@@ -455,10 +465,10 @@
             </a>
 
             <!-- Post: 5 Red Flags -->
-            <a href="5-red-flags-peptide-vendors-FINAL.html" class="blog-card" data-category="guides">
-                <div class="blog-card-image guides"><span class="card-label">Buying Guide</span></div>
+            <a href="5-red-flags-peptide-vendors-FINAL.html" class="blog-card" data-category="quality">
+                <div class="blog-card-image quality"><span class="card-label">QUALITY</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-guides">Buying Guide</span>
+                    <span class="blog-card-category category-quality">Quality</span>
                     <h2>5 Red Flags When Buying Research Peptides</h2>
                     <div class="blog-card-meta">March 17, 2026 · 10 min read</div>
                     <p class="blog-card-excerpt">Not every imperfect vendor is a scam. Learn which peptide supplier red flags matter—and which ones don't.</p>
@@ -467,10 +477,10 @@
             </a>
 
             <!-- Post: How to Read a COA -->
-            <a href="how-to-read-a-coa.html" class="blog-card" data-category="education">
-                <div class="blog-card-image education"><span class="card-label">Education</span></div>
+            <a href="how-to-read-a-coa.html" class="blog-card" data-category="quality">
+                <div class="blog-card-image quality"><span class="card-label">QUALITY</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-education">Education</span>
+                    <span class="blog-card-category category-quality">Quality</span>
                     <h2>How to Read a COA: The Non-Scientist's Guide</h2>
                     <div class="blog-card-meta">March 18, 2026 · 8 min read</div>
                     <p class="blog-card-excerpt">Don't understand the testing report your peptide vendor sent? This guide translates COA jargon into plain English so you can actually tell if you're getting quality compounds—or getting scammed.</p>
@@ -479,10 +489,10 @@
             </a>
 
             <!-- Post: Thymosin Alpha-1 -->
-            <a href="thymosin-alpha-1-immune-research.html" class="blog-card" data-category="research">
-                <div class="blog-card-image research"><span class="card-label">Research</span></div>
+            <a href="thymosin-alpha-1-immune-research.html" class="blog-card" data-category="peptides">
+                <div class="blog-card-image peptides"><span class="card-label">PEPTIDE GUIDE</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-research">Research</span>
+                    <span class="blog-card-category category-peptides">Peptide Guide</span>
                     <h2>Thymosin Alpha-1: The Immune Peptide Nobody's Talking About</h2>
                     <div class="blog-card-meta">March 13, 2026 · 10 min read</div>
                     <p class="blog-card-excerpt">This peptide has been prescribed in 35+ countries for decades and was used in COVID-19 trials—yet most researchers have never heard of it. Here's why thymosin alpha-1 deserves way more attention than it gets.</p>
@@ -491,10 +501,10 @@
             </a>
 
             <!-- Post: Semaglutide Degradation Guide -->
-            <a href="semaglutide-degradation-guide.html" class="blog-card" data-category="guides">
-                <div class="blog-card-image guides"><span class="card-label">Troubleshooting</span></div>
+            <a href="semaglutide-degradation-guide.html" class="blog-card" data-category="howto">
+                <div class="blog-card-image howto"><span class="card-label">HOW-TO</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-guides">Troubleshooting</span>
+                    <span class="blog-card-category category-howto">How-To</span>
                     <h2>Semaglutide Degradation: How to Tell If It's Gone Bad</h2>
                     <div class="blog-card-meta">March 12, 2026 · 6 min read</div>
                     <p class="blog-card-excerpt">Cloudy vial? Clumps? Off smell? Here's how to identify degraded semaglutide—and what causes it. Visual inspection, storage mistakes, and the science of peptide stability explained.</p>
@@ -503,10 +513,10 @@
             </a>
 
             <!-- Post: TB-500 Research -->
-            <a href="tb-500-research-guide.html" class="blog-card" data-category="research">
-                <div class="blog-card-image research"><span class="card-label">Research</span></div>
+            <a href="tb-500-research-guide.html" class="blog-card" data-category="peptides">
+                <div class="blog-card-image peptides"><span class="card-label">PEPTIDE GUIDE</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-research">Research</span>
+                    <span class="blog-card-category category-peptides">Peptide Guide</span>
                     <h2>TB-500 Research: Understanding Thymosin Beta-4</h2>
                     <div class="blog-card-meta">March 11, 2026 · 9 min read</div>
                     <p class="blog-card-excerpt">TB-500 shows up in tissue repair research for one reason: it sequesters actin. That simple mechanism drives some genuinely interesting cardiovascular and wound healing data. Here's what makes this thymosin fragment worth studying—and where the research actually stands.</p>
@@ -515,10 +525,10 @@
             </a>
 
             <!-- Post: Peptide Sciences Shutdown -->
-            <a href="peptide-sciences-shutdown-2026.html" class="blog-card" data-category="education">
-                <div class="blog-card-image education"><span class="card-label">Industry News</span></div>
+            <a href="peptide-sciences-shutdown-2026.html" class="blog-card" data-category="news">
+                <div class="blog-card-image news"><span class="card-label">NEWS</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-education">Industry News</span>
+                    <span class="blog-card-category category-news">News</span>
                     <h2>What Happened to Peptide Sciences? The 2026 Shutdown Explained</h2>
                     <div class="blog-card-meta">March 8, 2026 · 8 min read</div>
                     <p class="blog-card-excerpt">Peptide Sciences shut down March 6, 2026, leaving researchers with unfulfilled orders. Here's what happened, what it means for pending orders, and how to evaluate alternative peptide vendors.</p>
@@ -527,10 +537,10 @@
             </a>
 
             <!-- Post 1: Retatrutide Research Guide -->
-            <a href="retatrutide-research-guide.html" class="blog-card" data-category="research">
-                <div class="blog-card-image research"><span class="card-label">Research</span></div>
+            <a href="retatrutide-research-guide.html" class="blog-card" data-category="peptides">
+                <div class="blog-card-image peptides"><span class="card-label">PEPTIDE GUIDE</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-research">Research</span>
+                    <span class="blog-card-category category-peptides">Peptide Guide</span>
                     <h2>Retatrutide: The Triple Agonist That Might Actually Change Things</h2>
                     <div class="blog-card-meta">February 24, 2026 · 9 min read</div>
                     <p class="blog-card-excerpt">Semaglutide made waves. Tirzepatide made bigger waves. Now retatrutide is here with Phase 2 data showing 24% average weight loss at 48 weeks. Here's what makes this GLP-1/GIP/glucagon triple agonist different—and why the science is legitimately impressive.</p>
@@ -539,10 +549,10 @@
             </a>
 
             <!-- Post 2: Tirzepatide Research Guide -->
-            <a href="tirzepatide-research-guide.html" class="blog-card" data-category="research">
-                <div class="blog-card-image research"><span class="card-label">Research</span></div>
+            <a href="tirzepatide-research-guide.html" class="blog-card" data-category="peptides">
+                <div class="blog-card-image peptides"><span class="card-label">PEPTIDE GUIDE</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-research">Research</span>
+                    <span class="blog-card-category category-peptides">Peptide Guide</span>
                     <h2>What is Tirzepatide? A Complete Research Guide (2026)</h2>
                     <div class="blog-card-meta">February 20, 2026 · 9 min read</div>
                     <p class="blog-card-excerpt">The first dual GIP/GLP-1 receptor agonist delivered results that made even semaglutide look weak. Here's why adding GIP to the mix changed metabolic research—and what 20%+ weight reduction actually means in clinical trials.</p>
@@ -551,10 +561,10 @@
             </a>
 
             <!-- Post 3: Semaglutide vs Tirzepatide Comparison -->
-            <a href="semaglutide-vs-tirzepatide.html" class="blog-card" data-category="research">
-                <div class="blog-card-image research"><span class="card-label">Research</span></div>
+            <a href="semaglutide-vs-tirzepatide.html" class="blog-card" data-category="compare">
+                <div class="blog-card-image compare"><span class="card-label">COMPARISON</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-research">Research</span>
+                    <span class="blog-card-category category-compare">Comparison</span>
                     <h2>Semaglutide vs Tirzepatide: A Comprehensive Research Comparison (2026)</h2>
                     <div class="blog-card-meta">February 19, 2026 · 11 min read</div>
                     <p class="blog-card-excerpt">One targets GLP-1 receptors. The other targets both GLP-1 and GIP. Here's the complete breakdown of how semaglutide and tirzepatide differ—and which one makes sense for your research.</p>
@@ -563,10 +573,10 @@
             </a>
 
             <!-- Post: NAD+ Research Guide -->
-            <a href="nad-plus-research-guide.html" class="blog-card" data-category="research">
-                <div class="blog-card-image research"><span class="card-label">Research</span></div>
+            <a href="nad-plus-research-guide.html" class="blog-card" data-category="peptides">
+                <div class="blog-card-image peptides"><span class="card-label">PEPTIDE GUIDE</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-research">Research</span>
+                    <span class="blog-card-category category-peptides">Peptide Guide</span>
                     <h2>NAD+ Research Guide: Why This Molecule Matters for Aging Research</h2>
                     <div class="blog-card-meta">February 18, 2026 · 9 min read</div>
                     <p class="blog-card-excerpt">NAD+ has been known since 1906, but only recently have researchers figured out how to boost it effectively—and why that might matter for longevity. Here's what the science actually says about supplementation, cellular metabolism, and aging.</p>
@@ -575,10 +585,10 @@
             </a>
 
             <!-- Post 4: Semaglutide Research Guide -->
-            <a href="semaglutide-research-guide.html" class="blog-card" data-category="research">
-                <div class="blog-card-image research"><span class="card-label">Research</span></div>
+            <a href="semaglutide-research-guide.html" class="blog-card" data-category="peptides">
+                <div class="blog-card-image peptides"><span class="card-label">PEPTIDE GUIDE</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-research">Research</span>
+                    <span class="blog-card-category category-peptides">Peptide Guide</span>
                     <h2>What is Semaglutide? A Complete Research Guide</h2>
                     <div class="blog-card-meta">February 17, 2026 · 8 min read</div>
                     <p class="blog-card-excerpt">If you've heard of semaglutide, you know it's GLP-1 that scientists figured out how to make last. Here's what makes this long-acting peptide a game-changer for incretin research.</p>
@@ -587,10 +597,10 @@
             </a>
 
             <!-- Post 5: Reconstitution Guide -->
-            <a href="how-to-reconstitute-peptides.html" class="blog-card" data-category="guides">
-                <div class="blog-card-image guides"><span class="card-label">Guide</span></div>
+            <a href="how-to-reconstitute-peptides.html" class="blog-card" data-category="howto">
+                <div class="blog-card-image howto"><span class="card-label">HOW-TO</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-guides">Guides</span>
+                    <span class="blog-card-category category-howto">How-To</span>
                     <h2>How to Reconstitute Peptides: The Complete Guide</h2>
                     <div class="blog-card-meta">February 17, 2026 · 9 min read</div>
                     <p class="blog-card-excerpt">Mess up reconstitution once and you've flushed expensive research compound down the drain. This guide shows you exactly how to do it right—equipment, technique, math, and the mistakes that trip up even experienced researchers.</p>
@@ -599,10 +609,10 @@
             </a>
 
             <!-- Post 6: HPLC Testing -->
-            <a href="peptide-purity-hplc-testing.html" class="blog-card" data-category="education">
-                <div class="blog-card-image education"><span class="card-label">Education</span></div>
+            <a href="peptide-purity-hplc-testing.html" class="blog-card" data-category="quality">
+                <div class="blog-card-image quality"><span class="card-label">QUALITY</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-education">Education</span>
+                    <span class="blog-card-category category-quality">Quality</span>
                     <h2>Understanding Peptide Purity: HPLC Testing Explained</h2>
                     <div class="blog-card-meta">February 17, 2026 · 7 min read</div>
                     <p class="blog-card-excerpt">You see "≥98% purity" on a label—but what does that actually mean? Learn how HPLC testing works, what a real COA should include, and the red flags that scream "low-quality supplier."</p>
@@ -611,10 +621,10 @@
             </a>
 
             <!-- Post 9: BPC-157 Research -->
-            <a href="bpc-157-research-guide.html" class="blog-card" data-category="research">
-                <div class="blog-card-image research"><span class="card-label">Research</span></div>
+            <a href="bpc-157-research-guide.html" class="blog-card" data-category="peptides">
+                <div class="blog-card-image peptides"><span class="card-label">PEPTIDE GUIDE</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-research">Research</span>
+                    <span class="blog-card-category category-peptides">Peptide Guide</span>
                     <h2>BPC-157 Research: What the Science Actually Says</h2>
                     <div class="blog-card-meta">February 17, 2026 · 8 min read</div>
                     <p class="blog-card-excerpt">BPC-157 is one of the most talked-about peptides in tissue repair research. But what does the science actually say? Here's the evidence-based reality check—what we know, what we don't, and what's still being figured out.</p>
@@ -623,10 +633,10 @@
             </a>
 
             <!-- Post 10: Storage Guide -->
-            <a href="peptide-storage-guide.html" class="blog-card" data-category="guides">
-                <div class="blog-card-image guides"><span class="card-label">Guide</span></div>
+            <a href="peptide-storage-guide.html" class="blog-card" data-category="howto">
+                <div class="blog-card-image howto"><span class="card-label">HOW-TO</span></div>
                 <div class="blog-card-content">
-                    <span class="blog-card-category category-guides">Guides</span>
+                    <span class="blog-card-category category-howto">How-To</span>
                     <h2>Peptide Storage Guide: How to Properly Store Research Peptides</h2>
                     <div class="blog-card-meta">February 17, 2026 · 7 min read</div>
                     <p class="blog-card-excerpt">The fastest way to waste expensive peptides? Store them wrong. A peptide stored correctly can stay stable for years. Stored poorly, it might be garbage within days. Here's how to get it right.</p>
