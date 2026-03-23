@@ -958,7 +958,7 @@
 
         function getTotalDiscount() {
             var discount = getDiscount();
-            if (discountCode === 'TEST15') discount += 15;
+            if (discountCode === 'BOBA10') discount += (getSubtotal() * 0.10);
             return discount;
         }
 
@@ -968,12 +968,14 @@
         }
 
         function getTotal() {
-            var baseTotal = getSubtotal() - getDiscount() + getShipping();
-            // Apply TEST15 discount to final total
-            if (discountCode === 'TEST15') {
-                return Math.max(0, baseTotal - 15);
+            var subtotal = getSubtotal();
+            var zelleDiscount = getDiscount(); // 5% if Zelle/CashApp selected
+            var codeDiscount = 0;
+            if (discountCode === 'BOBA10') {
+                codeDiscount = subtotal * 0.10; // 10% off subtotal
             }
-            return baseTotal;
+            var shipping = getShipping();
+            return Math.max(0, subtotal - zelleDiscount - codeDiscount + shipping);
         }
 
         function updateFooter() {
@@ -1030,13 +1032,16 @@
                 else if (selectedPayment === 'zelle') lbl = 'Zelle Discount (5%)';
                 html += '<div class="summary-row discount"><span>' + lbl + '</span><span>-$' + getDiscount().toFixed(2) + '</span></div>';
             }
+            
+            // Show BOBA10 discount
+            if (discountCode === 'BOBA10') {
+                var codeDiscount = getSubtotal() * 0.10;
+                html += '<div class="summary-row discount"><span>Code Discount (10%)</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
+            }
+            
             var shipLabel = getShipping() === 0 ? 'FREE' : '$' + getShipping().toFixed(2);
             html += '<div class="summary-row"><span>' + selectedShipping.name + '</span><span>' + shipLabel + '</span></div>';
             
-            // Show TEST15 discount after shipping
-            if (discountCode === 'TEST15') {
-                html += '<div class="summary-row discount"><span>Discount (TEST15)</span><span>-$15.00</span></div>';
-            }
             
             html += '<div class="summary-row total"><span>Total</span><span>$' + getTotal().toFixed(2) + '</span></div>';
             el.innerHTML = html;
@@ -1090,10 +1095,10 @@
             if (!code || !msg) return;
             var enteredCode = code.value.trim().toUpperCase();
             
-            if (enteredCode === 'TEST15') {
-                discountCode = 'TEST15';
+            if (enteredCode === 'BOBA10') {
+                discountCode = 'BOBA10';
                 promoApplied = false; // Clear old promo
-                msg.textContent = '✓ Code applied — $15 off!';
+                msg.textContent = '✓ Code applied — 10% off!';
                 msg.style.color = '#059669';
                 code.disabled = true;
                 updateSummary();
@@ -1200,6 +1205,7 @@
                 items: order.items,
                 subtotal: order.subtotal,
                 discount: order.discount,
+                discount_code: discountCode || '',
                 shipping: order.shipping,
                 shipping_name: order.shippingName,
                 total: order.total,
