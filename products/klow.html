@@ -7,14 +7,14 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KLOW Multi-Peptide Recovery Blend | KPV+BPC-157+TB-500+GHK-Cu | PRC Peptides</title>
-<meta name="description" content="KLOW 4-peptide recovery complex: KPV 10mg + BPC-157 10mg + TB-500 10mg + GHK-Cu 50mg. Comprehensive tissue remodeling blend for advanced recovery research.">
+<title>KLOW | KPV+BPC-157+TB-500+GHK-Cu | PRC Peptides</title>
+<meta name="description" content="KLOW 4-peptide complex: KPV 10mg + BPC-157 10mg + TB-500 10mg + GHK-Cu 50mg. Comprehensive tissue remodeling for advanced research.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "KLOW Multi-Peptide Recovery Blend",
-  "description": "KLOW is a multi-peptide research blend designed around a simple idea: recovery is rarely a single-pathway problem. By combining GHK-Cu, BPC-157, TB-500, and KPV in a single formulation, KLOW is positioned as a broad-spectrum tool for investigators interested in tissue remodeling, regeneration, and repair.",
+  "name": "KLOW",
+  "description": "KLOW is a multi-peptide research complex designed around a simple idea: recovery is rarely a single-pathway problem. By combining GHK-Cu, BPC-157, TB-500, and KPV in a single formulation, KLOW is positioned as a broad-spectrum tool for investigators interested in tissue remodeling, regeneration, and repair.",
   "brand": {
     "@type": "Brand",
     "name": "PRC Peptides"
@@ -67,7 +67,7 @@
 <div class="breadcrumb"><a href="../shop.html">← Back to Shop</a> › <a href="../shop.html#tissue">Regenerative</a> › KLOW</div>
 <main>
 <div class="category-label">Regenerative</div>
-<h1>KLOW Multi-Peptide Recovery Blend</h1>
+<h1>KLOW</h1>
 <div class="product-meta">
 <div class="product-price">$58</div>
 <div class="coa-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> COA Available</div>
@@ -210,7 +210,7 @@
 <div class="mobile-sticky" id="mobileSticky">
 <div class="mobile-sticky-content">
 <div>
-<div style="font-size:0.75rem;color:#64748B;margin-bottom:2px">KLOW Multi-Peptide</div>
+<div style="font-size:0.75rem;color:#64748B;margin-bottom:2px">KLOW</div>
 <div class="mobile-sticky-price">$<span id="mobileTotalPrice">58</span></div>
 </div>
 <button class="btn-primary" onclick="addToCart()">Add to Cart</button>
@@ -219,7 +219,7 @@
 <footer id="pageFooter"><div class="footer-content"><div class="footer-logo"><span style="color:#2B7DE9">PRC</span> PEPTIDES</div><div class="footer-links"><a href="../shop.html">Shop</a><a href="mailto:support@prcpeptides.com">Contact</a></div><div class="footer-disclaimer">FOR RESEARCH PURPOSES ONLY. Not for human consumption. All products intended exclusively for in vitro research. © 2026 PRC Labs LLC</div></div></footer>
 <div class="toast" id="toast"></div>
 <script>
-var quantity=1;var basePrice=58;var productName='KLOW Multi-Peptide Recovery Blend';
+var quantity=1;var basePrice=58;var productName='KLOW';
 function changeQty(delta){quantity=Math.max(1,quantity+delta);document.getElementById('qtyValue').textContent=quantity;updatePrice()}
 function updatePrice(){var total=basePrice*quantity;document.getElementById('totalPrice').textContent=total;document.getElementById('mobileTotalPrice').textContent=total}
 function addToCart(){var cart=JSON.parse(sessionStorage.getItem('prcCart')||'[]');var existing=cart.find(function(item){return item.name===productName});if(existing){existing.quantity+=quantity}else{cart.push({name:productName,price:basePrice,quantity:quantity})}sessionStorage.setItem('prcCart',JSON.stringify(cart));updateCartBadge();showToast()}
