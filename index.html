@@ -1968,7 +1968,7 @@
                 applications: "Ghrelin receptor (GHS-R1a) pharmacology, selective GH secretion mechanisms, growth hormone pulse dynamics, somatotroph receptor selectivity, GHRP comparative studies, non-GHRH secretagogue pathways"
             },
             {
-                name: "CJC-1295 No DAC (Mod GRF 1-29)",
+                name: "CJC-1295 No DAC (Mod GRF 1-29) 5mg",
                 category: "gh",
                 price: 42,
                 coa: true,
@@ -1977,7 +1977,7 @@
                 applications: "GHRH analogue pharmacology, pulsatile GH release patterns, GHRH receptor binding kinetics, peptide stability mechanisms, growth hormone secretion dynamics, somatotroph physiology"
             },
             {
-                name: "CJC-1295 No DAC/Ipamorelin Blend",
+                name: "CJC-1295 No DAC/Ipamorelin Blend 10mg",
                 category: "gh",
                 price: 42,
                 coa: true,
@@ -2192,7 +2192,7 @@
                 applications: "TREK-1 channel modulation, neuroplasticity mechanisms, neuroprotection studies, potassium channel biology, synaptic plasticity research, neurogenesis studies, neurotrophic signaling pathways"
             },
             {
-                name: "PT-141 (Bremelanotide)",
+                name: "PT-141 (Bremelanotide) 10mg",
                 category: "melanocortin",
                 price: 36,
                 coa: true,
@@ -2293,10 +2293,10 @@
             'Glutathione 1200mg (Korea) x10 Vials': 'glutathione-korean',
             'Vitamin C 10mg/20ml': 'vitamin-c-iv',
             'Thioctic Acid (ALA) 25mg/5ml': 'thioctic-acid',
-            'CJC-1295 No DAC (Mod GRF 1-29)': 'cjc-1295',
-            'CJC-1295 No DAC/Ipamorelin Blend': 'cjc-ipamorelin',
+            'CJC-1295 No DAC (Mod GRF 1-29) 5mg': 'cjc-1295',
+            'CJC-1295 No DAC/Ipamorelin Blend 10mg': 'cjc-ipamorelin',
             'SS-31 (Elamipretide)': 'ss-31',
-            'PT-141 (Bremelanotide)': 'pt-141',
+            'PT-141 (Bremelanotide) 10mg': 'pt-141',
             'Cagrilintide 5mg': 'cagrilintide',
             'KPV 10mg': 'kpv',
             'GHK-Cu (Copper Peptide) 100mg': 'ghk-cu',
@@ -2569,6 +2569,16 @@
             // Skip for BAC water and other supplies
             if (productName.indexOf('Bacteriostatic') !== -1 || productName.indexOf('Water') !== -1) {
                 return '';
+            }
+            
+            // Check for IU (for HGH)
+            var iuMatch = productName.match(/(\d+(?:\.\d+)?)\s*IU/i);
+            if (iuMatch) {
+                var iu = parseFloat(iuMatch[1]);
+                if (iu > 0) {
+                    var pricePerIU = (price / iu).toFixed(2);
+                    return '<div class="price-per-mg">$' + pricePerIU + '/IU</div>';
+                }
             }
             
             // Extract mg from product name (e.g., "Semaglutide 5mg" → 5)
