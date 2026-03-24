@@ -1844,6 +1844,23 @@
     </footer>
 
     <script>
+        // Capture referral tracking parameters on page load
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var ref = params.get('ref');
+            var code = params.get('code');
+            
+            if (ref) {
+                sessionStorage.setItem('prcReferral', ref.toLowerCase());
+                console.log('[SHOP] Captured referral:', ref);
+            }
+            
+            if (code) {
+                sessionStorage.setItem('prcAutoPromo', code.toUpperCase());
+                console.log('[SHOP] Captured promo code:', code);
+            }
+        })();
+        
         // Product Data
         var products = [
             {
