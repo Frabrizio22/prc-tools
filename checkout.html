@@ -941,18 +941,6 @@
             var mini = document.getElementById('cartMini');
             mini.classList.remove('hidden');
             document.getElementById('miniSubtotal').textContent = '$' + getSubtotal().toFixed(2);
-            
-            // Auto-apply promo code from URL if present
-            if (window.autoApplyCode && !discountCode) {
-                setTimeout(function() {
-                    var promoInput = document.getElementById('promoInput');
-                    if (promoInput) {
-                        promoInput.value = window.autoApplyCode;
-                        applyPromo();
-                        window.autoApplyCode = null; // Clear so we don't re-apply
-                    }
-                }, 100);
-            }
         }
 
         function updateQty(index, change) {
@@ -1174,6 +1162,19 @@
                 document.getElementById('paymentSection').classList.remove('hidden');
                 document.getElementById('summarySection').classList.remove('hidden');
                 updateSummary();
+                
+                // Auto-apply promo code from URL if present
+                if (window.autoApplyCode && !discountCode) {
+                    setTimeout(function() {
+                        var promoInput = document.getElementById('promoInput');
+                        if (promoInput) {
+                            promoInput.value = window.autoApplyCode;
+                            applyPromo();
+                            window.autoApplyCode = null;
+                        }
+                    }, 100);
+                }
+                
                 currentStep = 4;
                 updateProgress(4);
                 scrollToEl('paymentSection');
