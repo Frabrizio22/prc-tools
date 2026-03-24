@@ -1165,14 +1165,17 @@
                 
                 // Auto-apply promo code from URL if present
                 if (window.autoApplyCode && !discountCode) {
+                    console.log('[AUTO-PROMO] Attempting to apply:', window.autoApplyCode);
                     setTimeout(function() {
                         var promoInput = document.getElementById('promoInput');
+                        console.log('[AUTO-PROMO] Promo input exists:', !!promoInput);
                         if (promoInput) {
                             promoInput.value = window.autoApplyCode;
+                            console.log('[AUTO-PROMO] Input filled with:', promoInput.value);
                             applyPromo();
                             window.autoApplyCode = null;
                         }
-                    }, 100);
+                    }, 200);
                 }
                 
                 currentStep = 4;
