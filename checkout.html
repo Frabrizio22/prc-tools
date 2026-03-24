@@ -844,12 +844,35 @@
         var promoApplied = false;
         var discountCode = null;
         var discountAmount = 0;
+        var referralSource = null;
 
         function checkAgeGate() {
             initCheckout();
         }
 
         function initCheckout() {
+            // Capture referral tracking parameters
+            var refParam = getUrlParam('ref');
+            var codeParam = getUrlParam('code');
+            
+            if (refParam) {
+                referralSource = refParam.toLowerCase();
+                console.log('[REFERRAL] Source:', referralSource);
+            }
+            
+            if (codeParam) {
+                // Auto-fill and apply promo code
+                var promoInput = document.getElementById('promoInput');
+                if (promoInput) {
+                    promoInput.value = codeParam.toUpperCase();
+                    console.log('[REFERRAL] Auto-applying code:', codeParam);
+                    // Will apply when cart section is rendered
+                    setTimeout(function() {
+                        applyPromo();
+                    }, 500);
+                }
+            }
+            
             loadCart();
             renderCart();
             updateFooter();
@@ -1206,6 +1229,7 @@
                 subtotal: order.subtotal,
                 discount: order.discount,
                 discount_code: discountCode || '',
+                referral_source: referralSource || '',
                 shipping: order.shipping,
                 shipping_name: order.shippingName,
                 total: order.total,
