@@ -857,13 +857,25 @@
             
             if (refParam) {
                 referralSource = refParam.toLowerCase();
+                sessionStorage.setItem('prcReferral', referralSource);
                 console.log('[REFERRAL] Source:', referralSource);
+            } else {
+                // Check if we stored it earlier
+                var stored = sessionStorage.getItem('prcReferral');
+                if (stored) referralSource = stored;
             }
             
             if (codeParam) {
-                // Store code to auto-apply after cart renders
-                window.autoApplyCode = codeParam.toUpperCase();
-                console.log('[REFERRAL] Will auto-apply code:', codeParam);
+                // Store code in sessionStorage to survive navigation
+                sessionStorage.setItem('prcAutoPromo', codeParam.toUpperCase());
+                console.log('[REFERRAL] Stored auto-promo code:', codeParam);
+            }
+            
+            // Check if we have a stored promo code to apply
+            var storedPromo = sessionStorage.getItem('prcAutoPromo');
+            if (storedPromo && !discountCode) {
+                window.autoApplyCode = storedPromo;
+                console.log('[REFERRAL] Will auto-apply stored code:', storedPromo);
             }
             
             loadCart();
@@ -1173,6 +1185,7 @@
                             promoInput.value = window.autoApplyCode;
                             console.log('[AUTO-PROMO] Input filled with:', promoInput.value);
                             applyPromo();
+                            sessionStorage.removeItem('prcAutoPromo');
                             window.autoApplyCode = null;
                         }
                     }, 200);
