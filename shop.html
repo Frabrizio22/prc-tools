@@ -1815,9 +1815,10 @@
             <div style="font-size:1rem;font-weight:700;color:#0A1628;margin-bottom:0.25rem">Get Restock Alerts + Exclusive Pricing</div>
             <div style="font-size:0.75rem;color:#64748B;margin-bottom:1rem">Be first to know about new compounds and subscriber-only discounts. No spam — ever.</div>
             <div style="display:flex;gap:8px;max-width:400px;margin:0 auto">
-                <input type="email" placeholder="Your email" style="flex:1;padding:10px 14px;border:1px solid #E2E8F0;border-radius:6px;font-size:0.85rem;font-family:inherit;outline:none">
-                <button style="background:#2B7DE9;color:#fff;border:none;padding:10px 20px;border-radius:6px;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">Sign Up</button>
+                <input type="email" id="newsletterEmail" placeholder="Your email" style="flex:1;padding:10px 14px;border:1px solid #E2E8F0;border-radius:6px;font-size:0.85rem;font-family:inherit;outline:none">
+                <button id="newsletterBtn" onclick="subscribeNewsletter()" style="background:#2B7DE9;color:#fff;border:none;padding:10px 20px;border-radius:6px;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap">Sign Up</button>
             </div>
+            <div id="newsletterMsg" style="font-size:0.75rem;margin-top:0.5rem;min-height:18px"></div>
         </div>
     </div>
 
@@ -3002,6 +3003,64 @@
                     });
                     
                     grid.appendChild(card);
+                });
+            }
+            
+            // Newsletter subscription
+            window.subscribeNewsletter = function() {
+                var emailInput = document.getElementById('newsletterEmail');
+                var btn = document.getElementById('newsletterBtn');
+                var msg = document.getElementById('newsletterMsg');
+                
+                var email = emailInput.value.trim();
+                if (!email || !email.includes('@')) {
+                    msg.textContent = 'Please enter a valid email';
+                    msg.style.color = '#EF4444';
+                    return;
+                }
+                
+                btn.disabled = true;
+                btn.textContent = 'Subscribing...';
+                msg.textContent = '';
+                
+                var xhr = new XMLHttpRequest();
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        msg.textContent = '✓ Subscribed! Check your email for confirmation.';
+                        msg.style.color = '#059669';
+                        emailInput.value = '';
+                        btn.textContent = 'Subscribed!';
+                        setTimeout(function() {
+                            btn.textContent = 'Sign Up';
+                            btn.disabled = false;
+                            msg.textContent = '';
+                        }, 3000);
+                    } else {
+                        msg.textContent = 'Error. Please try again.';
+                        msg.style.color = '#EF4444';
+                        btn.textContent = 'Sign Up';
+                        btn.disabled = false;
+                    }
+                };
+                xhr.onerror = function() {
+                    msg.textContent = 'Error. Please try again.';
+                    msg.style.color = '#EF4444';
+                    btn.textContent = 'Sign Up';
+                    btn.disabled = false;
+                };
+                
+                xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/newsletter', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({ email: email, timestamp: new Date().toISOString() }));
+            };
+            
+            // Allow Enter key to submit newsletter
+            var emailInput = document.getElementById('newsletterEmail');
+            if (emailInput) {
+                emailInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        subscribeNewsletter();
+                    }
                 });
             }
 

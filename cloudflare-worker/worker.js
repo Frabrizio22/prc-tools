@@ -209,6 +209,59 @@ export default {
       }
     }
 
+    // === NEWSLETTER SUBSCRIPTION ===
+    if (url.pathname === '/newsletter' && request.method === 'POST') {
+      try {
+        const data = await request.json();
+        console.log('[NEWSLETTER] Received:', data.email);
+
+        // Forward to Google Apps Script for logging to Newsletter sheet
+        const sheetUrl = env.GOOGLE_SHEET_WEBHOOK_URL;
+        if (sheetUrl) {
+          await fetch(sheetUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              type: 'newsletter',
+              email: data.email,
+              timestamp: data.timestamp || new Date().toISOString()
+            })
+          });
+        }
+
+        // Optional: Send Telegram notification for new subscribers
+        if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
+          const message = `📧 NEW NEWSLETTER SUBSCRIBER\n\nEmail: ${data.email}`;
+          await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: env.TELEGRAM_CHAT_ID,
+              text: message
+            })
+          });
+        }
+
+        return new Response(JSON.stringify({
+          success: true,
+          message: 'Subscribed successfully'
+        }), {
+          status: 200,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        });
+
+      } catch (error) {
+        console.error('[NEWSLETTER] Error:', error);
+        return new Response(JSON.stringify({
+          success: false,
+          error: error.message
+        }), {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' }
+        });
+      }
+    }
+
     return new Response('PRC Checkout Worker', { status: 200, headers: corsHeaders });
   }
 };
