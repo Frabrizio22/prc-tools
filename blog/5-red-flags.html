@@ -117,6 +117,115 @@
             h2 { font-size: 1.3rem; }
             article { margin: 2rem auto; }
         }
+        
+        /* Newsletter Component */
+        .newsletter-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            margin: 4rem 0 0;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        .newsletter-section h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem;
+        }
+        .newsletter-section p {
+            color: #cbd5e1;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 480px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .newsletter-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.875rem 1.125rem;
+            font-size: 1rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #0f172a;
+            transition: all 0.2s;
+        }
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        .newsletter-input::placeholder {
+            color: #94a3b8;
+        }
+        .newsletter-btn {
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background: #3b82f6;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .newsletter-btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        .newsletter-btn:active {
+            transform: translateY(0);
+        }
+        .newsletter-btn:disabled {
+            background: #64748b;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .newsletter-message {
+            margin-top: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: none;
+        }
+        .newsletter-message.success {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            display: block;
+        }
+        .newsletter-message.error {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            display: block;
+        }
+        @media (max-width: 640px) {
+            .newsletter-section {
+                padding: 2rem 1.5rem;
+            }
+            .newsletter-section h3 {
+                font-size: 1.3rem;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-input {
+                min-width: 100%;
+            }
+            .newsletter-btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -327,11 +436,84 @@
 
         <p>The red flags above help you do that.</p>
 
+        <!-- Newsletter Signup -->
+        <div class="newsletter-section">
+            <h3>📬 Get Quality Insights</h3>
+            <p>New research guides, testing deep-dives, and vendor reviews—delivered monthly.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="your@email.com" required>
+                <button type="submit" class="newsletter-btn" id="newsletterBtn">Subscribe</button>
+            </form>
+            <div class="newsletter-message" id="newsletterMessage"></div>
+        </div>
+
     </article>
 
     <footer>
         <p>&copy; 2026 PRC Labs LLC. For research purposes only.</p>
         <p><a href="../index.html">Shop</a> · <a href="index.html">Blog</a> · <a href="mailto:support@prcpeptides.com">Contact</a></p>
     </footer>
+
+    <script>
+    (function() {
+        var form = document.getElementById('newsletterForm');
+        var input = document.getElementById('newsletterEmail');
+        var btn = document.getElementById('newsletterBtn');
+        var msg = document.getElementById('newsletterMessage');
+        
+        if (!form || !input || !btn || !msg) return;
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var email = input.value.trim();
+            if (!email || !email.includes('@')) {
+                showMessage('Please enter a valid email address', 'error');
+                return;
+            }
+            
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            msg.className = 'newsletter-message';
+            msg.style.display = 'none';
+            
+            fetch('https://prc-checkout.prcpeptides.workers.dev/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: email,
+                    timestamp: new Date().toISOString(),
+                    source: 'blog'
+                })
+            })
+            .then(function(response) {
+                if (response.ok) return response.json();
+                throw new Error('Network response was not ok');
+            })
+            .then(function(data) {
+                showMessage('✓ Subscribed! Check your inbox for confirmation.', 'success');
+                input.value = '';
+                setTimeout(function() {
+                    msg.className = 'newsletter-message';
+                    msg.style.display = 'none';
+                }, 5000);
+            })
+            .catch(function(error) {
+                console.error('Newsletter signup error:', error);
+                showMessage('Something went wrong. Please try again or email support@prcpeptides.com', 'error');
+            })
+            .finally(function() {
+                btn.disabled = false;
+                btn.textContent = 'Subscribe';
+            });
+        });
+        
+        function showMessage(text, type) {
+            msg.textContent = text;
+            msg.className = 'newsletter-message ' + type;
+            msg.style.display = 'block';
+        }
+    })();
+    </script>
 </body>
 </html>
