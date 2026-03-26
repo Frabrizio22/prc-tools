@@ -13,8 +13,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "5-Amino-1MQ",
-  "description": "A selective small molecule inhibitor of nicotinamide N-methyltransferase—increasing cellular NAD+ availability through enzymatic blockade of the methylation pathway.",
+  "name": "5-Amino-1MQ 250mg",
+  "image": "https://prcpeptides.com/images/products/5-amino-1mq.jpg",
   "brand": {
     "@type": "Brand",
     "name": "PRC Peptides"
@@ -22,10 +22,45 @@
   "sku": "PRC-5-amino-1mq",
   "offers": {
     "@type": "Offer",
-    "price": "25",
+    "price": "33",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": "https://prcpeptides.com/products/5-amino-1mq.html"
+    "url": "https://prcpeptides.com/products/5-amino-1mq.html",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "9.99",
+        "currency": "USD"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "US"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 3,
+          "maxValue": 5,
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    }
   }
 }
 </script>

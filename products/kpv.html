@@ -13,8 +13,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "KPV",
-  "description": "The isolated anti-inflammatory domain of α-MSH—a tripeptide that retains potent NF-κB inhibition without melanocortin receptor activation.",
+  "name": "KPV 50mg",
+  "image": "https://prcpeptides.com/images/products/kpv.jpg",
   "brand": {
     "@type": "Brand",
     "name": "PRC Peptides"
@@ -22,10 +22,45 @@
   "sku": "PRC-kpv",
   "offers": {
     "@type": "Offer",
-    "price": "36",
+    "price": "28",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": "https://prcpeptides.com/products/kpv.html"
+    "url": "https://prcpeptides.com/products/kpv.html",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "9.99",
+        "currency": "USD"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "US"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 3,
+          "maxValue": 5,
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    }
   }
 }
 </script>

@@ -13,8 +13,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "LL-37",
-  "description": "The sole human cathelicidin—a 37-amino acid amphipathic peptide representing the first line of innate immune defense against pathogens.",
+  "name": "LL-37 5mg",
+  "image": "https://prcpeptides.com/images/products/ll-37.jpg",
   "brand": {
     "@type": "Brand",
     "name": "PRC Peptides"
@@ -22,10 +22,45 @@
   "sku": "PRC-ll-37",
   "offers": {
     "@type": "Offer",
-    "price": "29",
+    "price": "23",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": "https://prcpeptides.com/products/ll-37.html"
+    "url": "https://prcpeptides.com/products/ll-37.html",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "9.99",
+        "currency": "USD"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "US"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 3,
+          "maxValue": 5,
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    }
   }
 }
 </script>

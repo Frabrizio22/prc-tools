@@ -14,7 +14,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Tirzepatide 20mg",
-  "description": "The first dual incretin receptor agonist—a fusion peptide that simultaneously activates GLP-1 and GIP pathways for unprecedented metabolic effects.",
+  "image": "https://prcpeptides.com/images/products/tirzepatide-20mg.jpg",
   "brand": {
     "@type": "Brand",
     "name": "PRC Peptides"
@@ -22,10 +22,45 @@
   "sku": "PRC-tirzepatide-20mg",
   "offers": {
     "@type": "Offer",
-    "price": "44",
+    "price": "40",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": "https://prcpeptides.com/products/tirzepatide-20mg.html"
+    "url": "https://prcpeptides.com/products/tirzepatide-20mg.html",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "9.99",
+        "currency": "USD"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "US"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 3,
+          "maxValue": 5,
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    }
   }
 }
 </script>

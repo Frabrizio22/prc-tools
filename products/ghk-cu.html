@@ -13,8 +13,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "GHK-Cu",
-  "description": "The archetypal copper-peptide complex—a naturally occurring tripeptide that chelates Cu²⁺ to modulate metalloproteinases, collagen synthesis, and tissue remodeling.",
+  "name": "GHK-Cu 100mg",
+  "image": "https://prcpeptides.com/images/products/ghk-cu.jpg",
   "brand": {
     "@type": "Brand",
     "name": "PRC Peptides"
@@ -22,10 +22,45 @@
   "sku": "PRC-ghk-cu",
   "offers": {
     "@type": "Offer",
-    "price": "31",
+    "price": "22",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": "https://prcpeptides.com/products/ghk-cu.html"
+    "url": "https://prcpeptides.com/products/ghk-cu.html",
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "9.99",
+        "currency": "USD"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "US"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 3,
+          "maxValue": 5,
+          "unitCode": "DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "US",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 30,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    }
   }
 }
 </script>
