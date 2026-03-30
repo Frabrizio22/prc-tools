@@ -1006,6 +1006,8 @@
             var codeDiscount = 0;
             if (discountCode === 'BOBA10') {
                 codeDiscount = subtotal * 0.10; // 10% off subtotal
+            } else if (discountCode === 'PRC5') {
+                codeDiscount = subtotal * 0.05; // 5% off subtotal
             }
             var shipping = getShipping();
             var total = subtotal - zelleDiscount - codeDiscount + shipping;
@@ -1073,10 +1075,13 @@
                 html += '<div class="summary-row discount"><span>' + lbl + '</span><span>-$' + getDiscount().toFixed(2) + '</span></div>';
             }
             
-            // Show BOBA10 discount
+            // Show code discounts
             if (discountCode === 'BOBA10') {
                 var codeDiscount = getSubtotal() * 0.10;
                 html += '<div class="summary-row discount"><span>Code Discount (10%)</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
+            } else if (discountCode === 'PRC5') {
+                var codeDiscount = getSubtotal() * 0.05;
+                html += '<div class="summary-row discount"><span>Code Discount (5%)</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
             }
             
             var shipLabel = getShipping() === 0 ? 'FREE' : '$' + getShipping().toFixed(2);
@@ -1168,6 +1173,14 @@
                 discountCode = 'BOBA10';
                 promoApplied = false;
                 msg.textContent = '✓ Code applied — 10% off!';
+                msg.style.color = '#059669';
+                code.disabled = true;
+                updateSummary();
+                updateFooter();
+            } else if (enteredCode === 'PRC5') {
+                discountCode = 'PRC5';
+                promoApplied = false;
+                msg.textContent = '✓ Code applied — 5% off!';
                 msg.style.color = '#059669';
                 code.disabled = true;
                 updateSummary();
