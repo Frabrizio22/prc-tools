@@ -145,9 +145,9 @@ export default {
         console.log('[ORDER] Received:', data);
 
         // Forward to Google Apps Script for logging
-        // BUT: Skip if sendNotifications is false (Bankful orders wait for payment callback)
+        // Passes through all fields including: referral_source, discount_code, etc.
         const sheetUrl = env.GOOGLE_SHEET_WEBHOOK_URL;
-        if (sheetUrl && data.sendNotifications !== false) {
+        if (sheetUrl) {
           await fetch(sheetUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
