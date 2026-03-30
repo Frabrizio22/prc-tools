@@ -144,7 +144,7 @@ export default {
         const data = await request.json();
         console.log('[ORDER] Received:', data);
 
-        // Forward to Google Apps Script for logging
+        // Forward to Google Apps Script for logging (ALWAYS - even for Bankful)
         // Passes through all fields including: referral_source, discount_code, etc.
         const sheetUrl = env.GOOGLE_SHEET_WEBHOOK_URL;
         if (sheetUrl) {
@@ -155,8 +155,9 @@ export default {
           });
         }
 
-        // Send Telegram notification for ALL orders (including Bankful)
-        if (env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
+        // Send Telegram notification ONLY if sendNotifications !== false
+        // (Bankful orders skip this until payment callback confirms)
+        if (data.sendNotifications !== false && env.TELEGRAM_BOT_TOKEN && env.TELEGRAM_CHAT_ID) {
           const items = data.items.map(item => `${item.name} x${item.quantity} - $${item.price}`).join('\n');
           const message = `🆕 NEW ORDER\n\n` +
             `Order: ${data.order_number}\n` +
