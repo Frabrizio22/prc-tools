@@ -1916,7 +1916,7 @@
                 category: "tissue",
                 price: 58,
                 coa: true,
-                inStock: true,
+                inStock: false,
                 shortDesc: "Four-peptide complex combining KPV, BPC-157, TB-500, and GHK-Cu for comprehensive tissue remodeling.",
                 fullDesc: "KLOW is a multi-peptide research blend designed around a simple idea: recovery is rarely a single-pathway problem. By combining GHK-Cu (50mg), BPC-157 (10mg), TB-500 (10mg), and KPV (10mg) in a single formulation, KLOW addresses inflammation control, cytoprotection, cell migration, and matrix remodeling simultaneously. Each component targets distinct repair phases: KPV modulates inflammatory signaling, BPC-157 promotes cytoprotection and angiogenesis, TB-500 drives cell migration through actin regulation, and GHK-Cu regulates over 4,000 genes involved in tissue remodeling and collagen synthesis.",
                 applications: "Multi-pathway tissue repair models, comprehensive wound healing research, inflammation-repair transition studies, synergistic peptide efficacy investigations, extracellular matrix remodeling, regenerative medicine research"
@@ -1980,7 +1980,6 @@
                 price: 32,
                 coa: true,
                 inStock: false,
-                hidden: true,
                 shortDesc: "Synthetic GHRH analogue with enhanced stability for growth hormone secretion research.",
                 fullDesc: "Tesamorelin represents a pharmaceutical refinement of growth hormone releasing hormone (GHRH). While structurally similar to naturally occurring GHRH, tesamorelin incorporates a trans-3-hexenoic acid modification that significantly extends its half-life and receptor binding duration. This 44-amino acid analogue was specifically engineered to overcome the rapid enzymatic degradation that limits native GHRH research applications.",
                 applications: "GHRH receptor pharmacology, sustained growth hormone secretion studies, pituitary function research, IGF-1 axis modulation, lipid metabolism mechanisms, body composition research models"
@@ -2032,7 +2031,6 @@
                 price: 20,
                 coa: true,
                 inStock: false,
-                hidden: true,
                 shortDesc: "Modified growth hormone fragment retaining lipolytic activity without GH receptor activation.",
                 fullDesc: "AOD-9604 represents molecular surgery on growth hormone. Australian researchers at Monash University identified the 176-191 C-terminal region as responsible for GH's lipolytic effects, then added stabilizing modifications to create a fragment that stimulates lipolysis without growth hormone receptor binding. The result: fat-mobilizing properties without effects on growth or IGF-1.",
                 applications: "Lipolysis mechanism research, GH fragment biology, lipid metabolism studies, adipocyte signaling independent of GH receptor, selective metabolic pathway activation, non-receptor GH effects"
@@ -2042,6 +2040,7 @@
                 category: "metabolic",
                 price: 32,
                 coa: true,
+                inStock: false,
                 shortDesc: "Mitochondrial genome-encoded peptide that translocates to nucleus to regulate metabolism.",
                 fullDesc: "MOTS-c represents a paradigm shift in cellular biology. Discovered in 2015, this peptide revealed that the mitochondrial genome contains open reading frames for signaling peptides that regulate nuclear gene expression. MOTS-c, encoded within the mitochondrial 12S rRNA gene, acts as a mitochondrial-to-nuclear messenger: during metabolic stress, it translocates to the nucleus and modulates gene expression.",
                 applications: "Mitochondrial-nuclear signaling, metabolic homeostasis mechanisms, AMPK pathway research, insulin sensitivity studies, mitochondrial genome function, retrograde signaling research, exercise mimetic studies"
@@ -3029,7 +3028,7 @@
             
             // Render featured products
             function renderFeaturedProducts() {
-                var featuredNames = ['Semaglutide 10mg', 'Tirzepatide 30mg', 'Retatrutide 20mg', 'BPC-157/TB-500 10mg/10mg', 'KLOW 80mg'];
+                var featuredNames = ['Semaglutide 10mg', 'Tirzepatide 30mg', 'Retatrutide 20mg', 'BPC-157/TB-500 10mg/10mg', 'GHK-Cu (Copper Peptide) 100mg'];
                 var grid = document.getElementById('featuredGrid');
                 grid.innerHTML = '';
                 
