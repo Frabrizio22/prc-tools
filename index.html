@@ -6,8 +6,7 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WRJYBCQRL9');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRC Peptides - Affordable Research Peptides | Budget-Friendly Pricing</title>
-    <meta name="description" content="Budget-friendly research peptides with supplier COAs. BPC-157, TB-500, NAD+, Semaglutide from $25-35. Fast shipping, ≥98% purity for cost-effective research.">
+    <title>PRC Peptides - High-Purity Peptides</title>
     <style>
         * {
             margin: 0;
@@ -1627,8 +1626,8 @@
     <section class="hero">
         <div class="hero-content">
             <!-- logo removed from hero -->
-            <h1>Affordable Research Peptides</h1>
-            <p>Budget-friendly pricing. Supplier COAs included. Ships fast.</p>
+            <h1>≥98% Purity Peptides</h1>
+            <p>No hype. Just peptides.</p>
             <!-- subtitle removed -->
         </div>
     </section>
@@ -1867,7 +1866,7 @@
             {
                 name: "Semaglutide 10mg",
                 category: "glp",
-                price: 30,
+                price: 49,
                 coa: true,
                 shortDesc: "Benchmark long-acting GLP-1 receptor agonist with fatty acid modification for extended half-life.",
                 fullDesc: "Semaglutide represents the culmination of decades of incretin biology research. Novo Nordisk's scientists engineered this glucagon-like peptide-1 analogue with a strategic fatty acid modification that enables albumin binding, dramatically extending its half-life from minutes to days. This single molecular modification transformed GLP-1 into a sustained metabolic signaling tool.",
@@ -2032,9 +2031,9 @@
                 applications: "Mitochondrial-nuclear signaling, metabolic homeostasis mechanisms, AMPK pathway research, insulin sensitivity studies, mitochondrial genome function, retrograde signaling research, exercise mimetic studies"
             },
             {
-                name: "5-Amino-1MQ 5mg",
+                name: "5-Amino-1MQ 50mg",
                 category: "metabolic",
-                price: 25,
+                price: 49,
                 coa: true,
                 shortDesc: "Small molecule NNMT inhibitor increasing cellular NAD+ availability through enzymatic blockade.",
                 fullDesc: "5-Amino-1-methylquinolinium targets a metabolic bottleneck: nicotinamide N-methyltransferase (NNMT), an enzyme that consumes NAD+ precursors by methylating nicotinamide for excretion. By inhibiting NNMT, 5-Amino-1MQ preserves intracellular nicotinamide, allowing its recycling back to NAD+ through the salvage pathway. Note: This is an oral small molecule, not an Liquid Reagent peptide."
@@ -2071,6 +2070,7 @@
                 category: "antioxidants",
                 price: 52,
                 coa: true,
+                inStock: false,
                 shortDesc: "High-dose cellular cofactor for energy metabolism, DNA repair, and cellular signaling.",
                 fullDesc: "Nicotinamide adenine dinucleotide occupies a position of unparalleled importance in cellular biochemistry. This dinucleotide serves simultaneously as an electron carrier in redox reactions, a substrate for sirtuins, a substrate for PARPs (DNA repair enzymes), and a precursor for calcium signaling molecules. NAD+ levels decline with age across tissues.",
                 applications: "Redox biochemistry, sirtuin activation research, cellular energy metabolism, PARP enzyme function, mitochondrial studies, NAD+/NADH ratio measurement, cellular aging mechanisms, DNA repair pathways"
@@ -2204,7 +2204,7 @@
             {
                 name: "PE 22-28 10mg",
                 category: "longevity",
-                price: 30,
+                price: 49,
                 coa: true,
                 shortDesc: "Synthetic fragment of sortilin propeptide modulating TREK-1 channels for neuroplasticity research.",
                 fullDesc: "PE 22-28 represents targeted neuroplasticity research. This heptapeptide, corresponding to amino acids 22-28 of the propeptide region of sortilin, was identified through research into spadin—an endogenous peptide with neuroprotective properties. PE 22-28 interacts with TREK-1, a background potassium channel involved in neuronal excitability and synaptic plasticity.",
@@ -2326,7 +2326,7 @@
             'Ipamorelin 5mg': 'ipamorelin',
             'AOD-9604 2mg': 'aod-9604',
             'MOTS-c 10mg': 'mots-c',
-            '5-Amino-1MQ 5mg': '5-amino-1mq',
+            '5-Amino-1MQ 50mg': '5-amino-1mq',
             'Lipo-C MAX Blend': 'lipo-c-max',
             'L-Carnitine 600mg': 'l-carnitine',
             'Cerebrolysin 60mg': 'cerebrolysin',
@@ -2631,7 +2631,7 @@
             }
             
             var storageText = 'Store lyophilized (freeze-dried) peptide at -20°C for long-term storage. Once reconstituted, store at 2-8°C (refrigerated) and use within 30 days. Avoid repeated freeze-thaw cycles. Keep away from direct light.';
-            if (product.name === '5-Amino-1MQ 5mg') {
+            if (product.name === '5-Amino-1MQ 50mg') {
                 storageText = 'Store in a cool, dry place at room temperature (15-25°C). Keep away from direct light and moisture. Keep container tightly sealed.';
             } else if (product.category === 'antioxidants' || product.name.indexOf('Lipo-C') !== -1 || product.name.indexOf('Amino Acid Blend') !== -1 || product.name.indexOf('L-Carnitine') !== -1 || product.name.indexOf('Vitamin C') !== -1 || product.name.indexOf('Thioctic') !== -1) {
                 storageText = 'Store at 2-8°C (refrigerated). Keep away from direct light. Do not freeze unless specified. Use within recommended timeframe once opened.';
@@ -2982,7 +2982,7 @@
             
             // Render featured products
             function renderFeaturedProducts() {
-                var featuredNames = ['Semaglutide 10mg', 'Tirzepatide 30mg', 'Retatrutide 20mg', 'BPC-157/TB-500 10mg/10mg', 'NAD+ 1000mg', 'KLOW 80mg'];
+                var featuredNames = ['Semaglutide 10mg', 'Tirzepatide 30mg', 'Retatrutide 20mg', 'BPC-157/TB-500 10mg/10mg', 'KLOW 80mg'];
                 var grid = document.getElementById('featuredGrid');
                 grid.innerHTML = '';
                 
