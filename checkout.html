@@ -1008,6 +1008,9 @@
                 codeDiscount = subtotal * 0.10; // 10% off subtotal
             } else if (discountCode === 'PRC5') {
                 codeDiscount = subtotal * 0.05; // 5% off subtotal
+            } else if (discountCode === 'DN15') {
+                codeDiscount = subtotal * 0.15; // 15% off subtotal
+                zelleDiscount = 0; // not stackable
             }
             var shipping = getShipping();
             var total = subtotal - zelleDiscount - codeDiscount + shipping;
@@ -1082,6 +1085,9 @@
             } else if (discountCode === 'PRC5') {
                 var codeDiscount = getSubtotal() * 0.05;
                 html += '<div class="summary-row discount"><span>Code Discount (5%)</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
+            } else if (discountCode === 'DN15') {
+                var codeDiscount = getSubtotal() * 0.15;
+                html += '<div class="summary-row discount"><span>Code Discount (15%)</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
             }
             
             var shipLabel = getShipping() === 0 ? 'FREE' : '$' + getShipping().toFixed(2);
@@ -1197,6 +1203,14 @@
                 discountCode = 'TEST15';
                 promoApplied = false;
                 msg.textContent = '✓ Code applied — $15 off!';
+                msg.style.color = '#059669';
+                code.disabled = true;
+                updateSummary();
+                updateFooter();
+            } else if (enteredCode === 'DN15') {
+                discountCode = 'DN15';
+                promoApplied = false;
+                msg.textContent = '✓ Code applied — 15% off!';
                 msg.style.color = '#059669';
                 code.disabled = true;
                 updateSummary();
