@@ -22,7 +22,7 @@
   "sku": "PRC-5-amino-1mq",
   "offers": {
     "@type": "Offer",
-    "price": "50",
+    "price": "49",
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
     "url": "https://prcpeptides.com/products/5-amino-1mq.html",
@@ -104,7 +104,7 @@
 <div class="category-label">Metabolic</div>
 <h1>5-Amino-1MQ</h1>
 <div class="product-meta">
-<div class="product-price">$50</div>
+<div class="product-price">$49</div>
 <div class="coa-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> COA Available</div>
 </div>
 <div class="short-desc">A selective small molecule inhibitor of nicotinamide N-methyltransferase—increasing cellular NAD+ availability through enzymatic blockade of the methylation pathway.</div>
@@ -191,7 +191,7 @@
 <div class="related-grid">
 <a href="aod-9604.html" class="related-card"><div class="related-cat">Metabolic</div><div class="related-name">AOD-9604</div><div class="related-price">$20</div><div class="related-coa">COA ✓</div></a>
 <a href="mots-c.html" class="related-card"><div class="related-cat">Metabolic</div><div class="related-name">MOTS-c</div><div class="related-price">$28</div><div class="related-coa">COA ✓</div></a>
-<a href="semaglutide.html" class="related-card"><div class="related-cat">GLP Agonists</div><div class="related-name">Semaglutide</div><div class="related-price">$50</div><div class="related-coa">COA ✓</div></a>
+<a href="semaglutide.html" class="related-card"><div class="related-cat">GLP Agonists</div><div class="related-name">Semaglutide</div><div class="related-price">$49</div><div class="related-coa">COA ✓</div></a>
 </div>
 </div>
 </main>
@@ -199,7 +199,7 @@
 <div class="mobile-sticky-content">
 <div>
 <div style="font-size:0.75rem;color:#64748B;margin-bottom:2px">5-Amino-1MQ</div>
-<div class="mobile-sticky-price">$<span id="mobileTotalPrice">50</span></div>
+<div class="mobile-sticky-price">$<span id="mobileTotalPrice">49</span></div>
 </div>
 <button class="btn-primary" onclick="addToCart()">Add to Cart</button>
 </div>
@@ -207,7 +207,7 @@
 <footer id="pageFooter"><div class="footer-content"><div class="footer-logo"><span style="color:#2B7DE9">PRC</span> PEPTIDES</div><div class="footer-links"><a href="../shop.html">Shop</a><a href="mailto:support@prcpeptides.com">Contact</a></div><div class="footer-disclaimer">FOR RESEARCH PURPOSES ONLY. Not for human consumption. All products intended exclusively for in vitro research. © 2026 PRC Labs LLC</div></div></footer>
 <div class="toast" id="toast"></div>
 <script>
-var quantity=1;var basePrice=50;var productName='5-Amino-1MQ';
+var quantity=1;var basePrice=49;var productName='5-Amino-1MQ';
 function changeQty(delta){quantity=Math.max(1,quantity+delta);document.getElementById('qtyValue').textContent=quantity;updatePrice()}
 function updatePrice(){var total=basePrice*quantity;document.getElementById('totalPrice').textContent=total;document.getElementById('mobileTotalPrice').textContent=total}
 function addToCart(){var cart=JSON.parse(sessionStorage.getItem('prcCart')||'[]');var existing=cart.find(function(item){return item.name===productName});if(existing){existing.quantity+=quantity}else{cart.push({name:productName,price:basePrice,quantity:quantity})}sessionStorage.setItem('prcCart',JSON.stringify(cart));updateCartBadge();showToast()}
