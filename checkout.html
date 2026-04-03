@@ -1378,34 +1378,17 @@
                 savedOrder.items.push({ name: cart[i].name, price: cart[i].price, quantity: cart[i].quantity });
             }
 
-            // Only notify immediately for manual payment methods (Zelle, etc.)
-            // Bankful and Crypto notify via callback after payment confirms
-            if (selectedPayment !== 'bankful' && selectedPayment !== 'crypto') {
-                notifyOrder(orderNumber, savedOrder, function(success, log) {
-                    if (!success) {
-                        console.error('[CHECKOUT] ORDER NOTIFICATION FAILED:', log);
-                        var failedOrders = JSON.parse(localStorage.getItem('prcFailedNotifications') || '[]');
-                        failedOrders.push({
-                            order: orderNumber,
-                            timestamp: new Date().toISOString(),
-                            log: log
-                        });
-                        localStorage.setItem('prcFailedNotifications', JSON.stringify(failedOrders));
-                        alert('⚠️ Order ' + orderNumber + ' created but email notification may have failed.\n\nPlease save this order number and contact support@prcpeptides.com if you don\'t receive confirmation within 10 minutes.\n\nOrder #: ' + orderNumber);
-                    } else {
-                        console.log('[CHECKOUT] ✓ Order notification sent successfully');
-                    }
-                });
-            }
-
-            // If Bankful, save order FIRST then redirect
+            // ALL payment methods: save order to Sheet + Telegram first
+            // Worker handles email logic: only Zelle gets immediate email
+            // Bankful/Crypto get email after payment callback confirms
+            
+            // If Bankful, save order then redirect to payment
             if (selectedPayment === 'bankful') {
                 var btn = document.getElementById('actionBtn');
                 btn.innerHTML = '<span class="btn-spinner"></span>Processing Order...';
                 btn.disabled = true;
 
-                // First: Save order to sheet (silent, no notifications yet)
-                savedOrder.sendNotifications = false;
+                // Save full order to Sheet + Telegram (no customer email yet)
                 notifyOrder(orderNumber, savedOrder, function(success, log) {
                     if (!success) {
                         console.error('[CHECKOUT] Failed to save order:', log);
@@ -1490,50 +1473,70 @@
                 return;
             }
 
-            // If crypto, auto-create Coinbase charge and redirect
+            // If crypto, save order first then create Coinbase charge and redirect
             if (selectedPayment === 'crypto') {
                 var btn = document.getElementById('actionBtn');
                 btn.textContent = 'Creating payment...';
                 btn.disabled = true;
 
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/order', true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.onload = function() {
-                    if (xhr.status === 200) {
-                        var resp = JSON.parse(xhr.responseText);
-                        // Save order before redirecting
-                        localStorage.setItem('prcLastOrder', JSON.stringify({
-                            orderNumber: orderNumber,
-                            savedOrder: savedOrder,
-                            checkoutUrl: resp.checkout_url
-                        }));
-                        cart = [];
-                        saveCart();
-                        // Redirect to Coinbase hosted checkout
-                        window.location.href = resp.checkout_url;
-                    } else {
-                        // Fallback to manual flow
+                // Step 1: Save full order to Sheet + Telegram via /order
+                notifyOrder(orderNumber, savedOrder, function(success, log) {
+                    if (!success) {
+                        console.error('[CHECKOUT] Failed to save crypto order:', log);
+                    }
+                    
+                    // Step 2: Create Coinbase charge via root endpoint
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'https://prc-checkout.prcpeptides.workers.dev/', true);
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            var resp = JSON.parse(xhr.responseText);
+                            if (resp.checkout_url) {
+                                localStorage.setItem('prcLastOrder', JSON.stringify({
+                                    orderNumber: orderNumber,
+                                    savedOrder: savedOrder,
+                                    checkoutUrl: resp.checkout_url
+                                }));
+                                cart = [];
+                                saveCart();
+                                window.location.href = resp.checkout_url;
+                            } else {
+                                console.error('[CRYPTO] No checkout_url in response:', resp);
+                                btn.textContent = 'Place Order';
+                                btn.disabled = false;
+                                showConfirmation();
+                            }
+                        } else {
+                            console.error('[CRYPTO] HTTP error:', xhr.status);
+                            btn.textContent = 'Place Order';
+                            btn.disabled = false;
+                            showConfirmation();
+                        }
+                    };
+                    xhr.onerror = function() {
+                        console.error('[CRYPTO] Network error');
                         btn.textContent = 'Place Order';
                         btn.disabled = false;
                         showConfirmation();
-                    }
-                };
-                xhr.onerror = function() {
-                    // Fallback to manual flow
-                    btn.textContent = 'Place Order';
-                    btn.disabled = false;
-                    showConfirmation();
-                };
-                xhr.send(JSON.stringify({
-                    order_number: orderNumber,
-                    total: savedOrder.total.toFixed(2),
-                    email: savedOrder['Registered Institution'].email,
-                    name: savedOrder['Registered Institution'].name
-                }));
+                    };
+                    xhr.send(JSON.stringify({
+                        order_number: orderNumber,
+                        total: savedOrder.total.toFixed(2),
+                        email: savedOrder['Registered Institution'].email,
+                        name: savedOrder['Registered Institution'].name
+                    }));
+                });
                 return;
             }
 
+            // Zelle: save order + Telegram + customer email (needs payment instructions)
+            notifyOrder(orderNumber, savedOrder, function(success, log) {
+                if (!success) {
+                    console.error('[CHECKOUT] ORDER NOTIFICATION FAILED:', log);
+                    alert('⚠️ Order ' + orderNumber + ' created but notification may have failed.\n\nPlease save this order number and contact support@prcpeptides.com\n\nOrder #: ' + orderNumber);
+                }
+            });
             showConfirmation();
         }
 
