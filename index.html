@@ -2723,13 +2723,16 @@
                 return;
             }
 
-            // Send to Google Apps Script via GET (simpler for no-cors)
-            var url = 'https://script.google.com/macros/s/AKfycbzw7r3qHQR3rPiYlCEWl-eFmzlIUKdYLNOPzbKM--pD6k6WZNVAEct95d8ks2NyXZLp_g/exec' +
-                      '?action=notify' +
-                      '&product=' + encodeURIComponent(currentNotifyProduct) +
-                      '&email=' + encodeURIComponent(email);
-
-            fetch(url, { mode: 'no-cors' })
+            // Send to Cloudflare Worker
+            fetch('https://prc-checkout.prcpeptides.workers.dev/notify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: email,
+                    product: currentNotifyProduct,
+                    source: 'prc'
+                })
+            })
                 .then(function() {
                     closeNotifyModal();
                     showToast('Thanks! We\'ll email you when ' + currentNotifyProduct + ' is back.');
