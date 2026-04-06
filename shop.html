@@ -2710,7 +2710,9 @@
             currentNotifyProduct = '';
         }
 
+        var notifySubmitting = false;
         function submitNotifyModal() {
+            if (notifySubmitting) return;
             var email = document.getElementById('notifyModalEmail').value.trim();
             
             if (!email) {
@@ -2723,6 +2725,10 @@
                 return;
             }
 
+            notifySubmitting = true;
+            var btn = document.querySelector('.notify-modal-btn.submit');
+            if (btn) btn.textContent = 'Sending...';
+
             // Send to Cloudflare Worker
             fetch('https://prc-checkout.prcpeptides.workers.dev/notify', {
                 method: 'POST',
@@ -2734,10 +2740,14 @@
                 })
             })
                 .then(function() {
+                    notifySubmitting = false;
+                    if (btn) btn.textContent = 'Notify Me';
                     closeNotifyModal();
                     showToast('Thanks! We\'ll email you when ' + currentNotifyProduct + ' is back.');
                 })
                 .catch(function() {
+                    notifySubmitting = false;
+                    if (btn) btn.textContent = 'Notify Me';
                     closeNotifyModal();
                     showToast('Thanks! We\'ll email you when ' + currentNotifyProduct + ' is back.');
                 });
