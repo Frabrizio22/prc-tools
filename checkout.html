@@ -1047,7 +1047,7 @@
                     btn.textContent = 'Continue to Crypto Payment →';
                     btn.disabled = false;
                 } else {
-                    btn.textContent = 'Place Order';
+                    orderSubmitting = false; btn.textContent = 'Place Order';
                     btn.disabled = false;
                 }
             }
@@ -1138,7 +1138,7 @@
                 } else if (method === 'crypto') {
                     btn.textContent = 'Continue to Crypto Payment →';
                 } else {
-                    btn.textContent = 'Place Order';
+                    orderSubmitting = false; btn.textContent = 'Place Order';
                 }
             }
             
@@ -1346,7 +1346,10 @@
             xhr.send(JSON.stringify(orderData));
         }
 
+        var orderSubmitting = false;
         function placeOrder() {
+            if (orderSubmitting) return;
+            orderSubmitting = true;
             orderNumber = generateOrderNumber();
             savedOrder = {
                 items: [], subtotal: getSubtotal(), discount: getTotalDiscount(),
@@ -1371,7 +1374,7 @@
                 notifyOrder(orderNumber, savedOrder, function(success, log) {
                     if (!success) {
                         console.error('[CHECKOUT] Failed to save order:', log);
-                        btn.textContent = 'Place Order';
+                        orderSubmitting = false; btn.textContent = 'Place Order';
                         btn.disabled = false;
                         alert('Unable to process order. Please try again.');
                         return;
@@ -1390,7 +1393,7 @@
                         
                         if (!resp.hpp_url || !resp.hpp_params) {
                             console.error('[BANKFUL] Missing HPP data:', resp);
-                            btn.textContent = 'Place Order';
+                            orderSubmitting = false; btn.textContent = 'Place Order';
                             btn.disabled = false;
                             alert('Payment gateway error: Missing redirect URL. Please try another payment method or email support@prcpeptides.com');
                             showConfirmation();
@@ -1424,7 +1427,7 @@
                         form.submit();
                     } else {
                         console.error('[BANKFUL] HTTP error:', xhr.status, xhr.responseText);
-                        btn.textContent = 'Place Order';
+                        orderSubmitting = false; btn.textContent = 'Place Order';
                         btn.disabled = false;
                         alert('Payment gateway temporarily unavailable (HTTP ' + xhr.status + '). Please try another payment method or email support@prcpeptides.com');
                         showConfirmation();
@@ -1432,7 +1435,7 @@
                 };
                 xhr.onerror = function() {
                     console.error('[BANKFUL] Network error - could not reach Worker');
-                    btn.textContent = 'Place Order';
+                    orderSubmitting = false; btn.textContent = 'Place Order';
                     btn.disabled = false;
                     alert('Connection error. Please try another payment method or email support@prcpeptides.com');
                     showConfirmation();
@@ -1482,20 +1485,20 @@
                                 window.location.href = resp.checkout_url;
                             } else {
                                 console.error('[CRYPTO] No checkout_url in response:', resp);
-                                btn.textContent = 'Place Order';
+                                orderSubmitting = false; btn.textContent = 'Place Order';
                                 btn.disabled = false;
                                 showConfirmation();
                             }
                         } else {
                             console.error('[CRYPTO] HTTP error:', xhr.status);
-                            btn.textContent = 'Place Order';
+                            orderSubmitting = false; btn.textContent = 'Place Order';
                             btn.disabled = false;
                             showConfirmation();
                         }
                     };
                     xhr.onerror = function() {
                         console.error('[CRYPTO] Network error');
-                        btn.textContent = 'Place Order';
+                        orderSubmitting = false; btn.textContent = 'Place Order';
                         btn.disabled = false;
                         showConfirmation();
                     };
