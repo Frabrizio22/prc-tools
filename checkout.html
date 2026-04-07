@@ -1098,6 +1098,15 @@
         }
 
         function selectShipping(el, type, price) {
+            var subtotal = getSubtotal();
+            // Apply discounts for orders >= $150
+            if (subtotal >= 150) {
+                if (type === 'standard') {
+                    price = 0; // Free standard shipping
+                } else if (type === 'expedited') {
+                    price = 9.99; // Discounted expedited
+                }
+            }
             selectedShipping = { name: type === 'standard' ? 'Standard Shipping' : 'Expedited Shipping', price: price };
             var options = el.parentNode.querySelectorAll('.option-card');
             for (var i = 0; i < options.length; i++) options[i].classList.remove('selected');
@@ -1112,10 +1121,10 @@
             var subtotal = getSubtotal();
             if (subtotal >= 150) {
                 note.classList.remove('hidden');
-                if (selectedShipping.price === 9.99) {
+                if (selectedShipping.price === 0) {
                     note.textContent = '✓ Your order qualifies for free standard shipping!';
-                } else {
-                    note.textContent = '✓ Expedited shipping discounted to $10 for orders over $150';
+                } else if (selectedShipping.price === 9.99) {
+                    note.textContent = '✓ Expedited shipping discounted to $9.99 for orders over $150';
                 }
             } else {
                 note.classList.add('hidden');
