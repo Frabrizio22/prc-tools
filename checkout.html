@@ -960,6 +960,7 @@
             if (cart[index].quantity < 1) cart[index].quantity = 1;
             saveCart();
             renderCart();
+            recalculateShipping();
             updateFooter();
             updateSummary();
         }
@@ -968,8 +969,29 @@
             cart.splice(index, 1);
             saveCart();
             renderCart();
+            recalculateShipping();
             updateFooter();
             updateSummary();
+        }
+        
+        function recalculateShipping() {
+            // Auto-update shipping cost when cart total crosses $150 threshold
+            var subtotal = getSubtotal();
+            if (subtotal >= 150) {
+                if (selectedShipping.name === 'Standard Shipping') {
+                    selectedShipping.price = 0; // Free standard
+                } else if (selectedShipping.name === 'Expedited Shipping') {
+                    selectedShipping.price = 9.99; // Discounted expedited
+                }
+            } else {
+                // Restore original pricing if cart drops below $150
+                if (selectedShipping.name === 'Standard Shipping') {
+                    selectedShipping.price = 9.99;
+                } else if (selectedShipping.name === 'Expedited Shipping') {
+                    selectedShipping.price = 19.99;
+                }
+            }
+            updateShippingDisplay();
         }
 
         function getSubtotal() {
