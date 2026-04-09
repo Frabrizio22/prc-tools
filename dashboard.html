@@ -14,17 +14,21 @@
 
         :root[data-theme="light"] {
             --bg-primary: #FFFFFF;
-            --bg-secondary: #F8FAFC;
-            --bg-tertiary: #F1F5F9;
-            --border: #E2E8F0;
-            --text-primary: #0F172A;
-            --text-secondary: #64748B;
-            --text-tertiary: #94A3B8;
-            --accent: #2563EB;
-            --accent-hover: #1D4ED8;
-            --success: #059669;
-            --danger: #DC2626;
-            --card-shadow: rgba(0, 0, 0, 0.04);
+            --bg-secondary: #FAFBFC;
+            --bg-tertiary: #F5F7FA;
+            --border: #E8EAED;
+            --text-primary: #1A1D1F;
+            --text-secondary: #6F7782;
+            --text-tertiary: #9EA5AD;
+            --accent: #0066FF;
+            --accent-hover: #0052CC;
+            --accent-light: #E6F0FF;
+            --success: #00875A;
+            --success-light: #E3FCEF;
+            --danger: #DE350B;
+            --danger-light: #FFEBE6;
+            --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         :root[data-theme="dark"] {
@@ -43,22 +47,29 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Segoe UI', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Inter', sans-serif;
             background: var(--bg-secondary);
             color: var(--text-primary);
-            line-height: 1.5;
+            line-height: 1.6;
             transition: background 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .header {
-            background: var(--bg-primary);
+            background: rgba(255, 255, 255, 0.8);
             border-bottom: 1px solid var(--border);
-            padding: 1rem 1.5rem;
+            padding: 1.25rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
             transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .header {
+            background: rgba(15, 23, 42, 0.8);
         }
 
         .header-content {
@@ -70,9 +81,9 @@
         }
 
         .header h1 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.03em;
             color: var(--text-primary);
         }
 
@@ -86,57 +97,73 @@
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
             color: var(--text-secondary);
-            padding: 0.5rem 0.75rem;
-            border-radius: 8px;
+            padding: 0.625rem 1rem;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 0.875rem;
+            font-size: 1.125rem;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .theme-toggle:hover {
             background: var(--bg-secondary);
             color: var(--text-primary);
+            border-color: var(--accent-light);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
         }
 
         .refresh-btn {
             background: var(--accent);
             border: none;
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            padding: 0.625rem 1.25rem;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 0.875rem;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 102, 255, 0.12);
         }
 
         .refresh-btn:hover {
             background: var(--accent-hover);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.24);
+        }
+
+        .refresh-btn:active {
+            transform: translateY(0);
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 2.5rem 2rem;
         }
 
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.25rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .metric-card {
             background: var(--bg-primary);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            box-shadow: var(--card-shadow);
         }
 
         .metric-card::before {
@@ -145,8 +172,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), transparent);
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -156,9 +183,9 @@
         }
 
         .metric-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px var(--card-shadow);
+            border-color: var(--accent-light);
+            transform: translateY(-4px);
+            box-shadow: var(--card-shadow-hover);
         }
 
         .metric-label {
@@ -170,12 +197,13 @@
         }
 
         .metric-value {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 2.25rem;
+            font-weight: 600;
             color: var(--text-primary);
-            letter-spacing: -0.025em;
-            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
             font-variant-numeric: tabular-nums;
+            line-height: 1.1;
         }
 
         .metric-growth {
@@ -200,25 +228,30 @@
 
         .charts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 1.25rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .chart-card {
             background: var(--bg-primary);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 16px;
+            padding: 2rem;
             transition: all 0.3s;
+            box-shadow: var(--card-shadow);
+        }
+
+        .chart-card:hover {
+            box-shadow: var(--card-shadow-hover);
         }
 
         .chart-title {
-            font-size: 1rem;
+            font-size: 1.125rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.02em;
         }
 
         .chart-container {
@@ -229,9 +262,10 @@
         .data-table {
             background: var(--bg-primary);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.25rem;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--card-shadow);
         }
 
         table {
@@ -264,31 +298,37 @@
         }
 
         tbody tr {
-            transition: background 0.15s;
+            transition: all 0.2s ease;
         }
 
         tbody tr:hover {
             background: var(--bg-secondary);
+            transform: scale(1.01);
         }
 
         .loading {
             text-align: center;
-            padding: 4rem;
+            padding: 6rem 2rem;
             color: var(--text-secondary);
         }
 
         .loading-spinner {
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
             border: 3px solid var(--border);
             border-top-color: var(--accent);
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin: 0 auto 1rem;
+            animation: spin 0.6s linear infinite;
+            margin: 0 auto 1.5rem;
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
+        }
+
+        .loading p {
+            font-size: 0.9375rem;
+            font-weight: 500;
         }
 
         .last-updated {
@@ -299,20 +339,25 @@
         }
 
         .btn-secondary {
-            padding: 0.5rem 1rem;
+            padding: 0.625rem 1.25rem;
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
             color: var(--text-primary);
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 0.875rem;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
 
         .btn-secondary:hover {
             background: var(--bg-secondary);
             border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
         }
 
         .comparison-tool {
@@ -324,18 +369,26 @@
         }
 
         .comparison-tool select {
-            padding: 0.5rem 0.75rem;
+            padding: 0.625rem 1rem;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 10px;
             color: var(--text-primary);
             font-size: 0.875rem;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
 
         .comparison-tool select:hover {
             border-color: var(--accent);
+            background: var(--bg-primary);
+        }
+
+        .comparison-tool select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-light);
         }
 
         .comparison-tool label {
@@ -353,19 +406,25 @@
         }
 
         .stat-card {
-            padding: 1rem;
-            border-radius: 8px;
+            padding: 1.5rem;
+            border-radius: 12px;
             border: 1px solid;
+            transition: all 0.2s ease;
         }
 
         .stat-card.positive {
-            background: rgba(16, 185, 129, 0.05);
-            border-color: rgba(16, 185, 129, 0.2);
+            background: var(--success-light);
+            border-color: var(--success);
         }
 
         .stat-card.negative {
-            background: rgba(239, 68, 68, 0.05);
-            border-color: rgba(239, 68, 68, 0.2);
+            background: var(--danger-light);
+            border-color: var(--danger);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--card-shadow);
         }
 
         .stat-label {
@@ -596,8 +655,8 @@
             }
         }
 
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme') || 'dark';
+        // Load saved theme (default to light)
+        const savedTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
         document.getElementById('themeIcon').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
