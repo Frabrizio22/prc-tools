@@ -571,6 +571,24 @@
                     <div class="metric-value" id="avgOrder">$0</div>
                     <div class="metric-growth neutral">Per transaction</div>
                 </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Today</div>
+                    <div class="metric-value" id="todayRevenue">$0</div>
+                    <div class="metric-growth" id="dailyGrowth">
+                        <span id="dailyGrowthIcon">↑</span>
+                        <span id="dailyGrowthValue">0%</span>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Last 7 Days</div>
+                    <div class="metric-value" id="last7DaysRevenue">$0</div>
+                    <div class="metric-growth" id="weeklyGrowth">
+                        <span id="weeklyGrowthIcon">↑</span>
+                        <span id="weeklyGrowthValue">0%</span>
+                    </div>
+                </div>
             </div>
 
             <!-- Charts -->
@@ -735,11 +753,17 @@
                 document.getElementById('thisMonthRevenue').textContent = '$' + parseFloat(data.metrics.thisMonthRevenue).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 document.getElementById('totalOrders').textContent = data.metrics.totalOrders;
                 document.getElementById('avgOrder').textContent = '$' + parseFloat(data.metrics.averageOrderValue).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                
+                // Update daily metrics
+                document.getElementById('todayRevenue').textContent = '$' + parseFloat(data.metrics.todayRevenue).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                document.getElementById('last7DaysRevenue').textContent = '$' + parseFloat(data.metrics.last7DaysRevenue).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 
                 // Update metric card visibility and labels based on filter
                 const monthlyBreakdownEl = document.querySelectorAll('.data-table')[1]; // Monthly Breakdown
                 const comparisonEl = document.querySelectorAll('.data-table')[2]; // Month Comparison
                 const growthCardEl = document.querySelectorAll('.metric-card')[1]; // This Month card
+                const todayCardEl = document.querySelectorAll('.metric-card')[4]; // Today card
+                const weeklyCardEl = document.querySelectorAll('.metric-card')[5]; // Last 7 Days card
                 
                 if (isFiltered) {
                     // Update metric card labels for filtered view
@@ -752,8 +776,10 @@
                     // Hide monthly breakdown and comparison when filtering
                     monthlyBreakdownEl.style.display = 'none';
                     comparisonEl.style.display = 'none';
-                    // Hide growth card when filtering
+                    // Hide time-based cards when filtering (This Month, Today, Last 7 Days)
                     growthCardEl.style.display = 'none';
+                    todayCardEl.style.display = 'none';
+                    weeklyCardEl.style.display = 'none';
                 } else {
                     // Reset labels for all-time view
                     document.getElementById('revenueLabel').textContent = 'Total Revenue';
@@ -764,6 +790,8 @@
                     monthlyBreakdownEl.style.display = 'block';
                     comparisonEl.style.display = 'block';
                     growthCardEl.style.display = 'block';
+                    todayCardEl.style.display = 'block';
+                    weeklyCardEl.style.display = 'block';
                     
                     // Update growth (only for all-time view)
                     const growth = data.metrics.growth;
@@ -782,6 +810,42 @@
                         growthIcon.textContent = '→';
                     }
                     growthValue.textContent = Math.abs(growth) + '% vs last month';
+                    
+                    // Update daily growth
+                    const dailyGrowth = data.metrics.dailyGrowth;
+                    const dailyGrowthEl = document.getElementById('dailyGrowth');
+                    const dailyGrowthIcon = document.getElementById('dailyGrowthIcon');
+                    const dailyGrowthValue = document.getElementById('dailyGrowthValue');
+                    
+                    if (dailyGrowth > 0) {
+                        dailyGrowthEl.className = 'metric-growth positive';
+                        dailyGrowthIcon.textContent = '↑';
+                    } else if (dailyGrowth < 0) {
+                        dailyGrowthEl.className = 'metric-growth negative';
+                        dailyGrowthIcon.textContent = '↓';
+                    } else {
+                        dailyGrowthEl.className = 'metric-growth neutral';
+                        dailyGrowthIcon.textContent = '→';
+                    }
+                    dailyGrowthValue.textContent = Math.abs(dailyGrowth) + '% vs yesterday';
+                    
+                    // Update weekly growth
+                    const weeklyGrowth = data.metrics.weeklyGrowth;
+                    const weeklyGrowthEl = document.getElementById('weeklyGrowth');
+                    const weeklyGrowthIcon = document.getElementById('weeklyGrowthIcon');
+                    const weeklyGrowthValue = document.getElementById('weeklyGrowthValue');
+                    
+                    if (weeklyGrowth > 0) {
+                        weeklyGrowthEl.className = 'metric-growth positive';
+                        weeklyGrowthIcon.textContent = '↑';
+                    } else if (weeklyGrowth < 0) {
+                        weeklyGrowthEl.className = 'metric-growth negative';
+                        weeklyGrowthIcon.textContent = '↓';
+                    } else {
+                        weeklyGrowthEl.className = 'metric-growth neutral';
+                        weeklyGrowthIcon.textContent = '→';
+                    }
+                    weeklyGrowthValue.textContent = Math.abs(weeklyGrowth) + '% vs prev 7 days';
                 }
 
                 // Store data globally
