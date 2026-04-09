@@ -91,6 +91,31 @@
             display: flex;
             gap: 0.75rem;
             align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .month-filter {
+            padding: 0.625rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 140px;
+        }
+
+        .month-filter:hover {
+            border-color: var(--accent);
+            background: var(--bg-tertiary);
+        }
+
+        .month-filter:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-light);
         }
 
         .theme-toggle {
@@ -464,11 +489,21 @@
             }
             
             .charts-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
             }
             
             .metric-value {
                 font-size: 1.75rem;
+            }
+            
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .month-filter {
+                min-width: auto;
+                flex: 1;
             }
         }
     </style>
@@ -476,8 +511,23 @@
 <body>
     <div class="header">
         <div class="header-content">
-            <h1>Analytics</h1>
+            <h1>Analytics <span id="viewingMonth" style="color: var(--text-secondary); font-size: 1rem; font-weight: 500;"></span></h1>
             <div class="header-actions">
+                <select id="monthFilter" class="month-filter" onchange="loadDashboard()">
+                    <option value="">All Time</option>
+                    <option value="2026-01">January 2026</option>
+                    <option value="2026-02">February 2026</option>
+                    <option value="2026-03">March 2026</option>
+                    <option value="2026-04">April 2026</option>
+                    <option value="2026-05">May 2026</option>
+                    <option value="2026-06">June 2026</option>
+                    <option value="2026-07">July 2026</option>
+                    <option value="2026-08">August 2026</option>
+                    <option value="2026-09">September 2026</option>
+                    <option value="2026-10">October 2026</option>
+                    <option value="2026-11">November 2026</option>
+                    <option value="2026-12">December 2026</option>
+                </select>
                 <button class="theme-toggle" onclick="toggleTheme()">
                     <span id="themeIcon">☀️</span>
                 </button>
@@ -496,9 +546,9 @@
             <!-- Metrics Cards -->
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <div class="metric-label">Total Revenue</div>
+                    <div class="metric-label" id="revenueLabel">Total Revenue</div>
                     <div class="metric-value" id="totalRevenue">$0</div>
-                    <div class="metric-growth neutral">All time</div>
+                    <div class="metric-growth neutral" id="revenueGrowthLabel">All time</div>
                 </div>
                 
                 <div class="metric-card">
@@ -511,13 +561,13 @@
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-label">Total Orders</div>
+                    <div class="metric-label" id="ordersLabel">Total Orders</div>
                     <div class="metric-value" id="totalOrders">0</div>
-                    <div class="metric-growth neutral">Completed</div>
+                    <div class="metric-growth neutral" id="ordersGrowthLabel">Completed</div>
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-label">Average Order</div>
+                    <div class="metric-label" id="avgOrderLabel">Average Order</div>
                     <div class="metric-value" id="avgOrder">$0</div>
                     <div class="metric-growth neutral">Per transaction</div>
                 </div>
@@ -533,14 +583,14 @@
                 </div>
                 
                 <div class="chart-card">
-                    <div class="chart-title">Payment Methods</div>
+                    <div class="chart-title" id="paymentChartTitle">Payment Methods</div>
                     <div class="chart-container">
                         <canvas id="paymentChart"></canvas>
                     </div>
                 </div>
                 
                 <div class="chart-card">
-                    <div class="chart-title">Order Status</div>
+                    <div class="chart-title" id="statusChartTitle">Order Status</div>
                     <div class="chart-container">
                         <canvas id="statusChart"></canvas>
                     </div>
@@ -550,7 +600,7 @@
             <!-- Products Table -->
             <div class="data-table">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-                    <div class="chart-title" style="margin-bottom: 0;">Products</div>
+                    <div class="chart-title" style="margin-bottom: 0;"><span id="productsTitle">Products</span></div>
                     <button id="toggleProducts" onclick="toggleAllProducts()" class="btn-secondary">Show All</button>
                 </div>
                 <table>
@@ -665,32 +715,74 @@
             document.getElementById('dashboard').style.display = 'none';
 
             try {
-                const response = await fetch(API_URL);
+                const filterMonth = document.getElementById('monthFilter').value;
+                const url = filterMonth ? `${API_URL}?month=${filterMonth}` : API_URL;
+                const response = await fetch(url);
                 const data = await response.json();
+                
+                const isFiltered = !!data.filterMonth;
 
+                // Update viewing month indicator
+                const monthNames = {
+                    '2026-01': 'January 2026', '2026-02': 'February 2026', '2026-03': 'March 2026',
+                    '2026-04': 'April 2026', '2026-05': 'May 2026', '2026-06': 'June 2026',
+                    '2026-07': 'July 2026', '2026-08': 'August 2026', '2026-09': 'September 2026',
+                    '2026-10': 'October 2026', '2026-11': 'November 2026', '2026-12': 'December 2026'
+                };
+                
                 // Update metrics
                 document.getElementById('totalRevenue').textContent = '$' + parseFloat(data.metrics.totalRevenue).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 document.getElementById('thisMonthRevenue').textContent = '$' + parseFloat(data.metrics.thisMonthRevenue).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 document.getElementById('totalOrders').textContent = data.metrics.totalOrders;
                 document.getElementById('avgOrder').textContent = '$' + parseFloat(data.metrics.averageOrderValue).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 
-                // Update growth
-                const growth = data.metrics.growth;
-                const growthEl = document.getElementById('growth');
-                const growthIcon = document.getElementById('growthIcon');
-                const growthValue = document.getElementById('growthValue');
+                // Update metric card visibility and labels based on filter
+                const monthlyBreakdownEl = document.querySelectorAll('.data-table')[1]; // Monthly Breakdown
+                const comparisonEl = document.querySelectorAll('.data-table')[2]; // Month Comparison
+                const growthCardEl = document.querySelectorAll('.metric-card')[1]; // This Month card
                 
-                if (growth > 0) {
-                    growthEl.className = 'metric-growth positive';
-                    growthIcon.textContent = '↑';
-                } else if (growth < 0) {
-                    growthEl.className = 'metric-growth negative';
-                    growthIcon.textContent = '↓';
+                if (isFiltered) {
+                    // Update metric card labels for filtered view
+                    document.getElementById('revenueLabel').textContent = monthNames[data.filterMonth] + ' Revenue';
+                    document.getElementById('revenueGrowthLabel').textContent = 'Month total';
+                    document.getElementById('ordersLabel').textContent = monthNames[data.filterMonth] + ' Orders';
+                    document.getElementById('ordersGrowthLabel').textContent = 'Completed';
+                    document.getElementById('avgOrderLabel').textContent = 'Average Order';
+                    
+                    // Hide monthly breakdown and comparison when filtering
+                    monthlyBreakdownEl.style.display = 'none';
+                    comparisonEl.style.display = 'none';
+                    // Hide growth card when filtering
+                    growthCardEl.style.display = 'none';
                 } else {
-                    growthEl.className = 'metric-growth neutral';
-                    growthIcon.textContent = '→';
+                    // Reset labels for all-time view
+                    document.getElementById('revenueLabel').textContent = 'Total Revenue';
+                    document.getElementById('revenueGrowthLabel').textContent = 'All time';
+                    document.getElementById('ordersLabel').textContent = 'Total Orders';
+                    document.getElementById('ordersGrowthLabel').textContent = 'Completed';
+                    document.getElementById('avgOrderLabel').textContent = 'Average Order';
+                    monthlyBreakdownEl.style.display = 'block';
+                    comparisonEl.style.display = 'block';
+                    growthCardEl.style.display = 'block';
+                    
+                    // Update growth (only for all-time view)
+                    const growth = data.metrics.growth;
+                    const growthEl = document.getElementById('growth');
+                    const growthIcon = document.getElementById('growthIcon');
+                    const growthValue = document.getElementById('growthValue');
+                    
+                    if (growth > 0) {
+                        growthEl.className = 'metric-growth positive';
+                        growthIcon.textContent = '↑';
+                    } else if (growth < 0) {
+                        growthEl.className = 'metric-growth negative';
+                        growthIcon.textContent = '↓';
+                    } else {
+                        growthEl.className = 'metric-growth neutral';
+                        growthIcon.textContent = '→';
+                    }
+                    growthValue.textContent = Math.abs(growth) + '% vs last month';
                 }
-                growthValue.textContent = Math.abs(growth) + '% vs last month';
 
                 // Store data globally
                 monthlyData = data.revenueByMonth;
@@ -698,14 +790,37 @@
                 window.statusData = data.orderStatus;
                 allProducts = data.allProducts || data.topProducts;
 
-                // Update charts
-                updateRevenueChart(data.revenueByMonth);
+                // Update charts and layout
+                const revenueChartCard = document.querySelectorAll('.chart-card')[0];
+                const chartsGrid = document.querySelector('.charts-grid');
+                
+                if (isFiltered) {
+                    // Hide revenue trend chart when filtering (no multi-month data)
+                    revenueChartCard.style.display = 'none';
+                    // Adjust grid for 2 charts
+                    chartsGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                    
+                    // Update chart and table titles
+                    document.getElementById('productsTitle').textContent = `Top Products – ${monthNames[data.filterMonth]}`;
+                    document.getElementById('paymentChartTitle').textContent = `Payment Methods – ${monthNames[data.filterMonth]}`;
+                    document.getElementById('statusChartTitle').textContent = `Order Status – ${monthNames[data.filterMonth]}`;
+                } else {
+                    revenueChartCard.style.display = 'block';
+                    chartsGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(420px, 1fr))';
+                    document.getElementById('productsTitle').textContent = 'Products';
+                    document.getElementById('paymentChartTitle').textContent = 'Payment Methods';
+                    document.getElementById('statusChartTitle').textContent = 'Order Status';
+                    updateRevenueChart(data.revenueByMonth);
+                }
+                
                 updatePaymentChart(data.paymentBreakdown);
                 updateStatusChart(data.orderStatus);
 
                 // Update tables
                 updateProductsTable();
-                updateMonthlyTable(data.revenueByMonth);
+                if (!isFiltered) {
+                    updateMonthlyTable(data.revenueByMonth);
+                }
 
                 // Update timestamp
                 const lastUpdated = new Date(data.lastUpdated);
