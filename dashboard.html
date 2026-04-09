@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PRC Peptides</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F172A;
+            --primary-light: #1E3A5F;
+            --accent: #3B82F6;
+            --success: #10B981;
+            --danger: #EF4444;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-600: #475569;
+            --gray-900: #0F172A;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .refresh-btn {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .refresh-btn:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-growth {
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .metric-growth.positive {
+            color: var(--success);
+        }
+
+        .metric-growth.negative {
+            color: var(--danger);
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .chart-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        .products-table {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: var(--gray-50);
+        }
+
+        th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.9375rem;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 4rem;
+            color: var(--gray-600);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--gray-200);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .last-updated {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .metric-value {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>📊 PRC Peptides Dashboard</h1>
+            <button class="refresh-btn" onclick="loadDashboard()">↻ Refresh</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading dashboard data...</p>
+        </div>
+
+        <div id="dashboard" style="display: none;">
+            <!-- Metrics Cards -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Total Revenue</div>
+                    <div class="metric-value" id="totalRevenue">$0</div>
+                    <div class="metric-growth">All time</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">This Month</div>
+                    <div class="metric-value" id="thisMonthRevenue">$0</div>
+                    <div class="metric-growth" id="growth">
+                        <span id="growthIcon">↑</span>
+                        <span id="growthValue">0%</span>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Total Orders</div>
+                    <div class="metric-value" id="totalOrders">0</div>
+                    <div class="metric-growth">Completed orders</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-label">Average Order</div>
+                    <div class="metric-value" id="avgOrder">$0</div>
+                    <div class="metric-growth">Per transaction</div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-title">Revenue by Month (2026)</div>
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <div class="chart-title">Payment Methods</div>
+                    <div class="chart-container">
+                        <canvas id="paymentChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <div class="chart-title">Order Status</div>
+                    <div class="chart-container">
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Products Table -->
+            <div class="products-table">
+                <div class="chart-title">Top Products</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Product</th>
+                            <th style="text-align: right;">Units Sold</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTable"></tbody>
+                </table>
+            </div>
+
+            <div class="last-updated" id="lastUpdated"></div>
+        </div>
+    </div>
+
+    <script>
+        // API ENDPOINT - UPDATE THIS AFTER DEPLOYING APPS SCRIPT
+        const API_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+
+        let revenueChart, paymentChart, statusChart;
+
+        async function loadDashboard() {
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('dashboard').style.display = 'none';
+
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                // Update metrics
+                document.getElementById('totalRevenue').textContent = '$' + parseFloat(data.metrics.totalRevenue).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                document.getElementById('thisMonthRevenue').textContent = '$' + parseFloat(data.metrics.thisMonthRevenue).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                document.getElementById('totalOrders').textContent = data.metrics.totalOrders;
+                document.getElementById('avgOrder').textContent = '$' + parseFloat(data.metrics.averageOrderValue).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+                // Update growth
+                const growth = data.metrics.growth;
+                const growthEl = document.getElementById('growth');
+                const growthIcon = document.getElementById('growthIcon');
+                const growthValue = document.getElementById('growthValue');
+                
+                if (growth > 0) {
+                    growthEl.className = 'metric-growth positive';
+                    growthIcon.textContent = '↑';
+                } else if (growth < 0) {
+                    growthEl.className = 'metric-growth negative';
+                    growthIcon.textContent = '↓';
+                } else {
+                    growthEl.className = 'metric-growth';
+                    growthIcon.textContent = '→';
+                }
+                growthValue.textContent = Math.abs(growth) + '% vs last month';
+
+                // Update charts
+                updateRevenueChart(data.revenueByMonth);
+                updatePaymentChart(data.paymentBreakdown);
+                updateStatusChart(data.orderStatus);
+
+                // Update products table
+                updateProductsTable(data.topProducts);
+
+                // Update timestamp
+                const lastUpdated = new Date(data.lastUpdated);
+                document.getElementById('lastUpdated').textContent = 'Last updated: ' + lastUpdated.toLocaleString();
+
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+            } catch (error) {
+                document.getElementById('loading').innerHTML = '<p style="color: #EF4444;">Error loading dashboard. Please check API URL and try again.</p>';
+                console.error('Dashboard error:', error);
+            }
+        }
+
+        function updateRevenueChart(monthlyData) {
+            const ctx = document.getElementById('revenueChart');
+            
+            if (revenueChart) {
+                revenueChart.destroy();
+            }
+
+            const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const data = monthlyData.map(m => m.revenue);
+
+            revenueChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Revenue',
+                        data: data,
+                        borderColor: '#3B82F6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updatePaymentChart(paymentData) {
+            const ctx = document.getElementById('paymentChart');
+            
+            if (paymentChart) {
+                paymentChart.destroy();
+            }
+
+            paymentChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Credit Card', 'Zelle', 'Crypto'],
+                    datasets: [{
+                        data: [paymentData.bankful, paymentData.zelle, paymentData.crypto],
+                        backgroundColor: ['#3B82F6', '#10B981', '#8B5CF6']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateStatusChart(statusData) {
+            const ctx = document.getElementById('statusChart');
+            
+            if (statusChart) {
+                statusChart.destroy();
+            }
+
+            statusChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Paid', 'Shipped', 'Delivered', 'Pending', 'Cancelled'],
+                    datasets: [{
+                        label: 'Orders',
+                        data: [
+                            statusData.Paid || 0,
+                            statusData.Shipped || 0,
+                            statusData.Delivered || 0,
+                            statusData.Pending || 0,
+                            statusData.Cancelled || 0
+                        ],
+                        backgroundColor: ['#10B981', '#3B82F6', '#8B5CF6', '#F59E0B', '#EF4444']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateProductsTable(products) {
+            const tbody = document.getElementById('productsTable');
+            tbody.innerHTML = '';
+
+            products.forEach((product, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${product.name}</td>
+                    <td style="text-align: right; font-weight: 600;">${product.count}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Load dashboard on page load
+        loadDashboard();
+
+        // Auto-refresh every 5 minutes
+        setInterval(loadDashboard, 5 * 60 * 1000);
+    </script>
+</body>
+</html>
