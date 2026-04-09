@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics – PRC Peptides</title>
+    <title>Dashboard - PRC Peptides</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         * {
@@ -12,53 +12,32 @@
             box-sizing: border-box;
         }
 
-        :root[data-theme="light"] {
-            --bg-primary: #FFFFFF;
-            --bg-secondary: #F8FAFC;
-            --bg-tertiary: #F1F5F9;
-            --border: #E2E8F0;
-            --text-primary: #0F172A;
-            --text-secondary: #64748B;
-            --text-tertiary: #94A3B8;
-            --accent: #2563EB;
-            --accent-hover: #1D4ED8;
-            --success: #059669;
-            --danger: #DC2626;
-            --card-shadow: rgba(0, 0, 0, 0.04);
-        }
-
-        :root[data-theme="dark"] {
-            --bg-primary: #0F172A;
-            --bg-secondary: #1E293B;
-            --bg-tertiary: #334155;
-            --border: #334155;
-            --text-primary: #F1F5F9;
-            --text-secondary: #94A3B8;
-            --text-tertiary: #64748B;
+        :root {
+            --primary: #0F172A;
+            --primary-light: #1E3A5F;
             --accent: #3B82F6;
-            --accent-hover: #60A5FA;
             --success: #10B981;
             --danger: #EF4444;
-            --card-shadow: rgba(0, 0, 0, 0.2);
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --gray-600: #475569;
+            --gray-900: #0F172A;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Segoe UI', sans-serif;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            line-height: 1.5;
-            transition: background 0.3s ease, color 0.3s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
         }
 
         .header {
-            background: var(--bg-primary);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 1.5rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(12px);
-            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .header-content {
@@ -70,38 +49,14 @@
         }
 
         .header h1 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            letter-spacing: -0.025em;
-            color: var(--text-primary);
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 0.75rem;
-            align-items: center;
-        }
-
-        .theme-toggle {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 0.5rem 0.75rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .theme-toggle:hover {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
+            letter-spacing: -0.5px;
         }
 
         .refresh-btn {
-            background: var(--accent);
-            border: none;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 8px;
@@ -112,74 +67,66 @@
         }
 
         .refresh-btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
+            background: rgba(255,255,255,0.25);
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 2rem;
         }
 
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
         .metric-card {
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
+            background: white;
             border-radius: 12px;
             padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .metric-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .metric-card:hover::before {
-            opacity: 1;
+            animation: fadeIn 0.4s ease-out;
         }
 
         .metric-card:hover {
-            border-color: var(--accent);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px var(--card-shadow);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .metric-label {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
+            font-size: 0.875rem;
+            color: var(--gray-600);
             font-weight: 500;
-            margin-bottom: 0.75rem;
-            letter-spacing: 0.025em;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .metric-value {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--text-primary);
-            letter-spacing: -0.025em;
+            color: var(--gray-900);
+            letter-spacing: -1px;
             margin-bottom: 0.5rem;
-            font-variant-numeric: tabular-nums;
         }
 
         .metric-growth {
-            font-size: 0.8125rem;
+            font-size: 0.875rem;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -194,44 +141,37 @@
             color: var(--danger);
         }
 
-        .metric-growth.neutral {
-            color: var(--text-tertiary);
-        }
-
         .charts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 1.25rem;
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
         .chart-card {
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
+            background: white;
             border-radius: 12px;
             padding: 1.5rem;
-            transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         .chart-title {
-            font-size: 1rem;
+            font-size: 1.125rem;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--gray-900);
             margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
         }
 
         .chart-container {
             position: relative;
-            height: 280px;
+            height: 300px;
         }
 
-        .data-table {
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
+        .products-table {
+            background: white;
             border-radius: 12px;
             padding: 1.5rem;
-            margin-bottom: 1.25rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
         table {
@@ -240,47 +180,39 @@
         }
 
         thead {
-            border-bottom: 1px solid var(--border);
+            background: var(--gray-50);
         }
 
         th {
             text-align: left;
             padding: 0.75rem 1rem;
-            font-size: 0.8125rem;
+            font-size: 0.875rem;
             font-weight: 600;
-            color: var(--text-secondary);
-            letter-spacing: 0.025em;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         td {
             padding: 1rem;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.875rem;
-            color: var(--text-primary);
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.9375rem;
         }
 
         tr:last-child td {
             border-bottom: none;
         }
 
-        tbody tr {
-            transition: background 0.15s;
-        }
-
-        tbody tr:hover {
-            background: var(--bg-secondary);
-        }
-
         .loading {
             text-align: center;
             padding: 4rem;
-            color: var(--text-secondary);
+            color: var(--gray-600);
         }
 
         .loading-spinner {
-            width: 32px;
-            height: 32px;
-            border: 3px solid var(--border);
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--gray-200);
             border-top-color: var(--accent);
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
@@ -293,106 +225,9 @@
 
         .last-updated {
             text-align: center;
-            color: var(--text-tertiary);
-            font-size: 0.8125rem;
+            color: var(--gray-600);
+            font-size: 0.875rem;
             margin-top: 2rem;
-        }
-
-        .btn-secondary {
-            padding: 0.5rem 1rem;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-secondary);
-            border-color: var(--accent);
-        }
-
-        .comparison-tool {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .comparison-tool select {
-            padding: 0.5rem 0.75rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .comparison-tool select:hover {
-            border-color: var(--accent);
-        }
-
-        .comparison-tool label {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.25rem;
-            display: block;
-        }
-
-        .comparison-results {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .stat-card {
-            padding: 1rem;
-            border-radius: 8px;
-            border: 1px solid;
-        }
-
-        .stat-card.positive {
-            background: rgba(16, 185, 129, 0.05);
-            border-color: rgba(16, 185, 129, 0.2);
-        }
-
-        .stat-card.negative {
-            background: rgba(239, 68, 68, 0.05);
-            border-color: rgba(239, 68, 68, 0.2);
-        }
-
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-value.positive {
-            color: var(--success);
-        }
-
-        .stat-value.negative {
-            color: var(--danger);
-        }
-
-        .stat-desc {
-            font-size: 0.8125rem;
-            color: var(--text-secondary);
         }
 
         @media (max-width: 768px) {
@@ -417,20 +252,15 @@
 <body>
     <div class="header">
         <div class="header-content">
-            <h1>Analytics</h1>
-            <div class="header-actions">
-                <button class="theme-toggle" onclick="toggleTheme()">
-                    <span id="themeIcon">☀️</span>
-                </button>
-                <button class="refresh-btn" onclick="loadDashboard()">Refresh</button>
-            </div>
+            <h1>📊 PRC Peptides Dashboard</h1>
+            <button class="refresh-btn" onclick="loadDashboard()">↻ Refresh</button>
         </div>
     </div>
 
     <div class="container">
         <div id="loading" class="loading">
             <div class="loading-spinner"></div>
-            <p>Loading analytics...</p>
+            <p>Loading dashboard data...</p>
         </div>
 
         <div id="dashboard" style="display: none;">
@@ -439,7 +269,7 @@
                 <div class="metric-card">
                     <div class="metric-label">Total Revenue</div>
                     <div class="metric-value" id="totalRevenue">$0</div>
-                    <div class="metric-growth neutral">All time</div>
+                    <div class="metric-growth">All time</div>
                 </div>
                 
                 <div class="metric-card">
@@ -454,20 +284,20 @@
                 <div class="metric-card">
                     <div class="metric-label">Total Orders</div>
                     <div class="metric-value" id="totalOrders">0</div>
-                    <div class="metric-growth neutral">Completed</div>
+                    <div class="metric-growth">Completed orders</div>
                 </div>
                 
                 <div class="metric-card">
                     <div class="metric-label">Average Order</div>
                     <div class="metric-value" id="avgOrder">$0</div>
-                    <div class="metric-growth neutral">Per transaction</div>
+                    <div class="metric-growth">Per transaction</div>
                 </div>
             </div>
 
             <!-- Charts -->
             <div class="charts-grid">
                 <div class="chart-card">
-                    <div class="chart-title">Revenue Trend</div>
+                    <div class="chart-title">Revenue by Month (2026)</div>
                     <div class="chart-container">
                         <canvas id="revenueChart"></canvas>
                     </div>
@@ -488,11 +318,11 @@
                 </div>
             </div>
 
-            <!-- Products Table -->
-            <div class="data-table">
+            <!-- Top Products Table -->
+            <div class="products-table">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                     <div class="chart-title" style="margin-bottom: 0;">Products</div>
-                    <button id="toggleProducts" onclick="toggleAllProducts()" class="btn-secondary">Show All</button>
+                    <button id="toggleProducts" onclick="toggleAllProducts()" style="padding: 0.5rem 1rem; background: #F1F5F9; color: #475569; border: none; border-radius: 6px; cursor: pointer; font-size: 0.875rem; font-weight: 500;">Show All</button>
                 </div>
                 <table>
                     <thead>
@@ -506,8 +336,8 @@
                 </table>
             </div>
 
-            <!-- Monthly Breakdown -->
-            <div class="data-table">
+            <!-- Monthly Breakdown Table -->
+            <div class="products-table" style="margin-top: 1.5rem;">
                 <div class="chart-title">Monthly Breakdown 2026</div>
                 <table>
                     <thead>
@@ -522,13 +352,13 @@
                 </table>
             </div>
 
-            <!-- Month Comparison -->
-            <div class="data-table">
+            <!-- Month Comparison Tool -->
+            <div class="products-table" style="margin-top: 1.5rem;">
                 <div class="chart-title">Compare Months</div>
-                <div class="comparison-tool">
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: center; flex-wrap: wrap;">
                     <div>
-                        <label>First Month</label>
-                        <select id="compareMonth1">
+                        <label style="font-size: 0.875rem; color: #475569; margin-bottom: 0.25rem; display: block;">First Month</label>
+                        <select id="compareMonth1" style="padding: 0.5rem; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 0.9375rem;">
                             <option value="2026-01">January</option>
                             <option value="2026-02">February</option>
                             <option value="2026-03">March</option>
@@ -543,10 +373,10 @@
                             <option value="2026-12">December</option>
                         </select>
                     </div>
-                    <div style="padding-top: 1.5rem; color: var(--text-tertiary);">vs</div>
+                    <div style="font-size: 1.25rem; color: #475569; padding-top: 1.5rem;">vs</div>
                     <div>
-                        <label>Second Month</label>
-                        <select id="compareMonth2">
+                        <label style="font-size: 0.875rem; color: #475569; margin-bottom: 0.25rem; display: block;">Second Month</label>
+                        <select id="compareMonth2" style="padding: 0.5rem; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 0.9375rem;">
                             <option value="2026-01">January</option>
                             <option value="2026-02">February</option>
                             <option value="2026-03" selected>March</option>
@@ -561,7 +391,7 @@
                             <option value="2026-12">December</option>
                         </select>
                     </div>
-                    <button onclick="compareMonths()" class="refresh-btn" style="margin-top: 1.5rem;">Compare</button>
+                    <button onclick="compareMonths()" style="padding: 0.5rem 1rem; background: #3B82F6; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9375rem; margin-top: 1.5rem; font-weight: 500;">Compare</button>
                 </div>
                 <div id="comparisonResults"></div>
             </div>
@@ -571,35 +401,13 @@
     </div>
 
     <script>
-        // API ENDPOINT
+        // API ENDPOINT - UPDATE THIS AFTER DEPLOYING APPS SCRIPT
         const API_URL = 'https://script.google.com/macros/s/AKfycbwUYx4SssPgid736fWsgaW0AfX8anjxfa4YRHTOCUee0n5F-KiB7Jt7qcmPRhA02cwy/exec';
 
         let revenueChart, paymentChart, statusChart;
         let monthlyData = [];
         let allProducts = [];
         let showAllProducts = false;
-
-        // Theme toggle
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-            document.getElementById('themeIcon').textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            localStorage.setItem('theme', newTheme);
-            
-            // Redraw charts with new theme colors
-            if (monthlyData.length > 0) {
-                updateRevenueChart(monthlyData);
-                updatePaymentChart(window.paymentData);
-                updateStatusChart(window.statusData);
-            }
-        }
-
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        document.getElementById('themeIcon').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
         async function loadDashboard() {
             document.getElementById('loading').style.display = 'block';
@@ -628,24 +436,24 @@
                     growthEl.className = 'metric-growth negative';
                     growthIcon.textContent = '↓';
                 } else {
-                    growthEl.className = 'metric-growth neutral';
+                    growthEl.className = 'metric-growth';
                     growthIcon.textContent = '→';
                 }
                 growthValue.textContent = Math.abs(growth) + '% vs last month';
 
-                // Store data globally
+                // Store monthly data globally for comparisons
                 monthlyData = data.revenueByMonth;
-                window.paymentData = data.paymentBreakdown;
-                window.statusData = data.orderStatus;
-                allProducts = data.allProducts || data.topProducts;
 
                 // Update charts
                 updateRevenueChart(data.revenueByMonth);
                 updatePaymentChart(data.paymentBreakdown);
                 updateStatusChart(data.orderStatus);
 
-                // Update tables
+                // Store all products and update table
+                allProducts = data.allProducts || data.topProducts;
                 updateProductsTable();
+
+                // Update monthly breakdown table
                 updateMonthlyTable(data.revenueByMonth);
 
                 // Update timestamp
@@ -655,35 +463,13 @@
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('dashboard').style.display = 'block';
             } catch (error) {
-                document.getElementById('loading').innerHTML = '<p style="color: var(--danger);">Error loading dashboard. Please try again.</p>';
+                document.getElementById('loading').innerHTML = '<p style="color: #EF4444;">Error loading dashboard. Please check API URL and try again.</p>';
                 console.error('Dashboard error:', error);
-            }
-        }
-
-        function getChartColors() {
-            const theme = document.documentElement.getAttribute('data-theme');
-            if (theme === 'dark') {
-                return {
-                    grid: '#334155',
-                    text: '#94A3B8',
-                    line: '#3B82F6',
-                    fill: 'rgba(59, 130, 246, 0.1)',
-                    palette: ['#3B82F6', '#10B981', '#8B5CF6', '#F59E0B', '#EF4444']
-                };
-            } else {
-                return {
-                    grid: '#E2E8F0',
-                    text: '#64748B',
-                    line: '#2563EB',
-                    fill: 'rgba(37, 99, 235, 0.1)',
-                    palette: ['#2563EB', '#059669', '#7C3AED', '#D97706', '#DC2626']
-                };
             }
         }
 
         function updateRevenueChart(monthlyData) {
             const ctx = document.getElementById('revenueChart');
-            const colors = getChartColors();
             
             if (revenueChart) {
                 revenueChart.destroy();
@@ -699,35 +485,30 @@
                     datasets: [{
                         label: 'Revenue',
                         data: data,
-                        borderColor: colors.line,
-                        backgroundColor: colors.fill,
+                        borderColor: '#3B82F6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
                         tension: 0.4,
                         fill: true,
-                        pointRadius: 3,
-                        pointHoverRadius: 5,
-                        borderWidth: 2
+                        pointRadius: 4,
+                        pointHoverRadius: 6
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { display: false }
+                        legend: {
+                            display: false
+                        }
                     },
                     scales: {
                         y: {
                             beginAtZero: true,
-                            grid: { color: colors.grid },
                             ticks: {
-                                color: colors.text,
                                 callback: function(value) {
                                     return '$' + value.toLocaleString();
                                 }
                             }
-                        },
-                        x: {
-                            grid: { display: false },
-                            ticks: { color: colors.text }
                         }
                     }
                 }
@@ -736,7 +517,6 @@
 
         function updatePaymentChart(paymentData) {
             const ctx = document.getElementById('paymentChart');
-            const colors = getChartColors();
             
             if (paymentChart) {
                 paymentChart.destroy();
@@ -748,8 +528,7 @@
                     labels: ['Credit Card', 'Zelle', 'Crypto'],
                     datasets: [{
                         data: [paymentData.bankful, paymentData.zelle, paymentData.crypto],
-                        backgroundColor: colors.palette.slice(0, 3),
-                        borderWidth: 0
+                        backgroundColor: ['#3B82F6', '#10B981', '#8B5CF6']
                     }]
                 },
                 options: {
@@ -757,8 +536,7 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            position: 'bottom',
-                            labels: { color: colors.text }
+                            position: 'bottom'
                         }
                     }
                 }
@@ -767,7 +545,6 @@
 
         function updateStatusChart(statusData) {
             const ctx = document.getElementById('statusChart');
-            const colors = getChartColors();
             
             if (statusChart) {
                 statusChart.destroy();
@@ -786,29 +563,23 @@
                             statusData.Pending || 0,
                             statusData.Cancelled || 0
                         ],
-                        backgroundColor: colors.palette,
-                        borderRadius: 6,
-                        borderWidth: 0
+                        backgroundColor: ['#10B981', '#3B82F6', '#8B5CF6', '#F59E0B', '#EF4444']
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { display: false }
+                        legend: {
+                            display: false
+                        }
                     },
                     scales: {
                         y: {
                             beginAtZero: true,
-                            grid: { color: colors.grid },
                             ticks: {
-                                color: colors.text,
                                 stepSize: 1
                             }
-                        },
-                        x: {
-                            grid: { display: false },
-                            ticks: { color: colors.text }
                         }
                     }
                 }
@@ -848,7 +619,7 @@
             months.forEach((monthData, index) => {
                 const row = document.createElement('tr');
                 const isCurrentMonth = new Date().getMonth() === index;
-                const rowStyle = isCurrentMonth ? 'background: var(--bg-secondary);' : '';
+                const rowStyle = isCurrentMonth ? 'background: #F0F9FF;' : '';
                 
                 row.innerHTML = `
                     <td style="${rowStyle}">${monthNames[index]}</td>
@@ -884,55 +655,55 @@
 
             const resultsDiv = document.getElementById('comparisonResults');
             resultsDiv.innerHTML = `
-                <div class="comparison-results">
-                    <div class="stat-card ${revenueDiff >= 0 ? 'positive' : 'negative'}">
-                        <div class="stat-label">Revenue Difference</div>
-                        <div class="stat-value ${revenueDiff >= 0 ? 'positive' : 'negative'}">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="background: ${revenueDiff >= 0 ? '#F0FDF4' : '#FEF2F2'}; padding: 1rem; border-radius: 8px; border: 1px solid ${revenueDiff >= 0 ? '#BBF7D0' : '#FECACA'};">
+                        <div style="font-size: 0.75rem; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Revenue Difference</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: ${revenueDiff >= 0 ? '#10B981' : '#EF4444'}; margin-bottom: 0.25rem;">
                             ${revenueDiff >= 0 ? '+' : ''}$${Math.abs(revenueDiff).toLocaleString('en-US', {minimumFractionDigits: 2})}
                         </div>
-                        <div class="stat-desc">${Math.abs(revenueGrowth)}% ${revenueDiff >= 0 ? 'higher' : 'lower'}</div>
+                        <div style="font-size: 0.875rem; color: #475569;">${Math.abs(revenueGrowth)}% ${revenueDiff >= 0 ? 'higher' : 'lower'}</div>
                     </div>
                     
-                    <div class="stat-card ${ordersDiff >= 0 ? 'positive' : 'negative'}">
-                        <div class="stat-label">Order Difference</div>
-                        <div class="stat-value ${ordersDiff >= 0 ? 'positive' : 'negative'}">
+                    <div style="background: ${ordersDiff >= 0 ? '#F0FDF4' : '#FEF2F2'}; padding: 1rem; border-radius: 8px; border: 1px solid ${ordersDiff >= 0 ? '#BBF7D0' : '#FECACA'};">
+                        <div style="font-size: 0.75rem; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Order Difference</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: ${ordersDiff >= 0 ? '#10B981' : '#EF4444'}; margin-bottom: 0.25rem;">
                             ${ordersDiff >= 0 ? '+' : ''}${ordersDiff}
                         </div>
-                        <div class="stat-desc">${Math.abs(ordersGrowth)}% ${ordersDiff >= 0 ? 'more' : 'fewer'} orders</div>
+                        <div style="font-size: 0.875rem; color: #475569;">${Math.abs(ordersGrowth)}% ${ordersDiff >= 0 ? 'more' : 'fewer'} orders</div>
                     </div>
                     
-                    <div class="stat-card ${avgOrderDiff >= 0 ? 'positive' : 'negative'}">
-                        <div class="stat-label">Avg Order Difference</div>
-                        <div class="stat-value ${avgOrderDiff >= 0 ? 'positive' : 'negative'}">
+                    <div style="background: ${avgOrderDiff >= 0 ? '#F0FDF4' : '#FEF2F2'}; padding: 1rem; border-radius: 8px; border: 1px solid ${avgOrderDiff >= 0 ? '#BBF7D0' : '#FECACA'};">
+                        <div style="font-size: 0.75rem; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Avg Order Difference</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: ${avgOrderDiff >= 0 ? '#10B981' : '#EF4444'}; margin-bottom: 0.25rem;">
                             ${avgOrderDiff >= 0 ? '+' : ''}$${Math.abs(avgOrderDiff).toLocaleString('en-US', {minimumFractionDigits: 2})}
                         </div>
-                        <div class="stat-desc">per order</div>
+                        <div style="font-size: 0.875rem; color: #475569;">per order</div>
                     </div>
                 </div>
                 
-                <table style="margin-top: 1.5rem;">
-                    <thead>
+                <table style="margin-top: 1.5rem; width: 100%;">
+                    <thead style="background: #F8FAFC;">
                         <tr>
-                            <th></th>
-                            <th style="text-align: right;">${monthNames[month1Key]}</th>
-                            <th style="text-align: right;">${monthNames[month2Key]}</th>
+                            <th style="text-align: left; padding: 0.75rem; font-size: 0.875rem; font-weight: 600; color: #475569;"></th>
+                            <th style="text-align: right; padding: 0.75rem; font-size: 0.875rem; font-weight: 600; color: #475569;">${monthNames[month1Key]}</th>
+                            <th style="text-align: right; padding: 0.75rem; font-size: 0.875rem; font-weight: 600; color: #475569;">${monthNames[month2Key]}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Revenue</td>
-                            <td style="text-align: right; font-weight: 600;">$${month1.revenue.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
-                            <td style="text-align: right; font-weight: 600;">$${month2.revenue.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0;">Revenue</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0; text-align: right; font-weight: 600;">$${month1.revenue.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0; text-align: right; font-weight: 600;">$${month2.revenue.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
                         </tr>
                         <tr>
-                            <td>Orders</td>
-                            <td style="text-align: right;">${month1.orders}</td>
-                            <td style="text-align: right;">${month2.orders}</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0;">Orders</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0; text-align: right;">${month1.orders}</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0; text-align: right;">${month2.orders}</td>
                         </tr>
                         <tr>
-                            <td>Avg Order</td>
-                            <td style="text-align: right;">$${month1.avgOrder.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
-                            <td style="text-align: right;">$${month2.avgOrder.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td style="padding: 1rem;">Avg Order</td>
+                            <td style="padding: 1rem; text-align: right;">$${month1.avgOrder.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td style="padding: 1rem; text-align: right;">$${month2.avgOrder.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
                         </tr>
                     </tbody>
                 </table>
