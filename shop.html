@@ -1674,7 +1674,6 @@
                     <button class="filter-pill" data-category="longevity">Cellular</button>
                     <button class="filter-pill" data-category="melanocortin">Melanocortin</button>
                     <button class="filter-pill" data-category="advanced">Experimental</button>
-                    <button class="filter-pill" data-category="supplies">BAC Water</button>
                 </div>
             </div>
 
@@ -2169,16 +2168,6 @@
                 shortDesc: "Cyclic heptapeptide melanocortin agonist with preferential activity at MC3R and MC4R.",
                 fullDesc: "PT-141 emerged from structure-activity relationship studies of Melanotan II. While Melanotan II activates multiple melanocortin receptor subtypes, its metabolite PT-141 demonstrates preferential activity at MC3R and MC4R with reduced MC1R activation—eliminating pigmentation effect while retaining central melanocortin activity.",
                 applications: "Melanocortin receptor subtype pharmacology, MC3R/MC4R signaling research, central melanocortin pathway studies, receptor selectivity research, hypothalamic signaling mechanisms, melanocortin system biology"
-            },
-            {
-                name: "Bacteriostatic Water 10ml",
-                category: "supplies",
-                price: 8,
-                inStock: false,
-                coa: false,
-                shortDesc: "Sterile water containing 0.9% benzyl alcohol for peptide reconstitution in laboratory settings.",
-                fullDesc: "Bacteriostatic water is sterile water containing 0.9% benzyl alcohol, which inhibits bacterial growth. Used in laboratory settings to reconstitute lyophilized peptides for in vitro research applications. Pharmaceutical-grade, sealed under sterile conditions.",
-                applications: "Peptide reconstitution, laboratory dilution, in vitro research"
             }
         ];
 
@@ -2202,8 +2191,7 @@
             { id: 'neuropeptides', name: 'Neuro', count: 6 },
             { id: 'longevity', name: 'Cellular', count: 3 },
             { id: 'melanocortin', name: 'Melanocortin', count: 2 },
-            { id: 'advanced', name: 'Experimental', count: 1 },
-            { id: 'supplies', name: 'BAC Water', count: 1 }
+            { id: 'advanced', name: 'Experimental', count: 1 }
         ];
 
         // Initialize
@@ -2262,8 +2250,7 @@
             'Semax 5mg': 'semax',
             'DSIP 5mg': 'dsip',
             'Epithalon (Epitalon) 50mg': 'epithalon',
-            'PE 22-28 10mg': 'pe-22-28',
-            'Bacteriostatic Water 10ml': 'bacteriostatic-water'
+            'PE 22-28 10mg': 'pe-22-28'
         };
         function getProductSlug(name) {
             if (slugOverrides[name]) return slugOverrides[name];
@@ -2491,8 +2478,7 @@
                 'antioxidants': 'Antioxidants',
                 'longevity': 'Cellular',
                 'melanocortin': 'Melanocortin',
-                'advanced': 'Experimental',
-                'supplies': 'BAC Water'
+                'advanced': 'Experimental'
             };
             
             var shortNames = {
@@ -2511,11 +2497,6 @@
 
         // Extract mg from product name and calculate price per mg
         function getPricePerMg(productName, price) {
-            // Skip for BAC water and other supplies
-            if (productName.indexOf('Bacteriostatic') !== -1 || productName.indexOf('Water') !== -1) {
-                return '';
-            }
-            
             // Check for IU (for HGH)
             var iuMatch = productName.match(/(\d+(?:\.\d+)?)\s*IU/i);
             if (iuMatch) {
