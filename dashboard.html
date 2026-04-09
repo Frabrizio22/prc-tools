@@ -333,6 +333,66 @@
                 </table>
             </div>
 
+            <!-- Monthly Breakdown Table -->
+            <div class="products-table" style="margin-top: 1.5rem;">
+                <div class="chart-title">Monthly Breakdown 2026</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th style="text-align: right;">Revenue</th>
+                            <th style="text-align: right;">Orders</th>
+                            <th style="text-align: right;">Avg Order</th>
+                        </tr>
+                    </thead>
+                    <tbody id="monthlyTable"></tbody>
+                </table>
+            </div>
+
+            <!-- Month Comparison Tool -->
+            <div class="products-table" style="margin-top: 1.5rem;">
+                <div class="chart-title">Compare Months</div>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: center; flex-wrap: wrap;">
+                    <div>
+                        <label style="font-size: 0.875rem; color: #475569; margin-bottom: 0.25rem; display: block;">First Month</label>
+                        <select id="compareMonth1" style="padding: 0.5rem; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 0.9375rem;">
+                            <option value="2026-01">January</option>
+                            <option value="2026-02">February</option>
+                            <option value="2026-03">March</option>
+                            <option value="2026-04" selected>April</option>
+                            <option value="2026-05">May</option>
+                            <option value="2026-06">June</option>
+                            <option value="2026-07">July</option>
+                            <option value="2026-08">August</option>
+                            <option value="2026-09">September</option>
+                            <option value="2026-10">October</option>
+                            <option value="2026-11">November</option>
+                            <option value="2026-12">December</option>
+                        </select>
+                    </div>
+                    <div style="font-size: 1.25rem; color: #475569; padding-top: 1.5rem;">vs</div>
+                    <div>
+                        <label style="font-size: 0.875rem; color: #475569; margin-bottom: 0.25rem; display: block;">Second Month</label>
+                        <select id="compareMonth2" style="padding: 0.5rem; border: 1px solid #E2E8F0; border-radius: 6px; font-size: 0.9375rem;">
+                            <option value="2026-01">January</option>
+                            <option value="2026-02">February</option>
+                            <option value="2026-03" selected>March</option>
+                            <option value="2026-04">April</option>
+                            <option value="2026-05">May</option>
+                            <option value="2026-06">June</option>
+                            <option value="2026-07">July</option>
+                            <option value="2026-08">August</option>
+                            <option value="2026-09">September</option>
+                            <option value="2026-10">October</option>
+                            <option value="2026-11">November</option>
+                            <option value="2026-12">December</option>
+                        </select>
+                    </div>
+                    <button onclick="compareMonths()" style="padding: 0.5rem 1rem; background: #3B82F6; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.9375rem; margin-top: 1.5rem; font-weight: 500;">Compare</button>
+                </div>
+                <div id="comparisonResults"></div>
+            </div>
+
             <div class="last-updated" id="lastUpdated"></div>
         </div>
     </div>
@@ -342,6 +402,7 @@
         const API_URL = 'https://script.google.com/macros/s/AKfycbwUYx4SssPgid736fWsgaW0AfX8anjxfa4YRHTOCUee0n5F-KiB7Jt7qcmPRhA02cwy/exec';
 
         let revenueChart, paymentChart, statusChart;
+        let monthlyData = [];
 
         async function loadDashboard() {
             document.getElementById('loading').style.display = 'block';
@@ -375,6 +436,9 @@
                 }
                 growthValue.textContent = Math.abs(growth) + '% vs last month';
 
+                // Store monthly data globally for comparisons
+                monthlyData = data.revenueByMonth;
+
                 // Update charts
                 updateRevenueChart(data.revenueByMonth);
                 updatePaymentChart(data.paymentBreakdown);
@@ -382,6 +446,9 @@
 
                 // Update products table
                 updateProductsTable(data.topProducts);
+
+                // Update monthly breakdown table
+                updateMonthlyTable(data.revenueByMonth);
 
                 // Update timestamp
                 const lastUpdated = new Date(data.lastUpdated);
@@ -526,6 +593,106 @@
                 `;
                 tbody.appendChild(row);
             });
+        }
+
+        function updateMonthlyTable(months) {
+            const tbody = document.getElementById('monthlyTable');
+            tbody.innerHTML = '';
+
+            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            months.forEach((monthData, index) => {
+                const row = document.createElement('tr');
+                const isCurrentMonth = new Date().getMonth() === index;
+                const rowStyle = isCurrentMonth ? 'background: #F0F9FF;' : '';
+                
+                row.innerHTML = `
+                    <td style="${rowStyle}">${monthNames[index]}</td>
+                    <td style="text-align: right; font-weight: 600; ${rowStyle}">$${monthData.revenue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                    <td style="text-align: right; ${rowStyle}">${monthData.orders}</td>
+                    <td style="text-align: right; ${rowStyle}">$${monthData.avgOrder.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function compareMonths() {
+            const month1Key = document.getElementById('compareMonth1').value;
+            const month2Key = document.getElementById('compareMonth2').value;
+
+            const month1 = monthlyData.find(m => m.month === month1Key);
+            const month2 = monthlyData.find(m => m.month === month2Key);
+
+            if (!month1 || !month2) return;
+
+            const monthNames = {
+                '2026-01': 'January', '2026-02': 'February', '2026-03': 'March',
+                '2026-04': 'April', '2026-05': 'May', '2026-06': 'June',
+                '2026-07': 'July', '2026-08': 'August', '2026-09': 'September',
+                '2026-10': 'October', '2026-11': 'November', '2026-12': 'December'
+            };
+
+            const revenueDiff = month1.revenue - month2.revenue;
+            const revenueGrowth = month2.revenue > 0 ? ((revenueDiff / month2.revenue) * 100).toFixed(1) : 0;
+            const ordersDiff = month1.orders - month2.orders;
+            const ordersGrowth = month2.orders > 0 ? ((ordersDiff / month2.orders) * 100).toFixed(1) : 0;
+            const avgOrderDiff = month1.avgOrder - month2.avgOrder;
+
+            const resultsDiv = document.getElementById('comparisonResults');
+            resultsDiv.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="background: ${revenueDiff >= 0 ? '#F0FDF4' : '#FEF2F2'}; padding: 1rem; border-radius: 8px; border: 1px solid ${revenueDiff >= 0 ? '#BBF7D0' : '#FECACA'};">
+                        <div style="font-size: 0.75rem; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Revenue Difference</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: ${revenueDiff >= 0 ? '#10B981' : '#EF4444'}; margin-bottom: 0.25rem;">
+                            ${revenueDiff >= 0 ? '+' : ''}$${Math.abs(revenueDiff).toLocaleString('en-US', {minimumFractionDigits: 2})}
+                        </div>
+                        <div style="font-size: 0.875rem; color: #475569;">${Math.abs(revenueGrowth)}% ${revenueDiff >= 0 ? 'higher' : 'lower'}</div>
+                    </div>
+                    
+                    <div style="background: ${ordersDiff >= 0 ? '#F0FDF4' : '#FEF2F2'}; padding: 1rem; border-radius: 8px; border: 1px solid ${ordersDiff >= 0 ? '#BBF7D0' : '#FECACA'};">
+                        <div style="font-size: 0.75rem; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Order Difference</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: ${ordersDiff >= 0 ? '#10B981' : '#EF4444'}; margin-bottom: 0.25rem;">
+                            ${ordersDiff >= 0 ? '+' : ''}${ordersDiff}
+                        </div>
+                        <div style="font-size: 0.875rem; color: #475569;">${Math.abs(ordersGrowth)}% ${ordersDiff >= 0 ? 'more' : 'fewer'} orders</div>
+                    </div>
+                    
+                    <div style="background: ${avgOrderDiff >= 0 ? '#F0FDF4' : '#FEF2F2'}; padding: 1rem; border-radius: 8px; border: 1px solid ${avgOrderDiff >= 0 ? '#BBF7D0' : '#FECACA'};">
+                        <div style="font-size: 0.75rem; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Avg Order Difference</div>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: ${avgOrderDiff >= 0 ? '#10B981' : '#EF4444'}; margin-bottom: 0.25rem;">
+                            ${avgOrderDiff >= 0 ? '+' : ''}$${Math.abs(avgOrderDiff).toLocaleString('en-US', {minimumFractionDigits: 2})}
+                        </div>
+                        <div style="font-size: 0.875rem; color: #475569;">per order</div>
+                    </div>
+                </div>
+                
+                <table style="margin-top: 1.5rem; width: 100%;">
+                    <thead style="background: #F8FAFC;">
+                        <tr>
+                            <th style="text-align: left; padding: 0.75rem; font-size: 0.875rem; font-weight: 600; color: #475569;"></th>
+                            <th style="text-align: right; padding: 0.75rem; font-size: 0.875rem; font-weight: 600; color: #475569;">${monthNames[month1Key]}</th>
+                            <th style="text-align: right; padding: 0.75rem; font-size: 0.875rem; font-weight: 600; color: #475569;">${monthNames[month2Key]}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0;">Revenue</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0; text-align: right; font-weight: 600;">$${month1.revenue.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0; text-align: right; font-weight: 600;">$${month2.revenue.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0;">Orders</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0; text-align: right;">${month1.orders}</td>
+                            <td style="padding: 1rem; border-bottom: 1px solid #E2E8F0; text-align: right;">${month2.orders}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem;">Avg Order</td>
+                            <td style="padding: 1rem; text-align: right;">$${month1.avgOrder.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td style="padding: 1rem; text-align: right;">$${month2.avgOrder.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            `;
         }
 
         // Load dashboard on page load
