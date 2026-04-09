@@ -3043,6 +3043,16 @@
             renderProducts('all');
             updateCartBadge();
         });
+
+        // Reload cart when navigating back (fixes browser bfcache issue)
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                // Page was loaded from bfcache (browser back/forward cache)
+                shopCart = JSON.parse(localStorage.getItem('prcCart') || '[]');
+                updateCartBadge();
+                renderCartDrawer();
+            }
+        });
     </script>
 
     <!-- Cart Drawer -->
