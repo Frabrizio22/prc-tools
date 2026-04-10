@@ -798,6 +798,19 @@
             letter-spacing: 0.2px;
         }
 
+        .low-stock-badge {
+            color: #F59E0B;
+            background: #FEF3C7;
+            border: 1.5px solid #F59E0B;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-align: center;
+            margin: 6px 0;
+            letter-spacing: 0.2px;
+        }
+
         .card-actions {
             display: flex;
             flex-direction: column;
@@ -1520,6 +1533,18 @@
             padding: 2px 6px;
             border-radius: 3px;
             margin-top: 4px;
+        }
+
+        .low-stock-badge {
+            display: inline-block;
+            background: #FEF3C7;
+            color: #F59E0B;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-top: 4px;
+            border: 1px solid #F59E0B;
         }
 
         .section-divider {
@@ -2348,6 +2373,7 @@
                 var categoryName = getCategoryName(product.category, true);
                 
                 var coaBadge = product.coa ? '<span class="coa-badge">COA Verified</span>' : '';
+                var lowStockBadge = (product.maxQuantity && product.maxQuantity <= 5) ? '<span class="low-stock-badge">Only ' + product.maxQuantity + ' Left</span>' : '';
                 var btnClass = isOOS ? 'order-btn oos' : 'order-btn';
                 var btnText = isOOS ? 'Notify Me' : 'Add to Cart';
                 
@@ -2368,7 +2394,7 @@
                     '<div class="product-name">' + product.name + '</div>' +
                     '<div class="product-price">$' + product.price + '</div>' +
                     pricePerMgHtml +
-                    (isOOS ? '<div class="oos-badge">BACK SOON</div>' : '') +
+                    (isOOS ? '<div class="oos-badge">BACK SOON</div>' : lowStockBadge) +
                     '<div class="card-actions">' + qtyControls + '<button class="' + btnClass + '" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">' + btnText + '</button></div>';
                 
                 card.style.cursor = 'pointer';
