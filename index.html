@@ -1914,6 +1914,7 @@
                 price: 58,
                 coa: true,
                 inStock: true,
+                maxQuantity: 1,
                 shortDesc: "Four-peptide complex combining KPV, BPC-157, TB-500, and GHK-Cu for comprehensive tissue remodeling.",
                 fullDesc: "KLOW is a multi-peptide research blend designed around a simple idea: recovery is rarely a single-pathway problem. By combining GHK-Cu (50mg), BPC-157 (10mg), TB-500 (10mg), and KPV (10mg) in a single formulation, KLOW addresses inflammation control, cytoprotection, cell migration, and matrix remodeling simultaneously. Each component targets distinct repair phases: KPV modulates inflammatory signaling, BPC-157 promotes cytoprotection and angiogenesis, TB-500 drives cell migration through actin regulation, and GHK-Cu regulates over 4,000 genes involved in tissue remodeling and collagen synthesis.",
                 applications: "Multi-pathway tissue repair models, comprehensive wound healing research, inflammation-repair transition studies, synergistic peptide efficacy investigations, extracellular matrix remodeling, regenerative medicine research"
@@ -1964,6 +1965,7 @@
                 price: 32,
                 coa: true,
                 inStock: true,
+                maxQuantity: 3,
                 shortDesc: "Synthetic GHRH analogue with enhanced stability for growth hormone secretion research.",
                 fullDesc: "Tesamorelin represents a pharmaceutical refinement of growth hormone releasing hormone (GHRH). While structurally similar to naturally occurring GHRH, tesamorelin incorporates a trans-3-hexenoic acid modification that significantly extends its half-life and receptor binding duration. This 44-amino acid analogue was specifically engineered to overcome the rapid enzymatic degradation that limits native GHRH research applications.",
                 applications: "GHRH receptor pharmacology, sustained growth hormone secretion studies, pituitary function research, IGF-1 axis modulation, lipid metabolism mechanisms, body composition research models"
@@ -2351,11 +2353,12 @@
                 
                 var slug = getProductSlug(product.name);
                 
+                var maxQty = product.maxQuantity || 99;
                 var qtyControls = isOOS ? '' : 
                     '<div class="qty-controls">' +
                     '<button class="qty-btn qty-minus" data-product="' + product.name.replace(/"/g, '&quot;') + '">−</button>' +
-                    '<input type="text" class="qty-input" value="1" readonly data-product="' + product.name.replace(/"/g, '&quot;') + '">' +
-                    '<button class="qty-btn qty-plus" data-product="' + product.name.replace(/"/g, '&quot;') + '">+</button>' +
+                    '<input type="text" class="qty-input" value="1" readonly data-product="' + product.name.replace(/"/g, '&quot;') + '" data-max="' + maxQty + '">' +
+                    '<button class="qty-btn qty-plus" data-product="' + product.name.replace(/"/g, '&quot;') + '" data-max="' + maxQty + '">+</button>' +
                     '</div>';
                 
                 var pricePerMgHtml = getPricePerMg(product.name, product.price);
@@ -2379,14 +2382,17 @@
                         var productName = t.getAttribute('data-product');
                         var qtyInput = card.querySelector('.qty-input[data-product="' + productName.replace(/"/g, '\\"') + '"]');
                         var currentQty = parseInt(qtyInput.value) || 1;
+                        var maxQty = parseInt(qtyInput.getAttribute('data-max')) || 99;
                         
                         if (t.classList.contains('qty-minus')) {
                             if (currentQty > 1) {
                                 qtyInput.value = currentQty - 1;
                             }
                         } else if (t.classList.contains('qty-plus')) {
-                            if (currentQty < 99) {
+                            if (currentQty < maxQty) {
                                 qtyInput.value = currentQty + 1;
+                            } else {
+                                showToast('Only ' + maxQty + ' available');
                             }
                         }
                         return;
@@ -2740,6 +2746,32 @@
 
         function addToCart(name, price, quantity) {
             quantity = quantity || 1;
+            
+            // Check product max quantity
+            var product = products.find(function(p) { return p.name === name; });
+            var maxQty = product && product.maxQuantity ? product.maxQuantity : 99;
+            
+            // Check current cart quantity
+            var currentInCart = 0;
+            for (var i = 0; i < shopCart.length; i++) {
+                if (shopCart[i].name === name) {
+                    currentInCart = shopCart[i].quantity;
+                    break;
+                }
+            }
+            
+            // Check if adding would exceed max
+            if (currentInCart + quantity > maxQty) {
+                var canAdd = maxQty - currentInCart;
+                if (canAdd > 0) {
+                    quantity = canAdd;
+                    showToast('Only ' + maxQty + ' available - added ' + canAdd + ' to cart');
+                } else {
+                    showToast('Maximum quantity (' + maxQty + ') already in cart');
+                    return;
+                }
+            }
+            
             var found = false;
             for (var i = 0; i < shopCart.length; i++) {
                 if (shopCart[i].name === name) {
@@ -2754,8 +2786,11 @@
             localStorage.setItem('prcCart', JSON.stringify(shopCart));
             updateCartBadge();
             renderCartDrawer();
-            var qtyText = quantity > 1 ? ' (' + quantity + ')' : '';
-            showToast(name + qtyText + ' added to cart');
+            
+            if (currentInCart + quantity <= maxQty) {
+                var qtyText = quantity > 1 ? ' (' + quantity + ')' : '';
+                showToast(name + qtyText + ' added to cart');
+            }
             
             // GA4 Ecommerce: add_to_cart event
             if (typeof gtag !== 'undefined') {
