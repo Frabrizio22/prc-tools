@@ -1899,7 +1899,9 @@
                 category: "glp",
                 price: 55,
                 coa: true,
-                inStock: true,
+                inStock: false,
+                restockDate: "April 18",
+                verified: true,
                 shortDesc: "First dual GLP-1/GIP receptor agonist with balanced potency for incretin synergy research.",
                 fullDesc: "Tirzepatide represents a paradigm shift in incretin biology. Where previous research focused on single-receptor agonism, Eli Lilly scientists engineered this novel peptide to activate both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) receptors with balanced potency. This dual incretin activation reveals synergistic metabolic effects.",
                 applications: "Dual incretin pathway research, GIP/GLP-1 receptor synergy, incretin receptor pharmacology, metabolic signaling cascade studies, pancreatic islet function, comparative incretin biology"
@@ -1909,7 +1911,9 @@
                 category: "glp",
                 price: 62,
                 coa: true,
-                inStock: true,
+                inStock: false,
+                restockDate: "April 18",
+                verified: true,
                 shortDesc: "World's first triple GLP-1/GIP/Glucagon receptor agonist for multi-pathway metabolic research.",
                 fullDesc: "Retatrutide represents the frontier of incretin research. Building on tirzepatide's dual-agonist success, Eli Lilly scientists engineered this peptide with an unprecedented pharmacological profile: balanced activation of three distinct hormone receptors—GLP-1, GIP, and glucagon. This triple agonism creates a metabolic phenotype unattainable through any combination of existing compounds.",
                 applications: "Triple-receptor agonism studies, GLP-1/GIP/glucagon pathway synergy, energy expenditure mechanisms, complex metabolic signaling, thermogenesis research, next-generation incretin biology"
@@ -2374,7 +2378,7 @@
                 var coaBadge = product.coa ? '<span class="coa-badge">COA Verified</span>' : '';
                 var lowStockBadge = (product.maxQuantity && product.maxQuantity <= 5) ? '<span class="low-stock-badge">Only ' + product.maxQuantity + ' Left</span>' : '';
                 var btnClass = isOOS ? 'order-btn oos' : 'order-btn';
-                var btnText = isOOS ? 'Notify Me' : 'Add to Cart';
+                var btnText = isOOS ? 'Join Waitlist' : 'Add to Cart';
                 
                 var slug = getProductSlug(product.name);
                 
@@ -2389,11 +2393,21 @@
                 var pricePerMgHtml = getPricePerMg(product.name, product.price);
                 
                 card.innerHTML = 
+                var oosBadge = '';
+                if (isOOS) {
+                    if (product.restockDate && product.verified) {
+                        oosBadge = '<div class="oos-badge" style="background:#EBF5FF;color:#2B7DE9;font-weight:600;">Back ' + product.restockDate + ' • Verified COAs</div>';
+                    } else {
+                        oosBadge = '<div class="oos-badge">BACK SOON</div>';
+                    }
+                }
+                
+                card.innerHTML = 
                     '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
                     '<div class="product-name">' + product.name + '</div>' +
                     '<div class="product-price">$' + product.price + '</div>' +
                     pricePerMgHtml +
-                    (isOOS ? '<div class="oos-badge">BACK SOON</div>' : lowStockBadge) +
+                    (isOOS ? oosBadge : lowStockBadge) +
                     '<div class="card-actions">' + qtyControls + '<button class="' + btnClass + '" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">' + btnText + '</button></div>';
                 
                 card.style.cursor = 'pointer';
@@ -2472,13 +2486,20 @@
                     var slug = getProductSlug(product.name);
                     var pricePerMgHtml = getPricePerMg(product.name, product.price);
                     
+                    var oosBadge = '';
+                    if (product.restockDate && product.verified) {
+                        oosBadge = '<div class="oos-badge" style="background:#EBF5FF;color:#2B7DE9;font-weight:600;">Back ' + product.restockDate + ' • Verified COAs</div>';
+                    } else {
+                        oosBadge = '<div class="oos-badge">BACK SOON</div>';
+                    }
+                    
                     card.innerHTML = 
                         '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
                         '<div class="product-name">' + product.name + '</div>' +
                         '<div class="product-price">$' + product.price + '</div>' +
                         pricePerMgHtml +
-                        '<div class="oos-badge">BACK SOON</div>' +
-                        '<div class="card-actions"><button class="order-btn oos" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">Notify Me</button></div>';
+                        oosBadge +
+                        '<div class="card-actions"><button class="order-btn oos" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">Join Waitlist</button></div>';
                     
                     card.style.cursor = 'pointer';
                     card.addEventListener('click', function(e) {
@@ -2578,8 +2599,14 @@
             
             body += '<p><strong>For research purposes only.</strong> Not for human consumption.</p>';
             if (product.inStock === false) {
-                body += '<div style="text-align:center;margin-top:1rem"><p style="color:#EF4444;font-weight:600;margin-bottom:0.75rem">OUT OF STOCK</p>';
-                body += '<button class="contact-button" onclick="notifyWhenAvailable(\'' + product.name.replace(/'/g, "\\'") + '\')">Notify When Available</button></div>';
+                body += '<div style="text-align:center;margin-top:1rem">';
+                if (product.restockDate && product.verified) {
+                    body += '<p style="color:#2B7DE9;font-weight:600;margin-bottom:0.5rem">Back ' + product.restockDate + ' with Verified COAs</p>';
+                    body += '<p style="color:#64748B;font-size:0.9rem;margin-bottom:0.75rem">Third-party lab verification • Independent testing</p>';
+                } else {
+                    body += '<p style="color:#EF4444;font-weight:600;margin-bottom:0.75rem">OUT OF STOCK</p>';
+                }
+                body += '<button class="contact-button" onclick="notifyWhenAvailable(\'' + product.name.replace(/'/g, "\\'") + '\')">Join Waitlist</button></div>';
             } else {
                 body += '<button class="contact-button" onclick="addToCart(\'' + product.name.replace(/'/g, "\\'") + '\',' + product.price + ');closeModal();">Add to Cart</button>';
             }
