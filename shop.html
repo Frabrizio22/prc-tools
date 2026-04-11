@@ -2997,10 +2997,11 @@
                 
                 featuredNames.forEach(function(name) {
                     var product = products.find(function(p) { return p.name === name; });
-                    if (!product || product.hidden || product.inStock === false) return;
+                    if (!product || product.hidden) return;
                     
+                    var isOOS = product.inStock === false;
                     var card = document.createElement('div');
-                    card.className = 'product-card featured-highlight';
+                    card.className = 'product-card featured-highlight' + (isOOS ? ' oos' : '');
                     card.setAttribute('data-product', JSON.stringify(product));
                     
                     var categoryClass = 'category-' + product.category;
@@ -3009,18 +3010,31 @@
                     var pricePerMgHtml = getPricePerMg(product.name, product.price);
                     var slug = getProductSlug(product.name);
                     
-                    var qtyControls = '<div class="qty-controls">' +
+                    var oosBadge = '';
+                    if (isOOS) {
+                        if (product.restockDate && product.verified) {
+                            oosBadge = '<div style="background:linear-gradient(135deg,#2B7DE9,#1E5BB8);color:#fff;padding:10px 14px;border-radius:8px;font-size:0.85rem;font-weight:600;text-align:center;margin:8px 0;box-shadow:0 2px 8px rgba(43,125,233,0.2);">✓ Back ' + product.restockDate + '<div style="font-size:0.75rem;font-weight:500;margin-top:2px;opacity:0.95;">Verified COAs</div></div>';
+                        } else {
+                            oosBadge = '<div class="oos-badge">BACK SOON</div>';
+                        }
+                    }
+                    
+                    var qtyControls = isOOS ? '' : '<div class="qty-controls">' +
                         '<button class="qty-btn qty-minus" data-product="' + product.name.replace(/"/g, '&quot;') + '">−</button>' +
                         '<input type="text" class="qty-input" value="1" readonly data-product="' + product.name.replace(/"/g, '&quot;') + '">' +
                         '<button class="qty-btn qty-plus" data-product="' + product.name.replace(/"/g, '&quot;') + '">+</button>' +
                         '</div>';
+                    
+                    var btnClass = isOOS ? 'order-btn oos' : 'order-btn';
+                    var btnText = isOOS ? 'Join Waitlist' : 'Add to Cart';
                     
                     card.innerHTML = 
                         '<div class="card-top-row"><span class="product-category ' + categoryClass + '">' + categoryName + '</span>' + coaBadge + '</div>' +
                         '<div class="product-name">' + product.name + '</div>' +
                         '<div class="product-price">$' + product.price + '</div>' +
                         pricePerMgHtml +
-                        '<div class="card-actions">' + qtyControls + '<button class="order-btn" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">Add to Cart</button></div>';
+                        (isOOS ? oosBadge : '') +
+                        '<div class="card-actions">' + qtyControls + '<button class="' + btnClass + '" data-name="' + product.name.replace(/"/g, '&quot;') + '" data-price="' + product.price + '">' + btnText + '</button></div>';
                     
                     card.style.cursor = 'pointer';
                     card.addEventListener('click', function(e) {
@@ -3046,15 +3060,21 @@
                             return;
                         }
                         
-                        // Handle "Add to Cart" button
+                        // Handle "Add to Cart" or "Join Waitlist" button
                         if (t.classList.contains('order-btn')) {
                             e.preventDefault();
                             e.stopPropagation();
-                            var productName = t.getAttribute('data-name');
-                            var qtyInput = card.querySelector('.qty-input[data-product="' + productName.replace(/"/g, '\\"') + '"]');
-                            var quantity = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
-                            var price = parseFloat(t.getAttribute('data-price'));
-                            addToCart(productName, price, quantity);
+                            if (t.classList.contains('oos')) {
+                                // Out of stock - trigger notification
+                                notifyWhenAvailable(t.getAttribute('data-name'));
+                            } else {
+                                // In stock - add to cart
+                                var productName = t.getAttribute('data-name');
+                                var qtyInput = card.querySelector('.qty-input[data-product="' + productName.replace(/"/g, '\\"') + '"]');
+                                var quantity = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
+                                var price = parseFloat(t.getAttribute('data-price'));
+                                addToCart(productName, price, quantity);
+                            }
                             return;
                         }
                         
