@@ -845,6 +845,9 @@
         var discountCode = null;
         var discountAmount = 0;
         var referralSource = null;
+        
+        // OUT OF STOCK PRODUCTS - CANNOT BE ORDERED
+        var outOfStock = ['Tirzepatide 30mg', 'Retatrutide 20mg', 'Semaglutide 10mg', '5-Amino-1MQ 50mg', 'AOD-9604 2mg', 'CJC-1295 5mg', 'DSIP 2mg', 'Ipamorelin 5mg', 'KPV 10mg', 'NAD+ 1000mg'];
 
         function checkAgeGate() {
             initCheckout();
@@ -903,6 +906,12 @@
 
             if (product && price) {
                 var decoded = decodeURIComponent(product);
+                // BLOCK: Don't add out-of-stock products
+                if (outOfStock.indexOf(decoded) !== -1) {
+                    alert('Sorry, ' + decoded + ' is currently out of stock and cannot be ordered.');
+                    window.location.href = 'shop.html';
+                    return;
+                }
                 var found = false;
                 for (var i = 0; i < cart.length; i++) {
                     if (cart[i].name === decoded) { cart[i].quantity += 1; found = true; break; }
@@ -911,6 +920,24 @@
                 saveCart();
                 if (window.history && window.history.replaceState) {
                     window.history.replaceState({}, '', 'checkout.html');
+                }
+            }
+            
+            // CLEAN: Remove any out-of-stock items from cart
+            var removedItems = [];
+            cart = cart.filter(function(item) {
+                if (outOfStock.indexOf(item.name) !== -1) {
+                    removedItems.push(item.name);
+                    return false;
+                }
+                return true;
+            });
+            
+            if (removedItems.length > 0) {
+                saveCart();
+                alert('The following items were removed from your cart (out of stock):\n\n' + removedItems.join('\n'));
+                if (cart.length === 0) {
+                    window.location.href = 'shop.html';
                 }
             }
         }
@@ -1402,6 +1429,16 @@
         var orderSubmitting = false;
         function placeOrder() {
             if (orderSubmitting) return;
+            
+            // FINAL VALIDATION: Block if cart contains out-of-stock items
+            for (var i = 0; i < cart.length; i++) {
+                if (outOfStock.indexOf(cart[i].name) !== -1) {
+                    alert('Your cart contains out-of-stock items. Please remove them before checkout.');
+                    window.location.href = 'shop.html';
+                    return;
+                }
+            }
+            
             orderSubmitting = true;
             orderNumber = generateOrderNumber();
             savedOrder = {
