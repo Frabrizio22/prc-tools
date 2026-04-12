@@ -2801,8 +2801,15 @@
         function addToCart(name, price, quantity) {
             quantity = quantity || 1;
             
-            // Check product max quantity
+            // Find product and check if in stock
             var product = products.find(function(p) { return p.name === name; });
+            
+            // BLOCK: Out of stock products cannot be added to cart
+            if (product && product.inStock === false) {
+                showToast('This product is currently out of stock');
+                return;
+            }
+            
             var maxQty = product && product.maxQuantity ? product.maxQuantity : 99;
             
             // Check current cart quantity
@@ -2893,6 +2900,18 @@
         }
 
         function renderCartDrawer() {
+            // Remove any out-of-stock items from cart
+            shopCart = shopCart.filter(function(item) {
+                var product = products.find(function(p) { return p.name === item.name; });
+                if (product && product.inStock === false) {
+                    showToast(item.name + ' removed from cart (out of stock)');
+                    return false;
+                }
+                return true;
+            });
+            localStorage.setItem('prcCart', JSON.stringify(shopCart));
+            updateCartBadge();
+            
             var items = document.getElementById('cartDrawerItems');
             var footer = document.getElementById('cartDrawerFooter');
             if (!items) return;
@@ -3151,6 +3170,17 @@
             renderFeaturedProducts();
             renderProducts('all');
             updateCartBadge();
+            
+            // Clean up cart: remove any out-of-stock items on page load
+            var cleanedCart = shopCart.filter(function(item) {
+                var product = products.find(function(p) { return p.name === item.name; });
+                return !(product && product.inStock === false);
+            });
+            if (cleanedCart.length < shopCart.length) {
+                shopCart = cleanedCart;
+                localStorage.setItem('prcCart', JSON.stringify(shopCart));
+                updateCartBadge();
+            }
         });
 
         // Reload cart when navigating back (fixes browser bfcache issue)
