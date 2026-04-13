@@ -1045,8 +1045,8 @@
         }
 
         function getShipping() {
-            // TEST code gets free shipping
-            if (discountCode === 'TEST') return 0;
+            // TEST and SHIPFREE codes get free shipping
+            if (discountCode === 'TEST' || discountCode === 'SHIPFREE') return 0;
             
             var subtotal = getSubtotal();
             if (subtotal >= 150) {
@@ -1151,6 +1151,12 @@
             } else if (discountCode === 'TEST') {
                 var codeDiscount = getSubtotal() * 0.20;
                 html += '<div class="summary-row discount"><span>Test Discount (20% + Free Ship)</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
+            } else if (discountCode === 'SHIPFREE') {
+                var originalShipping = selectedShipping.price;
+                // Show free shipping discount only if there was a shipping charge
+                if (originalShipping > 0) {
+                    html += '<div class="summary-row discount"><span>Free Shipping (SHIPFREE)</span><span>-$' + originalShipping.toFixed(2) + '</span></div>';
+                }
             }
             
             var shipLabel = getShipping() === 0 ? 'FREE' : '$' + getShipping().toFixed(2);
@@ -1270,6 +1276,14 @@
                 discountCode = 'BELATED';
                 promoApplied = false;
                 msg.textContent = '✓ Code applied — 15% off (20% with Zelle)!';
+                msg.style.color = '#059669';
+                code.disabled = true;
+                updateSummary();
+                updateFooter();
+            } else if (enteredCode === 'SHIPFREE') {
+                discountCode = 'SHIPFREE';
+                promoApplied = false;
+                msg.textContent = '✓ Code applied — Free Shipping!';
                 msg.style.color = '#059669';
                 code.disabled = true;
                 updateSummary();
