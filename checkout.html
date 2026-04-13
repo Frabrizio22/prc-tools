@@ -1045,8 +1045,11 @@
         }
 
         function getShipping() {
-            // TEST and SHIPFREE codes get free shipping
-            if (discountCode === 'TEST' || discountCode === 'SHIPFREE') return 0;
+            // TEST code gets free shipping for all methods
+            if (discountCode === 'TEST') return 0;
+            
+            // SHIPFREE code only applies to standard shipping
+            if (discountCode === 'SHIPFREE' && selectedShipping.name === 'Standard Shipping') return 0;
             
             var subtotal = getSubtotal();
             if (subtotal >= 150) {
@@ -1152,10 +1155,9 @@
                 var codeDiscount = getSubtotal() * 0.20;
                 html += '<div class="summary-row discount"><span>Test Discount (20% + Free Ship)</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
             } else if (discountCode === 'SHIPFREE') {
-                var originalShipping = selectedShipping.price;
-                // Show free shipping discount only if there was a shipping charge
-                if (originalShipping > 0) {
-                    html += '<div class="summary-row discount"><span>Free Shipping (SHIPFREE)</span><span>-$' + originalShipping.toFixed(2) + '</span></div>';
+                // Show discount only for standard shipping
+                if (selectedShipping.name === 'Standard Shipping' && selectedShipping.price > 0) {
+                    html += '<div class="summary-row discount"><span>Free Standard Shipping (SHIPFREE)</span><span>-$' + selectedShipping.price.toFixed(2) + '</span></div>';
                 }
             }
             
@@ -1283,7 +1285,7 @@
             } else if (enteredCode === 'SHIPFREE') {
                 discountCode = 'SHIPFREE';
                 promoApplied = false;
-                msg.textContent = '✓ Code applied — Free Shipping!';
+                msg.textContent = '✓ Code applied — Free Standard Shipping!';
                 msg.style.color = '#059669';
                 code.disabled = true;
                 updateSummary();
