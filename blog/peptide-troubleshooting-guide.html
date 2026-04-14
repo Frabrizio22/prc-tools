@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WRJYBCQRL9"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WRJYBCQRL9');</script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peptide Troubleshooting: What's Normal vs What's Ruined | PRC Peptides</title>
+    <meta name="description" content="Is your peptide cloudy, yellow, or not dissolving? Learn what's normal after reconstitution and when to discard. Complete troubleshooting guide with photos and expert answers.">
+    <link rel="canonical" href="https://prcpeptides.com/blog/peptide-troubleshooting-guide.html">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.7;
+            color: #1E293B;
+            background: #FFFFFF;
+        }
+
+        .header {
+            background: #FFFFFF;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #0A1628;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .logo span { color: #2B7DE9; }
+
+        .back-link {
+            color: #64748B;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover { color: #2B7DE9; }
+
+        article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0A1628;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .meta {
+            color: #64748B;
+            font-size: 0.875rem;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .intro {
+            font-size: 1.125rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0A1628;
+            margin-top: 48px;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1E293B;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #334155;
+            font-size: 1rem;
+        }
+
+        ul {
+            margin: 16px 0 24px 24px;
+            color: #334155;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        strong { 
+            color: #0A1628; 
+            font-weight: 600;
+        }
+
+        .issue-box {
+            background: #F8FAFC;
+            border-left: 4px solid #2B7DE9;
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .issue-box h3 {
+            margin-top: 0;
+            color: #2B7DE9;
+            font-size: 1rem;
+        }
+
+        .issue-box p {
+            margin-bottom: 12px;
+        }
+
+        .issue-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .verdict {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        .verdict-safe {
+            background: #DCFCE7;
+            color: #166534;
+        }
+
+        .verdict-maybe {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .verdict-discard {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        .faq-section {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 2px solid #E2E8F0;
+        }
+
+        details {
+            margin-bottom: 16px;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 16px 20px;
+            background: #FFFFFF;
+        }
+
+        summary {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0A1628;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #94A3B8;
+            font-weight: 400;
+        }
+
+        details[open] summary::after {
+            content: '−';
+            color: #2B7DE9;
+        }
+
+        details p {
+            margin-top: 12px;
+            font-size: 0.95rem;
+            padding-top: 12px;
+            border-top: 1px solid #F1F5F9;
+        }
+
+        .disclaimer {
+            margin-top: 40px;
+            padding: 20px;
+            background: #F8FAFC;
+            border-left: 4px solid #EF4444;
+            font-size: 0.875rem;
+            color: #475569;
+            border-radius: 0 4px 4px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 { 
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+            h2 { font-size: 1.25rem; }
+            article { padding: 20px 16px 40px; }
+            
+            .issue-box {
+                padding: 16px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-content">
+        <a href="../shop.html" class="logo"><span>PRC</span> PEPTIDES</a>
+        <a href="index.html" class="back-link">← Blog</a>
+    </div>
+</div>
+
+<article>
+
+<h1>Peptide Troubleshooting: What's Normal vs What's Ruined</h1>
+
+<div class="meta"><strong>Published:</strong> April 14, 2026 · 6 min read</div>
+
+<div class="intro">
+<p>You just reconstituted your peptide and something looks off. The solution is cloudy. There are tiny white particles floating. It took forever to dissolve. Is it ruined?</p>
+
+<p>Most of the time, no. But sometimes, yes. Here's how to tell the difference.</p>
+</div>
+
+<h2>The 6 Most Common Peptide Issues (And What They Mean)</h2>
+
+<div class="issue-box">
+<h3>1. Cloudy or Milky Solution After Mixing</h3>
+
+<p><strong>What you see:</strong> The liquid looks hazy, milky, or slightly cloudy instead of crystal clear.</p>
+
+<p><strong>What it means:</strong> Cloudiness immediately after adding bacteriostatic water is usually normal. Peptides don't always dissolve instantly—some take 2-5 minutes of gentle swirling to fully go into solution.</p>
+
+<p><strong>What to do:</strong></p>
+<ul>
+<li>Swirl gently (don't shake vigorously)</li>
+<li>Wait 2-3 minutes</li>
+<li>If it clears up → completely normal</li>
+<li>If it stays cloudy after 10 minutes → potential aggregation or incorrect storage before reconstitution</li>
+</ul>
+
+<span class="verdict verdict-safe">✓ USUALLY SAFE</span>
+<span class="verdict verdict-maybe">⚠ CHECK AFTER 10 MIN</span>
+</div>
+
+<div class="issue-box">
+<h3>2. Peptide Won't Dissolve Fully</h3>
+
+<p><strong>What you see:</strong> Powder sticks to the bottom or sides of the vial. Swirling doesn't help.</p>
+
+<p><strong>What it means:</strong> This can happen if:</p>
+<ul>
+<li>The peptide was exposed to heat or moisture during shipping</li>
+<li>The vial was stored improperly before reconstitution</li>
+<li>You're using the wrong solvent (some peptides need acetic acid, not just BAC water)</li>
+</ul>
+
+<p><strong>What to do:</strong></p>
+<ul>
+<li>Try refrigerating the vial for 30 minutes, then swirl again</li>
+<li>If it still won't dissolve → likely degraded or denatured</li>
+<li>Contact your vendor with photos</li>
+</ul>
+
+<span class="verdict verdict-discard">✗ LIKELY RUINED</span>
+</div>
+
+<div class="issue-box">
+<h3>3. White Particles or "Floaters"</h3>
+
+<p><strong>What you see:</strong> Tiny white specks floating in the solution after it should be fully dissolved.</p>
+
+<p><strong>What it means:</strong> Small particles usually indicate aggregation—peptide molecules clumping together. This can happen from:</p>
+<ul>
+<li>Freeze-thaw cycles (peptide was frozen, thawed, refrozen)</li>
+<li>Contamination during reconstitution</li>
+<li>Age (peptide past stability window)</li>
+</ul>
+
+<p><strong>What to do:</strong></p>
+<ul>
+<li>If particles appeared immediately after mixing → might be undissolved lyophilized material (wait 5 minutes)</li>
+<li>If particles developed days later → aggregation from improper storage or age</li>
+<li>Discard if particles persist or increase over time</li>
+</ul>
+
+<span class="verdict verdict-discard">✗ DISCARD</span>
+</div>
+
+<div class="issue-box">
+<h3>4. Solution Turned Yellow or Brown</h3>
+
+<p><strong>What you see:</strong> The liquid has a yellowish, amber, or brownish tint.</p>
+
+<p><strong>What it means:</strong> Color change almost always indicates oxidation or chemical degradation. Peptides should be clear and colorless (or very slightly white/opalescent right after mixing).</p>
+
+<p><strong>Exceptions:</strong></p>
+<ul>
+<li>Some peptides like Melanotan II can have a very slight yellow tint when fresh—but it should be barely noticeable</li>
+<li>Deep yellow, orange, or brown = definite degradation</li>
+</ul>
+
+<p><strong>What to do:</strong></p>
+<ul>
+<li>Compare to how it looked when first reconstituted</li>
+<li>If color developed over days/weeks → oxidation from improper storage</li>
+<li>Discard colored solutions</li>
+</ul>
+
+<span class="verdict verdict-discard">✗ DISCARD</span>
+</div>
+
+<div class="issue-box">
+<h3>5. Strange Odor</h3>
+
+<p><strong>What you smell:</strong> Sour, rotten, or chemical smell when opening the vial.</p>
+
+<p><strong>What it means:</strong> Bacteriostatic water contains benzyl alcohol as a preservative—this has a faint medicinal smell, which is normal. But if the peptide smells sour, rotten, or "off," that indicates bacterial contamination.</p>
+
+<p><strong>What to do:</strong></p>
+<ul>
+<li>Faint alcohol smell → normal (from BAC water)</li>
+<li>Sour or rotten smell → bacterial growth, discard immediately</li>
+<li>This usually means contamination during reconstitution (non-sterile technique) or expired BAC water</li>
+</ul>
+
+<span class="verdict verdict-safe">✓ FAINT ALCOHOL SMELL IS NORMAL</span>
+<span class="verdict verdict-discard">✗ SOUR/ROTTEN SMELL = DISCARD</span>
+</div>
+
+<div class="issue-box">
+<h3>6. Vial Vacuum Loss</h3>
+
+<p><strong>What you notice:</strong> When you insert the needle, there's no resistance or "pop"—the vial doesn't pull the plunger down slightly.</p>
+
+<p><strong>What it means:</strong> Peptide vials are vacuum-sealed during manufacturing. Loss of vacuum can mean:</p>
+<ul>
+<li>The rubber stopper wasn't seated properly (manufacturing defect)</li>
+<li>The vial was damaged during shipping</li>
+<li>The vial is old and the seal degraded</li>
+</ul>
+
+<p><strong>What to do:</strong></p>
+<ul>
+<li>Check the lyophilized powder—if it looks fluffy and white, the peptide might still be fine</li>
+<li>If the powder looks clumped, yellowed, or sticky → moisture got in, likely degraded</li>
+<li>When in doubt, request a replacement from your vendor</li>
+</ul>
+
+<span class="verdict verdict-maybe">⚠ INSPECT POWDER CAREFULLY</span>
+</div>
+
+<h2>When to Definitely Discard Your Peptide</h2>
+
+<p>Don't risk using peptides with these issues:</p>
+
+<ul>
+<li><strong>Deep color change</strong> (yellow, orange, brown, or pink)</li>
+<li><strong>Persistent particles</strong> that don't dissolve after 10 minutes</li>
+<li><strong>Sour or rotten smell</strong> (bacterial contamination)</li>
+<li><strong>Gel-like or sticky texture</strong> (aggregation)</li>
+<li><strong>More than 28 days post-reconstitution</strong> (even if it looks fine—potency degrades)</li>
+</ul>
+
+<p><strong>Why not risk it?</strong> Using degraded peptides won't just be ineffective—it can waste your time, skew your research results, and in some cases introduce bacterial contamination.</p>
+
+<h2>How to Prevent These Issues</h2>
+
+<p><strong>Before reconstitution:</strong></p>
+<ul>
+<li>Store lyophilized peptides at -20°C (freezer)</li>
+<li>Let frozen vials warm to room temperature before adding water (prevents condensation)</li>
+<li>Check for intact vacuum seal before use</li>
+</ul>
+
+<p><strong>During reconstitution:</strong></p>
+<ul>
+<li>Use sterile bacteriostatic water (not expired)</li>
+<li>Wipe the rubber stopper with alcohol before inserting needle</li>
+<li>Add water slowly down the side of the vial—don't spray directly onto powder</li>
+<li>Swirl gently, never shake</li>
+</ul>
+
+<p><strong>After reconstitution:</strong></p>
+<ul>
+<li>Store at 2-8°C (refrigerator, not freezer)</li>
+<li>Use within 28 days</li>
+<li>Don't freeze reconstituted peptides (causes aggregation)</li>
+<li>Keep vials upright and sealed when not in use</li>
+</ul>
+
+<p><em>See also: <a href="peptide-storage-guide.html">Complete Peptide Storage Guide</a> | <a href="how-to-reconstitute-peptides.html">How to Reconstitute Peptides</a></em></p>
+
+<div class="faq-section">
+<h2>Common Questions</h2>
+
+<details>
+<summary>How long can I keep a reconstituted peptide in the fridge?</summary>
+<p>Most peptides remain stable for 14-28 days when stored at 2-8°C (refrigerator temperature). After 28 days, potency starts to degrade even if the solution looks clear. BPC-157 and TB-500 are particularly stable and often last the full 28 days. GLP-1 agonists (Semaglutide, Tirzepatide) may degrade faster—aim for 14-21 days.</p>
+</details>
+
+<details>
+<summary>Can I refreeze a peptide after reconstituting it?</summary>
+<p>No. Freezing reconstituted peptides causes ice crystal formation, which damages the peptide structure and leads to aggregation. If you need long-term storage, aliquot (divide) the reconstituted solution into multiple vials and freeze the extras immediately. Thaw only what you need, and don't refreeze after thawing.</p>
+</details>
+
+<details>
+<summary>My peptide was warm when it arrived. Is it ruined?</summary>
+<p>Lyophilized (freeze-dried) peptides are surprisingly stable at room temperature for short periods. If the vial was warm for 2-3 days during shipping, it's usually fine—especially if the powder still looks white and fluffy. Heat exposure becomes a problem when peptides sit in hot conditions (above 25°C/77°F) for weeks or are already reconstituted. When in doubt, check the powder: white and fluffy = likely okay, yellowed or clumped = degraded.</p>
+</details>
+
+<details>
+<summary>Should peptides be clear or slightly cloudy?</summary>
+<p>After full dissolution (5-10 minutes post-reconstitution), peptides should be clear or very slightly opalescent (milky-clear). Crystal clear is ideal. If cloudiness persists beyond 10 minutes or gets worse over time, that indicates aggregation or contamination.</p>
+</details>
+
+<details>
+<summary>What does aggregated peptide look like?</summary>
+<p>Aggregation shows up as small white particles, flakes, or clumps floating in the solution. It can also make the solution look gel-like or stringy when you draw it into a syringe. Aggregated peptides have lost their structure and won't work properly. Always discard if you see persistent particles.</p>
+</details>
+
+<details>
+<summary>Can I use peptides past the expiration date?</summary>
+<p>Expiration dates on lyophilized peptides are conservative—peptides stored properly (frozen, sealed, dark) often remain stable well beyond the printed date. However, once reconstituted, the 28-day stability window is firm regardless of the original expiration date. If a lyophilized vial is past expiration, check the powder appearance before reconstituting. If it looks normal (white, fluffy) and dissolves properly, it's likely still usable.</p>
+</details>
+
+<details>
+<summary>How do I know if my BAC water is contaminated?</summary>
+<p>Contaminated bacteriostatic water may smell sour (instead of the normal faint alcohol smell from benzyl alcohol preservative), look cloudy, or have visible particles. Always use BAC water before its expiration date and store it in the refrigerator after opening. If you reconstitute a peptide and it develops a strange smell or cloudiness immediately, the BAC water—not the peptide—is often the culprit.</p>
+</details>
+</div>
+
+<h2>The Bottom Line</h2>
+
+<p>Most peptide "issues" you notice right after reconstitution are normal and temporary. Cloudiness that clears within 10 minutes? Fine. Slight opalescence? Fine. Faint alcohol smell? Fine.</p>
+
+<p>The real red flags are color changes, persistent particles, bacterial odor, and anything that develops days or weeks after reconstitution. When in doubt, compare to how the peptide looked when fresh—if it's changed significantly, discard it.</p>
+
+<p>Proper storage (freezer before reconstitution, refrigerator after) and sterile technique prevent 95% of problems. The other 5% are usually shipping damage or manufacturing defects—both of which reputable vendors will replace.</p>
+
+<div class="disclaimer">
+<p><strong style="color: #EF4444;">FOR RESEARCH USE ONLY.</strong> This guide describes laboratory preparation and quality assessment of research materials. All peptide products are intended exclusively for in vitro and in vivo laboratory research and are not intended for human consumption, diagnostic purposes, or therapeutic applications.</p>
+</div>
+
+</article>
+
+</body>
+</html>
