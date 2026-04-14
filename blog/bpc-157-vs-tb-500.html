@@ -193,6 +193,67 @@
             margin-bottom: 12px;
         }
 
+        .cta-box {
+            background: linear-gradient(135deg, #2B7DE9 0%, #1E5BB8 100%);
+            color: #FFFFFF;
+            padding: 24px 28px;
+            border-radius: 10px;
+            margin: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .cta-box .cta-text {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .cta-box strong {
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .cta-box p {
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .cta-box a {
+            display: inline-block;
+            background: #FFFFFF;
+            color: #2B7DE9;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-box a:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        @media (max-width: 600px) {
+            .cta-box {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .cta-box a {
+                width: 100%;
+            }
+        }
+
         .references {
             margin-top: 48px;
             padding-top: 32px;
@@ -465,6 +526,14 @@
 <li>Mass spectrometry identity confirmation</li>
 <li>Endotoxin testing for in vivo work</li>
 </ul>
+
+<div class="cta-box">
+<div class="cta-text">
+<strong>Research-Grade BPC-157 + TB-500 Combo</strong>
+<p>Third-party tested. Ships with Certificate of Analysis.</p>
+</div>
+<a href="../products/bpc-157-tb-500-combo.html">View Product →</a>
+</div>
 
 <h2>Conclusion</h2>
 
