@@ -3266,5 +3266,53 @@
             <button onclick="document.getElementById('tosModal').style.display='none'" style="margin-top:16px;width:100%;padding:12px;background:#2B7DE9;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer">Close</button>
         </div>
     </div>
+
+<script>
+// =============================================
+// Live Inventory Integration
+// =============================================
+
+function fetchInventory() {
+  fetch('https://script.google.com/macros/s/AKfycbxsxYIsA8fjA31rVIVewQfbS05ZmibqhlLzb1oMJfiHOgKjLVoPLAX3Z9aNwSWsu3OP/exec')
+    .then(response => response.json())
+    .then(data => {
+      if (data.inventory) {
+        updateProductAvailability(data.inventory);
+      }
+    })
+    .catch(error => {
+      console.log('[Inventory] Failed to fetch, using static data:', error);
+    });
+}
+
+function updateProductAvailability(inventory) {
+  products.forEach(product => {
+    const invItem = inventory.find(inv => {
+      return product.name.indexOf(inv.productName) !== -1 || 
+             inv.productName.indexOf(product.name) !== -1;
+    });
+    
+    if (invItem) {
+      product.inStock = invItem.quantity > 0;
+      product.currentStock = invItem.quantity;
+      
+      if (invItem.quantity > 0 && invItem.quantity <= 5) {
+        product.maxQuantity = invItem.quantity;
+      }
+    }
+  });
+  
+  if (typeof renderProducts === 'function') {
+    renderProducts();
+  }
+  
+  console.log('[Inventory] Updated from live data');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  fetchInventory();
+  setInterval(fetchInventory, 5 * 60 * 1000);
+});
+</script>
 </body>
 </html>
