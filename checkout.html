@@ -1036,11 +1036,6 @@
         function getTotalDiscount() {
             var discount = getDiscount();
             if (discountCode === 'BOBA10') discount += (getSubtotal() * 0.10);
-            if (discountCode === 'BELATED') {
-                // 15% for credit card, 20% for Zelle
-                var rate = (selectedPayment === 'zelle') ? 0.20 : 0.15;
-                discount += (getSubtotal() * rate);
-            }
             return discount;
         }
 
@@ -1069,11 +1064,6 @@
             } else if (discountCode === 'DN15') {
                 codeDiscount = subtotal * 0.15; // 15% off subtotal
                 zelleDiscount = 0; // not stackable
-            } else if (discountCode === 'BELATED') {
-                // 15% for credit card, 20% for Zelle (replaces Zelle 5% discount)
-                var rate = (selectedPayment === 'zelle') ? 0.20 : 0.15;
-                codeDiscount = subtotal * rate;
-                zelleDiscount = 0; // BELATED replaces Zelle discount
             } else if (discountCode === 'TEST') {
                 codeDiscount = subtotal * 0.20; // 20% off subtotal
                 zelleDiscount = 0; // not stackable
@@ -1146,11 +1136,6 @@
             } else if (discountCode === 'DN15') {
                 var codeDiscount = getSubtotal() * 0.15;
                 html += '<div class="summary-row discount"><span>Code Discount (15%)</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
-            } else if (discountCode === 'BELATED') {
-                var rate = (selectedPayment === 'zelle') ? 0.20 : 0.15;
-                var codeDiscount = getSubtotal() * rate;
-                var discountLabel = (selectedPayment === 'zelle') ? 'Birthday Discount (20%)' : 'Birthday Discount (15%)';
-                html += '<div class="summary-row discount"><span>' + discountLabel + '</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
             } else if (discountCode === 'TEST') {
                 var codeDiscount = getSubtotal() * 0.20;
                 html += '<div class="summary-row discount"><span>Test Discount (20% + Free Ship)</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
@@ -1270,14 +1255,6 @@
                 discountCode = 'DN15';
                 promoApplied = false;
                 msg.textContent = '✓ Code applied — 15% off!';
-                msg.style.color = '#059669';
-                code.disabled = true;
-                updateSummary();
-                updateFooter();
-            } else if (enteredCode === 'BELATED') {
-                discountCode = 'BELATED';
-                promoApplied = false;
-                msg.textContent = '✓ Code applied — 15% off (20% with Zelle)!';
                 msg.style.color = '#059669';
                 code.disabled = true;
                 updateSummary();
