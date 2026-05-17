@@ -2398,7 +2398,7 @@
                 var categoryName = getCategoryName(product.category, true);
                 
                 var coaBadge = product.coa ? '<span class="coa-badge">COA Verified</span>' : '';
-                var lowStockBadge = (product.maxQuantity && product.maxQuantity <= 5) ? '<span class="low-stock-badge">Only ' + product.maxQuantity + ' Left</span>' : '';
+                var lowStockBadge = '';
                 var btnClass = isOOS ? 'order-btn oos' : 'order-btn';
                 var btnText = isOOS ? 'Join Waitlist' : 'Add to Cart';
                 
