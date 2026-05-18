@@ -1036,12 +1036,13 @@
         function getTotalDiscount() {
             var discount = getDiscount();
             if (discountCode === 'BOBA10') discount += (getSubtotal() * 0.10);
+            if (discountCode === 'ANDREA') discount += 24;
             return discount;
         }
 
         function getShipping() {
-            // TEST code gets free shipping for all methods
-            if (discountCode === 'TEST') return 0;
+            // TEST and ANDREA codes get free shipping for all methods
+            if (discountCode === 'TEST' || discountCode === 'ANDREA') return 0;
             
             // SHIPFREE code only applies to standard shipping
             if (discountCode === 'SHIPFREE' && selectedShipping.name === 'Standard Shipping') return 0;
@@ -1063,6 +1064,9 @@
                 codeDiscount = subtotal * 0.10; // 10% off subtotal
             } else if (discountCode === 'DN15') {
                 codeDiscount = subtotal * 0.15; // 15% off subtotal
+                zelleDiscount = 0; // not stackable
+            } else if (discountCode === 'ANDREA') {
+                codeDiscount = 24; // $24 flat discount
                 zelleDiscount = 0; // not stackable
             } else if (discountCode === 'TEST') {
                 codeDiscount = subtotal * 0.20; // 20% off subtotal
@@ -1136,6 +1140,8 @@
             } else if (discountCode === 'DN15') {
                 var codeDiscount = getSubtotal() * 0.15;
                 html += '<div class="summary-row discount"><span>Code Discount (15%)</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
+            } else if (discountCode === 'ANDREA') {
+                html += '<div class="summary-row discount"><span>Code Discount (ANDREA, -$24 + Free Ship)</span><span>-$24.00</span></div>';
             } else if (discountCode === 'TEST') {
                 var codeDiscount = getSubtotal() * 0.20;
                 html += '<div class="summary-row discount"><span>Test Discount (20% + Free Ship)</span><span>-$' + codeDiscount.toFixed(2) + '</span></div>';
@@ -1239,6 +1245,14 @@
                 discountCode = 'BOBA10';
                 promoApplied = false;
                 msg.textContent = '✓ Code applied — 10% off!';
+                msg.style.color = '#059669';
+                code.disabled = true;
+                updateSummary();
+                updateFooter();
+            } else if (enteredCode === 'ANDREA') {
+                discountCode = 'ANDREA';
+                promoApplied = false;
+                msg.textContent = '✓ Code applied — $24 off + free shipping!';
                 msg.style.color = '#059669';
                 code.disabled = true;
                 updateSummary();
