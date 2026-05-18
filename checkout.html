@@ -983,13 +983,18 @@
         }
 
         function updateQty(index, change) {
+            // Block increase if already at max
+            if (cart[index].name === 'MOTS-c 10mg' && cart[index].quantity >= 2 && change > 0) {
+                alert('Maximum 2 MOTS-c per order (limited stock)');
+                return;
+            }
+            
             cart[index].quantity += change;
             if (cart[index].quantity < 1) cart[index].quantity = 1;
             
-            // Enforce max quantity limits
+            // Cap at max if somehow exceeded
             if (cart[index].name === 'MOTS-c 10mg' && cart[index].quantity > 2) {
                 cart[index].quantity = 2;
-                alert('Maximum 2 MOTS-c per order (limited stock)');
             }
             
             saveCart();
