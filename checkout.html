@@ -901,8 +901,8 @@
         function loadCart() {
             var product = getUrlParam('product');
             var price = getUrlParam('price');
-            var saved = localStorage.getItem('prcCart') || sessionStorage.getItem('prcCart');
-            if (saved) { cart = JSON.parse(saved); localStorage.setItem('prcCart', saved); }
+            var saved = sessionStorage.getItem('prcCart') || localStorage.getItem('prcCart');
+            if (saved) { cart = JSON.parse(saved); sessionStorage.setItem('prcCart', saved); localStorage.removeItem('prcCart'); }
 
             if (product && price) {
                 var decoded = decodeURIComponent(product);
