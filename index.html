@@ -2893,8 +2893,20 @@
         }
 
         function updateCartQty(index, change) {
+            // Block increase if already at max
+            if (shopCart[index].name === 'MOTS-c 10mg' && shopCart[index].quantity >= 2 && change > 0) {
+                alert('Maximum 2 MOTS-c per order (limited stock)');
+                return;
+            }
+            
             shopCart[index].quantity += change;
             if (shopCart[index].quantity < 1) shopCart.splice(index, 1);
+            
+            // Cap at max if somehow exceeded
+            if (shopCart[index].name === 'MOTS-c 10mg' && shopCart[index].quantity > 2) {
+                shopCart[index].quantity = 2;
+            }
+            
             localStorage.setItem('prcCart', JSON.stringify(shopCart));
             updateCartBadge();
             renderCartDrawer();
