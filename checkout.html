@@ -1478,6 +1478,7 @@
                 var btn = document.getElementById('actionBtn');
                 btn.innerHTML = '<span class="btn-spinner"></span>Processing Order...';
                 btn.disabled = true;
+                btn.style.pointerEvents = 'none';
 
                 // Save full order to Sheet + Telegram (no customer email yet)
                 notifyOrder(orderNumber, savedOrder, function(success, log) {
