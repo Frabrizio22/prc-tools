@@ -32,7 +32,7 @@ function getCorsHeaders(origin) {
   };
 }
 
-var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwGygJ1LhQyRt0gXhvU4FRNTRFEPnmO1VaCfmGZIQN4XLNjsqU8bL9863hBasN-4HAk/exec';
+var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxsxYIsA8fjA31rVIVewQfbS05ZmibqhlLzb1oMJfiHOgKjLVoPLAX3Z9aNwSWsu3OP/exec';
 
 // ANTI-SPAM: Check rate limit
 function checkRateLimit(ip) {

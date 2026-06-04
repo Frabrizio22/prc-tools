@@ -1,5 +1,5 @@
 name = "prc-checkout"
-main = "cloudflare-worker-ANTI-SPAM.js"
+main = "cloudflare-worker-FIXED.js"
 compatibility_date = "2024-01-01"
 
 # Environment variables (secrets - don't put actual values here)

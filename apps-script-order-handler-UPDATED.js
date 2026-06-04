@@ -48,8 +48,11 @@ function logOrderToSheet(data) {
   
   // Format: Date, Order #, Customer, Email, Phone, Address, City, State, Zip, 
   //         Items, Items Detail, Subtotal, Discount, Shipping, Total, Payment, Status, Referral Source
+  // Force PST/PDT timezone
+  var timestamp = Utilities.formatDate(new Date(), 'America/Los_Angeles', 'yyyy-MM-dd HH:mm:ss');
+  
   var row = [
-    new Date(),
+    timestamp,
     data.order_number,
     data.customer_name,
     data.customer_email,
@@ -74,7 +77,7 @@ function logOrderToSheet(data) {
 }
 
 function sendTelegramNotification(data) {
-  var BOT_TOKEN = '8478171743:AAHc9H_QoXNsbaelWNwTrjHbWI_ZmDQY6L0';
+  var BOT_TOKEN = '8478171743:AAGmYaPtMFh5yHWI-UQmInSlLuYNEcGFbXo';
   var CHAT_ID = '513307658';
   
   var itemsList = data.items.map(function(item) {
